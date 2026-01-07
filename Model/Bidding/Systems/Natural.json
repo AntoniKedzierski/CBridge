@@ -1,0 +1,446 @@
+{
+  "OpeningBids": {
+    "1C": [
+      {
+        "Identity": "NAT_OP_OneClubNatural",
+        "Description": "Pokazuje 12-14 punktów, z 5-cioma treflami. Brak starszej piątki.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 12, 14 ],
+            "CardRanges": {
+              "Spades": [ 0, 4 ],
+              "Hearts": [ 0, 4 ],
+              "Clubs": [ 5, null ]
+            }
+          }
+        ]
+      },
+      {
+        "Identity": "NAT_OP_OneClubBalanced",
+        "Description": "Pokazuje 12-14 punktów ze składem zrównoważonym.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 12, 15 ],
+            "CardRanges": {
+              "Spades": [ 1, 4 ],
+              "Hearts": [ 1, 4 ],
+              "Diamonds": [ 1, 4 ],
+              "Clubs": [ 1, 4 ]
+            }
+          }
+        ]
+      }
+    ],
+    "1D": [
+      {
+        "Identity": "NAT_OP_OneDiamondNatural",
+        "Description": "Pokazuje 12-14 punktów, z 5-cioma karami. Brak starszej piątki.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 12, 14 ],
+            "CardRanges": {
+              "Spades": [ 0, 4 ],
+              "Hearts": [ 0, 4 ],
+              "Diamonds": [ 5, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "1H": [
+      {
+        "Identity": "NAT_OP_OneHeartNatural",
+        "Description": "Pokazuje 12-17 puntków, z 5-cioma kierami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 12, 17 ],
+            "CardRanges": {
+              "Hearts": [ 5, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "1S": [
+      {
+        "Identity": "NAT_OP_OneSpadeNatural",
+        "Description": "Pokazuje 12-17 puntków, z 5-cioma pikami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 12, 17 ],
+            "CardRanges": {
+              "Spades": [ 5, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "1NT": [
+      {
+        "Identity": "NAT_OP_OneNoTrumpNatural",
+        "Description": "Pokazuje 15-17 punktów, ze składem zbalansowanym. Brak starszych piątek, być może jakaś młodsza piątka.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 15, 17 ],
+            "CardRanges": {
+              "Spades": [ 2, 4 ],
+              "Hearts": [ 2, 4 ],
+              "Diamonds": [ 2, 5 ],
+              "Clubs": [ 2, 5 ]
+            }
+          }
+        ]
+      }
+    ],
+    "2C": [
+      {
+        "Identity": "NAT_OP_TwoClubsNatural",
+        "Description": "Pokazuje 18+ punktów, z 5-cioma treflami. Brak starszej piątki.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 19, null ],
+            "CardRanges": {
+              "Spades": [ 0, 4 ],
+              "Hearts": [ 0, 4 ],
+              "Clubs": [ 5, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "2D": [
+      {
+        "Identity": "NAT_OP_TwoDiamondsNatural",
+        "Description": "Pokazuje 18+ punktów, z 5-cioma karami. Brak starszej piątki.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 19, null ],
+            "CardRanges": {
+              "Spades": [ 0, 4 ],
+              "Hearts": [ 0, 4 ],
+              "Diamonds": [ 5, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "2H": [
+      {
+        "Identity": "NAT_OP_TwoHeartsNatural",
+        "Description": "Pokazuje 18+ puntków, z 5-cioma kierami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 18, null ],
+            "CardRanges": {
+              "Hearts": [ 5, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "2S": [
+      {
+        "Identity": "NAT_OP_TwoSpadseNatural",
+        "Description": "Pokazuje 18+ puntków, z 5-cioma pikami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 18, null ],
+            "CardRanges": {
+              "Spades": [ 5, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "2NT": [
+      {
+        "Identity": "NAT_OP_TwoNoTrumpNatural",
+        "Description": "Pokazuje 19-21 punktów, ze składem zbalansowanym. Brak starszych piątek, być może jakaś młodsza piątka.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 19, 21 ],
+            "CardRanges": {
+              "Spades": [ 2, 4 ],
+              "Hearts": [ 2, 4 ],
+              "Diamonds": [ 2, 5 ],
+              "Clubs": [ 2, 5 ]
+            }
+          }
+        ]
+      }
+    ],
+    "3C": [
+      {
+        "Identity": "NAT_OP_ThreeClubsPreemptive",
+        "Description": "Pokazuje 6-11 punktów, z siedmioma treflami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 6, 11 ],
+            "CardRanges": {
+              "Clubs": [ 7, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "3D": [
+      {
+        "Identity": "NAT_OP_ThreeDiamondsPreemptive",
+        "Description": "Pokazuje 6-11 punktów, z siedmioma karami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 6, 11 ],
+            "CardRanges": {
+              "Diamonds": [ 7, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "3H": [
+      {
+        "Identity": "NAT_OP_ThreeHeartsPreemptive",
+        "Description": "Pokazuje 6-11 punktów, z siedmioma kierami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 6, 11 ],
+            "CardRanges": {
+              "Hearts": [ 7, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "3S": [
+      {
+        "Identity": "NAT_OP_ThreeSpadesPreemptive",
+        "Description": "Pokazuje 6-11 punktów, z siedmioma pikami.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 6, 11 ],
+            "CardRanges": {
+              "Spades": [ 7, null ]
+            }
+          }
+        ]
+      }
+    ],
+    "3NT": [
+      {
+        "Identity": "NAT_OP_ThreeNoTrumpNatural",
+        "Description": "Pokazuje 22+ punktów, ze składem zbalansowanym. Brak starszych piątek, być może jakaś młodsza piątka.",
+        "AlternativeConditions": [
+          {
+            "PointsRange": [ 22, null ],
+            "CardRanges": {
+              "Spades": [ 2, 4 ],
+              "Hearts": [ 2, 4 ],
+              "Diamonds": [ 2, 5 ],
+              "Clubs": [ 2, 5 ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "RespondingBids": {
+    "1D": [
+      {
+        "Identity": "NAT_RES_OneDiamond_NewColor",
+        "Description": "Pokazuje 5+ kar i 7-11 punktów, bez starszych piątek."
+      }
+    ],
+    "1H": [
+      {
+        "Identity": "NAT_RES_OneHeart_NewColor",
+        "Description": "Pokazuje 5+ kierów i 7-11 punktów."
+      }
+    ],
+    "1S": [
+      {
+        "Identity": "NAT_RES_OneSpade_NewColor",
+        "Description": "Pokazuje 5+ pików i 7-11 punktów."
+      }
+    ],
+
+    "1NT": [
+      {
+        "Identity": "NAT_RES_OneNoTrump_SupportClubs",
+        "Description": "Pokazuje dokładnie 3 trefle, brak starszej piątki i 7-9 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneClubNatural", "NAT_OP_OneClubBalanced" ]
+      },
+      {
+        "Identity": "NAT_RES_OneNoTrump_SupportDiamonds",
+        "Description": "Pokazuje dokładnie 3 kara, brak starszej piątki i 7-9 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneDiamondNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_OneNoTrump_NewColor",
+        "Description": "Pokazuje brak poparcia w kolorze starszym, brak starszej piątki i 7-11 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneHeartNatural", "NAT_OP_OneSpadeNatural" ]
+      }
+    ],
+
+    // Poziom 2
+    "2C": [
+      {
+        "Identity": "NAT_RES_TwoClubs_Support",
+        "Description": "Pokazuje 4+ trefli, brak starszej piątki i 7-9 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneClubNatural", "NAT_OP_OneClubBalanced" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoClubs_NewColor",
+        "Description": "Pokazuje 5+ trefli, brak starszej piątki oraz 12+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneDiamondNatural", "NAT_OP_OneHeartNatural", "NAT_OP_OneSpadeNatural" ]
+      }
+    ],
+
+    "2D": [
+      {
+        "Identity": "NAT_RES_TwoDimonds_Support",
+        "Description": "Pokazuje 4+ kar, brak starszej piątki i 7-9 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneDiamondNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoDiamonds_NewColor",
+        "Description": "Pokazuje 5+ kar, brak starszej piątki oraz 12+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneClubNatural", "NAT_OP_OneClubBalanced", "NAT_OP_OneHeartNatural", "NAT_OP_OneSpadeNatural" ]
+      }
+    ],
+
+    "2H": [
+      {
+        "Identity": "NAT_RES_TwoHearts_Support",
+        "Description": "Pokazuje 3+ kierów i 7-9 punktów",
+        "AllowedAfterBids": [ "NAT_OP_OneHeartNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoHearts_NewColor",
+        "Description": "Pokazuje 5+ kierów i 12+ punktów",
+        "AllowedAfterBids": [ "NAT_OP_OneSpadeNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoHearts_NewColor_AfterNoTrump",
+        "Description": "Pokazuje 5+ kierów i 7-11 punktów",
+        "AllowedAfterBids": [ "NAT_OP_OneNoTrumpNatural" ]
+      }
+    ],
+
+    "2S": [
+      {
+        "Identity": "NAT_RES_TwoSpades_Support",
+        "Description": "Pokazuje 3+ pików i 7-9 punktów",
+        "AllowedAfterBids": [ "NAT_OP_OneSpadeNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoSpades_NewColor",
+        "Description": "Pokazuje 5+ pików i 12+ punktów",
+        "AllowedAfterBids": [ "NAT_OP_OneHeartNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoSpades_NewColor_AfterNoTrump",
+        "Description": "Pokazuje 5+ pików i 7-11 punktów",
+        "AllowedAfterBids": [ "NAT_OP_OneNoTrumpNatural" ]
+      }
+    ],
+
+    "2NT": [
+      {
+        "Identity": "NAT_RES_TwoNoTrump_SupportClubs",
+        "Description": "Pokazuje dokładnie 3 trefle i 10-12 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneClubNatural", "NAT_OP_OneClubBalanced" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoNoTrump_SupportDiamonds",
+        "Description": "Pokazuje dokładnie 3 kara i 10-12 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneDiamondNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoNoTrump_NewColor",
+        "Description": "Pokazuje brak poparcia w kolorze starszym, brak starszej piątki i 12+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneHeartNatural", "NAT_OP_OneSpadeNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_TwoNoTrump_Support",
+        "Description": "Pokazuje 7-9 punktów, brak starszej piątki.",
+        "AllowedAfterBids": [ "NAT_OP_OneNoTrump" ]
+      }
+    ],
+
+    // Poziom 3
+    "3C": [
+      {
+        "Identity": "NAT_RES_ThreeClubs_StrongSupport",
+        "Description": "Pokazuje 4+ trefli, brak starszej piątki i 10+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneClubNatural", "NAT_OP_OneClubBalanced" ]
+      },
+      {
+        "Identity": "NAT_RES_ThreeClubs_Support",
+        "Description": "Pokazuje 3+ trefli, i 7+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_TwoClubsNatural" ]
+      }
+    ],
+
+    "3D": [
+      {
+        "Identity": "NAT_RES_ThreeDiamonds_StrongSupport",
+        "Description": "Pokazuje 4+ kar, brak starszej piątki i 10+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneDiamondNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_ThreeDiamonds_Support",
+        "Description": "Pokazuje 3+ kar, i 7+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_TwoDiamondsNatural" ]
+      }
+    ],
+
+    "3H": [
+      {
+        "Identity": "NAT_RES_ThreeHearts_StrongSupport",
+        "Description": "Pokazuje 3 kiery i 10-11 punktów lub 4+ kierów i 7-9 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneHeartNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_ThreeHearts_Support",
+        "Description": "Pokazuje 3+ kierów, i 7+ punktów.",
+        "AllowedAfterBids": [ "NAT_OP_TwoHeartsNatural" ]
+      }
+    ],
+
+    "3S": [
+      {
+        "Identity": "NAT_RES_ThreeSpades_StrongSupport",
+        "Description": "Pokazuje 3 piki i 10-11 punktów lub 4+ pików i 7-9 punktów.",
+        "AllowedAfterBids": [ "NAT_OP_OneSpadeNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_ThreeSpades_Support",
+        "Description": "Pokazuje 3+ pików i 7+ punktów",
+        "AllowedAfterBids": [ "NAT_OP_TwoSpadesNatural" ]
+      }
+    ],
+
+    "3NT": [
+      {
+        "Identity": "NAT_RES_ThreeNoTrump_StrongSupport",
+        "Description": "Pokazuje 10+ punktów, skład zbalansowany.",
+        "AllowedAfterBids": [ "NAT_OP_OneNoTrumpNatural" ]
+      },
+      {
+        "Identity": "NAT_RES_ThreeNoTrump_Support",
+        "Description": "Pokazuje 7-9 punktów, skład zbalansowany.",
+        "AllowedAfterBids": [ "NAT_OP_TwoNoTrumpNatural" ]
+      }
+    ],
+
+    // Poziom 4 - końcówka w kolor starszy
+    "4H": [
+      {
+        "Identity": "NAT_RES_FourHearts_Game",
+        "Description": "Pokazuje 3+ kierów i 12+ punktów",
+        "AllowedAfterBids": [ "NAT_OP_OneHeartNatural" ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/UI/">
+    <Project Path="BiddingBrowser/BiddingBrowser.csproj" Id="7a663317-ec3c-4a96-a714-56560fc2be7b" />
+    <Project Path="ConsoleUI/ConsoleUI.csproj" Id="8cad992e-6ef7-4ced-97de-d885bebbddab" />
+  </Folder>
+  <Project Path="Model/Model.csproj" Id="68d5e0d4-b3ba-4f40-a841-822d23c0f84f" />
+</Solution>

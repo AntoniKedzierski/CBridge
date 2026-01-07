@@ -1,0 +1,135 @@
+﻿<UserControl 
+    x:Class="BiddingBrowser.BiddingTree.BiddingTree"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:BiddingBrowser.BiddingTree" 
+    xmlns:b="clr-namespace:BiddingBrowser.BiddingTree.Bids"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:converters="clr-namespace:BiddingBrowser.Converters"
+    d:DataContext="{d:DesignInstance Type=local:BiddingTreeViewModel}"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:SingleToCollectionConverter x:Key="SingleToCollectionConverter"/>
+            <converters:BidColorConverter x:Key="BidColorConverter"/>
+            <converters:BidTypeConverter x:Key="BidTypeConverter"/>
+
+            <ObjectDataProvider 
+                MethodName="GetValues" 
+                ObjectType="{x:Type sys:Enum}" 
+                x:Key="BidColorValues">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="b:BidColor"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+
+            <ObjectDataProvider 
+                MethodName="GetValues" 
+                ObjectType="{x:Type sys:Enum}" 
+                x:Key="BidTypeValues">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="b:BidType"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+
+            <!-- Template for Bid -->
+            <HierarchicalDataTemplate DataType="{x:Type b:Bid}" ItemsSource="{Binding NextBids}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Code}"/>
+                    <TextBlock Text=": " />
+                    <TextBlock Text="{Binding Condition}" Foreground="{StaticResource AlabasterGreyBrush}"/>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+            
+            <HierarchicalDataTemplate DataType="{x:Type b:Root}" ItemsSource="{Binding Bids, UpdateSourceTrigger=PropertyChanged}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Name}"/>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="240"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="12,8">
+            <Button Content="Dodaj" Click="NewElementButton_Click"/>
+            <Button Content="Usuń" Margin="5,0,0,0"/>
+            <Button Content="Zapisz" Margin="5,0,0,0"/>
+            <Button Content="Wczytaj" Margin="5,0,0,0"/>
+            <Button Content="Sortuj" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <TreeView 
+            x:Name="DataTree"
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Background="Transparent"
+            ItemsSource="{Binding Roots, UpdateSourceTrigger=PropertyChanged}" 
+            SelectedItemChanged="BiddingTree_SelectedItemChanged"
+            BorderThickness="0"/>
+
+        <ContentControl Grid.RowSpan="2" Grid.Column="1" Content="{Binding SelectedItem}">
+            <ContentControl.Resources>
+                <!-- Editor template for Bid -->
+                <DataTemplate DataType="{x:Type b:Bid}">
+                    <Border BorderThickness="0.5,0,0,0" BorderBrush="{StaticResource TropicalTealBrush}">
+                        <StackPanel Margin="12,0" HorizontalAlignment="Stretch">
+
+                            <Label Content="Identyfikator" HorizontalAlignment="Left"/>
+                            <TextBox Text="{Binding Identifier, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <Label Content="Wartość" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <Label Content="Kolor" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <ComboBox 
+                                Height="22"
+                                VerticalContentAlignment="Center"
+                                ItemsSource="{Binding Source={StaticResource BidColorValues}}" 
+                                SelectedItem="{Binding Type, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BidColorConverter}}" />
+
+                            <Label Content="Type:" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <ComboBox 
+                                Height="22"
+                                VerticalContentAlignment="Center"
+                                ItemsSource="{Binding Source={StaticResource BidTypeValues}}" 
+                                SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BidTypeConverter}}" />
+
+                            <Label Content="Condition:" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <TextBox 
+                                Text="{Binding Condition, UpdateSourceTrigger=PropertyChanged}" 
+                                MinLines="3" 
+                                VerticalContentAlignment="Top"
+                                TextWrapping="WrapWithOverflow"/>
+
+                            <Label Content="Description:" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <TextBox 
+                                Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" 
+                                MinLines="5" 
+                                VerticalContentAlignment="Top"
+                                TextWrapping="WrapWithOverflow"/>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                <Label Content="Opener:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding OpenerBid}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</UserControl>

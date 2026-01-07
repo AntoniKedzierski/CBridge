@@ -1,0 +1,79 @@
+﻿<Window 
+    x:Class="BiddingBrowser.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:BiddingBrowser"
+    xmlns:b="clr-namespace:BiddingBrowser.BiddingTree"
+    xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+    mc:Ignorable="d"
+    x:Name="RootWindow"
+    Background="{StaticResource CarbonBlackBrush}"
+    Title="MainWindow" Height="900" Width="1600">
+
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome
+            CaptionHeight="26"
+            CornerRadius="8"
+            GlassFrameThickness="1"
+            UseAeroCaptionButtons="False"
+            ResizeBorderThickness="5" />
+    </shell:WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Height="30">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Margin" Value="0"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding WindowState, ElementName=RootWindow}" Value="Maximized">
+                            <Setter Property="Margin" Value="6"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Source="/Images/card_icon.png"
+                    Height="16"
+                    Width="16"
+                    Margin="8,0"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"/>
+
+                <TextBlock 
+                    Foreground="{StaticResource AlabasterGreyBrush}" 
+                    Text="Bidding Browser"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"/>
+                
+                <Image
+                    Source="/Images/close.png"
+                    Height="12"
+                    Width="12"
+                    Margin="10,0"
+                    VerticalAlignment="Center"
+                    shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                    Cursor="Hand"
+                    MouseDown="Image_MouseDown"
+                    Grid.Column="4"/>
+            </Grid>
+        </Border>
+
+        <b:BiddingTree Grid.Row="1"/>
+    </Grid>
+</Window>

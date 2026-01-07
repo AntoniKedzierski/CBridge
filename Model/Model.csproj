@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Bidding\AI\MiddleBiddingStrategies\" />
+    <Folder Include="Bidding\AI\LateBiddingStrategies\" />
+    <Folder Include="Bidding\AI\OpeningStrategies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Bidding\Systems\Natural.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
