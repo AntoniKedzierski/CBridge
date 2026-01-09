@@ -10,10 +10,20 @@ namespace BiddingBrowser.Converters;
 public class BidTypeConverter : IValueConverter {
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
+        // Null check
+        if (value == null) return null;
         return value.ToString();
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
-        return Enum.Parse<BidType>(value.ToString());
+        if (value == null) return Binding.DoNothing;
+
+        // Try to parse safely
+        if (Enum.TryParse(typeof(BidType), value.ToString(), out var result)) {
+            return result;
+        }
+
+        // Prevent exceptions
+        return Binding.DoNothing;
     }
 }

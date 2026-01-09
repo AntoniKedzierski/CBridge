@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace BiddingBrowser.BiddingTree.Bids;
 
 public enum BidColor {
+    NoColor,
     Clubs,
     Diamonds,
     Hearts,

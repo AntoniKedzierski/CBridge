@@ -16,6 +16,12 @@
     <Color x:Key="PearlAquaColor">#FF9BD2CF</Color>
     <Color x:Key="AlabasterGreyColor">#A8A8A8</Color>
 
+    <Color x:Key="NoTrumpColor">#E46EE0</Color>
+    <Color x:Key="SpadesColor">#3B65C7</Color>
+    <Color x:Key="HeartsColor">#EB2727</Color>
+    <Color x:Key="DiamondsColor">#FF9E28</Color>
+    <Color x:Key="ClubsColor">#0AB357</Color>
+
     <!-- Brushes -->
     <SolidColorBrush x:Key="OnyxBrush" Color="{StaticResource OnyxColor}" />
     <SolidColorBrush x:Key="CarbonBlackBrush" Color="{StaticResource CarbonBlackColor}" />
@@ -29,4 +35,12 @@
     <SolidColorBrush x:Key="TropicalTealBrush" Color="{StaticResource TropicalTealColor}" />
     <SolidColorBrush x:Key="PearlAquaBrush" Color="{StaticResource PearlAquaColor}" />
     <SolidColorBrush x:Key="AlabasterGreyBrush" Color="{StaticResource AlabasterGreyColor}" />
+
+    <SolidColorBrush x:Key="NoTrumpBrush" Color="{StaticResource NoTrumpColor}" />
+    <SolidColorBrush x:Key="SpadesBrush" Color="{StaticResource SpadesColor}" />
+    <SolidColorBrush x:Key="HeartsBrush" Color="{StaticResource HeartsColor}" />
+    <SolidColorBrush x:Key="DiamondsBrush" Color="{StaticResource DiamondsColor}" />
+    <SolidColorBrush x:Key="ClubsBrush" Color="{StaticResource ClubsColor}" />
+    
+    
 </ResourceDictionary>

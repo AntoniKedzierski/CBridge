@@ -21,9 +21,13 @@
     <None Remove="Fonts\Lato-ThinItalic.ttf" />
     <None Remove="Images\card_icon.png" />
     <None Remove="Images\close.png" />
+    <None Remove="Images\opener.png" />
+    <None Remove="Images\resondent.png" />
+    <None Remove="Images\signoff.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Prism.Core" Version="9.0.537" />
   </ItemGroup>
 
@@ -64,6 +68,9 @@
     </Resource>
     <Resource Include="Images\card_icon.png" />
     <Resource Include="Images\close.png" />
+    <Resource Include="Images\opener.png" />
+    <Resource Include="Images\resondent.png" />
+    <Resource Include="Images\signoff.png" />
   </ItemGroup>
 
 </Project>

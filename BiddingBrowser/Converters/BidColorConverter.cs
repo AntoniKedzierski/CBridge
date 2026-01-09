@@ -5,15 +5,26 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Data;
 
-namespace BiddingBrowser.Converters;
+namespace BiddingBrowser.Converters {
 
-public class BidColorConverter : IValueConverter {
+    public class BidColorConverter : IValueConverter {
 
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
-        return value.ToString();
-    }
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
+            // Null check
+            if (value == null) return null;
+            return value.ToString();
+        }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
-        return Enum.Parse<BidColor>(value.ToString());
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
+            if (value == null) return Binding.DoNothing;
+
+            // Try to parse safely
+            if (Enum.TryParse(typeof(BidColor), value.ToString(), out var result)) {
+                return result;
+            }
+
+            // Prevent exceptions
+            return Binding.DoNothing;
+        }
     }
 }

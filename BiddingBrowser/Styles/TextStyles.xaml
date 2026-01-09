@@ -5,6 +5,8 @@
     <Style TargetType="TextBlock">
         <Setter Property="FontFamily" Value="{StaticResource Lato}"/>
         <Setter Property="FontSize" Value="11"/>
+        <Setter Property="Foreground" Value="{StaticResource AlabasterGreyBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
     <Style TargetType="TextBox">
@@ -77,6 +79,100 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style TargetType="ContextMenu">
+        <Setter Property="Background" Value="{StaticResource GraphiteBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource AlabasterGreyBrush}" />
+        <Setter Property="BorderBrush" Value="#2E2E2E"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="HasDropShadow" Value="True"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContextMenu">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6"
+                        SnapsToDevicePixels="True">
+
+                        <StackPanel
+                        IsItemsHost="True"
+                        Margin="2"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="MenuItem">
+        <Setter Property="Foreground" Value="{StaticResource AlabasterGreyBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuItem">
+                    <Border
+                        x:Name="Bd"
+                        Margin="2"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        Padding="{TemplateBinding Padding}"
+                        CornerRadius="4">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Icon -->
+                            <ContentPresenter
+                                x:Name="IconHost"
+                                ContentSource="Icon"
+                                VerticalAlignment="Center"
+                                Margin="0,0,8,0"
+                                Visibility="Collapsed"/>
+
+                            <!-- Header -->
+                            <TextBlock
+                                x:Name="HeaderText"
+                                Grid.Column="1"
+                                Text="{TemplateBinding Header}"
+                                Foreground="{TemplateBinding Foreground}"
+                                VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="IconHost" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource TropicalTealBrush}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="HeaderText" Property="Opacity" Value="0.4"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="ComboBox">
+        <Setter Property="FontFamily" Value="{StaticResource Lato}"/>
+        <Setter Property="Foreground" Value="{StaticResource CarbonBlackBrush}"/>
+    </Style>
 
     <Style TargetType="Label">
         <Setter Property="Foreground" Value="{StaticResource AlabasterGreyBrush}"/>
@@ -99,6 +195,20 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource AlabasterGreyBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ContextMenu">
+            <Setter.Value>
+                <ContextMenu DataContext="{Binding RelativeSource={RelativeSource Self}, Path=PlacementTarget.DataContext}">
+                    <MenuItem
+                        Header="Przesuń w górę"
+                        Command="{Binding MoveUpCommand}"
+                        CommandParameter="{Binding}" />
+                    <MenuItem
+                        Header="Przesuń w dół"
+                        Command="{Binding MoveDownCommand}"
+                        CommandParameter="{Binding}" />
+                </ContextMenu>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TreeViewItem">
@@ -153,10 +263,6 @@
                             <Setter Property="Foreground" Value="{StaticResource AlabasterGreyBrush}"/>
                         </Trigger>
 
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{StaticResource DisabledBrush}"/>
-                        </Trigger>
-                        
                         <Trigger Property="HasItems" Value="True">
                             <Setter TargetName="Expander" Property="Visibility" Value="Visible"/>
                         </Trigger>

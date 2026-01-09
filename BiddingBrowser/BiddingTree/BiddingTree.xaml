@@ -8,15 +8,28 @@
     xmlns:b="clr-namespace:BiddingBrowser.BiddingTree.Bids"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:converters="clr-namespace:BiddingBrowser.Converters"
+    SnapsToDevicePixels="True"
     d:DataContext="{d:DesignInstance Type=local:BiddingTreeViewModel}"
     mc:Ignorable="d" 
     d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.InputBindings>
+        <KeyBinding Key="C" Modifiers="Control" Command="ApplicationCommands.Copy"/>
+        <KeyBinding Key="V" Modifiers="Control" Command="ApplicationCommands.Paste"/>
+    </UserControl.InputBindings>
+
+    <UserControl.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Copy" Executed="CopyExecuted" CanExecute="CopyCanExecute"/>
+        <CommandBinding Command="ApplicationCommands.Paste" Executed="PasteExecuted" CanExecute="PasteCanExecute"/>
+    </UserControl.CommandBindings>
+
     <UserControl.Resources>
         <ResourceDictionary>
             <converters:SingleToCollectionConverter x:Key="SingleToCollectionConverter"/>
+            <converters:VisibilityConverter x:Key="VisibilityConverter"/>
             <converters:BidColorConverter x:Key="BidColorConverter"/>
             <converters:BidTypeConverter x:Key="BidTypeConverter"/>
+            <converters:BidToBrushConverter x:Key="BidToBrushConverter"/>
 
             <ObjectDataProvider 
                 MethodName="GetValues" 
@@ -39,9 +52,49 @@
             <!-- Template for Bid -->
             <HierarchicalDataTemplate DataType="{x:Type b:Bid}" ItemsSource="{Binding NextBids}">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Code}"/>
-                    <TextBlock Text=": " />
-                    <TextBlock Text="{Binding Condition}" Foreground="{StaticResource AlabasterGreyBrush}"/>
+                    <TextBlock Text="{Binding Value}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Code}" FontWeight="Bold">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource BidToBrushConverter}">
+                                <Binding Path="Type"/>
+                                <Binding Path="Color"/>
+                            </MultiBinding>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBlock Text=":" />
+                    <TextBlock 
+                        Text="{Binding Condition}"
+                        Margin="6,0,0,0"
+                        Foreground="{StaticResource AlabasterGreyBrush}"/>
+
+                    <Image 
+                        Source="/Images/opener.png"
+                        ToolTip="Otwierający"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Height="16" Width="16"
+                        Margin="6,0,0,0"
+                        Visibility="{Binding OpenerBid, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"/>
+
+                    <Image
+                        Source="/Images/resondent.png"
+                        ToolTip="Odpowiadający"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Height="16" Width="16"
+                        Margin="6,0,0,0"
+                        RenderTransformOrigin="0.5,0.5"
+                        Visibility="{Binding OpenerBid, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}, ConverterParameter={x:Static sys:Boolean.FalseString}}">
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <Image 
+                        Source="/Images/signoff.png"
+                        ToolTip="Odzywka wyprzęgająca"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Height="12" Width="12"
+                        Margin="6,0,0,0"
+                        Visibility="{Binding SignOff, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"/>
                 </StackPanel>
             </HierarchicalDataTemplate>
             
@@ -66,10 +119,18 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="12,8">
             <Button Content="Dodaj" Click="NewElementButton_Click"/>
-            <Button Content="Usuń" Margin="5,0,0,0"/>
-            <Button Content="Zapisz" Margin="5,0,0,0"/>
-            <Button Content="Wczytaj" Margin="5,0,0,0"/>
-            <Button Content="Sortuj" Margin="5,0,0,0"/>
+            <Button Content="Usuń" Click="DeleteElementButton_Click" Margin="4,0,0,0"/>
+            <Button Content="Zapisz" Click="SaveButton_Click" Margin="4,0,0,0"/>
+            <Button Content="Wczytaj" Click="OpenButton_Click" Margin="4,0,0,0"/>
+            <Button Content="Sortuj" Margin="4,0,0,0"/>
+
+            <Border Margin="12,0,0,0" BorderThickness="0.5,0,0,0" BorderBrush="{StaticResource TropicalTealBrush}">
+                <StackPanel Margin="12,0,0,0" Orientation="Horizontal">
+                    <TextBlock Text="System:" FontSize="13"/>
+                    <TextBox Text="{Binding SystemName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="4,0,0,0" Width="160"/>
+                    <Button Content="Utwórz" Click="NewElementButton_Click" Margin="4,0,0,0"/>
+                </StackPanel>
+            </Border>
         </StackPanel>
 
         <TreeView 
@@ -79,7 +140,8 @@
             Background="Transparent"
             ItemsSource="{Binding Roots, UpdateSourceTrigger=PropertyChanged}" 
             SelectedItemChanged="BiddingTree_SelectedItemChanged"
-            BorderThickness="0"/>
+            BorderThickness="0">
+        </TreeView>
 
         <ContentControl Grid.RowSpan="2" Grid.Column="1" Content="{Binding SelectedItem}">
             <ContentControl.Resources>
@@ -92,30 +154,30 @@
                             <TextBox Text="{Binding Identifier, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Wartość" HorizontalAlignment="Left" Margin="0,4,0,0"/>
-                            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, TargetNullValue=0}"/>
 
                             <Label Content="Kolor" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <ComboBox 
                                 Height="22"
                                 VerticalContentAlignment="Center"
-                                ItemsSource="{Binding Source={StaticResource BidColorValues}}" 
-                                SelectedItem="{Binding Type, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BidColorConverter}}" />
+                                ItemsSource="{Binding BidColorValues}" 
+                                SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                            <Label Content="Type:" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <Label Content="Typ" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <ComboBox 
                                 Height="22"
                                 VerticalContentAlignment="Center"
-                                ItemsSource="{Binding Source={StaticResource BidTypeValues}}" 
-                                SelectedItem="{Binding Color, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BidTypeConverter}}" />
+                                ItemsSource="{Binding BidTypeValues}" 
+                                SelectedItem="{Binding Type, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                            <Label Content="Condition:" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <Label Content="Znaczenie" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <TextBox 
                                 Text="{Binding Condition, UpdateSourceTrigger=PropertyChanged}" 
                                 MinLines="3" 
                                 VerticalContentAlignment="Top"
                                 TextWrapping="WrapWithOverflow"/>
 
-                            <Label Content="Description:" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <Label Content="Dodatkowy opis" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <TextBox 
                                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" 
                                 MinLines="5" 
@@ -123,8 +185,13 @@
                                 TextWrapping="WrapWithOverflow"/>
 
                             <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
-                                <Label Content="Opener:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Label Content="Jako otwierający" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <CheckBox IsChecked="{Binding OpenerBid}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                <Label Content="Odzywka wyprzęgająca" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding SignOff}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
