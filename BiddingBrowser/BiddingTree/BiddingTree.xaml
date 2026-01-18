@@ -154,7 +154,7 @@
                             <TextBox Text="{Binding Identifier, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Label Content="Wartość" HorizontalAlignment="Left" Margin="0,4,0,0"/>
-                            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, TargetNullValue=0}"/>
+                            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
 
                             <Label Content="Kolor" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <ComboBox 
@@ -172,14 +172,14 @@
 
                             <Label Content="Znaczenie" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <TextBox 
-                                Text="{Binding Condition, UpdateSourceTrigger=PropertyChanged}" 
+                                Text="{Binding Condition, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" 
                                 MinLines="3" 
                                 VerticalContentAlignment="Top"
                                 TextWrapping="WrapWithOverflow"/>
 
                             <Label Content="Dodatkowy opis" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <TextBox 
-                                Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" 
+                                Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" 
                                 MinLines="5" 
                                 VerticalContentAlignment="Top"
                                 TextWrapping="WrapWithOverflow"/>
@@ -195,41 +195,76 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                <Label Content="Odzywka automatyczna" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding AutomaticResponse}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                                 <Label Content="Forsująca do końcówki" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <CheckBox IsChecked="{Binding GameForcing}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                             </StackPanel>
 
+                            <Label Content="Zakres punktów" HorizontalAlignment="Left" Margin="0,14,0,0"/>
+                            <UniformGrid Columns="2">
+                                <TextBox Margin="0,0,2.5,0" Text="{Binding PointsRange.Lower, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                                <TextBox Margin="2.5,0,0,0" Text="{Binding PointsRange.Upper, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                            </UniformGrid>
+
                             <Label Content="Układ trefli" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <UniformGrid Columns="2">
-                                <TextBox Margin="0,0,5,0" Text="{Binding ClubsCardRange.Lower, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBox Margin="5,0,0,0" Text="{Binding ClubsCardRange.Upper, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Margin="0,0,2.5,0" Text="{Binding ClubsCardRange.Lower, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                                <TextBox Margin="2.5,0,0,0" Text="{Binding ClubsCardRange.Upper, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
                             </UniformGrid>
 
                             <Label Content="Układ kar" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <UniformGrid Columns="2">
-                                <TextBox Margin="0,0,5,0" Text="{Binding DiamondsCardRange.Lower, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBox Margin="5,0,0,0" Text="{Binding DiamondsCardRange.Upper, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Margin="0,0,2.5,0" Text="{Binding DiamondsCardRange.Lower, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                                <TextBox Margin="2.5,0,0,0" Text="{Binding DiamondsCardRange.Upper, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
                             </UniformGrid>
 
                             <Label Content="Układ kierów" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <UniformGrid Columns="2">
-                                <TextBox Margin="0,0,5,0" Text="{Binding HeartsCardRange.Lower, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBox Margin="5,0,0,0" Text="{Binding HeartsCardRange.Upper, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Margin="0,0,2.5,0" Text="{Binding HeartsCardRange.Lower, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                                <TextBox Margin="2.5,0,0,0" Text="{Binding HeartsCardRange.Upper, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
                             </UniformGrid>
 
                             <Label Content="Układ pików" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                             <UniformGrid Columns="2">
-                                <TextBox Margin="0,0,5,0" Text="{Binding SpadesCardRange.Lower, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBox Margin="5,0,0,0" Text="{Binding SpadesCardRange.Upper, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox Margin="0,0,2.5,0" Text="{Binding SpadesCardRange.Lower, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                                <TextBox Margin="2.5,0,0,0" Text="{Binding SpadesCardRange.Upper, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
                             </UniformGrid>
 
                             <Label Content="Rozkład kolorów"/>
                             <TextBox 
-                                Text="{Binding ColorDistribution, UpdateSourceTrigger=PropertyChanged}" 
+                                Text="{Binding ColorDistribution, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}" 
                                 MinLines="3" 
                                 VerticalContentAlignment="Top"
                                 TextWrapping="WrapWithOverflow"/>
-                            
+
+                            <Label 
+                                Content="Liczba zatrzymań" 
+                                HorizontalAlignment="Left" 
+                                Margin="0,14,0,0" 
+                                FontWeight="SemiBold"
+                                ToolTip="As (1), drugi król (1), trzecia dama (1). Król singiel (0.5), druga dama (0.5)."/>
+                            <UniformGrid Margin="4,0" Columns="4" Rows="2">
+                                <TextBlock Grid.Column="0" Text="Trefle" Margin="1,0,0,0"/>
+                                <TextBlock Grid.Column="1" Text="Karo" Margin="6,0,0,0"/>
+                                <TextBlock Grid.Column="2" Text="Kiery" Margin="6,0,0,0"/>
+                                <TextBlock Grid.Column="3" Text="Piki" Margin="6,0,0,0"/>
+                                <TextBox Grid.Column="0" Grid.Row="1" Margin="0,0,0,0" Text="{Binding ClubsStops, UpdateSourceTrigger=LostFocus, TargetNullValue=''}"/>
+                                <TextBox Grid.Column="1" Grid.Row="1" Margin="5,0,0,0" Text="{Binding DiamondsStops, UpdateSourceTrigger=LostFocus, TargetNullValue=''}"/>
+                                <TextBox Grid.Column="2" Grid.Row="1" Margin="5,0,0,0" Text="{Binding HeartsStops, UpdateSourceTrigger=LostFocus, TargetNullValue=''}"/>
+                                <TextBox Grid.Column="3" Grid.Row="1" Margin="5,0,0,0" Text="{Binding SpadesStops, UpdateSourceTrigger=LostFocus, TargetNullValue=''}"/>
+                            </UniformGrid>
+
+                            <UniformGrid Margin="4,0" Columns="2" Rows="2">
+                                <TextBlock Grid.Column="0" Text="Asy" Margin="1,0,0,0"/>
+                                <TextBlock Grid.Column="1" Text="Króle" Margin="6,0,0,0"/>
+                                <TextBox Grid.Column="0" Grid.Row="1" Margin="0,0,0,0" Text="{Binding Aces, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                                <TextBox Grid.Column="1" Grid.Row="1" Margin="5,0,0,0" Text="{Binding Kings, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+                            </UniformGrid>
+
                         </StackPanel>
                     </Border>
                 </DataTemplate>

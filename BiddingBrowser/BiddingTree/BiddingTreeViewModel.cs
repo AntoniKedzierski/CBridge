@@ -13,6 +13,7 @@ public class BiddingTreeViewModel : BindableBase {
 
     public ObservableCollection<Root> Roots { get; set => SetProperty(ref field, value); }
 
+    [JsonIgnore]
     public object? SelectedItem { get; set => SetProperty(ref field, value); }
 
     public BiddingTreeViewModel(string systemName) {

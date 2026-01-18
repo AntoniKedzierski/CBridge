@@ -56,6 +56,18 @@ public class Bid : BindableBase, IBidsContainer {
 
     public NumberRange ClubsCardRange { get; set => SetProperty(ref field, value); } = new(null, null);
 
+    public decimal? SpadesStops { get; set => SetProperty(ref field, value); }
+
+    public decimal? HeartsStops { get; set => SetProperty(ref field, value); }
+
+    public decimal? DiamondsStops { get; set => SetProperty(ref field, value); }
+
+    public decimal? ClubsStops { get; set => SetProperty(ref field, value); }
+
+    public int? Aces { get; set => SetProperty(ref field, value); }
+
+    public int? Kings { get; set => SetProperty(ref field, value); }
+
     public string ColorDistribution { get; set => SetProperty(ref field, value); }
 
     public bool OpenerBid { get; set => SetProperty(ref field, value); }
@@ -63,6 +75,8 @@ public class Bid : BindableBase, IBidsContainer {
     public bool SignOff { get; set => SetProperty(ref field, value); }
 
     public bool GameForcing { get; set => SetProperty(ref field, value); }
+
+    public bool AutomaticResponse { get; set => SetProperty(ref field, value); }
 
     public ObservableCollection<Bid> NextBids { get; set => SetProperty(ref field, value); } = new();
 
