@@ -42,8 +42,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -84,8 +83,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -126,8 +124,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -168,8 +165,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -210,8 +206,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -252,8 +247,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♦"
         },
         {
@@ -294,8 +288,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♦"
         },
         {
@@ -336,8 +329,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♦"
         },
         {
@@ -378,8 +370,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♥"
         },
         {
@@ -420,8 +411,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♠"
         },
         {
@@ -462,8 +452,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "NT"
         },
         {
@@ -504,8 +493,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -546,8 +534,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -588,8 +575,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♦"
         },
         {
@@ -630,8 +616,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♦"
         },
         {
@@ -672,8 +657,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♦"
         },
         {
@@ -714,8 +698,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♥"
         },
         {
@@ -756,8 +739,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♥"
         },
         {
@@ -798,8 +780,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♠"
         },
         {
@@ -840,8 +821,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♠"
         },
         {
@@ -882,8 +862,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "NT"
         },
         {
@@ -924,8 +903,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♣"
         },
         {
@@ -966,8 +944,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♦"
         },
         {
@@ -1008,8 +985,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♥"
         },
         {
@@ -1050,8 +1026,7 @@
           "SignOff": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [
-          ],
+          "NextBids": [],
           "Code": "♠"
         },
         {
@@ -1131,8 +1106,7 @@
               "SignOff": true,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [
-              ],
+              "NextBids": [],
               "Code": "♣"
             },
             {
@@ -1155,7 +1129,7 @@
                 "Upper": null
               },
               "DiamondsCardRange": {
-                "Lower": null,
+                "Lower": 2,
                 "Upper": null
               },
               "ClubsCardRange": {
@@ -1251,8 +1225,7 @@
                       "SignOff": true,
                       "GameForcing": false,
                       "AutomaticResponse": false,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     },
                     {
@@ -1293,8 +1266,7 @@
                       "SignOff": true,
                       "GameForcing": false,
                       "AutomaticResponse": false,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "♣"
                     }
                   ],
@@ -1377,8 +1349,7 @@
                       "SignOff": true,
                       "GameForcing": false,
                       "AutomaticResponse": false,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     },
                     {
@@ -1419,8 +1390,7 @@
                       "SignOff": true,
                       "GameForcing": false,
                       "AutomaticResponse": false,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "♣"
                     }
                   ],
@@ -1464,8 +1434,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "NT"
                 },
                 {
@@ -1506,8 +1475,7 @@
                   "SignOff": true,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "♣"
                 }
               ],
@@ -1551,8 +1519,7 @@
               "SignOff": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [
-              ],
+              "NextBids": [],
               "Code": "♥"
             },
             {
@@ -1593,8 +1560,7 @@
               "SignOff": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [
-              ],
+              "NextBids": [],
               "Code": "♠"
             },
             {
@@ -1674,8 +1640,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "♣"
                 },
                 {
@@ -1755,8 +1720,7 @@
                       "SignOff": false,
                       "GameForcing": false,
                       "AutomaticResponse": true,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     }
                   ],
@@ -1839,8 +1803,7 @@
                       "SignOff": false,
                       "GameForcing": false,
                       "AutomaticResponse": true,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     }
                   ],
@@ -1923,8 +1886,7 @@
                       "SignOff": false,
                       "GameForcing": false,
                       "AutomaticResponse": true,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     }
                   ],
@@ -1971,8 +1933,7 @@
               "SignOff": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [
-              ],
+              "NextBids": [],
               "Code": "♣"
             },
             {
@@ -2052,8 +2013,7 @@
                   "SignOff": true,
                   "GameForcing": false,
                   "AutomaticResponse": true,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "NT"
                 }
               ],
@@ -2136,8 +2096,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "NT"
                 },
                 {
@@ -2178,8 +2137,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "NT"
                 }
               ],
@@ -2304,8 +2262,7 @@
                   "SignOff": true,
                   "GameForcing": false,
                   "AutomaticResponse": true,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "♦"
                 }
               ],
@@ -2331,7 +2288,7 @@
                 "Upper": null
               },
               "DiamondsCardRange": {
-                "Lower": null,
+                "Lower": 2,
                 "Upper": null
               },
               "ClubsCardRange": {
@@ -2427,8 +2384,7 @@
                       "SignOff": true,
                       "GameForcing": false,
                       "AutomaticResponse": false,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     },
                     {
@@ -2508,8 +2464,7 @@
                           "SignOff": true,
                           "GameForcing": false,
                           "AutomaticResponse": true,
-                          "NextBids": [
-                          ],
+                          "NextBids": [],
                           "Code": "♦"
                         }
                       ],
@@ -2595,8 +2550,7 @@
                       "SignOff": true,
                       "GameForcing": false,
                       "AutomaticResponse": false,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     },
                     {
@@ -2676,8 +2630,7 @@
                           "SignOff": true,
                           "GameForcing": false,
                           "AutomaticResponse": true,
-                          "NextBids": [
-                          ],
+                          "NextBids": [],
                           "Code": "♦"
                         }
                       ],
@@ -2706,12 +2659,12 @@
                     "Upper": 2
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
-                    "Upper": 2
-                  },
-                  "ClubsCardRange": {
                     "Lower": 7,
                     "Upper": 7
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 2,
+                    "Upper": 2
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -2724,8 +2677,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "NT"
                 },
                 {
@@ -2766,8 +2718,7 @@
                   "SignOff": true,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "♦"
                 }
               ],
@@ -2811,8 +2762,7 @@
               "SignOff": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [
-              ],
+              "NextBids": [],
               "Code": "♥"
             },
             {
@@ -2853,8 +2803,7 @@
               "SignOff": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [
-              ],
+              "NextBids": [],
               "Code": "♠"
             },
             {
@@ -2973,8 +2922,7 @@
                       "SignOff": false,
                       "GameForcing": false,
                       "AutomaticResponse": true,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     }
                   ],
@@ -3018,8 +2966,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "♦"
                 },
                 {
@@ -3099,8 +3046,7 @@
                       "SignOff": false,
                       "GameForcing": false,
                       "AutomaticResponse": true,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     }
                   ],
@@ -3183,8 +3129,7 @@
                       "SignOff": false,
                       "GameForcing": false,
                       "AutomaticResponse": true,
-                      "NextBids": [
-                      ],
+                      "NextBids": [],
                       "Code": "NT"
                     }
                   ],
@@ -3270,8 +3215,7 @@
                   "SignOff": true,
                   "GameForcing": false,
                   "AutomaticResponse": true,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "♦"
                 }
               ],
@@ -3315,8 +3259,7 @@
               "SignOff": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [
-              ],
+              "NextBids": [],
               "Code": "♦"
             },
             {
@@ -3364,7 +3307,7 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "7 trefli - odrzucamy.",
+                  "Condition": "7 karo - odrzucamy.",
                   "PointsRange": {
                     "Lower": null,
                     "Upper": null
@@ -3378,12 +3321,12 @@
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": null,
-                    "Upper": null
+                    "Lower": 8,
+                    "Upper": 8
                   },
                   "ClubsCardRange": {
-                    "Lower": 7,
-                    "Upper": 7
+                    "Lower": null,
+                    "Upper": null
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -3396,8 +3339,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "NT"
                 },
                 {
@@ -3406,7 +3348,7 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "8 trefli - przyjmujemy.",
+                  "Condition": "8 karo - przyjmujemy.",
                   "PointsRange": {
                     "Lower": null,
                     "Upper": null
@@ -3420,11 +3362,11 @@
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": null,
+                    "Lower": 8,
                     "Upper": null
                   },
                   "ClubsCardRange": {
-                    "Lower": 8,
+                    "Lower": null,
                     "Upper": null
                   },
                   "SpadesStops": null,
@@ -3438,8 +3380,7 @@
                   "SignOff": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [
-                  ],
+                  "NextBids": [],
                   "Code": "NT"
                 }
               ],
@@ -3452,18 +3393,15 @@
     },
     {
       "Name": "Obrona",
-      "Bids": [
-      ]
+      "Bids": []
     },
     {
       "Name": "Konwencje",
-      "Bids": [
-      ]
+      "Bids": []
     },
     {
       "Name": "Reguły",
-      "Bids": [
-      ]
+      "Bids": []
     }
   ]
 }

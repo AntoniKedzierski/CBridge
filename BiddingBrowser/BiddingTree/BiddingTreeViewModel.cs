@@ -1,10 +1,9 @@
 ﻿using BiddingBrowser.BiddingTree.Bids;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using System.Text.Json.Serialization;
-
 namespace BiddingBrowser.BiddingTree;
 
 public class BiddingTreeViewModel : BindableBase {

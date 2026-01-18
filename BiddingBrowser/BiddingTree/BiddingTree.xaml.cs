@@ -57,7 +57,7 @@ public partial class BiddingTree : UserControl {
 
         // Process save file dialog box results
         if (dlg.ShowDialog() == true) {
-            var serializedModel = JsonConvert.SerializeObject(_viewModel);
+            var serializedModel = JsonConvert.SerializeObject(_viewModel, Formatting.Indented);
             File.WriteAllText(dlg.FileName, serializedModel);
         }
     }
