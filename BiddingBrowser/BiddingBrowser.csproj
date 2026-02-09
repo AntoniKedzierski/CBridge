@@ -21,6 +21,7 @@
     <None Remove="Fonts\Lato-ThinItalic.ttf" />
     <None Remove="Images\card_icon.png" />
     <None Remove="Images\close.png" />
+    <None Remove="Images\gameForcing.png" />
     <None Remove="Images\oneRoundForcing.png" />
     <None Remove="Images\opener.png" />
     <None Remove="Images\resondent.png" />
@@ -69,6 +70,7 @@
     </Resource>
     <Resource Include="Images\card_icon.png" />
     <Resource Include="Images\close.png" />
+    <Resource Include="Images\gameForcing.png" />
     <Resource Include="Images\oneRoundForcing.png" />
     <Resource Include="Images\opener.png" />
     <Resource Include="Images\resondent.png" />

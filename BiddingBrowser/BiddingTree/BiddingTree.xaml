@@ -89,8 +89,16 @@
                     </Image>
                     
                     <Image 
+                        Source="/Images/gameForcing.png"
+                        ToolTip="Forsująca do końcówki"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Height="12" Width="12"
+                        Margin="6,0,0,0"
+                        Visibility="{Binding GameForcing, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"/>
+
+                    <Image 
                         Source="/Images/oneRoundForcing.png"
-                        ToolTip="Forcing for one round"
+                        ToolTip="Forsująca na jedno kółko"
                         RenderOptions.BitmapScalingMode="HighQuality"
                         Height="12" Width="12"
                         Margin="6,0,0,0"
