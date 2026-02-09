@@ -200,6 +200,11 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                <Label Content="Forsująca na jedno kółko" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding OneRoundForcing}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                                 <Label Content="Forsująca do końcówki" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <CheckBox IsChecked="{Binding GameForcing}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                             </StackPanel>
