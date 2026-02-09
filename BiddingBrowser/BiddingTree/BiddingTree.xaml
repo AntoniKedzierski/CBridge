@@ -87,7 +87,15 @@
                             <ScaleTransform ScaleX="-1"/>
                         </Image.RenderTransform>
                     </Image>
-                    
+
+                    <Image 
+                        Source="/Images/auto.png"
+                        ToolTip="Odzywka automatycza"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Height="12" Width="12"
+                        Margin="6,0,0,0"
+                        Visibility="{Binding AutomaticResponse, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityConverter}}"/>
+
                     <Image 
                         Source="/Images/gameForcing.png"
                         ToolTip="Forsująca do końcówki"
