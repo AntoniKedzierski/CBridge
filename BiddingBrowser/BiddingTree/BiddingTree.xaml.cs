@@ -1,4 +1,5 @@
 ﻿using BiddingBrowser.BiddingTree.Bids;
+using BiddingBrowser.BiddingTree.Validation;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -60,6 +62,26 @@ public partial class BiddingTree : UserControl {
             var serializedModel = JsonConvert.SerializeObject(_viewModel, Formatting.Indented);
             File.WriteAllText(dlg.FileName, serializedModel);
         }
+    }
+
+    private void ValidateButton_Click(object sender, RoutedEventArgs e) {
+        if (DataContext is not BiddingTreeViewModel vm)
+        {
+            MessageBox.Show("Brak DataContext.");
+            return;
+        }
+
+        var validator = new TreeValidator();
+        var issues = validator.Validate(vm.Roots);
+
+        if (issues.Count == 0)
+        {
+            MessageBox.Show("Brak problemów.");
+            return;
+        }
+
+        var text = string.Join("\n", issues.Select(i => i.ToString()));
+        MessageBox.Show(text, "Wynik walidacji");
     }
 
     private void OpenButton_Click(object sender, RoutedEventArgs e) {

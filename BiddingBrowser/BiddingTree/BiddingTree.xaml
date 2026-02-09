@@ -147,6 +147,7 @@
             <Button Content="Zapisz" Click="SaveButton_Click" Margin="4,0,0,0"/>
             <Button Content="Wczytaj" Click="OpenButton_Click" Margin="4,0,0,0"/>
             <Button Content="Sortuj" Margin="4,0,0,0"/>
+            <Button Content="Sprawdź" Click="ValidateButton_Click" Margin="4,0,0,0"/>
 
             <Border Margin="12,0,0,0" BorderThickness="0.5,0,0,0" BorderBrush="{StaticResource TropicalTealBrush}">
                 <StackPanel Margin="12,0,0,0" Orientation="Horizontal">

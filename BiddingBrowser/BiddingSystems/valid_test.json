@@ -1,0 +1,234 @@
+{
+  "SystemName": "NewSystem",
+  "Roots": [
+    {
+      "Name": "Otwarcia",
+      "Bids": [
+        {
+          "Identifier": "<empty>",
+          "Value": 1,
+          "Color": 1,
+          "Type": 1,
+          "Description": null,
+          "Condition": "trefelek",
+          "PointsRange": {
+            "Lower": 12,
+            "Upper": 14
+          },
+          "SpadesCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "HeartsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "DiamondsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "ClubsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "SpadesStops": null,
+          "HeartsStops": null,
+          "DiamondsStops": null,
+          "ClubsStops": null,
+          "Aces": null,
+          "Kings": null,
+          "ColorDistribution": null,
+          "OpenerBid": true,
+          "SignOff": false,
+          "OneRoundForcing": false,
+          "GameForcing": false,
+          "AutomaticResponse": false,
+          "NextBids": [
+            {
+              "Identifier": "<empty>",
+              "Value": 1,
+              "Color": 2,
+              "Type": 1,
+              "Description": null,
+              "Condition": "negat",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": 6
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♦"
+            }
+          ],
+          "Code": "♣"
+        },
+        {
+          "Identifier": "<empty>",
+          "Value": 1,
+          "Color": 2,
+          "Type": 1,
+          "Description": null,
+          "Condition": "ŹLE, odpowiada sam sobie!",
+          "PointsRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "SpadesCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "HeartsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "DiamondsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "ClubsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "SpadesStops": null,
+          "HeartsStops": null,
+          "DiamondsStops": null,
+          "ClubsStops": null,
+          "Aces": null,
+          "Kings": null,
+          "ColorDistribution": null,
+          "OpenerBid": true,
+          "SignOff": false,
+          "OneRoundForcing": false,
+          "GameForcing": false,
+          "AutomaticResponse": false,
+          "NextBids": [
+            {
+              "Identifier": "<empty>",
+              "Value": 1,
+              "Color": 3,
+              "Type": 1,
+              "Description": null,
+              "Condition": null,
+              "PointsRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": true,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            }
+          ],
+          "Code": "♦"
+        },
+        {
+          "Identifier": "<empty>",
+          "Value": 1,
+          "Color": 3,
+          "Type": 1,
+          "Description": null,
+          "Condition": null,
+          "PointsRange": {
+            "Lower": 15,
+            "Upper": 10
+          },
+          "SpadesCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "HeartsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "DiamondsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "ClubsCardRange": {
+            "Lower": null,
+            "Upper": null
+          },
+          "SpadesStops": null,
+          "HeartsStops": null,
+          "DiamondsStops": null,
+          "ClubsStops": null,
+          "Aces": null,
+          "Kings": null,
+          "ColorDistribution": null,
+          "OpenerBid": true,
+          "SignOff": false,
+          "OneRoundForcing": false,
+          "GameForcing": false,
+          "AutomaticResponse": false,
+          "NextBids": [],
+          "Code": "♥"
+        }
+      ]
+    },
+    {
+      "Name": "Obrona",
+      "Bids": []
+    },
+    {
+      "Name": "Konwencje",
+      "Bids": []
+    },
+    {
+      "Name": "Reguły",
+      "Bids": []
+    }
+  ]
+}
