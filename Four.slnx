@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="BiddingBrowser/BiddingBrowser.csproj" />
+  <Project Path="ConsoleUI/ConsoleUI.csproj" />
+  <Project Path="Model/Model.csproj" />
+</Solution>
