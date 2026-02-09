@@ -73,12 +73,12 @@ public class Bid : BindableBase, IBidsContainer {
     public bool OpenerBid { get; set => SetProperty(ref field, value); }
 
     public bool SignOff { get; set => SetProperty(ref field, value); }
+    
+    public bool OneRoundForcing { get; set => SetProperty(ref field, value); }
 
     public bool GameForcing { get; set => SetProperty(ref field, value); }
 
     public bool AutomaticResponse { get; set => SetProperty(ref field, value); }
-
-    public bool OneRoundForcing { get; set => SetProperty(ref field, value); }
 
     public ObservableCollection<Bid> NextBids { get; set => SetProperty(ref field, value); } = new();
 
