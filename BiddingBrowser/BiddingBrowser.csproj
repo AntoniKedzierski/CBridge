@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BiddingTree\Validation\PcContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Fonts\Lato-Black.ttf" />
     <None Remove="Fonts\Lato-BlackItalic.ttf" />
     <None Remove="Fonts\Lato-Bold.ttf" />
