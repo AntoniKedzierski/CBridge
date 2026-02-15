@@ -4158,7 +4158,7 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15–17 PC, dokładnie układ 5 trefli, 4 piki",
+                  "Condition": "15–17 PC, dokładnie układ 5 trefli i 4 piki",
                   "PointsRange": {
                     "Lower": null,
                     "Upper": null
@@ -6822,6 +6822,473 @@
                 }
               ],
               "Code": "♦"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 1,
+              "Color": 3,
+              "Type": 1,
+              "Description": null,
+              "Condition": "7-11 PC, kolor 4+ kiery, 3 piki lub mniej",
+              "PointsRange": {
+                "Lower": 7,
+                "Upper": 11
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": 3
+              },
+              "HeartsCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": 1,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "dokładnie 4 piki",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": 4
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 1,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "7-8 PC, śmietnik",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": 8
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "Gadżet 2 tref! Pytanie o skład i siłę, MOCNO SZTUCZNE!",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "9-11 PC, inwit",
+                      "PointsRange": {
+                        "Lower": 9,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 3,
+                          "Color": 5,
+                          "Type": 1,
+                          "Description": null,
+                          "Condition": "16-17 PC, końcówka",
+                          "PointsRange": {
+                            "Lower": 16,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": true,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": false,
+                          "NextBids": [],
+                          "Code": "NT"
+                        }
+                      ],
+                      "Code": "NT"
+                    }
+                  ],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "brak starszej 4",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": 3
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": 3
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 2,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "9-11 PC, 2 trefle lub mniej, force na 1 kółko",
+                      "PointsRange": {
+                        "Lower": 9,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 3,
+                          "Color": 5,
+                          "Type": 1,
+                          "Description": null,
+                          "Condition": "16-17 PC, końcówka",
+                          "PointsRange": {
+                            "Lower": 16,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": true,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": false,
+                          "NextBids": [],
+                          "Code": "NT"
+                        }
+                      ],
+                      "Code": "♦"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "9-11 PC, 3+ trefli",
+                      "PointsRange": {
+                        "Lower": 9,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": 3,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    }
+                  ],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4 kiery na ręce, preferencja kolorów starszych",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 4,
+                    "Upper": 4
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                }
+              ],
+              "Code": "♥"
             }
           ],
           "Code": "♣"
@@ -8177,7 +8644,4729 @@
           "OneRoundForcing": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [],
+          "NextBids": [
+            {
+              "Identifier": "<empty>",
+              "Value": 1,
+              "Color": 4,
+              "Type": 1,
+              "Description": "Można to ująć w sposób następujący: Mając 3-kartowy fit w kierach zgłaszamy 1 pik, jeżeli w dalszej licytacji stać nas na odzywkę 3 kier.",
+              "Condition": "7-9 PC, 4+ pików, brak 3+ kierów",
+              "PointsRange": {
+                "Lower": 7,
+                "Upper": 9
+              },
+              "SpadesCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": 2
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": 1,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "11-14 PC, skład 5-3-3-2",
+                  "PointsRange": {
+                    "Lower": 11,
+                    "Upper": 14
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": 5
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": "5332",
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ trefli",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ kar",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "6+ kierów, ręka jednokolorowa",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": "automat",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": true,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    }
+                  ],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "11–14 PC, 3+ piki (podniesienia trójkowe!)",
+                  "PointsRange": {
+                    "Lower": 11,
+                    "Upper": 14
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 3,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka dobra do zajęcia BA (modelowo 6-3-2-2) ",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 4+ trefli",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 2,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 4+ kar",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♦"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "końcówka",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    }
+                  ],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka zorientowana do gry kolorowej",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 4+ pików, ustalenie pików",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4+ pików, [splinter]",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4+ pików, [splinter]",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                }
+              ],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 1,
+              "Color": 4,
+              "Type": 1,
+              "Description": "Można to ująć w sposób następujący: Mając 3-kartowy fit w kierach zgłaszamy 1 pik, jeżeli w dalszej licytacji stać nas na odzywkę 3 kier.",
+              "Condition": "10-11 PC, 4+ pików",
+              "PointsRange": {
+                "Lower": 10,
+                "Upper": 11
+              },
+              "SpadesCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": 1,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "11-14 PC, skład 5-3-3-2",
+                  "PointsRange": {
+                    "Lower": 11,
+                    "Upper": 14
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": 5
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": "5332",
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ trefli",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ kar",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "6+ kierów, ręka jednokolorowa",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "narutalne, inwit",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 3,
+                          "Color": 1,
+                          "Type": 1,
+                          "Description": "Zdecydowaliśmy się je pominąć w poprzednim okrążeniu.",
+                          "Condition": "4 trefle",
+                          "PointsRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": 4,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": false,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": false,
+                          "NextBids": [],
+                          "Code": "♣"
+                        },
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 3,
+                          "Color": 2,
+                          "Type": 1,
+                          "Description": "Zdecydowaliśmy się je pominąć w poprzednim okrążeniu.",
+                          "Condition": "4 kara",
+                          "PointsRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": 4,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": false,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": false,
+                          "NextBids": [],
+                          "Code": "♦"
+                        },
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 3,
+                          "Color": 3,
+                          "Type": 1,
+                          "Description": null,
+                          "Condition": "7+ kierów",
+                          "PointsRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": 7,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": false,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": false,
+                          "NextBids": [],
+                          "Code": "♥"
+                        },
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 3,
+                          "Color": 4,
+                          "Type": 1,
+                          "Description": null,
+                          "Condition": "3-4 piki, próba uzgodnienia pików",
+                          "PointsRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": 3,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": false,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": false,
+                          "NextBids": [],
+                          "Code": "♠"
+                        },
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 3,
+                          "Color": 5,
+                          "Type": 1,
+                          "Description": null,
+                          "Condition": "ręka zrównoważona typu 6322, brak fitu pik",
+                          "PointsRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": 2
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": false,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": false,
+                          "NextBids": [],
+                          "Code": "NT"
+                        }
+                      ],
+                      "Code": "NT"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "narutalne 3+ kierów, inwit",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 3,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    }
+                  ],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "11–14 PC, 3+ piki (podniesienia trójkowe!)",
+                  "PointsRange": {
+                    "Lower": 11,
+                    "Upper": 14
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 3,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka dobra do zajęcia BA (modelowo 6-3-2-2) ",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 4+ trefli",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 2,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 4+ kar",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♦"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 3+ kierów",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 3,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 4,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, forsujące, brak 3 kierów",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♠"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "końcówka",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    }
+                  ],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka zorientowana do gry kolorowej",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 4+ pików, ustalenie pików",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4+ pików, [splinter]",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4+ pików, [splinter]",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                }
+              ],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 1,
+              "Color": 4,
+              "Type": 1,
+              "Description": "Można to ująć w sposób następujący: Mając 3-kartowy fit w kierach zgłaszamy 1 pik, jeżeli w dalszej licytacji stać nas na odzywkę 3 kier.",
+              "Condition": "12+ PC, 4+ pików, brak 5 kar lub 5 trefli",
+              "PointsRange": {
+                "Lower": 12,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": 4
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": 4
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": 1,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "11-14 PC, skład 5-3-3-2",
+                  "PointsRange": {
+                    "Lower": 11,
+                    "Upper": 14
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": 5
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": "5332",
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ trefli",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ kar",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "6+ kierów, ręka jednokolorowa",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 4,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "forsujące do końcówki",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": true,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♠"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "brak 5 trefli",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": 4
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": true,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 2,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "brak 5 kar",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": 4
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": true,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♦"
+                    }
+                  ],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "11–14 PC, 3+ piki (podniesienia trójkowe!)",
+                  "PointsRange": {
+                    "Lower": 11,
+                    "Upper": 14
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 3,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka dobra do zajęcia BA (modelowo 6-3-2-2) ",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 3+ kierów",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 3,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 4,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, forsujące, brak 3 kierów",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♠"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "końcówka",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 4,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "ustalenie kierów [cue-bid]",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": 1.0,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 4,
+                      "Color": 2,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "ustalenie kierów [cue-bid]",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": 1.0,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♦"
+                    }
+                  ],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka zorientowana do gry kolorowej",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 4+ pików, ustalenie pików",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4+ pików, [splinter]",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4+ pików, [splinter]",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                }
+              ],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 1,
+              "Color": 5,
+              "Type": 1,
+              "Description": "Ręka z którą brak wygodnej odzywki",
+              "Condition": "7-11 PC, brak fitu kier, brak 4+ pików",
+              "PointsRange": {
+                "Lower": 7,
+                "Upper": 11
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": 2
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": null,
+                  "Color": 0,
+                  "Type": 0,
+                  "Description": null,
+                  "Condition": "12 PC",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": 12
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "Pass"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ trefle",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "naturalne, 4+ kara",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "6+ kierów",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15-17 PC, nadwyżka układowa 6 kierów i 4 piki",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka dobra do zajęcia BA (modelowo 6-3-2-2) ",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 4+ trefli",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 2,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, nieforsujące, 4+ kar",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♦"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 4,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "naturalne, forsujące, brak 3 kierów",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♠"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "końcówka",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    }
+                  ],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, skład 5-5",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka zorientowana do gry kolorowej",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                }
+              ],
+              "Code": "NT"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 2,
+              "Color": 1,
+              "Type": 1,
+              "Description": null,
+              "Condition": "12+ PC, 5+ trefli",
+              "PointsRange": {
+                "Lower": 12,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": true,
+              "AutomaticResponse": false,
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "4+ kar",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 3,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 3,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    }
+                  ],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "brak innej wygodnej odzywki",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 4 piki",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": 4,
+                    "Upper": 4
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 2,
+                  "Color": 5,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15–17 PC, 6+ kierów, ręka dobra do zajęcia BA (modelowo 6-3-2-2) ",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": 17
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "NT"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15-17 PC, 4+ trefli",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": 4,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15-17 PC, 5+ kar",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": 5,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "15-17 PC, 6+ kierów",
+                  "PointsRange": {
+                    "Lower": 15,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": 6,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                }
+              ],
+              "Code": "♣"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 2,
+              "Color": 2,
+              "Type": 1,
+              "Description": null,
+              "Condition": "12+ PC, 5+ kar",
+              "PointsRange": {
+                "Lower": 12,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": 5,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": true,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♦"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 2,
+              "Color": 3,
+              "Type": 1,
+              "Description": null,
+              "Condition": "7–11 PC, fit 3+ kartowy (nie wyklucza 4+ pików) ",
+              "PointsRange": {
+                "Lower": 7,
+                "Upper": 10
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 3,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 2,
+              "Color": 4,
+              "Type": 1,
+              "Description": null,
+              "Condition": "0-6 PC, słaba ręka z 6+ trefli , blokujące",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": 6
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 2,
+              "Color": 4,
+              "Type": 1,
+              "Description": null,
+              "Condition": "0-6 PC, słaba ręka z 6 kar , blokujące",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": 6
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 2,
+              "Color": 4,
+              "Type": 1,
+              "Description": null,
+              "Condition": "0-6 PC, słaba ręka z 6 pików , blokujące",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": 6
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 2,
+              "Color": 5,
+              "Type": 1,
+              "Description": null,
+              "Condition": "10+ PC, 3+ kartowy fit, inwit do końcówki",
+              "PointsRange": {
+                "Lower": 10,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 3,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": true,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "pytanie o wariant ręki, SZTUCZNE!!",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": true,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "4 kiery, pozytywna ręka bez krótkości (BEZ aspiracji szlemikowych)",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 4,
+                        "Upper": 4
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 4,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość pików [niewygodny splinter]",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": true,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♠"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 3,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!! [niewygodny splinter]",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": true,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 4,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość treflii [niewygodny splinter]",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": true,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 4,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "10-11 PC, minimalna ręka",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": 11
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 4,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": 2
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    }
+                  ],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "12-13 PC, słaba ręka",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": 13
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": "10-11 PC",
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": 11
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 4,
+                      "Color": 3,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "12+ PC",
+                      "PointsRange": {
+                        "Lower": 12,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♥"
+                    }
+                  ],
+                  "Code": "♥"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": "Licytujemy tak w sytuacji, gdy z układu ręki wynika, że lepiej jest go pokazać, niż pytać o skład ręki odpowiadającego. ",
+                  "Condition": "silna ręka układowa, krótkość w pikach",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♠"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 1,
+                  "Type": 1,
+                  "Description": "Licytujemy tak w sytuacji, gdy z układu ręki wynika, że lepiej jest go pokazać, niż pytać o skład ręki odpowiadającego. ",
+                  "Condition": "silna ręka układowa, krótkość w treflach",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♣"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 2,
+                  "Type": 1,
+                  "Description": "Licytujemy tak w sytuacji, gdy z układu ręki wynika, że lepiej jest go pokazać, niż pytać o skład ręki odpowiadającego. ",
+                  "Condition": "silna ręka układowa, krótkość w karo",
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": 2
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♦"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 4,
+                  "Color": 3,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "14+ PC, do gry",
+                  "PointsRange": {
+                    "Lower": 14,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": true,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "♥"
+                }
+              ],
+              "Code": "NT"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 1,
+              "Type": 1,
+              "Description": null,
+              "Condition": "10-11 PC, jednokolorowa ręka z 6+ trefli",
+              "PointsRange": {
+                "Lower": 10,
+                "Upper": 11
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♣"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 2,
+              "Type": 1,
+              "Description": null,
+              "Condition": "10-11 PC, jednokolorowa ręka z 6+ kar",
+              "PointsRange": {
+                "Lower": 10,
+                "Upper": 11
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♦"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 3,
+              "Type": 1,
+              "Description": null,
+              "Condition": "0-6 PC, słaba ręka, 4+ kartowy fit, blokujące",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": 6
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 4,
+              "Type": 1,
+              "Description": null,
+              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość pików [niewygodny splinter]",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": 2
+              },
+              "HeartsCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 5,
+              "Type": 1,
+              "Description": null,
+              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!! [niewygodny splinter]",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": 2
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "NT"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 1,
+              "Type": 1,
+              "Description": null,
+              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość treflii [niewygodny splinter]",
+              "PointsRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 4,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": 2
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♣"
+            }
+          ],
           "Code": "♥"
         },
         {
