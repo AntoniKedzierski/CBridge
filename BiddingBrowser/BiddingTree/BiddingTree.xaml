@@ -173,7 +173,8 @@
                 <!-- Editor template for Bid -->
                 <DataTemplate DataType="{x:Type b:Bid}">
                     <Border BorderThickness="0.5,0,0,0" BorderBrush="{StaticResource TropicalTealBrush}">
-                        <StackPanel Margin="12,0" HorizontalAlignment="Stretch">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <StackPanel Margin="12,0" HorizontalAlignment="Stretch">
 
                             <Label Content="Identyfikator" HorizontalAlignment="Left"/>
                             <TextBox Text="{Binding Identifier, UpdateSourceTrigger=PropertyChanged}"/>
@@ -296,6 +297,9 @@
                             </UniformGrid>
 
                         </StackPanel>
+
+
+                        </ScrollViewer>
                     </Border>
                 </DataTemplate>
             </ContentControl.Resources>
