@@ -9500,8 +9500,8 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "4+ pików, [splinter]",
-                  "Convention": null,
+                  "Condition": "4+ pików",
+                  "Convention": "Splinter",
                   "PointsRange": {
                     "Lower": null,
                     "Upper": null
@@ -9543,8 +9543,8 @@
                   "Color": 2,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "4+ pików, [splinter]",
-                  "Convention": null,
+                  "Condition": "4+ pików",
+                  "Convention": "Splinter",
                   "PointsRange": {
                     "Lower": null,
                     "Upper": null
@@ -16201,7 +16201,7 @@
               "Color": 1,
               "Type": 1,
               "Description": "TYLKO jeżeli otwierający był na 3. lub 4. ręce!!!!!!",
-              "Condition": "7+ PC, 3+ kierów, fit w sile inwitu do końcówki,  [drury]",
+              "Condition": "7+ PC, 3+ kierów, fit w sile inwitu do końcówki",
               "Convention": "Drury",
               "PointsRange": {
                 "Lower": 7,
@@ -18964,8 +18964,8 @@
               "Color": 4,
               "Type": 1,
               "Description": null,
-              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość pików [niewygodny splinter]",
-              "Convention": null,
+              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość pików",
+              "Convention": "Niewygodny splinter",
               "PointsRange": {
                 "Lower": null,
                 "Upper": null
@@ -19007,8 +19007,8 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!! [niewygodny splinter]",
-              "Convention": null,
+              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!!",
+              "Convention": "Niewygodny splinter",
               "PointsRange": {
                 "Lower": null,
                 "Upper": null
@@ -19050,8 +19050,8 @@
               "Color": 1,
               "Type": 1,
               "Description": null,
-              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość treflii [niewygodny splinter]",
-              "Convention": null,
+              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość treflii",
+              "Convention": "Niewygodny splinter",
               "PointsRange": {
                 "Lower": null,
                 "Upper": null
@@ -20825,8 +20825,8 @@
           "Color": 1,
           "Type": 1,
           "Description": null,
-          "Condition": "12-14 PC, 5+ trefli oraz starsza czwórka [Precision].",
-          "Convention": null,
+          "Condition": "12-14 PC, 5+ trefli oraz starsza czwórka",
+          "Convention": "Precision",
           "PointsRange": {
             "Lower": 12,
             "Upper": 14
@@ -20867,7 +20867,7 @@
               "Type": 1,
               "Description": null,
               "Condition": "8+ PC, pytanie o skład, SZTUCZNE!!",
-              "Convention": null,
+              "Convention": "Precision",
               "PointsRange": {
                 "Lower": 8,
                 "Upper": null
@@ -22341,7 +22341,7 @@
               "Type": 1,
               "Description": null,
               "Condition": "8+ PC, pytanie o skład, SZTUCZNE!!",
-              "Convention": null,
+              "Convention": "Precision",
               "PointsRange": {
                 "Lower": 8,
                 "Upper": null
