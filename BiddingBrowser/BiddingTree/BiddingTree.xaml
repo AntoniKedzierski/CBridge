@@ -67,6 +67,12 @@
                         Margin="6,0,0,0"
                         Foreground="{StaticResource AlabasterGreyBrush}"/>
 
+                    <TextBlock 
+                        Text="{Binding Convention, StringFormat=⟨ {0} ⟩}"
+                        Margin="6,0,0,0"
+                        Foreground="{StaticResource AlabasterGreyBrush}"
+                        Visibility="{Binding HasConvention, Converter={StaticResource VisibilityConverter}}"/>
+
                     <Image 
                         Source="/Images/opener.png"
                         ToolTip="Otwierający"
@@ -209,6 +215,11 @@
                                 MinLines="5" 
                                 VerticalContentAlignment="Top"
                                 TextWrapping="WrapWithOverflow"/>
+
+                            <Label Content="Konwencja" HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                            <TextBox 
+                                Text="{Binding Convention, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"
+                                ToolTip="Puste = naturalna. 'Sztuczne' = sztuczna bez konwencji. Nazwa z dużej litery."/>
 
                             <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                                 <Label Content="Jako otwierający" HorizontalAlignment="Left" VerticalAlignment="Center"/>

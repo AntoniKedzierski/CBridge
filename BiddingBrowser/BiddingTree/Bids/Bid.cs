@@ -46,6 +46,17 @@ public class Bid : BindableBase, IBidsContainer {
 
     public string? Condition { get; set => SetProperty(ref field, value); }
 
+    [JsonIgnore]
+    public bool HasConvention => !string.IsNullOrWhiteSpace(Convention);
+    public string? Convention {
+        get => field;
+        set {
+            if (SetProperty(ref field, value)) {
+                RaisePropertyChanged(nameof(HasConvention));
+            }
+        }
+    }
+
     public NumberRange PointsRange { get; set => SetProperty(ref field, value); } = new(null, null);
 
     public NumberRange SpadesCardRange { get; set => SetProperty(ref field, value); } = new(null, null);
