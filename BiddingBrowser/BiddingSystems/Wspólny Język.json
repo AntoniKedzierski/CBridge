@@ -12610,11 +12610,11 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "naturalne, nieforsujące, 4+ trefli",
+                      "Condition": "7-9 PC, naturalne, nieforsujące, 4+ trefli",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 9
                       },
                       "SpadesCardRange": {
                         "Lower": null,
@@ -12653,11 +12653,11 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "naturalne, nieforsujące, 4+ kar",
+                      "Condition": "7-9 PC, naturalne, nieforsujące, 4+ kar",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 9
                       },
                       "SpadesCardRange": {
                         "Lower": null,
@@ -12693,56 +12693,13 @@
                     {
                       "Identifier": "<empty>",
                       "Value": 3,
-                      "Color": 4,
-                      "Type": 1,
-                      "Description": null,
-                      "Condition": "naturalne, forsujące, brak 3 kierów",
-                      "Convention": null,
-                      "PointsRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "HeartsCardRange": {
-                        "Lower": null,
-                        "Upper": 2
-                      },
-                      "DiamondsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "ClubsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesStops": null,
-                      "HeartsStops": null,
-                      "DiamondsStops": null,
-                      "ClubsStops": null,
-                      "Aces": null,
-                      "Kings": null,
-                      "ColorDistribution": null,
-                      "OpenerBid": false,
-                      "SignOff": false,
-                      "OneRoundForcing": false,
-                      "GameForcing": false,
-                      "AutomaticResponse": false,
-                      "NextBids": [],
-                      "Code": "♠"
-                    },
-                    {
-                      "Identifier": "<empty>",
-                      "Value": 3,
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "końcówka",
+                      "Condition": "10-11 PC, końcówka",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 10,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -12917,7 +12874,7 @@
               "Color": 1,
               "Type": 1,
               "Description": null,
-              "Condition": "12+ PC, brak 5 trefli i 5 kar",
+              "Condition": "12+ PC, brak: 5 trefli, 5 kar i 4 pików",
               "Convention": null,
               "PointsRange": {
                 "Lower": 12,
@@ -12925,7 +12882,7 @@
               },
               "SpadesCardRange": {
                 "Lower": null,
-                "Upper": null
+                "Upper": 3
               },
               "HeartsCardRange": {
                 "Lower": null,
@@ -12999,7 +12956,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13022,7 +12979,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -13085,11 +13042,11 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "naturalne, brak 5, zatrzymanie pik",
+                      "Condition": "15+ PC, brak 5, zatrzymanie pik",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 15
                       },
                       "SpadesCardRange": {
                         "Lower": null,
@@ -13128,7 +13085,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4 kara, silne uzgodnienie kar",
+                      "Condition": "4 kara, silne uzgodnienie kar z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13152,7 +13109,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": null,
+                      "DiamondsStops": 1.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -13258,10 +13215,10 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "naturalne, brak 5, przejściowe",
+                      "Condition": "15+ PC, brak żadnej 5",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 15,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -13301,7 +13258,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4 kara, naturalne",
+                      "Condition": "4 kara z figurą, naturalne",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13325,7 +13282,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": null,
+                      "DiamondsStops": 1.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -13344,7 +13301,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13367,7 +13324,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -13474,10 +13431,10 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "naturalne, brak 5, wyczekujące",
+                      "Condition": "15+ PC, brak żadnej 5",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 15,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -13517,7 +13474,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4 kara, czwarty kolor, brak zatrzymania",
+                      "Condition": "4 kara, czwarty kolor, brak zatrzymania karo",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13560,7 +13517,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13583,7 +13540,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -13603,7 +13560,7 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ piki, silne uzgodnienie pików",
+                      "Condition": "4+ piki, silne uzgodnienie pików z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13625,7 +13582,7 @@
                         "Lower": null,
                         "Upper": null
                       },
-                      "SpadesStops": null,
+                      "SpadesStops": 1.0,
                       "HeartsStops": null,
                       "DiamondsStops": null,
                       "ClubsStops": null,
@@ -13733,7 +13690,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13756,7 +13713,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -13863,7 +13820,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ kar, zatrzymanie karo do 3BA (trzeci kolor)",
+                      "Condition": "4+ kar, 2 stopy karo do 3BA (trzeci kolor)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13887,7 +13844,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": 1.0,
+                      "DiamondsStops": 2.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -13906,7 +13863,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13929,7 +13886,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -13949,7 +13906,7 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ pików, zatrzymanie pik do 3BA (trzeci kolor)",
+                      "Condition": "4+ pików, 2 stopy pik do 3BA (trzeci kolor)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -13971,7 +13928,7 @@
                         "Lower": null,
                         "Upper": null
                       },
-                      "SpadesStops": 1.0,
+                      "SpadesStops": 2.0,
                       "HeartsStops": null,
                       "DiamondsStops": null,
                       "ClubsStops": null,
@@ -14079,7 +14036,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -14102,7 +14059,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -14208,7 +14165,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3-4 kara, silne uzgodnienie kar",
+                      "Condition": "3-4 kara, silne uzgodnienie kar z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -14232,7 +14189,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": null,
+                      "DiamondsStops": 1.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -14295,11 +14252,11 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "do gry",
+                      "Condition": "12-15 PC, do gry",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 15
                       },
                       "SpadesCardRange": {
                         "Lower": null,
@@ -14338,11 +14295,11 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3 kiery, do gry",
+                      "Condition": "12-14 PC, 3+ kierów, do gry",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 14
                       },
                       "SpadesCardRange": {
                         "Lower": null,
@@ -16415,11 +16372,11 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "Brak innej wygodnej odzywki",
+                  "Condition": "12-14 PC, brak innej wygodnej odzywki",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 14
                   },
                   "SpadesCardRange": {
                     "Lower": null,
@@ -16456,7 +16413,7 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": " 4+ pików",
+                      "Condition": " 4+ pików z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -16478,7 +16435,7 @@
                         "Lower": null,
                         "Upper": null
                       },
-                      "SpadesStops": null,
+                      "SpadesStops": 1.0,
                       "HeartsStops": null,
                       "DiamondsStops": null,
                       "ClubsStops": null,
@@ -16628,7 +16585,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "6+ kar, ręka jednokolorowa",
+                      "Condition": "6+ kar, ręka jednokolorowa (2 stopy karo)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -16652,7 +16609,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": null,
+                      "DiamondsStops": 2.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -16671,7 +16628,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -16694,7 +16651,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -16887,7 +16844,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "6+ kar, ręka jednokolorowa",
+                      "Condition": "6+ kar, ręka jednokolorowa (2 stopy karo)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -16911,7 +16868,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": null,
+                      "DiamondsStops": 2.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -16930,7 +16887,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -16953,7 +16910,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -16973,7 +16930,7 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ pików, silne uzgodnienie pików",
+                      "Condition": "4+ pików, silne uzgodnienie pików z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -16995,7 +16952,7 @@
                         "Lower": null,
                         "Upper": null
                       },
-                      "SpadesStops": null,
+                      "SpadesStops": 1.0,
                       "HeartsStops": null,
                       "DiamondsStops": null,
                       "ClubsStops": null,
@@ -17103,7 +17060,7 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ trefli, wskazanie 2 koloru",
+                      "Condition": "4+ trefli z figurą, wskazanie 2 koloru",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17128,7 +17085,7 @@
                       "SpadesStops": null,
                       "HeartsStops": null,
                       "DiamondsStops": null,
-                      "ClubsStops": null,
+                      "ClubsStops": 1.0,
                       "Aces": null,
                       "Kings": null,
                       "ColorDistribution": null,
@@ -17146,7 +17103,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "6+ kar, ręka jednokolorowa",
+                      "Condition": "6+ kar, ręka jednokolorowa (2 stopy karo)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17189,7 +17146,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17212,7 +17169,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -17232,7 +17189,7 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ pików, wskazanie 2 koloru",
+                      "Condition": "4+ pików z figurą, wskazanie 2 koloru",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17254,7 +17211,7 @@
                         "Lower": null,
                         "Upper": null
                       },
-                      "SpadesStops": null,
+                      "SpadesStops": 1.0,
                       "HeartsStops": null,
                       "DiamondsStops": null,
                       "ClubsStops": null,
@@ -17362,7 +17319,7 @@
                       "Color": 2,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "6+ kar, ręka jednokolorowa",
+                      "Condition": "6+ kar, ręka jednokolorowa (2 stopy karo)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17386,7 +17343,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": null,
+                      "DiamondsStops": 2.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -17405,7 +17362,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17428,7 +17385,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -17491,7 +17448,7 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "do gry",
+                      "Condition": "do gry, bark dobrych zatrzymań",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17534,7 +17491,7 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ trefle, silne uzgodnienie trefli",
+                      "Condition": "4+ trefle, silne uzgodnienie trefli (2 stopy trefl)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17559,7 +17516,7 @@
                       "SpadesStops": null,
                       "HeartsStops": null,
                       "DiamondsStops": null,
-                      "ClubsStops": null,
+                      "ClubsStops": 2.0,
                       "Aces": null,
                       "Kings": null,
                       "ColorDistribution": null,
@@ -17621,7 +17578,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "3+ kierów, silne uzgodnienie kierów",
+                      "Condition": "3+ kierów, silne uzgodnienie kierów z figurą",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -17644,7 +17601,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -17671,7 +17628,7 @@
                         "Upper": null
                       },
                       "SpadesCardRange": {
-                        "Lower": null,
+                        "Lower": 3,
                         "Upper": null
                       },
                       "HeartsCardRange": {
@@ -17714,7 +17671,7 @@
                         "Upper": null
                       },
                       "SpadesCardRange": {
-                        "Lower": null,
+                        "Lower": 3,
                         "Upper": null
                       },
                       "HeartsCardRange": {
@@ -17726,7 +17683,7 @@
                         "Upper": null
                       },
                       "ClubsCardRange": {
-                        "Lower": null,
+                        "Lower": 3,
                         "Upper": null
                       },
                       "SpadesStops": null,
@@ -17750,10 +17707,10 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "ustalenie kar [cue-bid]",
+                      "Condition": "14+ PC, ustalenie kar [cue-bid]",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 14,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -17769,7 +17726,7 @@
                         "Upper": null
                       },
                       "ClubsCardRange": {
-                        "Lower": 4,
+                        "Lower": null,
                         "Upper": null
                       },
                       "SpadesStops": null,
@@ -17837,26 +17794,26 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "do gry",
+                      "Condition": "brak 2 kierów, brak krótkości",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
                         "Upper": null
                       },
                       "SpadesCardRange": {
-                        "Lower": null,
+                        "Lower": 3,
                         "Upper": null
                       },
                       "HeartsCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 1
                       },
                       "DiamondsCardRange": {
                         "Lower": null,
                         "Upper": null
                       },
                       "ClubsCardRange": {
-                        "Lower": null,
+                        "Lower": 3,
                         "Upper": null
                       },
                       "SpadesStops": null,
@@ -17947,7 +17904,7 @@
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
-                      "DiamondsStops": null,
+                      "DiamondsStops": 3.0,
                       "ClubsStops": null,
                       "Aces": null,
                       "Kings": null,
@@ -17969,7 +17926,7 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "3+ kar, uzgodnienie kar [splinter]",
+                  "Condition": "15-17 PC,  3+ kar, uzgodnienie kar [splinter]",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
@@ -18012,7 +17969,7 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "3+ kar, uzgodnienie kar [splinter]",
+                  "Condition": "15-17 PC,  3+ kar, uzgodnienie kar [splinter]",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
@@ -18271,10 +18228,10 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "pytanie o wariant ręki, SZTUCZNE!!",
+                  "Condition": "14-17 PC, pytanie o wariant ręki, SZTUCZNE!!",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": null,
+                    "Lower": 14,
                     "Upper": null
                   },
                   "SpadesCardRange": {
@@ -18312,15 +18269,15 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4 kiery, pozytywna ręka bez krótkości (BEZ aspiracji szlemikowych)",
+                      "Condition": "11-13 PC, 4 kiery, pozytywna ręka bez krótkości (BEZ aspiracji szlemikowych)",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 13
                       },
                       "SpadesCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 3
                       },
                       "HeartsCardRange": {
                         "Lower": 4,
@@ -18328,11 +18285,11 @@
                       },
                       "DiamondsCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 3
                       },
                       "ClubsCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 3
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
@@ -18355,10 +18312,10 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość pików [niewygodny splinter]",
+                      "Condition": "14+ PC, aspiracje szlemikowe, 4+ kierów, krótkość pików [niewygodny splinter]",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 14,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -18398,10 +18355,10 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!! [niewygodny splinter]",
+                      "Condition": "14+ PC, aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!! [niewygodny splinter]",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 14,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -18441,10 +18398,10 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość treflii [niewygodny splinter]",
+                      "Condition": "14+ PC, aspiracje szlemikowe, 4+ kierów, krótkość treflii [niewygodny splinter]",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 14,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -18637,7 +18594,7 @@
                         "Upper": null
                       },
                       "SpadesStops": null,
-                      "HeartsStops": null,
+                      "HeartsStops": 1.0,
                       "DiamondsStops": null,
                       "ClubsStops": null,
                       "Aces": null,
@@ -18660,10 +18617,10 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": "Licytujemy tak w sytuacji, gdy z układu ręki wynika, że lepiej jest go pokazać, niż pytać o skład ręki odpowiadającego. ",
-                  "Condition": "silna ręka układowa, krótkość w pikach",
+                  "Condition": "14-17 PC, silna ręka układowa, krótkość w pikach",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": null,
+                    "Lower": 14,
                     "Upper": null
                   },
                   "SpadesCardRange": {
@@ -18683,7 +18640,7 @@
                     "Upper": null
                   },
                   "SpadesStops": null,
-                  "HeartsStops": null,
+                  "HeartsStops": 2.0,
                   "DiamondsStops": null,
                   "ClubsStops": null,
                   "Aces": null,
@@ -18703,10 +18660,10 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": "Licytujemy tak w sytuacji, gdy z układu ręki wynika, że lepiej jest go pokazać, niż pytać o skład ręki odpowiadającego. ",
-                  "Condition": "silna ręka układowa, krótkość w treflach",
+                  "Condition": "14-17 PC, silna ręka układowa, krótkość w treflach",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": null,
+                    "Lower": 14,
                     "Upper": null
                   },
                   "SpadesCardRange": {
@@ -18726,7 +18683,7 @@
                     "Upper": 2
                   },
                   "SpadesStops": null,
-                  "HeartsStops": null,
+                  "HeartsStops": 2.0,
                   "DiamondsStops": null,
                   "ClubsStops": null,
                   "Aces": null,
@@ -18746,10 +18703,10 @@
                   "Color": 2,
                   "Type": 1,
                   "Description": "Licytujemy tak w sytuacji, gdy z układu ręki wynika, że lepiej jest go pokazać, niż pytać o skład ręki odpowiadającego. ",
-                  "Condition": "silna ręka układowa, krótkość w karo",
+                  "Condition": "14-17 PC, silna ręka układowa, krótkość w karo",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": null,
+                    "Lower": 14,
                     "Upper": null
                   },
                   "SpadesCardRange": {
@@ -18769,7 +18726,7 @@
                     "Upper": null
                   },
                   "SpadesStops": null,
-                  "HeartsStops": null,
+                  "HeartsStops": 2.0,
                   "DiamondsStops": null,
                   "ClubsStops": null,
                   "Aces": null,
@@ -18789,7 +18746,7 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "14+ PC, do gry",
+                  "Condition": "14-17 PC, brak zatrzymań z boku",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 14,
@@ -18811,9 +18768,9 @@
                     "Lower": null,
                     "Upper": null
                   },
-                  "SpadesStops": null,
-                  "HeartsStops": null,
-                  "DiamondsStops": null,
+                  "SpadesStops": 0.0,
+                  "HeartsStops": 0.0,
+                  "DiamondsStops": 0.0,
                   "ClubsStops": null,
                   "Aces": null,
                   "Kings": null,
@@ -18964,10 +18921,10 @@
               "Color": 4,
               "Type": 1,
               "Description": null,
-              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość pików",
+              "Condition": "16+ PC, aspiracje szlemikowe, 4+ kierów, krótkość pików",
               "Convention": "Niewygodny splinter",
               "PointsRange": {
-                "Lower": null,
+                "Lower": 16,
                 "Upper": null
               },
               "SpadesCardRange": {
@@ -19007,10 +18964,10 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!!",
+              "Condition": "16+ PC, aspiracje szlemikowe, 4+ kierów, krótkość kar, MOCNO SZTUCZNE!!",
               "Convention": "Niewygodny splinter",
               "PointsRange": {
-                "Lower": null,
+                "Lower": 16,
                 "Upper": null
               },
               "SpadesCardRange": {
@@ -19050,10 +19007,10 @@
               "Color": 1,
               "Type": 1,
               "Description": null,
-              "Condition": "aspiracje szlemikowe, 4+ kierów, krótkość treflii",
+              "Condition": "16+ PC, aspiracje szlemikowe, 4+ kierów, krótkość treflii",
               "Convention": "Niewygodny splinter",
               "PointsRange": {
-                "Lower": null,
+                "Lower": 16,
                 "Upper": null
               },
               "SpadesCardRange": {
