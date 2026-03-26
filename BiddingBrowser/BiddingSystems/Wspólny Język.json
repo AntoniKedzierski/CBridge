@@ -8930,7 +8930,51 @@
                   "OneRoundForcing": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [],
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": null,
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": true,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    }
+                  ],
                   "Code": "NT"
                 },
                 {
@@ -8939,7 +8983,7 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "naturalne, 4+ trefli",
+                  "Condition": "naturalne, 4+ trefli z fiigurą",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -8964,7 +9008,7 @@
                   "SpadesStops": null,
                   "HeartsStops": null,
                   "DiamondsStops": null,
-                  "ClubsStops": null,
+                  "ClubsStops": 1.0,
                   "Aces": null,
                   "Kings": null,
                   "ColorDistribution": null,
@@ -8982,7 +9026,7 @@
                   "Color": 2,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "naturalne, 4+ kar",
+                  "Condition": "naturalne, 4+ kar z figurą",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -9006,7 +9050,7 @@
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
-                  "DiamondsStops": null,
+                  "DiamondsStops": 1.0,
                   "ClubsStops": null,
                   "Aces": null,
                   "Kings": null,
@@ -9025,7 +9069,7 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "6+ kierów, ręka jednokolorowa",
+                  "Condition": "6+ kierów, ręka jednokolorowa, 2 figury kier",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -9048,7 +9092,7 @@
                     "Upper": null
                   },
                   "SpadesStops": null,
-                  "HeartsStops": null,
+                  "HeartsStops": 1.5,
                   "DiamondsStops": null,
                   "ClubsStops": null,
                   "Aces": null,
@@ -9112,10 +9156,10 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "11–14 PC, 3+ piki (podniesienia trójkowe!)",
+                  "Condition": "12–14 PC, 3+ piki (podniesienia trójkowe!)",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": 11,
+                    "Lower": null,
                     "Upper": 14
                   },
                   "SpadesCardRange": {
@@ -11116,7 +11160,7 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "naturalne, 4+ trefli",
+                  "Condition": "naturalne, 4+ trefli z figurą",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -11141,7 +11185,7 @@
                   "SpadesStops": null,
                   "HeartsStops": null,
                   "DiamondsStops": null,
-                  "ClubsStops": null,
+                  "ClubsStops": 1.0,
                   "Aces": null,
                   "Kings": null,
                   "ColorDistribution": null,
@@ -11159,7 +11203,7 @@
                   "Color": 2,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "naturalne, 4+ kar",
+                  "Condition": "naturalne, 4+ kar z figurą",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -11183,7 +11227,7 @@
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
-                  "DiamondsStops": null,
+                  "DiamondsStops": 1.0,
                   "ClubsStops": null,
                   "Aces": null,
                   "Kings": null,
@@ -11202,7 +11246,7 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "6+ kierów, ręka jednokolorowa",
+                  "Condition": "6+ kierów, ręka jednokolorowa, 2 figury kier",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -11225,7 +11269,7 @@
                     "Upper": null
                   },
                   "SpadesStops": null,
-                  "HeartsStops": null,
+                  "HeartsStops": 1.5,
                   "DiamondsStops": null,
                   "ClubsStops": null,
                   "Aces": null,
@@ -11793,7 +11837,7 @@
                       "OpenerBid": false,
                       "SignOff": false,
                       "OneRoundForcing": false,
-                      "GameForcing": false,
+                      "GameForcing": true,
                       "AutomaticResponse": false,
                       "NextBids": [],
                       "Code": "♠"
@@ -11804,7 +11848,7 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "końcówka",
+                      "Condition": "żadne z powyższych, końcówka",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -11816,15 +11860,15 @@
                       },
                       "HeartsCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 3
                       },
                       "DiamondsCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 4
                       },
                       "ClubsCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 4
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
@@ -19063,8 +19107,8 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "14-17 PC, pytanie o wariant ręki, SZTUCZNE!!",
-                  "Convention": null,
+                  "Condition": "14-17 PC, SZTUCZNE!!",
+                  "Convention": "pytanie o wariant ręki",
                   "PointsRange": {
                     "Lower": 14,
                     "Upper": null
