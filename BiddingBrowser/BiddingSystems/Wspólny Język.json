@@ -9715,7 +9715,7 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ kar, BRAK zatrzymań, brak 6 pików,  sign-off na karo",
+                      "Condition": "DO GRANIA W KARO, 4+ kar, BRAK zatrzymań, brak 6 pików,  sign-off na karo",
                       "Convention": "słaby check-back",
                       "PointsRange": {
                         "Lower": null,
@@ -9730,7 +9730,7 @@
                         "Upper": null
                       },
                       "DiamondsCardRange": {
-                        "Lower": null,
+                        "Lower": 4,
                         "Upper": null
                       },
                       "ClubsCardRange": {
@@ -9846,138 +9846,7 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "skład 5 pik-2 kier-2-2",
-                      "Convention": "słaby check-back",
-                      "PointsRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesCardRange": {
-                        "Lower": 5,
-                        "Upper": 5
-                      },
-                      "HeartsCardRange": {
-                        "Lower": 3,
-                        "Upper": null
-                      },
-                      "DiamondsCardRange": {
-                        "Lower": 2,
-                        "Upper": 2
-                      },
-                      "ClubsCardRange": {
-                        "Lower": 3,
-                        "Upper": null
-                      },
-                      "SpadesStops": null,
-                      "HeartsStops": null,
-                      "DiamondsStops": null,
-                      "ClubsStops": null,
-                      "Aces": null,
-                      "Kings": null,
-                      "ColorDistribution": "5332",
-                      "OpenerBid": false,
-                      "SignOff": false,
-                      "OneRoundForcing": false,
-                      "GameForcing": false,
-                      "AutomaticResponse": false,
-                      "NextBids": [
-                        {
-                          "Identifier": "<empty>",
-                          "Value": 2,
-                          "Color": 2,
-                          "Type": 1,
-                          "Description": null,
-                          "Condition": "automat konwencji",
-                          "Convention": "check-back",
-                          "PointsRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "SpadesCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "HeartsCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "DiamondsCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "ClubsCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "SpadesStops": null,
-                          "HeartsStops": null,
-                          "DiamondsStops": null,
-                          "ClubsStops": null,
-                          "Aces": null,
-                          "Kings": null,
-                          "ColorDistribution": null,
-                          "OpenerBid": true,
-                          "SignOff": false,
-                          "OneRoundForcing": false,
-                          "GameForcing": false,
-                          "AutomaticResponse": true,
-                          "NextBids": [
-                            {
-                              "Identifier": "<empty>",
-                              "Value": 2,
-                              "Color": 4,
-                              "Type": 1,
-                              "Description": null,
-                              "Condition": "5+ pików, rozwiązanie gałęzi",
-                              "Convention": null,
-                              "PointsRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "SpadesCardRange": {
-                                "Lower": 5,
-                                "Upper": null
-                              },
-                              "HeartsCardRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "DiamondsCardRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "ClubsCardRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "SpadesStops": null,
-                              "HeartsStops": null,
-                              "DiamondsStops": null,
-                              "ClubsStops": null,
-                              "Aces": null,
-                              "Kings": null,
-                              "ColorDistribution": null,
-                              "OpenerBid": false,
-                              "SignOff": false,
-                              "OneRoundForcing": false,
-                              "GameForcing": false,
-                              "AutomaticResponse": true,
-                              "NextBids": [],
-                              "Code": "♠"
-                            }
-                          ],
-                          "Code": "♦"
-                        }
-                      ],
-                      "Code": "♣"
-                    },
-                    {
-                      "Identifier": "<empty>",
-                      "Value": 2,
-                      "Color": 1,
-                      "Type": 1,
-                      "Description": null,
-                      "Condition": "3+ kierów z figurą, inwit",
+                      "Condition": "DO GRANIA W KIERY, 3+ kierów z figurą, inwit",
                       "Convention": "słaby check-back",
                       "PointsRange": {
                         "Lower": null,
@@ -9988,7 +9857,7 @@
                         "Upper": null
                       },
                       "HeartsCardRange": {
-                        "Lower": null,
+                        "Lower": 3,
                         "Upper": null
                       },
                       "DiamondsCardRange": {
@@ -10059,7 +9928,7 @@
                               "Color": 3,
                               "Type": 1,
                               "Description": null,
-                              "Condition": "automat",
+                              "Condition": "3+ kierów, rozwiązanie gałęzi",
                               "Convention": null,
                               "PointsRange": {
                                 "Lower": null,
@@ -10093,51 +9962,7 @@
                               "OneRoundForcing": false,
                               "GameForcing": false,
                               "AutomaticResponse": true,
-                              "NextBids": [
-                                {
-                                  "Identifier": "<empty>",
-                                  "Value": 2,
-                                  "Color": 4,
-                                  "Type": 1,
-                                  "Description": null,
-                                  "Condition": "5+ pików, rozwiązanie gałęzi",
-                                  "Convention": null,
-                                  "PointsRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesCardRange": {
-                                    "Lower": 5,
-                                    "Upper": null
-                                  },
-                                  "HeartsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "DiamondsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "ClubsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesStops": null,
-                                  "HeartsStops": null,
-                                  "DiamondsStops": null,
-                                  "ClubsStops": null,
-                                  "Aces": null,
-                                  "Kings": null,
-                                  "ColorDistribution": null,
-                                  "OpenerBid": false,
-                                  "SignOff": false,
-                                  "OneRoundForcing": false,
-                                  "GameForcing": false,
-                                  "AutomaticResponse": true,
-                                  "NextBids": [],
-                                  "Code": "♠"
-                                }
-                              ],
+                              "NextBids": [],
                               "Code": "♥"
                             }
                           ],
@@ -10152,14 +9977,14 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "5+ pików z figurą, inwit",
+                      "Condition": "DO GRANIA W PIKI, 5+ pików z figurą, inwit",
                       "Convention": "słaby check-back",
                       "PointsRange": {
                         "Lower": null,
                         "Upper": null
                       },
                       "SpadesCardRange": {
-                        "Lower": null,
+                        "Lower": 5,
                         "Upper": null
                       },
                       "HeartsCardRange": {
@@ -10174,7 +9999,7 @@
                         "Lower": null,
                         "Upper": null
                       },
-                      "SpadesStops": 1.0,
+                      "SpadesStops": null,
                       "HeartsStops": null,
                       "DiamondsStops": null,
                       "ClubsStops": null,
@@ -10234,7 +10059,7 @@
                               "Color": 4,
                               "Type": 1,
                               "Description": null,
-                              "Condition": "automat",
+                              "Condition": "5+ pików, rozwiązanie gałęzi",
                               "Convention": null,
                               "PointsRange": {
                                 "Lower": null,
@@ -10268,51 +10093,7 @@
                               "OneRoundForcing": false,
                               "GameForcing": false,
                               "AutomaticResponse": true,
-                              "NextBids": [
-                                {
-                                  "Identifier": "<empty>",
-                                  "Value": 2,
-                                  "Color": 4,
-                                  "Type": 1,
-                                  "Description": null,
-                                  "Condition": "5+ pików, rozwiązanie gałęzi",
-                                  "Convention": null,
-                                  "PointsRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesCardRange": {
-                                    "Lower": 5,
-                                    "Upper": null
-                                  },
-                                  "HeartsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "DiamondsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "ClubsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesStops": null,
-                                  "HeartsStops": null,
-                                  "DiamondsStops": null,
-                                  "ClubsStops": null,
-                                  "Aces": null,
-                                  "Kings": null,
-                                  "ColorDistribution": null,
-                                  "OpenerBid": false,
-                                  "SignOff": false,
-                                  "OneRoundForcing": false,
-                                  "GameForcing": false,
-                                  "AutomaticResponse": true,
-                                  "NextBids": [],
-                                  "Code": "♠"
-                                }
-                              ],
+                              "NextBids": [],
                               "Code": "♠"
                             }
                           ],
@@ -10327,7 +10108,7 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "skład bezatutowy (modelowo 4-2-4-3 albo 4-2-3-4), inwit",
+                      "Condition": "DO GRANIA W BA, (modelowo 4-2-4-3 albo 4-2-3-4), inwit",
                       "Convention": "słaby check-back",
                       "PointsRange": {
                         "Lower": null,
@@ -10335,19 +10116,19 @@
                       },
                       "SpadesCardRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 4
                       },
                       "HeartsCardRange": {
                         "Lower": 2,
-                        "Upper": null
+                        "Upper": 4
                       },
                       "DiamondsCardRange": {
                         "Lower": 3,
-                        "Upper": null
+                        "Upper": 5
                       },
                       "ClubsCardRange": {
                         "Lower": 3,
-                        "Upper": null
+                        "Upper": 5
                       },
                       "SpadesStops": null,
                       "HeartsStops": null,
@@ -10409,7 +10190,7 @@
                               "Color": 5,
                               "Type": 1,
                               "Description": null,
-                              "Condition": "automat",
+                              "Condition": "potwierdzenie układu BA, koniec check-backów",
                               "Convention": null,
                               "PointsRange": {
                                 "Lower": null,
@@ -10443,51 +10224,7 @@
                               "OneRoundForcing": false,
                               "GameForcing": false,
                               "AutomaticResponse": true,
-                              "NextBids": [
-                                {
-                                  "Identifier": "<empty>",
-                                  "Value": 2,
-                                  "Color": 4,
-                                  "Type": 1,
-                                  "Description": null,
-                                  "Condition": "5+ pików, rozwiązanie gałęzi",
-                                  "Convention": null,
-                                  "PointsRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesCardRange": {
-                                    "Lower": 5,
-                                    "Upper": null
-                                  },
-                                  "HeartsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "DiamondsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "ClubsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesStops": null,
-                                  "HeartsStops": null,
-                                  "DiamondsStops": null,
-                                  "ClubsStops": null,
-                                  "Aces": null,
-                                  "Kings": null,
-                                  "ColorDistribution": null,
-                                  "OpenerBid": false,
-                                  "SignOff": false,
-                                  "OneRoundForcing": false,
-                                  "GameForcing": false,
-                                  "AutomaticResponse": true,
-                                  "NextBids": [],
-                                  "Code": "♠"
-                                }
-                              ],
+                              "NextBids": [],
                               "Code": "NT"
                             }
                           ],
@@ -10502,7 +10239,7 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ trefli z figurą, inwit do bez atu",
+                      "Condition": "DO GRANIA TREFLI, 4+ trefli z figurą, inwit do bez atu",
                       "Convention": "słaby check-back",
                       "PointsRange": {
                         "Lower": null,
@@ -10584,7 +10321,7 @@
                               "Color": 1,
                               "Type": 1,
                               "Description": null,
-                              "Condition": "automat",
+                              "Condition": "potwierdznie trefli, koniec check-backów",
                               "Convention": null,
                               "PointsRange": {
                                 "Lower": null,
@@ -10618,51 +10355,7 @@
                               "OneRoundForcing": false,
                               "GameForcing": false,
                               "AutomaticResponse": true,
-                              "NextBids": [
-                                {
-                                  "Identifier": "<empty>",
-                                  "Value": 2,
-                                  "Color": 4,
-                                  "Type": 1,
-                                  "Description": null,
-                                  "Condition": "5+ pików, rozwiązanie gałęzi",
-                                  "Convention": null,
-                                  "PointsRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesCardRange": {
-                                    "Lower": 5,
-                                    "Upper": null
-                                  },
-                                  "HeartsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "DiamondsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "ClubsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesStops": null,
-                                  "HeartsStops": null,
-                                  "DiamondsStops": null,
-                                  "ClubsStops": null,
-                                  "Aces": null,
-                                  "Kings": null,
-                                  "ColorDistribution": null,
-                                  "OpenerBid": false,
-                                  "SignOff": false,
-                                  "OneRoundForcing": false,
-                                  "GameForcing": false,
-                                  "AutomaticResponse": true,
-                                  "NextBids": [],
-                                  "Code": "♠"
-                                }
-                              ],
+                              "NextBids": [],
                               "Code": "♣"
                             }
                           ],
@@ -10677,7 +10370,7 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "4+ kar z figurą, inwit do bez atu",
+                      "Condition": "DO GRANIA KARO, 4+ kar z figurą, inwit do bez atu",
                       "Convention": "słaby check-back",
                       "PointsRange": {
                         "Lower": null,
@@ -10759,7 +10452,7 @@
                               "Color": 2,
                               "Type": 1,
                               "Description": null,
-                              "Condition": "automat",
+                              "Condition": "potwierdznie karo, koniec check-backów",
                               "Convention": null,
                               "PointsRange": {
                                 "Lower": null,
@@ -10793,51 +10486,7 @@
                               "OneRoundForcing": false,
                               "GameForcing": false,
                               "AutomaticResponse": true,
-                              "NextBids": [
-                                {
-                                  "Identifier": "<empty>",
-                                  "Value": 2,
-                                  "Color": 4,
-                                  "Type": 1,
-                                  "Description": null,
-                                  "Condition": "5+ pików, rozwiązanie gałęzi",
-                                  "Convention": null,
-                                  "PointsRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesCardRange": {
-                                    "Lower": 5,
-                                    "Upper": null
-                                  },
-                                  "HeartsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "DiamondsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "ClubsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesStops": null,
-                                  "HeartsStops": null,
-                                  "DiamondsStops": null,
-                                  "ClubsStops": null,
-                                  "Aces": null,
-                                  "Kings": null,
-                                  "ColorDistribution": null,
-                                  "OpenerBid": false,
-                                  "SignOff": false,
-                                  "OneRoundForcing": false,
-                                  "GameForcing": false,
-                                  "AutomaticResponse": true,
-                                  "NextBids": [],
-                                  "Code": "♠"
-                                }
-                              ],
+                              "NextBids": [],
                               "Code": "♦"
                             }
                           ],
@@ -10852,14 +10501,14 @@
                       "Color": 1,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "6 pików, BEZ zatrzymania pik, inwit",
+                      "Condition": "DO GRANIA PIKÓW, 6 pików, BEZ zatrzymania pik, inwit",
                       "Convention": "słaby check-back",
                       "PointsRange": {
                         "Lower": null,
                         "Upper": null
                       },
                       "SpadesCardRange": {
-                        "Lower": null,
+                        "Lower": 6,
                         "Upper": null
                       },
                       "HeartsCardRange": {
@@ -10934,7 +10583,7 @@
                               "Color": 4,
                               "Type": 1,
                               "Description": null,
-                              "Condition": "automat",
+                              "Condition": "potwierdznie pików, koniec check-backów",
                               "Convention": null,
                               "PointsRange": {
                                 "Lower": null,
@@ -10963,56 +10612,143 @@
                               "Aces": null,
                               "Kings": null,
                               "ColorDistribution": null,
-                              "OpenerBid": true,
+                              "OpenerBid": false,
                               "SignOff": false,
                               "OneRoundForcing": false,
                               "GameForcing": false,
                               "AutomaticResponse": true,
-                              "NextBids": [
-                                {
-                                  "Identifier": "<empty>",
-                                  "Value": 2,
-                                  "Color": 4,
-                                  "Type": 1,
-                                  "Description": null,
-                                  "Condition": "5+ pików, rozwiązanie gałęzi",
-                                  "Convention": null,
-                                  "PointsRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesCardRange": {
-                                    "Lower": 5,
-                                    "Upper": null
-                                  },
-                                  "HeartsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "DiamondsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "ClubsCardRange": {
-                                    "Lower": null,
-                                    "Upper": null
-                                  },
-                                  "SpadesStops": null,
-                                  "HeartsStops": null,
-                                  "DiamondsStops": null,
-                                  "ClubsStops": null,
-                                  "Aces": null,
-                                  "Kings": null,
-                                  "ColorDistribution": null,
-                                  "OpenerBid": false,
-                                  "SignOff": false,
-                                  "OneRoundForcing": false,
-                                  "GameForcing": false,
-                                  "AutomaticResponse": true,
-                                  "NextBids": [],
-                                  "Code": "♠"
-                                }
-                              ],
+                              "NextBids": [],
+                              "Code": "♠"
+                            }
+                          ],
+                          "Code": "♦"
+                        }
+                      ],
+                      "Code": "♣"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "DO GRANIA 3BA, 12-15 PC, skład 5332 z dublem kier",
+                      "Convention": "słaby check-back",
+                      "PointsRange": {
+                        "Lower": 12,
+                        "Upper": 15
+                      },
+                      "SpadesCardRange": {
+                        "Lower": 5,
+                        "Upper": 5
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 2,
+                        "Upper": 2
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": 3,
+                        "Upper": 3
+                      },
+                      "ClubsCardRange": {
+                        "Lower": 3,
+                        "Upper": 3
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 2,
+                          "Color": 2,
+                          "Type": 1,
+                          "Description": null,
+                          "Condition": "automat konwencji",
+                          "Convention": "słaby check-back",
+                          "PointsRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": false,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": true,
+                          "NextBids": [
+                            {
+                              "Identifier": "<empty>",
+                              "Value": 3,
+                              "Color": 4,
+                              "Type": 1,
+                              "Description": null,
+                              "Condition": "potwierdznie BA, koniec check-backów",
+                              "Convention": null,
+                              "PointsRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "SpadesCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "HeartsCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "DiamondsCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "ClubsCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "SpadesStops": null,
+                              "HeartsStops": null,
+                              "DiamondsStops": null,
+                              "ClubsStops": null,
+                              "Aces": null,
+                              "Kings": null,
+                              "ColorDistribution": null,
+                              "OpenerBid": false,
+                              "SignOff": false,
+                              "OneRoundForcing": false,
+                              "GameForcing": false,
+                              "AutomaticResponse": true,
+                              "NextBids": [],
                               "Code": "♠"
                             }
                           ],
@@ -18894,7 +18630,7 @@
               "Color": 3,
               "Type": 1,
               "Description": null,
-              "Condition": "7–10 PC, fit 3+ kartowy (nie wyklucza 4+ pików) ",
+              "Condition": "7–10 PC, fit 3+ kartowy, maks. 3 piki ",
               "Convention": null,
               "PointsRange": {
                 "Lower": 7,
@@ -18902,7 +18638,7 @@
               },
               "SpadesCardRange": {
                 "Lower": null,
-                "Upper": null
+                "Upper": 3
               },
               "HeartsCardRange": {
                 "Lower": 3,
