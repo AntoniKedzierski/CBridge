@@ -17,6 +17,7 @@ namespace BiddingBrowser.BiddingTree.Validation {
 
     internal sealed class TreeValidator
     {
+        private const string EmptyIdentifier = "<empty>";
         private const int MinPC = 0;
         private const int MaxPC = 40;
 
@@ -73,10 +74,6 @@ namespace BiddingBrowser.BiddingTree.Validation {
             if (string.IsNullOrWhiteSpace(label))
                 label = "<bid>";
 
-            if (!string.IsNullOrWhiteSpace(bid.Identifier)) {
-                return $"{label} ({bid.Identifier})";
-            }
-
             return label;
         }
 
@@ -89,7 +86,8 @@ namespace BiddingBrowser.BiddingTree.Validation {
                     ValidationSeverity.Error,
                     "Invalid speaker alternation: child has the same OpenerBid as parent.",
                     currentPath,
-                    string.IsNullOrWhiteSpace(current.Identifier) ? null : current.Identifier
+                    GetDisplayIdentifier(current),
+                    GetConventionContext(current)
                 ));
             }
         }
@@ -112,7 +110,9 @@ namespace BiddingBrowser.BiddingTree.Validation {
                 issues.Add(new ValidationIssue(
                     ValidationSeverity.Error,
                     $"{rangeName} is invalid: Lower ({lower}) > Upper ({upper}).",
-                    path
+                    path,
+                    GetDisplayIdentifier(bid),
+                    GetConventionContext(bid)
                 ));
             }
 
@@ -120,7 +120,9 @@ namespace BiddingBrowser.BiddingTree.Validation {
                 issues.Add(new ValidationIssue(
                     ValidationSeverity.Error,
                     $"{rangeName}.Lower ({lower}) is outside domain [{minDomain}, {maxDomain}].",
-                    path
+                    path,
+                    GetDisplayIdentifier(bid),
+                    GetConventionContext(bid)
                 ));
             }
 
@@ -128,7 +130,9 @@ namespace BiddingBrowser.BiddingTree.Validation {
                 issues.Add(new ValidationIssue(
                     ValidationSeverity.Error,
                     $"{rangeName}.Upper ({upper}) is outside domain [{minDomain}, {maxDomain}].",
-                    path
+                    path,
+                    GetDisplayIdentifier(bid),
+                    GetConventionContext(bid)
                 ));
             }
         }
@@ -147,7 +151,8 @@ namespace BiddingBrowser.BiddingTree.Validation {
                         ValidationSeverity.Error,
                         $"Bid is impossible due to PC constraints (opener). Constraint: {constraint}, Current: {con.Opener.Pc}.",
                         currentPath,
-                        string.IsNullOrWhiteSpace(current.Identifier) ? null : current.Identifier
+                        GetDisplayIdentifier(current),
+                        GetConventionContext(current)
                     ));
                     return false;
                 }
@@ -161,7 +166,8 @@ namespace BiddingBrowser.BiddingTree.Validation {
                         ValidationSeverity.Error,
                         $"Bid is impossible due to PC constraints (responder). Constraint: {constraint}, Current: {con.Responder.Pc}.",
                         currentPath,
-                        string.IsNullOrWhiteSpace(current.Identifier) ? null : current.Identifier
+                        GetDisplayIdentifier(current),
+                        GetConventionContext(current)
                     ));
                     return false;
                 }
@@ -203,7 +209,8 @@ namespace BiddingBrowser.BiddingTree.Validation {
                     ValidationSeverity.Error,
                     $"Bid is impossible due to suit length constraints ({(isOpener ? "opener" : "responder")}). {suit}: Constraint: {constraint}, Current: {currentRange}.",
                     currentPath,
-                    string.IsNullOrWhiteSpace(current.Identifier) ? null : current.Identifier
+                    GetDisplayIdentifier(current),
+                    GetConventionContext(current)
                 ));
                 return false;
             }
@@ -227,7 +234,8 @@ namespace BiddingBrowser.BiddingTree.Validation {
                     ValidationSeverity.Error,
                     $"Partnership PC impossible: min sum {minSum} > {MaxPC}. Opener {con.Opener.Pc}, Responder {con.Responder.Pc}.",
                     currentPath,
-                    string.IsNullOrWhiteSpace(current.Identifier) ? null : current.Identifier
+                    GetDisplayIdentifier(current),
+                    GetConventionContext(current)
                 ));
                 return false;
             }
@@ -266,7 +274,8 @@ namespace BiddingBrowser.BiddingTree.Validation {
                     ValidationSeverity.Error,
                     $"Partnership {suitName} length impossible: min sum {minSum} > {MaxCards}. Opener {o}, Responder {r}.",
                     currentPath,
-                    string.IsNullOrWhiteSpace(current.Identifier) ? null : current.Identifier
+                    GetDisplayIdentifier(current),
+                    GetConventionContext(current)
                 ));
                 return false;
             }
@@ -276,6 +285,35 @@ namespace BiddingBrowser.BiddingTree.Validation {
 
 
 
+        private static string? GetDisplayIdentifier(Bid bid) {
+            if (string.IsNullOrWhiteSpace(bid.Identifier)) {
+                return null;
+            }
+
+            return string.Equals(bid.Identifier, EmptyIdentifier, StringComparison.Ordinal)
+                ? null
+                : bid.Identifier;
+        }
+
+        private static string? GetConventionContext(Bid bid) {
+            var conventions = new List<string>();
+            Bid? current = bid;
+
+            while (current is not null) {
+                if (!string.IsNullOrWhiteSpace(current.Convention)) {
+                    conventions.Add($"{FormatBid(current)}: {current.Convention.Trim()}");
+                }
+
+                current = current.Parent as Bid;
+            }
+
+            if (conventions.Count == 0) {
+                return null;
+            }
+
+            conventions.Reverse();
+            return string.Join(" | ", conventions);
+        }
 
 
 
