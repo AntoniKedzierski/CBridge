@@ -10629,137 +10629,6 @@
                     {
                       "Identifier": "<empty>",
                       "Value": 2,
-                      "Color": 1,
-                      "Type": 1,
-                      "Description": null,
-                      "Condition": "DO GRANIA 3BA, 12-15 PC, skład 5332 z dublem kier",
-                      "Convention": "słaby check-back",
-                      "PointsRange": {
-                        "Lower": 12,
-                        "Upper": 15
-                      },
-                      "SpadesCardRange": {
-                        "Lower": 5,
-                        "Upper": 5
-                      },
-                      "HeartsCardRange": {
-                        "Lower": 2,
-                        "Upper": 2
-                      },
-                      "DiamondsCardRange": {
-                        "Lower": 3,
-                        "Upper": 3
-                      },
-                      "ClubsCardRange": {
-                        "Lower": 3,
-                        "Upper": 3
-                      },
-                      "SpadesStops": null,
-                      "HeartsStops": null,
-                      "DiamondsStops": null,
-                      "ClubsStops": null,
-                      "Aces": null,
-                      "Kings": null,
-                      "ColorDistribution": null,
-                      "OpenerBid": false,
-                      "SignOff": false,
-                      "OneRoundForcing": false,
-                      "GameForcing": false,
-                      "AutomaticResponse": false,
-                      "NextBids": [
-                        {
-                          "Identifier": "<empty>",
-                          "Value": 2,
-                          "Color": 2,
-                          "Type": 1,
-                          "Description": null,
-                          "Condition": "automat konwencji",
-                          "Convention": "słaby check-back",
-                          "PointsRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "SpadesCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "HeartsCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "DiamondsCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "ClubsCardRange": {
-                            "Lower": null,
-                            "Upper": null
-                          },
-                          "SpadesStops": null,
-                          "HeartsStops": null,
-                          "DiamondsStops": null,
-                          "ClubsStops": null,
-                          "Aces": null,
-                          "Kings": null,
-                          "ColorDistribution": null,
-                          "OpenerBid": true,
-                          "SignOff": false,
-                          "OneRoundForcing": false,
-                          "GameForcing": false,
-                          "AutomaticResponse": true,
-                          "NextBids": [
-                            {
-                              "Identifier": "<empty>",
-                              "Value": 3,
-                              "Color": 4,
-                              "Type": 1,
-                              "Description": null,
-                              "Condition": "potwierdznie BA, koniec check-backów",
-                              "Convention": null,
-                              "PointsRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "SpadesCardRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "HeartsCardRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "DiamondsCardRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "ClubsCardRange": {
-                                "Lower": null,
-                                "Upper": null
-                              },
-                              "SpadesStops": null,
-                              "HeartsStops": null,
-                              "DiamondsStops": null,
-                              "ClubsStops": null,
-                              "Aces": null,
-                              "Kings": null,
-                              "ColorDistribution": null,
-                              "OpenerBid": false,
-                              "SignOff": false,
-                              "OneRoundForcing": false,
-                              "GameForcing": false,
-                              "AutomaticResponse": true,
-                              "NextBids": [],
-                              "Code": "♠"
-                            }
-                          ],
-                          "Code": "♦"
-                        }
-                      ],
-                      "Code": "♣"
-                    },
-                    {
-                      "Identifier": "<empty>",
-                      "Value": 2,
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
@@ -11967,6 +11836,137 @@
                   "GameForcing": false,
                   "AutomaticResponse": false,
                   "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 2,
+                      "Color": 1,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "DO GRANIA 3BA, 12-15 PC, skład 5332 z dublem kier",
+                      "Convention": "słaby check-back",
+                      "PointsRange": {
+                        "Lower": 12,
+                        "Upper": 15
+                      },
+                      "SpadesCardRange": {
+                        "Lower": 5,
+                        "Upper": 5
+                      },
+                      "HeartsCardRange": {
+                        "Lower": 2,
+                        "Upper": 2
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": 3,
+                        "Upper": 3
+                      },
+                      "ClubsCardRange": {
+                        "Lower": 3,
+                        "Upper": 3
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [
+                        {
+                          "Identifier": "<empty>",
+                          "Value": 2,
+                          "Color": 2,
+                          "Type": 1,
+                          "Description": null,
+                          "Condition": "automat konwencji",
+                          "Convention": "słaby check-back",
+                          "PointsRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "HeartsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "DiamondsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "ClubsCardRange": {
+                            "Lower": null,
+                            "Upper": null
+                          },
+                          "SpadesStops": null,
+                          "HeartsStops": null,
+                          "DiamondsStops": null,
+                          "ClubsStops": null,
+                          "Aces": null,
+                          "Kings": null,
+                          "ColorDistribution": null,
+                          "OpenerBid": true,
+                          "SignOff": false,
+                          "OneRoundForcing": false,
+                          "GameForcing": false,
+                          "AutomaticResponse": true,
+                          "NextBids": [
+                            {
+                              "Identifier": "<empty>",
+                              "Value": 3,
+                              "Color": 4,
+                              "Type": 1,
+                              "Description": null,
+                              "Condition": "potwierdznie BA, koniec check-backów",
+                              "Convention": null,
+                              "PointsRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "SpadesCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "HeartsCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "DiamondsCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "ClubsCardRange": {
+                                "Lower": null,
+                                "Upper": null
+                              },
+                              "SpadesStops": null,
+                              "HeartsStops": null,
+                              "DiamondsStops": null,
+                              "ClubsStops": null,
+                              "Aces": null,
+                              "Kings": null,
+                              "ColorDistribution": null,
+                              "OpenerBid": false,
+                              "SignOff": false,
+                              "OneRoundForcing": false,
+                              "GameForcing": false,
+                              "AutomaticResponse": true,
+                              "NextBids": [],
+                              "Code": "♠"
+                            }
+                          ],
+                          "Code": "♦"
+                        }
+                      ],
+                      "Code": "♣"
+                    },
                     {
                       "Identifier": "<empty>",
                       "Value": 2,
@@ -13611,49 +13611,6 @@
                     {
                       "Identifier": "<empty>",
                       "Value": 2,
-                      "Color": 4,
-                      "Type": 1,
-                      "Description": null,
-                      "Condition": "4+ piki, czwarty kolor",
-                      "Convention": null,
-                      "PointsRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesCardRange": {
-                        "Lower": 4,
-                        "Upper": null
-                      },
-                      "HeartsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "DiamondsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "ClubsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesStops": null,
-                      "HeartsStops": null,
-                      "DiamondsStops": null,
-                      "ClubsStops": null,
-                      "Aces": null,
-                      "Kings": null,
-                      "ColorDistribution": null,
-                      "OpenerBid": false,
-                      "SignOff": false,
-                      "OneRoundForcing": false,
-                      "GameForcing": false,
-                      "AutomaticResponse": false,
-                      "NextBids": [],
-                      "Code": "♠"
-                    },
-                    {
-                      "Identifier": "<empty>",
-                      "Value": 2,
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
@@ -14172,49 +14129,6 @@
                     {
                       "Identifier": "<empty>",
                       "Value": 3,
-                      "Color": 4,
-                      "Type": 1,
-                      "Description": null,
-                      "Condition": "4+ piki, silne uzgodnienie pików z figurą",
-                      "Convention": null,
-                      "PointsRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesCardRange": {
-                        "Lower": 4,
-                        "Upper": null
-                      },
-                      "HeartsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "DiamondsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "ClubsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesStops": 1.0,
-                      "HeartsStops": null,
-                      "DiamondsStops": null,
-                      "ClubsStops": null,
-                      "Aces": null,
-                      "Kings": null,
-                      "ColorDistribution": null,
-                      "OpenerBid": false,
-                      "SignOff": false,
-                      "OneRoundForcing": false,
-                      "GameForcing": false,
-                      "AutomaticResponse": false,
-                      "NextBids": [],
-                      "Code": "♠"
-                    },
-                    {
-                      "Identifier": "<empty>",
-                      "Value": 3,
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
@@ -14518,49 +14432,6 @@
                     {
                       "Identifier": "<empty>",
                       "Value": 3,
-                      "Color": 4,
-                      "Type": 1,
-                      "Description": null,
-                      "Condition": "4+ pików, 2 stopy pik do 3BA (trzeci kolor)",
-                      "Convention": null,
-                      "PointsRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesCardRange": {
-                        "Lower": 4,
-                        "Upper": null
-                      },
-                      "HeartsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "DiamondsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "ClubsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesStops": 2.0,
-                      "HeartsStops": null,
-                      "DiamondsStops": null,
-                      "ClubsStops": null,
-                      "Aces": null,
-                      "Kings": null,
-                      "ColorDistribution": null,
-                      "OpenerBid": false,
-                      "SignOff": false,
-                      "OneRoundForcing": false,
-                      "GameForcing": false,
-                      "AutomaticResponse": false,
-                      "NextBids": [],
-                      "Code": "♠"
-                    },
-                    {
-                      "Identifier": "<empty>",
-                      "Value": 3,
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
@@ -14687,49 +14558,6 @@
                       "AutomaticResponse": false,
                       "NextBids": [],
                       "Code": "♥"
-                    },
-                    {
-                      "Identifier": "<empty>",
-                      "Value": 3,
-                      "Color": 4,
-                      "Type": 1,
-                      "Description": null,
-                      "Condition": "4+ pików, czwarty kolor",
-                      "Convention": null,
-                      "PointsRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesCardRange": {
-                        "Lower": 4,
-                        "Upper": null
-                      },
-                      "HeartsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "DiamondsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "ClubsCardRange": {
-                        "Lower": null,
-                        "Upper": null
-                      },
-                      "SpadesStops": null,
-                      "HeartsStops": null,
-                      "DiamondsStops": null,
-                      "ClubsStops": null,
-                      "Aces": null,
-                      "Kings": null,
-                      "ColorDistribution": null,
-                      "OpenerBid": false,
-                      "SignOff": false,
-                      "OneRoundForcing": false,
-                      "GameForcing": false,
-                      "AutomaticResponse": false,
-                      "NextBids": [],
-                      "Code": "♠"
                     },
                     {
                       "Identifier": "<empty>",
