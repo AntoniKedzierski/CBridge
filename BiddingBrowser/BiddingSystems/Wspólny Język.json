@@ -25242,7 +25242,266 @@
           "OneRoundForcing": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [],
+          "NextBids": [
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 3,
+              "Type": 1,
+              "Description": null,
+              "Condition": "13+ PC, 5+ kierów z figurą, inwit",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 5,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": 1.0,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 4,
+              "Type": 1,
+              "Description": null,
+              "Condition": "13+ PC, 5+ pików z figurą, inwit",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 5,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": 1.0,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 5,
+              "Type": 1,
+              "Description": "karta analogiczna jak na otwarcie 1 BA",
+              "Condition": "15+ PC, brak starszej 5",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "HeartsCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "DiamondsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "ClubsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "NT"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 1,
+              "Type": 1,
+              "Description": null,
+              "Condition": "10+ PC, 3+ trefli, przedłużenie bloku",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 10,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": 3,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♣"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 3,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 6+ kierów z 2 figurami",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": 1.5,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 4,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 6+ pikówz 2 figurami",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": 1.5,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            }
+          ],
           "Code": "♣"
         },
         {
@@ -25285,7 +25544,266 @@
           "OneRoundForcing": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [],
+          "NextBids": [
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 3,
+              "Type": 1,
+              "Description": null,
+              "Condition": "13+ PC, 5+ kierów z figurą, inwit",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 5,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": 1.0,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 4,
+              "Type": 1,
+              "Description": null,
+              "Condition": "13+ PC, 5+ pików z figurą, inwit",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 5,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": 1.0,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 5,
+              "Type": 1,
+              "Description": "karta analogiczna jak na otwarcie 1 BA",
+              "Condition": "15+ PC, brak starszej 5",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "HeartsCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "DiamondsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "ClubsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "NT"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 2,
+              "Type": 1,
+              "Description": null,
+              "Condition": "10+ PC, 3+ kar, przedłużenie bloku",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 10,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": 3,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♦"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 3,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 6+ kierów z 2 figurami",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": 1.5,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 4,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 6+ pikówz 2 figurami",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": 1.5,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            }
+          ],
           "Code": "♦"
         },
         {
@@ -25328,7 +25846,180 @@
           "OneRoundForcing": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [],
+          "NextBids": [
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 4,
+              "Type": 1,
+              "Description": null,
+              "Condition": "13+ PC, 5+ pików z figurą, force",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 5,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": 1.0,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": false,
+              "OneRoundForcing": false,
+              "GameForcing": true,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 5,
+              "Type": 1,
+              "Description": "karta analogiczna jak na otwarcie 1 BA",
+              "Condition": "15+ PC, brak starszej 5",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "HeartsCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "DiamondsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "ClubsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "NT"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 3,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 3+ kierów z figurą",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 3,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": 1.0,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 4,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 6+ pikówz 2 figurami",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": 1.5,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            }
+          ],
           "Code": "♥"
         },
         {
@@ -25371,7 +26062,137 @@
           "OneRoundForcing": false,
           "GameForcing": false,
           "AutomaticResponse": false,
-          "NextBids": [],
+          "NextBids": [
+            {
+              "Identifier": "<empty>",
+              "Value": 3,
+              "Color": 5,
+              "Type": 1,
+              "Description": "karta analogiczna jak na otwarcie 1 BA",
+              "Condition": "15+ PC, brak starszej 5",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 13,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "HeartsCardRange": {
+                "Lower": 2,
+                "Upper": 4
+              },
+              "DiamondsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "ClubsCardRange": {
+                "Lower": 2,
+                "Upper": 5
+              },
+              "SpadesStops": null,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "NT"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 3,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 6+ kierów z 2 figurami",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": 6,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": null,
+              "HeartsStops": 1.5,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♥"
+            },
+            {
+              "Identifier": "<empty>",
+              "Value": 4,
+              "Color": 4,
+              "Type": 1,
+              "Description": "wysprzęgnięcie na pewno??",
+              "Condition": "18+ PC, 3+ pików z figurą",
+              "Convention": null,
+              "PointsRange": {
+                "Lower": 18,
+                "Upper": null
+              },
+              "SpadesCardRange": {
+                "Lower": 3,
+                "Upper": null
+              },
+              "HeartsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "DiamondsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "ClubsCardRange": {
+                "Lower": null,
+                "Upper": null
+              },
+              "SpadesStops": 1.0,
+              "HeartsStops": null,
+              "DiamondsStops": null,
+              "ClubsStops": null,
+              "Aces": null,
+              "Kings": null,
+              "ColorDistribution": null,
+              "OpenerBid": false,
+              "SignOff": true,
+              "OneRoundForcing": false,
+              "GameForcing": false,
+              "AutomaticResponse": false,
+              "NextBids": [],
+              "Code": "♠"
+            }
+          ],
           "Code": "♠"
         },
         {
