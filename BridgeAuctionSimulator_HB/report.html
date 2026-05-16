@@ -1,0 +1,66 @@
+﻿<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>Symulacja licytacji HB</title>
+<style>body{font-family:Segoe UI,Arial,sans-serif;margin:0;background:#f5f7fb;color:#162033}.wrap{max-width:1180px;margin:0 auto;padding:24px}h1{font-size:26px;margin:0 0 8px}.meta{color:#56616f;margin-bottom:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card,.panel{background:#fff;border:1px solid #dfe5ee;border-radius:8px;padding:14px}.hand h2,.panel h2{font-size:18px;margin:0 0 10px}.suit{display:grid;grid-template-columns:34px 1fr;gap:8px;margin:5px 0}.hcp{font-weight:700;margin-top:8px}table{border-collapse:collapse;width:100%;background:#fff}th,td{border:1px solid #dfe5ee;padding:8px;text-align:left;vertical-align:top}th{background:#eef2f7}.ok{color:#0b6b3a;font-weight:700}.warn{color:#8a4f00;font-weight:700}</style></head><body><main class="wrap">
+<h1>Symulacja licytacji brydżowej HB</h1>
+<div class="meta">System: Wsp&#243;lny Język | Plik: C:\Users\leemi\Documents\Visual Studio 2022\Projects\Four\BiddingBrowser\BiddingSystems\Wsp&#243;lny Język.json | Seed: 1</div>
+<section class="grid">
+<article class="card hand">
+<h2>North</h2>
+<div class="suit"><strong>♠</strong><span>K 10 7 4</span></div>
+<div class="suit"><strong>♥</strong><span>J 10 4 2</span></div>
+<div class="suit"><strong>♦</strong><span>3</span></div>
+<div class="suit"><strong>♣</strong><span>J 10 8 5</span></div>
+<div class="hcp">PC: 5</div>
+</article>
+<article class="card hand">
+<h2>East</h2>
+<div class="suit"><strong>♠</strong><span>J 9 8 2</span></div>
+<div class="suit"><strong>♥</strong><span>Q 8</span></div>
+<div class="suit"><strong>♦</strong><span>8 7 6 4 2</span></div>
+<div class="suit"><strong>♣</strong><span>9 2</span></div>
+<div class="hcp">PC: 3</div>
+</article>
+<article class="card hand">
+<h2>South</h2>
+<div class="suit"><strong>♠</strong><span>Q 6 3</span></div>
+<div class="suit"><strong>♥</strong><span>A 9 6 5</span></div>
+<div class="suit"><strong>♦</strong><span>A K J 10</span></div>
+<div class="suit"><strong>♣</strong><span>K 4</span></div>
+<div class="hcp">PC: 17</div>
+</article>
+<article class="card hand">
+<h2>West</h2>
+<div class="suit"><strong>♠</strong><span>A 5</span></div>
+<div class="suit"><strong>♥</strong><span>K 7 3</span></div>
+<div class="suit"><strong>♦</strong><span>Q 9 5</span></div>
+<div class="suit"><strong>♣</strong><span>A Q 7 6 3</span></div>
+<div class="hcp">PC: 15</div>
+</article>
+</section>
+<section class="grid" style="margin-top:14px">
+<article class="panel">
+<h2>NS</h2>
+<p>PC w parze: <strong>22</strong></p>
+<p>♠ 7, ♥ 8, ♦ 5, ♣ 6</p>
+<p>Figura w każdym kolorze: <span class="ok">tak</span></p>
+</article>
+<article class="panel">
+<h2>EW</h2>
+<p>PC w parze: <strong>18</strong></p>
+<p>♠ 6, ♥ 5, ♦ 8, ♣ 7</p>
+<p>Figura w każdym kolorze: <span class="ok">tak</span></p>
+</article>
+<article class="panel">
+<h2>Wynik</h2>
+<p>Cel z kart (kontrolnie): <span class="ok">NS: 1BA (Brak pełnej końc&#243;wki w losowym rozdaniu; wybrano parę z większą liczbą PC.)</span></p>
+<p>Cel z licytacji: <span class="ok">brak</span></p>
+<p>Kontrakt po trzech pasach: <span class="ok">1BA</span></p>
+</article></section>
+<section style="margin-top:18px"><h2>Licytacja</h2><table><thead><tr><th>#</th><th>Gracz</th><th>Odzywka</th><th>Warunek / konwencja</th><th>Uwagi</th></tr></thead><tbody>
+<tr><td>1</td><td>N</td><td><strong>Pass</strong></td><td></td><td></td></tr>
+<tr><td>2</td><td>E</td><td><strong>Pass</strong></td><td></td><td></td></tr>
+<tr><td>3</td><td>S</td><td><strong>1BA</strong></td><td>15-17 PC, skład zr&#243;wnoważony, możliwa młodsza piątka.</td><td></td></tr>
+<tr><td>4</td><td>W</td><td><strong>Pass</strong></td><td></td><td></td></tr>
+<tr><td>5</td><td>N</td><td><strong>Pass</strong></td><td></td><td></td></tr>
+<tr><td>6</td><td>E</td><td><strong>Pass</strong></td><td></td><td></td></tr>
+</tbody></table></section>
+<section class="panel" style="margin-top:18px"><h2>Gałąź drzewa</h2><p>1BA</p></section></main></body></html>
