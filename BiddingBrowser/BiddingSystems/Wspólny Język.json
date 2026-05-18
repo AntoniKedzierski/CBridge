@@ -24839,7 +24839,181 @@
               "OneRoundForcing": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [],
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": null,
+                  "Color": 0,
+                  "Type": 0,
+                  "Description": null,
+                  "Condition": "12-13 PC, minimum",
+                  "Convention": null,
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": 13
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": true,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "Pass"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "14-17 PC, zatrzymanie pik, inwit",
+                  "Convention": null,
+                  "PointsRange": {
+                    "Lower": 14,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": 1.0,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": "7-9 PC, minimum",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 4,
+                      "Color": 4,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "10-11 PC, maksimum",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♠"
+                    }
+                  ],
+                  "Code": "♠"
+                }
+              ],
               "Code": "♠"
             },
             {
