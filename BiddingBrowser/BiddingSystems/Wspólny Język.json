@@ -354,7 +354,7 @@
                       "Condition": "9-11 PC, *wysoce sztuczne!!*",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": 8,
+                        "Lower": 9,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -8117,7 +8117,7 @@
                       "Condition": "9-11 PC, *wysoce sztuczne!!*",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": 8,
+                        "Lower": 9,
                         "Upper": null
                       },
                       "SpadesCardRange": {
@@ -15130,7 +15130,7 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "brak innej wygodnej odzywki",
+                  "Condition": "brak 4 kart w każdym innym kolorze",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -15138,7 +15138,7 @@
                   },
                   "SpadesCardRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 3
                   },
                   "HeartsCardRange": {
                     "Lower": null,
@@ -15146,11 +15146,11 @@
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 3
                   },
                   "ClubsCardRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 3
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -16815,15 +16815,15 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "12-14 PC, brak innej wygodnej odzywki",
+                  "Condition": "brak 4 kart w każdym innym kolorze",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": 14
+                    "Upper": null
                   },
                   "SpadesCardRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 3
                   },
                   "HeartsCardRange": {
                     "Lower": null,
@@ -16831,11 +16831,11 @@
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 3
                   },
                   "ClubsCardRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 3
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -18492,7 +18492,181 @@
               "OneRoundForcing": false,
               "GameForcing": false,
               "AutomaticResponse": false,
-              "NextBids": [],
+              "NextBids": [
+                {
+                  "Identifier": "<empty>",
+                  "Value": null,
+                  "Color": 0,
+                  "Type": 0,
+                  "Description": null,
+                  "Condition": "12-13 PC, minimum",
+                  "Convention": null,
+                  "PointsRange": {
+                    "Lower": null,
+                    "Upper": 13
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": null,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": true,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [],
+                  "Code": "Pass"
+                },
+                {
+                  "Identifier": "<empty>",
+                  "Value": 3,
+                  "Color": 4,
+                  "Type": 1,
+                  "Description": null,
+                  "Condition": "14-17 PC, zatrzymanie kier, inwit",
+                  "Convention": null,
+                  "PointsRange": {
+                    "Lower": 14,
+                    "Upper": null
+                  },
+                  "SpadesCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "HeartsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "DiamondsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "ClubsCardRange": {
+                    "Lower": null,
+                    "Upper": null
+                  },
+                  "SpadesStops": null,
+                  "HeartsStops": 1.0,
+                  "DiamondsStops": null,
+                  "ClubsStops": null,
+                  "Aces": null,
+                  "Kings": null,
+                  "ColorDistribution": null,
+                  "OpenerBid": true,
+                  "SignOff": false,
+                  "OneRoundForcing": false,
+                  "GameForcing": false,
+                  "AutomaticResponse": false,
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": "7-9 PC, minimum",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": 9
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 4,
+                      "Color": 4,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "10-11 PC, maksimum",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": 10,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": false,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "♠"
+                    }
+                  ],
+                  "Code": "♠"
+                }
+              ],
               "Code": "♥"
             },
             {
@@ -24934,7 +25108,7 @@
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 9
                       },
                       "SpadesCardRange": {
                         "Lower": null,
@@ -24976,7 +25150,7 @@
                       "Condition": "10-11 PC, maksimum",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
+                        "Lower": 10,
                         "Upper": null
                       },
                       "SpadesCardRange": {
