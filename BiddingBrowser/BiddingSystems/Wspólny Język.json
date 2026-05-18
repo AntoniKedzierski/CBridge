@@ -18630,7 +18630,7 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "12+ PC, 4+ kiery z figurą, inwit do końcówki",
+              "Condition": "12+ PC, 3+ kiery z figurą, inwit do końcówki",
               "Convention": null,
               "PointsRange": {
                 "Lower": 12,
@@ -18641,7 +18641,7 @@
                 "Upper": null
               },
               "HeartsCardRange": {
-                "Lower": 4,
+                "Lower": 3,
                 "Upper": null
               },
               "DiamondsCardRange": {
@@ -18712,19 +18712,19 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "12-13 PC, 4 kiery, pozytywna ręka bez krótkości (BEZ aspiracji szlemikowych)",
+                      "Condition": "13+ PC, 3+ kiery, pozytywna ręka bez krótkości",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
-                        "Upper": 13
+                        "Lower": 13,
+                        "Upper": null
                       },
                       "SpadesCardRange": {
                         "Lower": null,
                         "Upper": 3
                       },
                       "HeartsCardRange": {
-                        "Lower": 4,
-                        "Upper": 4
+                        "Lower": 3,
+                        "Upper": null
                       },
                       "DiamondsCardRange": {
                         "Lower": null,
@@ -24848,14 +24848,14 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "12+ PC, 4+ pików z figurą, silne poparcie",
+              "Condition": "12+ PC, 3+ pików z figurą, silne poparcie",
               "Convention": null,
               "PointsRange": {
                 "Lower": 12,
                 "Upper": null
               },
               "SpadesCardRange": {
-                "Lower": 4,
+                "Lower": 3,
                 "Upper": null
               },
               "HeartsCardRange": {
@@ -24930,15 +24930,15 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "12-13 PC, 4 piki, pozytywna ręka bez krótkości (BEZ aspiracji szlemikowych)",
+                      "Condition": "13+ PC, 3+ piki, pozytywna ręka bez krótkości",
                       "Convention": null,
                       "PointsRange": {
-                        "Lower": null,
-                        "Upper": 13
+                        "Lower": 13,
+                        "Upper": null
                       },
                       "SpadesCardRange": {
-                        "Lower": 4,
-                        "Upper": 4
+                        "Lower": 3,
+                        "Upper": null
                       },
                       "HeartsCardRange": {
                         "Lower": null,
@@ -25005,7 +25005,7 @@
                       "OpenerBid": false,
                       "SignOff": false,
                       "OneRoundForcing": false,
-                      "GameForcing": true,
+                      "GameForcing": false,
                       "AutomaticResponse": false,
                       "NextBids": [],
                       "Code": "NT"
@@ -25048,7 +25048,7 @@
                       "OpenerBid": false,
                       "SignOff": false,
                       "OneRoundForcing": false,
-                      "GameForcing": true,
+                      "GameForcing": false,
                       "AutomaticResponse": false,
                       "NextBids": [],
                       "Code": "♣"
@@ -25091,7 +25091,7 @@
                       "OpenerBid": false,
                       "SignOff": false,
                       "OneRoundForcing": false,
-                      "GameForcing": true,
+                      "GameForcing": false,
                       "AutomaticResponse": false,
                       "NextBids": [],
                       "Code": "♦"
