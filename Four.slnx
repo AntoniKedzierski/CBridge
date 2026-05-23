@@ -1,6 +1,6 @@
 <Solution>
+  <Project Path="AuctionSimulator/AuctionSimulator.csproj" />
   <Project Path="BiddingBrowser/BiddingBrowser.csproj" />
-  <Project Path="BridgeAuctionSimulator_HB/BridgeAuctionSimulator_HB.csproj" />
   <Project Path="ConsoleUI/ConsoleUI.csproj" />
   <Project Path="Model/Model.csproj" />
 </Solution>

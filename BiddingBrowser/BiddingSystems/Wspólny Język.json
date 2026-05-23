@@ -11419,12 +11419,12 @@
                     "Upper": 4
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
-                    "Upper": 4
+                    "Lower": 1,
+                    "Upper": 5
                   },
                   "ClubsCardRange": {
-                    "Lower": 2,
-                    "Upper": 4
+                    "Lower": 1,
+                    "Upper": 5
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
