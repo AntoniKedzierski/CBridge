@@ -1,4 +1,6 @@
-﻿using Model.Enums;
+﻿using Model.Bidding;
+using Model.Bidding.AI;
+using Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,33 +18,48 @@ public class Game {
 
     private int _currentRoundNumber;
     private PlayerPosition _dealer;
-    
 
-    public Game(int numberOfRounds, string[] names) {
-        _numberOfRounds = numberOfRounds;
+    private Auction _auction;
+       
+    public Game() {
         _players = new Player[4];
+        _auction = new Auction();
+    }
+
+    public Game(int numberOfRounds, string[] names, IBidInput manualBidInput) : this() {
+        _numberOfRounds = numberOfRounds;
 
         if (names.Length != 3) {
             throw new InvalidOperationException("Three players must participate in a game.");
         }
 
-        _players[0] = new Player(names[0], PlayerPosition.North);
-        _players[1] = new Player(names[1], PlayerPosition.East);
-        _players[2] = new Player(names[2], PlayerPosition.South);
-        _players[3] = new Bot(PlayerPosition.West);
+        _players[0] = new Player(names[0], PlayerPosition.North, manualBidInput);
+        _players[1] = new Player(names[1], PlayerPosition.East, manualBidInput);
+        _players[2] = new Player(names[2], PlayerPosition.South, manualBidInput);
+        _players[2] = new Player("bot", PlayerPosition.West, new BidEngine(_auction));
         _gameMode = GameMode.ThreePlayers;
     }
 
 
-    public Game(int numberOfRounds) {
+    public Game(int numberOfRounds, string name, IBidInput manualBidInput) : this() {
         _numberOfRounds = numberOfRounds;
-        _players = new Player[4];
 
-        _players[0] = new Player("Player", PlayerPosition.North);
-        _players[1] = new Bot(PlayerPosition.East);
-        _players[2] = new Bot(PlayerPosition.South);
-        _players[3] = new Bot(PlayerPosition.West);
+        _players[0] = new Player(name, PlayerPosition.North, manualBidInput);
+        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction));
+        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction));
+        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction));
         _gameMode = GameMode.OnePlayer;
+    }
+
+
+    public Game(int numberOfRounds) : this() {
+        _numberOfRounds = numberOfRounds;
+
+        _players[0] = new Player("bot", PlayerPosition.North, new BidEngine(_auction));
+        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction));
+        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction));
+        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction));
+        _gameMode = GameMode.BotsOnly;
     }
 
 
@@ -66,8 +83,11 @@ public class Game {
 
 
     public bool Play() {
-        if (!NextRandomDeal()) {
-            return false;
+        while (NextRandomDeal()) {
+            while (!_auction.IsCompleted()) {
+                var currentBid = GetPlayer(_auction.CurrentBidder).MakeBid();
+                _auction.Submit(currentBid);
+            }
         }
 
         return true;

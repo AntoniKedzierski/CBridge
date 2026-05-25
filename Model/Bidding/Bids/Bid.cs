@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,5 +7,8 @@ using System.Threading.Tasks;
 
 namespace Model.Bidding.Bids;
 
-internal class Bid {
+public class Bid {
+    public BidType BidType { get; set; }
+    public BidColor Color { get; set; }
+    public int? Level { get; set; }
 }

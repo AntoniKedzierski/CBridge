@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Enums;
-
-public enum GameMode {
-    OnePlayer,
-    ThreePlayers,
-    BotsOnly
+namespace Model.Enums; 
+public enum BidType { 
+    Pass, 
+    Submit, 
+    Double, 
+    Redouble 
 }

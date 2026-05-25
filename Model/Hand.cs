@@ -1,4 +1,5 @@
-﻿using Model.Enums;
+﻿using Model.Bidding;
+using Model.Enums;
 using Model.Points;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,15 @@ namespace Model;
 public class Hand : IPoints {
 
     public Card[] Cards { get; private set; }
+    public int Points {  get; private set; }
+    public int PointsNt { get; private set; }
 
 
     public Hand(IEnumerable<Card> cards) {
         Cards = [.. cards];
         SortHand();
+        Points = CalculatePoints(false);
+        PointsNt = CalculatePoints(true);
     }
 
 
@@ -40,6 +45,26 @@ public class Hand : IPoints {
         }
 
         return totalPoints;
+    }
+
+    // TODO: Zatrzymania, układ kart, itp.
+    public bool Matches(NumberRange? points, NumberRange? spades, NumberRange? hearts, NumberRange? diamonds, NumberRange? clubs, int? aces, int? kings) {
+        return InRange(Points, points)
+            && InRange(OfColor(CardColor.Spades).Count(), spades)
+            && InRange(OfColor(CardColor.Hearts).Count(), hearts)
+            && InRange(OfColor(CardColor.Diamonds).Count(), diamonds)
+            && InRange(OfColor(CardColor.Clubs).Count(), clubs)
+            && (!aces.HasValue || OfValue(CardValue.Ace).Count() == aces.Value)
+            && (!kings.HasValue || OfValue(CardValue.King).Count() == kings.Value);
+    }
+
+    private static bool InRange(int value, NumberRange? range) {
+        if (range is null) {
+            return true;
+        }
+
+        return (!range.Lower.HasValue || value >= range.Lower.Value)
+            && (!range.Upper.HasValue || value <= range.Upper.Value);
     }
 
 

@@ -11,10 +11,12 @@ public class Program {
 
         var game = new Game(8);
 
-        while (game.NextRandomDeal()) {
-            game.GetPlayer(PlayerPosition.North).Hand.DisplayHand();
+        game.Play();
+
+        //while (game.NextRandomDeal()) {
+        //    game.GetPlayer(PlayerPosition.North).Hand.DisplayHand();
 
             
-        }
+        //}
     }
 }
