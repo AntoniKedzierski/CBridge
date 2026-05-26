@@ -18,6 +18,8 @@ public class Player {
     public string Name { get; private set; }
 
     public Hand Hand { get; private set; }
+
+    // IDEA: HandEvaluation MyHand -- for player to know what he told to others, might be useful in freestyle bidding
     public HandEvaluation PartnersHand { get; private set; }
     public HandEvaluation LeftOpponentsHand { get; private set; }
     public HandEvaluation RightOpponentsHand { get; private set; }
@@ -44,4 +46,5 @@ public class Player {
     public virtual Bid MakeBid() {
         return BidInput.Get(PartnersHand, LeftOpponentsHand, RightOpponentsHand);
     }
+
 }
