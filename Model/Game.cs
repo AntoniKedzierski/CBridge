@@ -23,7 +23,7 @@ public class Game {
        
     public Game() {
         _players = new Player[4];
-        _auction = new Auction();
+        _auction = new Auction(PlayerPosition.North); // North always starts as the dealer 
     }
 
     public Game(int numberOfRounds, string[] names, IBidInput manualBidInput) : this() {
