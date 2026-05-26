@@ -24,13 +24,13 @@ public class Player {
     public IBidInput BidInput { get; private set; }
 
 
-    public Player(string name, PlayerPosition startingPosition, IBidInput manualBidInput) {
+    public Player(string name, PlayerPosition startingPosition, IBidInput BidInput) {
         Name = name;
         CurrentPosition = startingPosition;
         PartnersHand = new HandEvaluation();
         LeftOpponentsHand = new HandEvaluation();
         RightOpponentsHand = new HandEvaluation();
-        BidInput = manualBidInput;
+        this.BidInput = BidInput;
     }
 
 

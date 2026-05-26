@@ -17,6 +17,15 @@ public class NumberRange {
         Upper = upper;
     }
 
+    public void Narrow(NumberRange? newValue) {
+        if (newValue.Lower != null && (Lower == null || newValue.Lower > Lower)) {
+            Lower = newValue.Lower;
+        }
+        if (newValue.Upper != null && (Upper == null || newValue.Upper < Upper)) {
+            Upper = newValue.Upper;
+        }
+    }
+
     public override string ToString() {
         if (Lower == null) {
             return $"<{Upper}";
