@@ -39,21 +39,21 @@ public class BidNode {
         return hand.Matches(PointsRange, SpadesCardRange, HeartsCardRange, DiamondsCardRange, ClubsCardRange, Aces, Kings);
     }
 
-    public Contract? ToContract() {
-        if (Type != BidType.Submit || !Value.HasValue || Value < 1 || Value > 7 || Color == BidColor.NoColor) {
-            return null;
-        }
+    //public Contract? ToContract() {
+    //    if (Type != BidType.Submit || !Value.HasValue || Value < 1 || Value > 7 || Color == BidColor.NoColor) {
+    //        return null;
+    //    }
 
-        return new Contract(Value.Value, Color);
-    }
+    //    return new Contract(Value.Value, Color);
+    //}
 
-    public static BidNode FromContract(Contract contract, string condition, string path) {
-        return new BidNode {
-            Value = contract.Level,
-            Color = contract.Color,
-            Type = BidType.Submit,
-            Condition = condition,
-            Path = $"{path} > {contract}"
-        };
-    }
+    //public static BidNode FromContract(Contract contract, string condition, string path) {
+    //    return new BidNode {
+    //        Value = contract.Level,
+    //        Color = contract.Color,
+    //        Type = BidType.Submit,
+    //        Condition = condition,
+    //        Path = $"{path} > {contract}"
+    //    };
+    //}
 }

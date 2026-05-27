@@ -47,4 +47,8 @@ public class Player {
         return BidInput.Get(PartnersHand, LeftOpponentsHand, RightOpponentsHand);
     }
 
+    public void EvaluateHands(Bid bid) {
+        BidInput.EvaluateHands(bid, PartnersHand, LeftOpponentsHand, RightOpponentsHand);
+    }
+
 }

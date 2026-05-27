@@ -10,20 +10,32 @@ namespace Model.Bidding.AI;
 
 public class BidEngine : IBidInput {
     public Auction Auction { get; private set; }
+    public BiddingSystem BiddingSystem { get; private set; }
+    public string BiddingSystemPath { get; private set; } = @"BiddingBrowser\BiddingSystems\Wspólny Język.json";
     public BidEngine(Auction auction) {
         Auction = auction;
+        BiddingSystem = new BiddingSystem(BiddingSystemPath);   //hardcoded path for now
     }
     public Bid Get(HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand) {
         throw new NotImplementedException();
     }
 
-    public void EvaluateAllHands(BidNode bidNode, HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand) {
+    public void EvaluateHands(Bid bid, HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand) {
+        List<BidNode> possibleBids = new List<BidNode>();
+
         partnersHand.Evaluate(bidNode);
         LeftOpponentsHand.Evaluate(bidNode);
         RightOpponentsHand.Evaluate(bidNode);
     }
 
-    public BidNode? findBidNode(Bid bid) {
-        return null;
+    public void findBidNode(Bid bid, List<BidNode> foundBidNodes, List<BidNode> bidNodes) {
+
+        foreach (BidNode bidNode in bidNodes) {
+            if (bidNode.Type == bid.BidType && bidNode.Color == bid.Color && bidNode.Value == bid.Level) {
+                foundBidNodes.Add(bidNode);
+            }
+
+            findBidNode(bid, foundBidNodes, bidNode.NextBids);
+        }
     }
 }

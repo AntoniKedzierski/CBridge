@@ -8,5 +8,6 @@ using System.Threading.Tasks;
 namespace Model {
     public interface IBidInput {
         public Bid Get(HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand);
+        public void EvaluateHands(Bid bid, HandEvaluation partnersHand, HandEvaluation leftOpponentsHand, HandEvaluation rightOpponentsHand);
     }
 }

@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Bidding\Systems\Natural.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

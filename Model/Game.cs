@@ -86,6 +86,16 @@ public class Game {
         while (NextRandomDeal()) {
             while (!_auction.IsCompleted()) {
                 var currentBid = GetPlayer(_auction.CurrentBidder).MakeBid();
+
+                // Evaluate hand strength for all players based on the current bid, except for the player who made the bid
+                foreach (var player in _players) {
+                    if (player.CurrentPosition == _auction.CurrentBidder) {
+                        continue;
+                    }
+                    player.EvaluateHands(currentBid);
+                }
+
+                // Add bid to history and update current bider
                 _auction.Submit(currentBid);
             }
         }
