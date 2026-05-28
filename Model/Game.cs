@@ -36,7 +36,7 @@ public class Game {
         _players[0] = new Player(names[0], PlayerPosition.North, manualBidInput);
         _players[1] = new Player(names[1], PlayerPosition.East, manualBidInput);
         _players[2] = new Player(names[2], PlayerPosition.South, manualBidInput);
-        _players[2] = new Player("bot", PlayerPosition.West, new BidEngine(_auction));
+        _players[2] = new Player("bot", PlayerPosition.West, new BidEngine(_auction, PlayerPosition.West));
         _gameMode = GameMode.ThreePlayers;
     }
 
@@ -45,9 +45,9 @@ public class Game {
         _numberOfRounds = numberOfRounds;
 
         _players[0] = new Player(name, PlayerPosition.North, manualBidInput);
-        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction));
-        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction));
-        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction));
+        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction, PlayerPosition.East));
+        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction, PlayerPosition.South));
+        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction, PlayerPosition.West));
         _gameMode = GameMode.OnePlayer;
     }
 
@@ -55,10 +55,10 @@ public class Game {
     public Game(int numberOfRounds) : this() {
         _numberOfRounds = numberOfRounds;
 
-        _players[0] = new Player("bot", PlayerPosition.North, new BidEngine(_auction));
-        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction));
-        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction));
-        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction));
+        _players[0] = new Player("bot", PlayerPosition.North, new BidEngine(_auction, PlayerPosition.North));
+        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction, PlayerPosition.East));
+        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction, PlayerPosition.South));
+        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction, PlayerPosition.West));
         _gameMode = GameMode.BotsOnly;
     }
 

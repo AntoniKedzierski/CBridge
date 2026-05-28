@@ -10,5 +10,5 @@ namespace Model.Bidding.Bids;
 public class Bid {
     public BidType BidType { get; set; }
     public BidColor Color { get; set; }
-    public int? Level { get; set; }
+    public int? Value { get; set; }
 }

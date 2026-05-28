@@ -44,7 +44,7 @@ public class Player {
     }
 
     public virtual Bid MakeBid() {
-        return BidInput.Get(PartnersHand, LeftOpponentsHand, RightOpponentsHand);
+        return BidInput.Get(Hand, PartnersHand, LeftOpponentsHand, RightOpponentsHand);
     }
 
     public void EvaluateHands(Bid bid) {

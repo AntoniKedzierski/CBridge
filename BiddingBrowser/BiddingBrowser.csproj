@@ -83,4 +83,10 @@
     <Resource Include="Images\signoff.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="BiddingSystems\Wspólny Język.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -35,8 +35,29 @@ public class BidNode {
     public string Path { get; set; } = "";
 
 
-    public bool Matches(Hand hand) {
+    public bool Matches(Hand hand, PlayerRole role) {
+        if(role == PlayerRole.Opener && !OpenerBid) {
+            return false;
+        }
+
+        if(role != PlayerRole.Opener && OpenerBid) {
+            return false;
+        }
+
         return hand.Matches(PointsRange, SpadesCardRange, HeartsCardRange, DiamondsCardRange, ClubsCardRange, Aces, Kings);
+    }
+    public bool Matches(Bid bid) {
+        return Type == bid.BidType
+            && Color == bid.Color
+            && Value == bid.Value;
+    }
+
+    public Bid ToBid() {
+        return new Bid {
+            BidType = Type,
+            Color = Color,
+            Value = Value
+        };
     }
 
     //public Contract? ToContract() {
