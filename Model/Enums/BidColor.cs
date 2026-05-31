@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Model.Enums;
 
 public enum BidColor {
+    NoColor,
     Clubs,
     Diamonds,
     Hearts,

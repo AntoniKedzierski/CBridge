@@ -17,6 +17,8 @@ public class BidEngine : IBidInput {
 
     public PlayerPosition Position {  get; private set; }
     public PlayerRole Role { get; private set; }
+    public List<List<BidNode>> PartnershipPossiblePaths { get; private set; } = new();
+    public List<List<BidNode>> OpponentsPossiblePaths { get; private set; } = new();
 
     public List<HandEvaluation> PartnersHandHypotheses = new List<HandEvaluation>();
     public List<HandEvaluation> LeftOpponentsHandHypotheses = new List<HandEvaluation>();
@@ -34,16 +36,22 @@ public class BidEngine : IBidInput {
             Role = DetermineRole();
         }
 
-        List<BidNode> possibleBids = new List<BidNode>();
-        foreach (Root root in BiddingSystem.Roots) {
-            FindNodesByHandRecursive(hand, possibleBids, root.Bids);
-        }
+        List<BidNode> possibleBids = FindNodesByHand(hand);
 
         possibleBids = FindLegalBids(possibleBids);
 
         if (possibleBids.Count == 1) {
-            return possibleBids[0].ToBid();
+            Bid chosenBid = possibleBids[0].ToBid();
+            UpdatePossiblePaths(chosenBid);
+
+            return chosenBid;
         }
+
+        return new Bid {
+            BidType = BidType.Pass,
+            Color = BidColor.NoColor,
+            Value = null
+        };
 
         throw new NotImplementedException();
     }
@@ -72,6 +80,79 @@ public class BidEngine : IBidInput {
 
         return PlayerRole.Opener;
     }
+
+    public List<BidNode> FindNodesByHand(Hand hand) {
+        List<BidNode> foundBidNodes = new();
+
+        List<BidNode> bidNodes = GetCurrentBidLevel(PartnershipPossiblePaths);
+
+        foreach (BidNode bidNode in bidNodes) {
+            if (bidNode.Matches(hand, Role)) {
+                foundBidNodes.Add(bidNode);
+            }
+        }
+
+        return foundBidNodes;
+    }
+
+    public List<BidNode> GetCurrentBidLevel(List<List<BidNode>> possiblePaths) {
+        if (possiblePaths.Count == 0) {
+            return BiddingSystem.Roots.SelectMany(root => root.Bids).ToList();
+        }
+
+        return possiblePaths.SelectMany(path => path[^1].NextBids).ToList();
+    }
+
+    public bool IsOnMyTeam() {
+        return ((int)Position + (int)Auction.CurrentBidder) % 2 == 0;
+    }
+
+    public void UpdatePossiblePaths(Bid bid, List<List<BidNode>> possiblePaths) {
+        if (bid.BidType == BidType.Pass) {
+            return;
+        }
+
+        List<List<BidNode>> newPossiblePaths = new();
+
+        if (possiblePaths.Count == 0) {
+            List<BidNode> rootLevel = BiddingSystem.Roots
+                .SelectMany(root => root.Bids)
+                .ToList();
+
+            foreach (BidNode bidNode in rootLevel) {
+                if (bidNode.Matches(bid)) {
+                    newPossiblePaths.Add(new List<BidNode> { bidNode });
+                }
+            }
+        }
+        else {
+            foreach (List<BidNode> path in possiblePaths) {
+                BidNode lastNode = path[^1];
+
+                foreach (BidNode nextNode in lastNode.NextBids) {
+                    if (nextNode.Matches(bid)) {
+                        List<BidNode> extendedPath = new(path);
+                        extendedPath.Add(nextNode);
+
+                        newPossiblePaths.Add(extendedPath);
+                    }
+                }
+            }
+        }
+
+        possiblePaths.Clear();
+        possiblePaths.AddRange(newPossiblePaths);
+    }
+
+    public void UpdatePossiblePaths(Bid bid) {
+        if (IsOnMyTeam()) {
+            UpdatePossiblePaths(bid, PartnershipPossiblePaths);
+        }
+        else {
+            UpdatePossiblePaths(bid, OpponentsPossiblePaths);
+        }
+    }
+
 
     public List<BidNode> FindLegalBids(List<BidNode> possibleBids) {
         List<BidNode> legalBids = new List<BidNode>();
@@ -117,17 +198,14 @@ public class BidEngine : IBidInput {
             FindNodesByBidRecursive(bid, possibleBids, root.Bids);
         }
 
+        UpdatePossiblePaths(bid);
+
         //partnersHand.Evaluate(bidNode);
         //LeftOpponentsHand.Evaluate(bidNode);
         //RightOpponentsHand.Evaluate(bidNode);
     }
 
-    public List<BidNode> FindNodesByBid(Bid bid, List<BidNode> bidNodes) {
-        var foundNodes = new List<BidNode>();
-        FindNodesByBidRecursive(bid, bidNodes, foundNodes);
-        return foundNodes;
-    }
-
+    
     public void FindNodesByBidRecursive(Bid bid, List<BidNode> foundBidNodes, List<BidNode> bidNodes) {
 
         foreach (BidNode bidNode in bidNodes) {
@@ -139,12 +217,6 @@ public class BidEngine : IBidInput {
                 FindNodesByBidRecursive(bid, foundBidNodes, bidNode.NextBids);
             }
         }
-    }
-
-    public List<BidNode> FindNodesByHand(Hand hand, List<BidNode> bidNodes) {
-        var foundNodes = new List<BidNode>();
-        FindNodesByHandRecursive(hand, bidNodes, foundNodes);
-        return foundNodes;
     }
 
     public void FindNodesByHandRecursive(Hand hand, List<BidNode> foundBidNodes, List<BidNode> bidNodes) {
