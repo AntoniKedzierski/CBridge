@@ -39,11 +39,11 @@ public class BidEngine : IBidInput {
             Role = DetermineRole();
         }
 
-        List<BidNode> possibleBids = FindNodesByHand(hand);
+        List<BidNode> possibleBidNodes = FindNodesByHand(hand);
 
-        possibleBids = FindLegalBids(possibleBids);
+        possibleBidNodes = FindLegalBids(possibleBidNodes);
 
-        BidNode? chosenBidNode = FindBestBid(possibleBids);
+        BidNode? chosenBidNode = FindBestBid(possibleBidNodes);
 
         if (chosenBidNode != null) {
             UpdatePossiblePaths(chosenBidNode);
@@ -57,8 +57,6 @@ public class BidEngine : IBidInput {
             Color = BidColor.NoColor,
             Value = null
         };
-
-        throw new NotImplementedException();
     }
 
 
