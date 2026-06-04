@@ -57,4 +57,17 @@ public class HandEvaluation {
             + 0.125f * (Aces.HasValue ? 1 : 0)
             + 0.125f * (Kings.HasValue ? 1 : 0);
     }
+
+    public NumberRange GetSuit(CardColor color) {
+        return color switch {
+            CardColor.Spades => Spades,
+            CardColor.Hearts => Hearts,
+            CardColor.Diamonds => Diamonds,
+            CardColor.Clubs => Clubs,
+            _ => throw new InvalidOperationException()
+        };
+    }
+
+
+
 }

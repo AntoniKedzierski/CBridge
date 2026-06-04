@@ -15,12 +15,21 @@ public class Hand : IPoints {
     public int Points {  get; private set; }
     public int PointsNt { get; private set; }
 
+    public int SpadesCount { get; private set; }
+    public int HeartsCount { get; private set; }
+    public int DiamondsCount { get; private set; }
+    public int ClubsCount { get; private set; }
+
 
     public Hand(IEnumerable<Card> cards) {
         Cards = [.. cards];
         SortHand();
         Points = CalculatePoints(false);
         PointsNt = CalculatePoints(true);
+        SpadesCount = OfColor(CardColor.Spades).Count();
+        HeartsCount = OfColor(CardColor.Hearts).Count();
+        DiamondsCount = OfColor(CardColor.Diamonds).Count();
+        ClubsCount = OfColor(CardColor.Clubs).Count();
     }
 
 

@@ -2,6 +2,7 @@
 using Model.Enums;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -16,8 +17,8 @@ public class BidEngine : IBidInput {
     public string BiddingSystemPath { get;  set; } = @"..\..\..\..\BiddingBrowser\BiddingSystems\Wspólny Język.json";
 
     public PlayerPosition Position {  get; private set; }
-    public PlayerPosition PartnerPosition => (PlayerPosition)(((int)Position + 2) % 4);
     public PlayerPosition LeftOpponentPosition => (PlayerPosition)(((int)Position + 1) % 4);
+    public PlayerPosition PartnerPosition => (PlayerPosition)(((int)Position + 2) % 4);
     public PlayerPosition RightOpponentPosition => (PlayerPosition)(((int)Position + 3) % 4);
     public PlayerRole Role { get; private set; }
     public List<List<BidNode>> PartnershipPossiblePaths { get; private set; } = new();
@@ -43,7 +44,7 @@ public class BidEngine : IBidInput {
 
         possibleBidNodes = FindLegalBids(possibleBidNodes);
 
-        BidNode? chosenBidNode = FindBestBid(possibleBidNodes);
+        BidNode? chosenBidNode = FindBestBid(possibleBidNodes, hand, partnersHand, leftOpponentsHand, rightOpponentsHand);
 
         if (chosenBidNode != null) {
             UpdatePossiblePaths(chosenBidNode);
@@ -143,12 +144,45 @@ public class BidEngine : IBidInput {
         return null;
     }
 
-    public BidNode? FindBestBid(List<BidNode> legalBids) {
-        if (legalBids.Count == 0) { // End of tree guidelines, freestyle time!!
+    public BidNode? FindBestBid(List<BidNode> legalBids, Hand hand, HandEvaluation partnersHand, HandEvaluation leftOpponentsHand, HandEvaluation rightOpponentsHand) {
+        if(legalBids.Count != 0) {
+            return legalBids[0]; // Always takes lowest bid
+        }
+
+        // End of tree guidelines
+        if (partnersHand.Points.Upper + hand.Points < 23) {
             return null;
         }
 
-        return legalBids[0]; // Always takes lowest bid
+        int longestSuit = 0;
+        CardColor longestColor = CardColor.Clubs;
+        foreach (CardColor color in Enum.GetValues<CardColor>()) {
+            int currentSuit = hand.OfColor(color).Count() + (partnersHand.GetSuit(color).Lower ?? 0);
+
+            if (currentSuit >= longestSuit) { // Older colors are preferred
+                longestSuit = currentSuit;
+                longestColor = color;
+            }
+        }
+
+        if(longestSuit >= 8 && (longestColor == CardColor.Hearts || longestColor == CardColor.Spades)) {
+            return new BidNode {
+                Type = BidType.Submit,
+                Value = 4,
+                Color = (BidColor)((int)longestColor + 1) // BidColor has noColor as 0!!
+            };
+        }
+
+        if (longestSuit >= 8 && partnersHand.Points.Upper + hand.Points >= 25) {
+            return new BidNode {
+                Type = BidType.Submit,
+                Value = 5,
+                Color = (BidColor)((int)longestColor + 1) // BidColor has noColor as 0!!
+            };
+        }
+
+        return null;
+
     }
 
     public bool IsOnMyTeam() {
