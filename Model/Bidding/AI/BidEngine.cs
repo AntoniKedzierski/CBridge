@@ -40,12 +40,14 @@ public class BidEngine : IBidInput {
 
         possibleBids = FindLegalBids(possibleBids);
 
-        if (possibleBids.Count != 0) {
-            Bid chosenBid = possibleBids[0].ToBid(); // Always takes lowest bid
-            UpdatePossiblePaths(chosenBid);
+        BidNode chosenBidNode = FindBestBid(possibleBids);
 
-            return chosenBid;
+        if (chosenBidNode != null) {
+            UpdatePossiblePaths(chosenBidNode);
+            return chosenBidNode.ToBid();
         }
+
+        Role = PlayerRole.None; // Didnt submit, isnt an opener
 
         return new Bid {
             BidType = BidType.Pass,
@@ -102,58 +104,7 @@ public class BidEngine : IBidInput {
 
         return possiblePaths.SelectMany(path => path[^1].NextBids).ToList();
     }
-
-    public bool IsOnMyTeam() {
-        return ((int)Position + (int)Auction.CurrentBidder) % 2 == 0;
-    }
-
-    public void UpdatePossiblePaths(Bid bid, List<List<BidNode>> possiblePaths) {
-        if (bid.BidType == BidType.Pass) {
-            return;
-        }
-
-        List<List<BidNode>> newPossiblePaths = new();
-
-        if (possiblePaths.Count == 0) {
-            List<BidNode> rootLevel = BiddingSystem.Roots
-                .SelectMany(root => root.Bids)
-                .ToList();
-
-            foreach (BidNode bidNode in rootLevel) {
-                if (bidNode.Matches(bid)) {
-                    newPossiblePaths.Add(new List<BidNode> { bidNode });
-                }
-            }
-        }
-        else {
-            foreach (List<BidNode> path in possiblePaths) {
-                BidNode lastNode = path[^1];
-
-                foreach (BidNode nextNode in lastNode.NextBids) {
-                    if (nextNode.Matches(bid)) {
-                        List<BidNode> extendedPath = new(path);
-                        extendedPath.Add(nextNode);
-
-                        newPossiblePaths.Add(extendedPath);
-                    }
-                }
-            }
-        }
-
-        possiblePaths.Clear();
-        possiblePaths.AddRange(newPossiblePaths);
-    }
-
-    public void UpdatePossiblePaths(Bid bid) {
-        if (IsOnMyTeam()) {
-            UpdatePossiblePaths(bid, PartnershipPossiblePaths);
-        }
-        else {
-            UpdatePossiblePaths(bid, OpponentsPossiblePaths);
-        }
-    }
-
-
+    
     public List<BidNode> FindLegalBids(List<BidNode> possibleBids) {
         List<BidNode> legalBids = new List<BidNode>();
         foreach (BidNode bidNode in possibleBids) {
@@ -190,6 +141,100 @@ public class BidEngine : IBidInput {
         }
         return null;
     }
+
+    public BidNode? FindBestBid(List<BidNode>? legalBids) {
+        if (legalBids == null) { // End of tree guidelines, freestyle time!!
+            return null;
+        }
+
+        return legalBids[0]; // Always takes lowest bid
+    }
+
+    public bool IsOnMyTeam() {
+        return ((int)Position + (int)Auction.CurrentBidder) % 2 == 0;
+    }
+
+    public void UpdatePossiblePaths(Bid bid, List<List<BidNode>> possiblePaths) {
+        if (bid.BidType == BidType.Pass) {
+            return;
+        }
+
+        List<List<BidNode>> newPossiblePaths = new();
+
+        if (possiblePaths.Count == 0) {
+            List<BidNode> rootLevel = BiddingSystem.Roots.SelectMany(root => root.Bids).ToList();
+
+            foreach (BidNode bidNode in rootLevel) {
+                if (bidNode.Matches(bid)) {
+                    newPossiblePaths.Add(new List<BidNode> { bidNode });
+                }
+            }
+        }
+        else {
+            foreach (List<BidNode> path in possiblePaths) {
+                BidNode lastNode = path[^1];
+
+                foreach (BidNode nextNode in lastNode.NextBids) {
+                    if (nextNode.Matches(bid)) {
+                        List<BidNode> extendedPath = new(path);
+                        extendedPath.Add(nextNode);
+
+                        newPossiblePaths.Add(extendedPath);
+                    }
+                }
+            }
+        }
+
+        possiblePaths.Clear();
+        possiblePaths.AddRange(newPossiblePaths);
+    }
+
+    public void UpdatePossiblePaths(Bid bid) {
+        if (IsOnMyTeam()) {
+            UpdatePossiblePaths(bid, PartnershipPossiblePaths);
+        }
+        else {
+            UpdatePossiblePaths(bid, OpponentsPossiblePaths);
+        }
+    }
+
+    public void UpdatePossiblePaths(BidNode bidNode, List<List<BidNode>> possiblePaths) {
+        if (bidNode.Type == BidType.Pass) {
+            return;
+        }
+
+        List<List<BidNode>> newPossiblePaths = new();
+
+        if (possiblePaths.Count == 0) {
+            newPossiblePaths.Add(new List<BidNode> { bidNode });
+        }
+        else {
+            foreach (List<BidNode> path in possiblePaths) {
+                BidNode lastNode = path[^1];
+
+                foreach (BidNode nextNode in lastNode.NextBids) {
+                    if(lastNode.NextBids.Contains(bidNode)) {
+                        List<BidNode> extendedPath = new(path);
+                        extendedPath.Add(bidNode);
+                        newPossiblePaths.Add(extendedPath);
+                    }
+                }
+            }
+        }
+
+        possiblePaths.Clear();
+        possiblePaths.AddRange(newPossiblePaths);
+    }
+
+    public void UpdatePossiblePaths(BidNode bidNode) {
+        if (IsOnMyTeam()) {
+            UpdatePossiblePaths(bidNode, PartnershipPossiblePaths);
+        }
+        else {
+            UpdatePossiblePaths(bidNode, OpponentsPossiblePaths);
+        }
+    }
+
 
     //TODO
     public void EvaluateHands(Bid bid, HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand) {
