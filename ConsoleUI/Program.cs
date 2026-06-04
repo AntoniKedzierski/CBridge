@@ -11,12 +11,15 @@ public class Program {
 
         var game = new Game(8);
 
-        game.Play();
+        game.Play((position, bid) =>
+        {
+            Console.WriteLine($"{position}: {bid}");
+        });
 
         //while (game.NextRandomDeal()) {
         //    game.GetPlayer(PlayerPosition.North).Hand.DisplayHand();
 
-            
+
         //}
     }
 }

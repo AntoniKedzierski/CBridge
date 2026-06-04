@@ -1656,11 +1656,11 @@
               "Color": 1,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ trefli, block",
+              "Condition": "0-3 PC, 6+ trefli, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -1699,11 +1699,11 @@
               "Color": 2,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kar, block",
+              "Condition": "0-3 PC, 6+ kar, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -1742,11 +1742,11 @@
               "Color": 3,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kierów, block",
+              "Condition": "0-3 PC, 6+ kierów, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -1785,11 +1785,11 @@
               "Color": 4,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ pików, block",
+              "Condition": "0-3 PC, 6+ pików, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": 6,
@@ -3477,11 +3477,11 @@
               "Color": 1,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ trefli, block",
+              "Condition": "0-3 PC, 6+ trefli, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -3520,11 +3520,11 @@
               "Color": 2,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kar, block",
+              "Condition": "0-3 PC, 6+ kar, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -3563,11 +3563,11 @@
               "Color": 3,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kierów, block",
+              "Condition": "0-3 PC, 6+ kierów, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -3606,11 +3606,11 @@
               "Color": 4,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ pików, block",
+              "Condition": "0-3 PC, 6+ pików, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": 6,
@@ -6338,11 +6338,11 @@
               "Color": 1,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ trefli, block",
+              "Condition": "0-3 PC, 6+ trefli, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -6381,11 +6381,11 @@
               "Color": 2,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kar, block",
+              "Condition": "0-3 PC, 6+ kar, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -6424,11 +6424,11 @@
               "Color": 3,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kierów, block",
+              "Condition": "0-3 PC, 6+ kierów, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -6467,11 +6467,11 @@
               "Color": 4,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ pików, block",
+              "Condition": "0-3 PC, 6+ pików, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": 6,
@@ -9199,11 +9199,11 @@
               "Color": 1,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ trefli, block",
+              "Condition": "0-3 PC, 6+ trefli, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -9242,11 +9242,11 @@
               "Color": 2,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kar, block",
+              "Condition": "0-3 PC, 6+ kar, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -9285,11 +9285,11 @@
               "Color": 3,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ kierów, block",
+              "Condition": "0-3 PC, 6+ kierów, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -9328,11 +9328,11 @@
               "Color": 4,
               "Type": 1,
               "Description": "do sprawdzenia!!!",
-              "Condition": "0-6 PC, 6+ pików, block",
+              "Condition": "0-3 PC, 6+ pików, block",
               "Convention": null,
               "PointsRange": {
                 "Lower": null,
-                "Upper": 6
+                "Upper": 3
               },
               "SpadesCardRange": {
                 "Lower": 6,

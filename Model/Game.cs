@@ -1,5 +1,6 @@
 ﻿using Model.Bidding;
 using Model.Bidding.AI;
+using Model.Bidding.Bids;
 using Model.Enums;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,11 @@ public class Game {
     private int _currentRoundNumber;
     private PlayerPosition _dealer;
 
-    private Auction _auction;
+    public Auction Auction { get; private set; }
        
     public Game() {
         _players = new Player[4];
-        _auction = new Auction(PlayerPosition.North); // North always starts as the dealer 
+        Auction = new Auction(PlayerPosition.North); // North always starts as the dealer 
     }
 
     public Game(int numberOfRounds, string[] names, IBidInput manualBidInput) : this() {
@@ -36,7 +37,7 @@ public class Game {
         _players[0] = new Player(names[0], PlayerPosition.North, manualBidInput);
         _players[1] = new Player(names[1], PlayerPosition.East, manualBidInput);
         _players[2] = new Player(names[2], PlayerPosition.South, manualBidInput);
-        _players[2] = new Player("bot", PlayerPosition.West, new BidEngine(_auction, PlayerPosition.West));
+        _players[2] = new Player("bot", PlayerPosition.West, new BidEngine(Auction, PlayerPosition.West));
         _gameMode = GameMode.ThreePlayers;
     }
 
@@ -45,9 +46,9 @@ public class Game {
         _numberOfRounds = numberOfRounds;
 
         _players[0] = new Player(name, PlayerPosition.North, manualBidInput);
-        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction, PlayerPosition.East));
-        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction, PlayerPosition.South));
-        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction, PlayerPosition.West));
+        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(Auction, PlayerPosition.East));
+        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(Auction, PlayerPosition.South));
+        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(Auction, PlayerPosition.West));
         _gameMode = GameMode.OnePlayer;
     }
 
@@ -55,10 +56,10 @@ public class Game {
     public Game(int numberOfRounds) : this() {
         _numberOfRounds = numberOfRounds;
 
-        _players[0] = new Player("bot", PlayerPosition.North, new BidEngine(_auction, PlayerPosition.North));
-        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(_auction, PlayerPosition.East));
-        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(_auction, PlayerPosition.South));
-        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(_auction, PlayerPosition.West));
+        _players[0] = new Player("bot", PlayerPosition.North, new BidEngine(Auction, PlayerPosition.North));
+        _players[1] = new Player("bot", PlayerPosition.East, new BidEngine(Auction, PlayerPosition.East));
+        _players[2] = new Player("bot", PlayerPosition.South, new BidEngine(Auction, PlayerPosition.South));
+        _players[3] = new Player("bot", PlayerPosition.West, new BidEngine(Auction, PlayerPosition.West));
         _gameMode = GameMode.BotsOnly;
     }
 
@@ -82,21 +83,25 @@ public class Game {
     }
 
 
-    public bool Play() {
+    public bool Play(Action<PlayerPosition, Bid>? onBidMade = null) {
         while (NextRandomDeal()) {
-            while (!_auction.IsCompleted()) {
-                var currentBid = GetPlayer(_auction.CurrentBidder).MakeBid();
+            while (!Auction.IsCompleted()) {
+                var currentBid = GetPlayer(Auction.CurrentBidder).MakeBid();
+
+                if (onBidMade != null) {
+                    onBidMade(Auction.CurrentBidder, currentBid);
+                }
 
                 // Evaluate hand strength for all players based on the current bid, except for the player who made the bid
                 foreach (var player in _players) {
-                    if (player.CurrentPosition == _auction.CurrentBidder) {
+                    if (player.CurrentPosition == Auction.CurrentBidder) {
                         continue;
                     }
                     player.EvaluateHands(currentBid);
                 }
 
                 // Add bid to history and update current bider
-                _auction.Submit(currentBid);
+                Auction.Submit(currentBid);
             }
         }
 

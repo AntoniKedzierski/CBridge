@@ -16,7 +16,7 @@ public class Deal {
         Random.Shared.Shuffle(draftDeck);
 
         foreach (var position in Enum.GetValues<PlayerPosition>()) {
-            Hands[position] = new(draftDeck[((int)position * 13)..(((int)position + 1) * 13 - 1)]);
+            Hands[position] = new(draftDeck[((int)position * 13)..(((int)position + 1) * 13)]);
         }
     }
 

@@ -40,8 +40,8 @@ public class BidEngine : IBidInput {
 
         possibleBids = FindLegalBids(possibleBids);
 
-        if (possibleBids.Count == 1) {
-            Bid chosenBid = possibleBids[0].ToBid();
+        if (possibleBids.Count != 0) {
+            Bid chosenBid = possibleBids[0].ToBid(); // Always takes lowest bid
             UpdatePossiblePaths(chosenBid);
 
             return chosenBid;
