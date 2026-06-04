@@ -16,6 +16,9 @@ public class BidEngine : IBidInput {
     public string BiddingSystemPath { get;  set; } = @"..\..\..\..\BiddingBrowser\BiddingSystems\Wspólny Język.json";
 
     public PlayerPosition Position {  get; private set; }
+    public PlayerPosition PartnerPosition => (PlayerPosition)(((int)Position + 2) % 4);
+    public PlayerPosition LeftOpponentPosition => (PlayerPosition)(((int)Position + 1) % 4);
+    public PlayerPosition RightOpponentPosition => (PlayerPosition)(((int)Position + 3) % 4);
     public PlayerRole Role { get; private set; }
     public List<List<BidNode>> PartnershipPossiblePaths { get; private set; } = new();
     public List<List<BidNode>> OpponentsPossiblePaths { get; private set; } = new();
@@ -40,7 +43,7 @@ public class BidEngine : IBidInput {
 
         possibleBids = FindLegalBids(possibleBids);
 
-        BidNode chosenBidNode = FindBestBid(possibleBids);
+        BidNode? chosenBidNode = FindBestBid(possibleBids);
 
         if (chosenBidNode != null) {
             UpdatePossiblePaths(chosenBidNode);
@@ -66,7 +69,7 @@ public class BidEngine : IBidInput {
             Bid bid = Auction.AuctionHistory[i];
             PlayerPosition bidder = (PlayerPosition)(((int)starter + i) % 4);
 
-            if (((int)(Position) + (int)(bidder)) % 2 != 0) { //bidder is NOT me nor my partner
+            if (bidder != Position || bidder != PartnerPosition) { //bidder is NOT me nor my partner
                 continue;
             }
 
@@ -142,8 +145,8 @@ public class BidEngine : IBidInput {
         return null;
     }
 
-    public BidNode? FindBestBid(List<BidNode>? legalBids) {
-        if (legalBids == null) { // End of tree guidelines, freestyle time!!
+    public BidNode? FindBestBid(List<BidNode> legalBids) {
+        if (legalBids.Count == 0) { // End of tree guidelines, freestyle time!!
             return null;
         }
 
@@ -151,7 +154,7 @@ public class BidEngine : IBidInput {
     }
 
     public bool IsOnMyTeam() {
-        return ((int)Position + (int)Auction.CurrentBidder) % 2 == 0;
+        return Auction.CurrentBidder == Position || Auction.CurrentBidder == PartnerPosition;
     }
 
     public void UpdatePossiblePaths(Bid bid, List<List<BidNode>> possiblePaths) {
@@ -212,12 +215,10 @@ public class BidEngine : IBidInput {
             foreach (List<BidNode> path in possiblePaths) {
                 BidNode lastNode = path[^1];
 
-                foreach (BidNode nextNode in lastNode.NextBids) {
-                    if(lastNode.NextBids.Contains(bidNode)) {
-                        List<BidNode> extendedPath = new(path);
-                        extendedPath.Add(bidNode);
-                        newPossiblePaths.Add(extendedPath);
-                    }
+                if(lastNode.NextBids.Contains(bidNode)) {
+                    List<BidNode> extendedPath = new(path);
+                    extendedPath.Add(bidNode);
+                    newPossiblePaths.Add(extendedPath);
                 }
             }
         }
@@ -236,18 +237,21 @@ public class BidEngine : IBidInput {
     }
 
 
-    //TODO
+    //TODO: when to evaluate who?, pass means oposite range of sum of all submits ranges (currently pass means nothing), what if there r more possibilities? -> PartnershipPossiblePaths.Count > 1, 
     public void EvaluateHands(Bid bid, HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand) {
-        List<BidNode> possibleBids = new List<BidNode>();
-        foreach(Root root in BiddingSystem.Roots) {
-            FindNodesByBidRecursive(bid, possibleBids, root.Bids);
-        }
-
+        
         UpdatePossiblePaths(bid);
 
-        //partnersHand.Evaluate(bidNode);
-        //LeftOpponentsHand.Evaluate(bidNode);
-        //RightOpponentsHand.Evaluate(bidNode);
+        if (PartnershipPossiblePaths.Count == 1 && Auction.CurrentBidder == PartnerPosition) {
+            BidNode lastNode = PartnershipPossiblePaths[0][^1];
+            partnersHand.Evaluate(lastNode);
+        }
+
+        if(OpponentsPossiblePaths.Count == 1 && (Auction.CurrentBidder == LeftOpponentPosition || Auction.CurrentBidder == RightOpponentPosition)) {
+            BidNode lastNode = OpponentsPossiblePaths[0][^1];
+            LeftOpponentsHand.Evaluate(lastNode);
+            RightOpponentsHand.Evaluate(lastNode);
+        }
     }
 
     

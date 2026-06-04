@@ -33060,18 +33060,18 @@
               "Color": 3,
               "Type": 1,
               "Description": null,
-              "Condition": "7+ PC, 5+ kierów",
+              "Condition": "7+ PC, 5+ pików",
               "Convention": "transfer",
               "PointsRange": {
                 "Lower": 7,
                 "Upper": null
               },
               "SpadesCardRange": {
-                "Lower": null,
+                "Lower": 5,
                 "Upper": null
               },
               "HeartsCardRange": {
-                "Lower": 5,
+                "Lower": null,
                 "Upper": null
               },
               "DiamondsCardRange": {
