@@ -52,6 +52,22 @@ public class BidNode {
             && Value == bid.Value;
     }
 
+    public static BidNode Submit(int value, BidColor color) { // Why static? How factory works??
+        return new BidNode {
+            Type = BidType.Submit,
+            Value = value,
+            Color = color
+        };
+    }
+
+    public static BidNode Pass() {
+        return new BidNode {
+            Type = BidType.Pass,
+            Value = null,
+            Color = BidColor.NoColor
+        };
+    }
+
     public Bid ToBid() {
         return new Bid {
             BidType = Type,

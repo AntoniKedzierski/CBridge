@@ -44,7 +44,12 @@ public class BidEngine : IBidInput {
 
         possibleBidNodes = FindLegalBids(possibleBidNodes);
 
-        BidNode? chosenBidNode = FindBestBid(possibleBidNodes, hand, partnersHand, leftOpponentsHand, rightOpponentsHand);
+        BidNode? chosenBidNode = ChooseBidFromSystem(possibleBidNodes, hand, partnersHand, leftOpponentsHand, rightOpponentsHand);
+
+        if (chosenBidNode == null) {
+            chosenBidNode = FindBestBid(hand, partnersHand, leftOpponentsHand, rightOpponentsHand);
+
+        }
 
         if (chosenBidNode != null) {
             UpdatePossiblePaths(chosenBidNode);
@@ -53,11 +58,7 @@ public class BidEngine : IBidInput {
 
         Role = PlayerRole.None; // Didnt submit, isnt an opener
 
-        return new Bid {
-            BidType = BidType.Pass,
-            Color = BidColor.NoColor,
-            Value = null
-        };
+        return BidNode.Pass().ToBid();
     }
 
 
@@ -68,7 +69,7 @@ public class BidEngine : IBidInput {
             Bid bid = Auction.AuctionHistory[i];
             PlayerPosition bidder = (PlayerPosition)(((int)starter + i) % 4);
 
-            if (bidder != Position || bidder != PartnerPosition) { //bidder is NOT me nor my partner
+            if (bidder != Position && bidder != PartnerPosition) { //bidder is NOT me nor my partner
                 continue;
             }
 
@@ -144,45 +145,116 @@ public class BidEngine : IBidInput {
         return null;
     }
 
-    public BidNode? FindBestBid(List<BidNode> legalBids, Hand hand, HandEvaluation partnersHand, HandEvaluation leftOpponentsHand, HandEvaluation rightOpponentsHand) {
-        if(legalBids.Count != 0) {
-            return legalBids[0]; // Always takes lowest bid
-        }
-
-        // End of tree guidelines
-        if (partnersHand.Points.Upper + hand.Points < 23) {
+    public BidNode? ChooseBidFromSystem(List<BidNode> legalBids, Hand hand, HandEvaluation partnersHand, HandEvaluation leftOpponentsHand, HandEvaluation rightOpponentsHand) {
+        if(legalBids.Count == 0) {
             return null;
         }
 
-        int longestSuit = 0;
-        CardColor longestColor = CardColor.Clubs;
-        foreach (CardColor color in Enum.GetValues<CardColor>()) {
-            int currentSuit = hand.OfColor(color).Count() + (partnersHand.GetSuit(color).Lower ?? 0);
+        List<BidNode> conventionBids = new();
 
-            if (currentSuit >= longestSuit) { // Older colors are preferred
-                longestSuit = currentSuit;
-                longestColor = color;
+        foreach (BidNode bid in legalBids) {
+            if (!string.IsNullOrWhiteSpace(bid.Convention)) {
+                conventionBids.Add(bid);
             }
         }
 
-        if(longestSuit >= 8 && (longestColor == CardColor.Hearts || longestColor == CardColor.Spades)) {
-            return new BidNode {
-                Type = BidType.Submit,
-                Value = 4,
-                Color = (BidColor)((int)longestColor + 1) // BidColor has noColor as 0!!
-            };
+        List<BidNode> bidsToChoose;
+
+        if (conventionBids.Count == 1) {
+            return conventionBids[0];
+        }
+        else if (conventionBids.Count > 1) { // Covention bids are preferred
+            bidsToChoose = conventionBids;
+        }
+        else {
+            bidsToChoose = legalBids;
         }
 
-        if (longestSuit >= 8 && partnersHand.Points.Upper + hand.Points >= 25) {
-            return new BidNode {
-                Type = BidType.Submit,
-                Value = 5,
-                Color = (BidColor)((int)longestColor + 1) // BidColor has noColor as 0!!
-            };
+        BidNode lowestBid = bidsToChoose[0];
+
+        foreach (BidNode bid in bidsToChoose) { // Lower bids are preferred
+            if (bid.Value < lowestBid.Value) {
+                lowestBid = bid;
+            }
+            else if (bid.Value == lowestBid.Value &&
+                     bid.Color < lowestBid.Color) {
+                lowestBid = bid;
+            }
+        }
+
+        return lowestBid;
+
+
+    }
+
+
+    public BidNode? FindBestBid(Hand hand, HandEvaluation partnersHand, HandEvaluation leftOpponentsHand, HandEvaluation rightOpponentsHand) {
+
+        int minPairPoints = hand.Points + (partnersHand.Points.Lower ?? 0);
+        int maxPairPoints = hand.Points + (partnersHand.Points.Upper ?? 0);
+
+        if (maxPairPoints < 24) { // Pass it is...
+            return null;
+        }
+        
+        SuitFit bestFit = FindFit(hand, partnersHand);
+
+        if (minPairPoints >= 30) {
+            // TODO: slam bidding
+        }
+
+        // Ending in major suit
+        if(minPairPoints > 24 && bestFit.Length >= 8 && (bestFit.Color == BidColor.Spades || bestFit.Color == BidColor.Hearts)) {
+            BidNode bidNode = BidNode.Submit(4, bestFit.Color);
+
+            if (IsBidLegal(bidNode)) {
+                return bidNode;
+            }
+        }
+
+        // Ending in no trump
+        if (minPairPoints > 25 && bestFit.Length < 9) { // Not sure about bestFit.Length reqiurement
+            BidNode bidNode = BidNode.Submit(3, BidColor.NoTrump);
+
+            if (IsBidLegal(bidNode)) {
+                return bidNode;
+            }
+        }
+
+        // Ending in minor suit
+        if (minPairPoints > 27 && bestFit.Length >= 8) { // Color doenst matter
+            BidNode bidNode = BidNode.Submit(5, bestFit.Color);
+
+            if (IsBidLegal(bidNode)) {
+                return bidNode;
+            }
+        }
+
+        if (maxPairPoints >= 24) {
+            // TODO: invitational bidding
         }
 
         return null;
 
+    }
+
+    public SuitFit FindFit(Hand hand, HandEvaluation partnersHand) {
+
+        SuitFit bestFit = new SuitFit {
+            Color = BidColor.NoColor,
+            Length = 0
+        };
+
+        foreach (CardColor color in Enum.GetValues(typeof(CardColor))) {
+
+            int pairSuitLength = hand.OfColor(color).Count() + (partnersHand.GetSuit(color).Lower ?? 0);
+
+            if (pairSuitLength >= bestFit.Length) { // Major colors are preferred
+                bestFit.Color = (BidColor)((int)color + 1); // CardColor doesnt have NoColor, while BidColor does
+                bestFit.Length = pairSuitLength;
+            }
+        }
+        return bestFit;
     }
 
     public bool IsOnMyTeam() {
@@ -275,11 +347,16 @@ public class BidEngine : IBidInput {
         UpdatePossiblePaths(bid);
 
         if (PartnershipPossiblePaths.Count == 1 && Auction.CurrentBidder == PartnerPosition) {
-            BidNode lastNode = PartnershipPossiblePaths[0][^1];
-            partnersHand.Evaluate(lastNode);
+            List<BidNode> path = PartnershipPossiblePaths[0];
+            int startIndex = (Role == PlayerRole.Opener) ? 1 : 0;
+
+            for (int i = startIndex; i < path.Count; i += 2) {
+                partnersHand.Evaluate(path[i]);
+            }
         }
 
-        if(OpponentsPossiblePaths.Count == 1 && (Auction.CurrentBidder == LeftOpponentPosition || Auction.CurrentBidder == RightOpponentPosition)) {
+        // How to determine which opponent made the bid?
+        if (OpponentsPossiblePaths.Count == 1 && (Auction.CurrentBidder == LeftOpponentPosition || Auction.CurrentBidder == RightOpponentPosition)) {
             BidNode lastNode = OpponentsPossiblePaths[0][^1];
             LeftOpponentsHand.Evaluate(lastNode);
             RightOpponentsHand.Evaluate(lastNode);
