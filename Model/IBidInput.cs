@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model {
-    public interface IBidInput {
-        public Bid Get(Hand hand, HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand);
-        public void EvaluateHands(Bid bid, HandEvaluation partnersHand, HandEvaluation leftOpponentsHand, HandEvaluation rightOpponentsHand);
-    }
+namespace Model; 
+
+public interface IBidInput {
+
+    public Bid Get(Hand hand, HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand);
+
+    public void Reset();
 }
