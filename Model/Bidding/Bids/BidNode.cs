@@ -1,16 +1,19 @@
 ﻿using Model.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Model.Bidding.Bids; 
-public class BidNode {
-    public string? Identifier { get; set; }
+namespace Model.Bidding.Bids;
+
+public class BidNode : IEquatable<BidNode> {
+
+    [JsonIgnore]
+    public Guid Identifier { get; set; } = Guid.NewGuid();
     public int? Value { get; set; }
     public BidColor Color { get; set; }
     public BidType Type { get; set; }
@@ -30,6 +33,7 @@ public class BidNode {
     public bool GameForcing { get; set; }
     public bool AutomaticResponse { get; set; }
     public List<BidNode> NextBids { get; set; } = [];
+    public BidNode? Parent { get; set; } 
 
     [JsonIgnore]
     public string Path { get; set; } = "";
@@ -75,6 +79,37 @@ public class BidNode {
             Value = Value
         };
     }
+
+    public void AssignParent(BidNode? parent) {
+        Parent = parent;
+        foreach (var child in NextBids) {
+            child.AssignParent(this);
+        }
+    }
+
+
+    public bool Equals(BidNode? other) {
+        if (other == null) {
+            return false;
+        }
+
+        return Identifier.Equals(other.Identifier);
+    }
+
+
+    public bool EqualsByColorAndValue(BidNode? other) {
+        if (other == null) {
+            return false;
+        }
+        return Color == other.Color && Value == other.Value;
+    }
+
+
+    public override string ToString() {
+        return ToBid().ToString();
+    }
+
+
 
     //public Contract? ToContract() {
     //    if (Type != BidType.Submit || !Value.HasValue || Value < 1 || Value > 7 || Color == BidColor.NoColor) {

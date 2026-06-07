@@ -24,7 +24,8 @@ public class Game {
        
     public Game() {
         _players = new Player[4];
-        Auction = new Auction(PlayerPosition.North); // North always starts as the dealer 
+        _dealer = PlayerPosition.North;
+        Auction = new Auction();
     }
 
     public Game(int numberOfRounds, string[] names, IBidInput manualBidInput) : this() {
@@ -85,6 +86,7 @@ public class Game {
 
     public bool Play(Action<PlayerPosition, Bid>? onBidMade = null) {
         while (NextRandomDeal()) {
+            Auction.Start(_dealer);
             while (!Auction.IsCompleted()) {
                 var currentBid = GetPlayer(Auction.CurrentBidder).MakeBid();
 
@@ -102,6 +104,12 @@ public class Game {
 
                 // Add bid to history and update current bider
                 Auction.Submit(currentBid);
+            }
+
+            // Rozgrywka
+            Auction.Clear();
+            foreach (var player in _players) {
+                player.Reset();
             }
         }
 

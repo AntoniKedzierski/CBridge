@@ -8,13 +8,27 @@ using System.Threading.Tasks;
 
 namespace Model.Bidding; 
 public class Auction {
+
     public PlayerPosition CurrentBidder { get; private set; }
+
     public List<Bid> AuctionHistory { get; private set; }
 
-    public Auction(PlayerPosition dealer) {
+
+    public void Start(PlayerPosition dealer) {
         CurrentBidder = dealer;
-        AuctionHistory = new List<Bid>();
+        AuctionHistory = [];
     }
+
+
+    public void Clear() {
+        AuctionHistory.Clear();
+    }
+
+
+    public void NextBidder() {
+        CurrentBidder = (PlayerPosition)(((int)CurrentBidder + 1) % 4);
+    }
+
 
     public bool IsCompleted() { 
         if (AuctionHistory.Count >= 4) {    // edge case: 3 passes at the beginning of the auction
@@ -30,7 +44,21 @@ public class Auction {
 
     public void Submit(Bid bid) { 
         AuctionHistory.Add(bid);
-        CurrentBidder = (PlayerPosition)(((int)CurrentBidder + 1) % 4); // why cant i do math on enums in c# :(
+        NextBidder();
+    }
+
+    /// <summary>
+    /// Returns the last bid made by the specified player, or null if the player has not made any bids.
+    /// </summary>
+    /// <param name="bidderPosition"></param>
+    /// <returns></returns>
+    public Bid? GetLastPlayerBid(PlayerPosition bidderPosition) {
+        for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
+            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 4) % 4) == bidderPosition) {
+                return AuctionHistory[i];
+            }
+        }
+        return null;
     }
 
 }
