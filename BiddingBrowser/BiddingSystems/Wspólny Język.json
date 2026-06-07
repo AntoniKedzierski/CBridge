@@ -24768,7 +24768,7 @@
           "Value": 1,
           "Color": 4,
           "Type": 1,
-          "Description": null,
+          "Description": "A co jeżeli jest 12+, ale brak fitu pik????",
           "Condition": "12-17 PC, 5+ pików.",
           "Convention": null,
           "PointsRange": {
