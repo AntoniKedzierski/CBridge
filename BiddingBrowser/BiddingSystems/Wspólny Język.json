@@ -9759,8 +9759,8 @@
                   "Color": 2,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "20+ PC, [ACOL - LOW PRIO] z wyłączeniem rąk dwukolorowych. ",
-                  "Convention": null,
+                  "Condition": "20+ PC, z wyłączeniem rąk dwukolorowych. ",
+                  "Convention": "ACOL - LOW PRIO",
                   "PointsRange": {
                     "Lower": 20,
                     "Upper": null
@@ -10366,8 +10366,8 @@
                   "Color": 2,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "20+ PC, [ACOL - LOW PRIO] z wyłączeniem rąk dwukolorowych. ",
-                  "Convention": null,
+                  "Condition": "20+ PC,  z wyłączeniem rąk dwukolorowych. ",
+                  "Convention": "ACOL - LOW PRIO",
                   "PointsRange": {
                     "Lower": 20,
                     "Upper": null
@@ -13999,7 +13999,7 @@
           "Value": 1,
           "Color": 3,
           "Type": 1,
-          "Description": null,
+          "Description": "Jest błąd: Z ręką 2263, 8 PC (6 PC NT) odpowiadający NIE mówi 1 BA!",
           "Condition": "12-17 PC, 5+ kierów, brak pięciu pików.",
           "Convention": null,
           "PointsRange": {
