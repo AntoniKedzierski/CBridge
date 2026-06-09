@@ -368,8 +368,9 @@ public class BidEngine : IBidInput {
                 return;
             }
 
+
             // Odzywka automatyczna - dokładnie wiadomo w jakiej gałęzi drzewa jesteśmy
-            if (partnersPreviousBidNode.AutomaticResponse) {
+            if (partnersPreviousBidNode?.AutomaticResponse == true) { // Może być null, jeżeli odzywka nie jest z systemu
                 // Iteruje w tył po licytacji
                 while (partnersPreviousBidNode != null) {
                     PartnersHand.Evaluate(partnersPreviousBidNode);
