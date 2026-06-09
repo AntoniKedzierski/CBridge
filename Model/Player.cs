@@ -48,7 +48,7 @@ public class Player {
     }
 
     public void EvaluateHands(Bid bid) {
-        // BidInput.EvaluateHands(bid, PartnersHand, LeftOpponentsHand, RightOpponentsHand);
+        BidInput.EvaluateHands(bid, PartnersHand, LeftOpponentsHand, RightOpponentsHand);
     }
 
     public void Reset() {

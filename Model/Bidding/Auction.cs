@@ -61,4 +61,12 @@ public class Auction {
         return null;
     }
 
+    public Bid? GetLastSubmittedBid() {
+        for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
+            if (AuctionHistory[i].BidType == BidType.Submit) {
+                return AuctionHistory[i];
+            }
+        }
+        return null;
+    }
 }

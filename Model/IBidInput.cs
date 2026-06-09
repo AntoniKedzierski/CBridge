@@ -11,5 +11,7 @@ public interface IBidInput {
 
     public Bid Get(Hand hand, HandEvaluation partnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand);
 
+    public void EvaluateHands(Bid bid, HandEvaluation PartnersHand, HandEvaluation LeftOpponentsHand, HandEvaluation RightOpponentsHand);
+
     public void Reset();
 }

@@ -86,6 +86,8 @@ public class Game {
 
     public bool Play(Action<PlayerPosition, Bid>? onBidMade = null) {
         while (NextRandomDeal()) {
+            Console.WriteLine($"-----------\nRound {_currentRoundNumber} - Dealer: {_dealer}");
+
             Auction.Start(_dealer);
             while (!Auction.IsCompleted()) {
                 var currentBid = GetPlayer(Auction.CurrentBidder).MakeBid();
