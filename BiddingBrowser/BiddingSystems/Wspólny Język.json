@@ -9585,7 +9585,7 @@
                   "Value": 1,
                   "Color": 4,
                   "Type": 1,
-                  "Description": "Może być taka sytuacje, że mamy słabą rękę BA i brak starszej czwórki. Ponieważ rebid  otwierającego 1 BA oznacza silną rękę bezatutową (18 – 21 PC), to w skrajnej sytuacji musimy zgłosić 3-kartowy kolor starszy.",
+                  "Description": null,
                   "Condition": "18-19 PC, 5+ pików",
                   "Convention": null,
                   "PointsRange": {
@@ -10018,20 +10018,20 @@
                   "Value": 1,
                   "Color": 3,
                   "Type": 1,
-                  "Description": "Może być taka sytuacje, że mamy słabą rękę BA i brak starszej czwórki. Ponieważ rebid  otwierającego 1 BA oznacza silną rękę bezatutową (18 – 21 PC), to w skrajnej sytuacji musimy zgłosić 3-kartowy kolor starszy.",
-                  "Condition": "Brak straszej 4, 3+ karty w kierze",
+                  "Description": null,
+                  "Condition": "18-19 PC, 5+ kierów",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 19
                   },
                   "SpadesCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "HeartsCardRange": {
-                    "Lower": 3,
-                    "Upper": 3
+                    "Lower": 5,
+                    "Upper": null
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
@@ -10105,20 +10105,20 @@
                   "Value": 1,
                   "Color": 4,
                   "Type": 1,
-                  "Description": "Może być taka sytuacje, że mamy słabą rękę BA i brak starszej czwórki. Ponieważ rebid  otwierającego 1 BA oznacza silną rękę bezatutową (18 – 21 PC), to w skrajnej sytuacji musimy zgłosić 3-kartowy kolor starszy.",
-                  "Condition": "Brak straszej 4, 3+ karty w piku",
+                  "Description": null,
+                  "Condition": "18-19 PC, 5+ pików",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
                     "Upper": null
                   },
                   "SpadesCardRange": {
-                    "Lower": 3,
-                    "Upper": 3
+                    "Lower": 5,
+                    "Upper": null
                   },
                   "HeartsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
