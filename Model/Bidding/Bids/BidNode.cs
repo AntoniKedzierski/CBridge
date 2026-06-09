@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Model.Bidding.Bids;
 
-public class BidNode : IEquatable<BidNode> {
+public class BidNode : IEquatable<BidNode>, IEqualityComparer<BidNode> {
 
     [JsonIgnore]
     public Guid Identifier { get; set; } = Guid.NewGuid();
@@ -101,12 +102,43 @@ public class BidNode : IEquatable<BidNode> {
         if (other == null) {
             return false;
         }
+
+        if (Type == BidType.Pass && other.Type == Type) {
+            return true;
+        }
+
         return Color == other.Color && Value == other.Value;
+    }
+
+
+    /// <summary>
+    /// Sprawdzenie, czy nowa odzywka z freestylu nie równa się niczemu wśród rodzeństwa.
+    /// </summary>
+    /// <param name="branchHead"></param>
+    /// <returns></returns>
+    public BidNode? AssertFreestyleIsntConfusing(BidNode branchHead) {
+        foreach (var node in branchHead.NextBids) {
+            if (EqualsByColorAndValue(node)) {
+                return null;
+            }
+        }
+
+        return this;
     }
 
 
     public override string ToString() {
         return ToBid().ToString();
+    }
+
+
+    public bool Equals(BidNode? x, BidNode? y) {
+        return x?.Equals(y) ?? true;
+    }
+
+
+    public int GetHashCode([DisallowNull] BidNode obj) {
+        return obj.Identifier.GetHashCode();
     }
 
 

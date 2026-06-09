@@ -101,7 +101,6 @@ public class Game {
                     if (player.CurrentPosition == Auction.CurrentBidder) {
                         continue;
                     }
-                    player.EvaluateHands(currentBid);
                 }
 
                 // Add bid to history and update current bider

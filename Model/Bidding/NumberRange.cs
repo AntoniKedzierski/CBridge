@@ -18,6 +18,10 @@ public class NumberRange {
     }
 
     public void Narrow(NumberRange? newValue) {
+        if (newValue == null) {
+            return;
+        }
+
         if (newValue.Lower != null && (Lower == null || newValue.Lower > Lower)) {
             Lower = newValue.Lower;
         }
@@ -25,6 +29,47 @@ public class NumberRange {
             Upper = newValue.Upper;
         }
     }
+
+
+    public static NumberRange operator+(NumberRange? left, NumberRange? right) {
+        return new NumberRange(
+            (left?.Lower ?? 0) + (right?.Lower ?? 0),
+            (left?.Upper ?? 0) + (right?.Upper ?? 0)
+        );
+    }
+
+
+    public static bool operator<(NumberRange? left, int? right) {
+        if (left == null || right == null) {
+            return false;
+        }
+        return left.Upper < right;
+    }
+
+
+    public static bool operator>(NumberRange? left, int? right) {
+        if (left == null || right == null) {
+            return false;
+        }
+        return left.Lower > right;
+    }
+
+
+    public static bool operator <=(NumberRange? left, int? right) {
+        if (left == null || right == null) {
+            return false;
+        }
+        return left.Upper <= right;
+    }
+
+
+    public static bool operator >=(NumberRange? left, int? right) {
+        if (left == null || right == null) {
+            return false;
+        }
+        return left.Lower >= right;
+    }
+
 
     public override string ToString() {
         if (Lower == null) {
