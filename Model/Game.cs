@@ -84,17 +84,17 @@ public class Game {
     }
 
 
-    public bool Play(Action<PlayerPosition, Bid>? onBidMade = null) {
+    public bool Play() {
         while (NextRandomDeal()) {
             Console.WriteLine($"-----------\nRound {_currentRoundNumber} - Dealer: {_dealer}");
+            foreach (var player in _players) {
+                Console.WriteLine(player.CurrentPosition.ToString() + " " + player.Hand);
+            }
+            Console.WriteLine();
 
             Auction.Start(_dealer);
             while (!Auction.IsCompleted()) {
                 var currentBid = GetPlayer(Auction.CurrentBidder).MakeBid();
-
-                if (onBidMade != null) {
-                    onBidMade(Auction.CurrentBidder, currentBid);
-                }
 
                 // Evaluate hand strength for all players based on the current bid, except for the player who made the bid
                 foreach (var player in _players) {
@@ -104,11 +104,14 @@ public class Game {
                 }
 
                 // Add bid to history and update current bider
+                Console.WriteLine($"{Auction.CurrentBidder}: {currentBid}");
+                Console.WriteLine();
                 Auction.Submit(currentBid);
             }
 
             // Rozgrywka
             Auction.Clear();
+            Console.WriteLine();
             foreach (var player in _players) {
                 player.Reset();
             }

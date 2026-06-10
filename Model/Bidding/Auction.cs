@@ -32,9 +32,9 @@ public class Auction {
 
     public bool IsCompleted() { 
         if (AuctionHistory.Count >= 4) {    // edge case: 3 passes at the beginning of the auction
-            if (AuctionHistory[^1].BidType == BidType.Pass
-                && AuctionHistory[^2].BidType == BidType.Pass
-                && AuctionHistory[^3].BidType == BidType.Pass) {
+            if (AuctionHistory[^1].Type == BidType.Pass
+                && AuctionHistory[^2].Type == BidType.Pass
+                && AuctionHistory[^3].Type == BidType.Pass) {
                 return true;
             }
         }
@@ -63,10 +63,19 @@ public class Auction {
 
     public Bid? GetLastSubmittedBid() {
         for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
-            if (AuctionHistory[i].BidType == BidType.Submit) {
+            if (AuctionHistory[i].Type == BidType.Submit) {
                 return AuctionHistory[i];
             }
         }
         return null;
+    }
+
+    public bool PlayerOpenedAuction(PlayerPosition bidderPosition) {
+        for (int i = 0; i < AuctionHistory.Count; i++) {
+            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 4) % 4) == bidderPosition) {
+                return AuctionHistory[i].Type == BidType.Submit;
+            }
+        }
+        return false;
     }
 }

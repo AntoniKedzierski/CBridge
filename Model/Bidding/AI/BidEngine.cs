@@ -25,6 +25,8 @@ public class BidEngine : IBidInput {
 
     public List<BidNode> OwnBidsHistory { get; private set; } = [];
 
+    public BiddingGoal PreviousGoal { get; private set; }
+
 
     public BidEngine(Auction auction, PlayerPosition position) {
         Auction = auction;
@@ -40,7 +42,59 @@ public class BidEngine : IBidInput {
     }
 
 
+    public BiddingGoal DetermineGoal() {
+        // Gdy w licytacji są same pasy - cel jeszcze nieokreślony.
+        if (Auction.AuctionHistory.Count == 0 || Auction.AuctionHistory.All(e => e.Type == BidType.Pass)) {
+            return BiddingGoal.Undefined;
+        }
+
+        var lastOwnBid = OwnBidsHistory.LastOrDefault();
+        var lastPartnerBid = Auction.GetLastPlayerBid(PartnerPosition);
+
+        if (PreviousGoal == BiddingGoal.Pass) {
+            // Pewien obrót spraw może spowodować, że jednak coś zrobimy...
+            // Gdy oponenci weszli za wysoko:
+            // 1. PlayForPenalty (gdy mamy na kontrę)
+            // 2. MinimizeLoss (gdy bardziej opłaca się wtopić)
+        }
+
+        if (PreviousGoal == BiddingGoal.SystemDefence) {
+            // To zamienia się we wszystko.
+        }
+
+
+        // Gdy my otwieraliśmy, to dążymy do własnej gry.
+        if (Auction.PlayerOpenedAuction(PartnerPosition) || Auction.PlayerOpenedAuction(Position)) {
+           
+
+
+            // Partner spasował na moją ostatnią odzywkę - to oznacza, że oponenci się wcieli!
+            if (lastPartnerBid == null && lastOwnBid != null) {
+                // Gdy wcieli się po odzywce robiącej partię, a naszym celem było jedynie zrobienie partii.
+                if (lastOwnBid.MakesGame() && (PreviousGoal == BiddingGoal.Game || PreviousGoal == BiddingGoal.GameForcing)) {
+                    // TODO: Policzy co się bardziej opłaca. Póki co stary cel.
+                    return PreviousGoal;
+                }
+
+                // Gdy wcieli się po odzywce, która nie robi partii.
+                if (!lastOwnBid.MakesGame()) {
+                    if (PreviousGoal == BiddingGoal.GameForcing) {
+                        return BiddingGoal.GameForcing;
+                    }
+
+                    if (PreviousGoal == BiddingGoal.Game) {
+                        return BiddingGoal.PlayForPenalty;
+                    }
+                }
+            }
+        }
+
+        return BiddingGoal.Undefined;
+    }
+
+
     public Bid Get(Hand hand) {
+        // Być może do usunięcia?
         if (Role == PlayerRole.None) {
             Role = DetermineRole();
         }
@@ -49,25 +103,37 @@ public class BidEngine : IBidInput {
         var lastOwnBid = OwnBidsHistory.LastOrDefault();
         var lastPartnerBid = Auction.GetLastPlayerBid(PartnerPosition);
         var partnersPath = new Dictionary<BidNode, TableEvaluation>();
+        var isFromSystem = true;
 
-        // Konwersja fizycznej odzywki partnera (Bid) na jego gałęzie drzewa.
-        // Jeżeli ja nic nie mówiłem, a partner mówił, to to są wszystkie jego ścieżki.
-        if (lastPartnerBid != null && lastPartnerBid.BidType != BidType.Pass) {
-            var partnersPathSources = lastOwnBid == null
-                ? BiddingSystem.GetDescendants(lastPartnerBid)
-                : BiddingSystem.GetDescendants(lastOwnBid, lastPartnerBid);
+        // Jeżeli ja i partner licytowaliśmy - licytujemy dalej, czyli atakujemy.
+        if (lastOwnBid != null && lastPartnerBid != null) {
+            partnersPath = BiddingSystem
+                .GetDescendants(lastOwnBid, lastPartnerBid)
+                .ToDictionary(
+                    e => e,
+                    e => Evaluator.FromPartner(e, hand, Auction, Position)
+                );
 
-            // Wykonaj ewaluacje na wszystkich gałęziach.
-            partnersPath = partnersPathSources.ToDictionary(
-                e => e, 
-                e => Evaluator.FromPartner(e, hand, Auction, Position)
-            );
+            // Partner mógł nie odzywać się według systemu. Wtedy nic nie pokaże się w śceiżkach partnera.
         }
-        // Jeżeli partner spasował, to używamy ewaluacji z poprzedniego kółka.
-
-
-        // Lub ewaluacji na podstawie odzywki oponentów.
-
+        // Ja licytowałem, a partner pasował w poprzednim kółku.
+        else if (lastOwnBid != null && lastPartnerBid == null) {
+            // TODO - powtórzenie odzywki, przejście do obrony?
+        }
+        // Jeżeli ja nie licytowałem i partner otworzył licytację (zakładamy, że zawsze otworzył z systemu).
+        else if (Auction.PlayerOpenedAuction(PartnerPosition) && lastPartnerBid != null) {
+            partnersPath = BiddingSystem
+                .GetDescendants(lastPartnerBid)
+                .ToDictionary(
+                    e => e,
+                    e => Evaluator.FromPartner(e, hand, Auction, Position)
+                );
+        }
+        // Jeżeli ja nie licytowałem i partner nie otworzył, bo otworzyli oponenci.
+        else if (Auction.PlayerOpenedAuction(LeftOpponentPosition) || Auction.PlayerOpenedAuction(RightOpponentPosition)) {
+            // TODO - ewaluacja stołu na podstawie odzywek oponentów.
+        }
+        // Nikt jeszcze nie licytował - wtedy nic.
 
         // Twój nic nie powiedział w ostatnim kółku lub spasował.
         if (partnersPath.Count == 0) {
@@ -85,8 +151,14 @@ public class BidEngine : IBidInput {
                     .Where(bid => IsBidLegal(bid))
                     .ToList();
 
-                chosenBid = ChooseBidFromSystem(bidCandidates) ?? ChooseBidByFreestyling(hand, tableEvaluation);
+                chosenBid = ChooseBidFromSystem(bidCandidates);
+                if (chosenBid == null) {
+                    chosenBid = ChooseBidByFreestyling(hand, tableEvaluation);
+                    isFromSystem = false;
+                }
             }
+
+            Console.WriteLine("\t" + tableEvaluation.GetCombinedHandEvaluation(hand));
 
             if (chosenBid == null) {
                 Role = PlayerRole.None;
@@ -94,7 +166,7 @@ public class BidEngine : IBidInput {
             }
 
             OwnBidsHistory.Add(chosenBid);
-            return chosenBid.ToBid();
+            return chosenBid.ToBid(isFromSystem);
         }
 
         // Dostosowanie gałęzi, żeby obejmowały tylko odzywki zgodne z tym, co mówiłem wcześniej.
@@ -109,11 +181,17 @@ public class BidEngine : IBidInput {
                 .Where(bid => IsBidLegal(bid))
                 .ToList();
 
-            var chosenBid = ChooseBidFromSystem(bidCandidates) 
-                ?? ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
+            var chosenBid = ChooseBidFromSystem(bidCandidates);
+            if (chosenBid == null) {
+                chosenBid = ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
+                isFromSystem = false;
+            }
+
             if (chosenBid != null) {
                 chosenBids.Add(chosenBid);
             }
+
+            Console.WriteLine("\t" + branchHead.Value.GetCombinedHandEvaluation(hand));
         }
 
         if (chosenBids.Count == 0) {
@@ -123,11 +201,12 @@ public class BidEngine : IBidInput {
 
         var firstChosenBid = chosenBids[0];
         if (!chosenBids.All(e => e.EqualsByColorAndValue(firstChosenBid))) {
-            throw new Exception("Multiple tree branches possible.");
+            Console.WriteLine("Multiple tree branches possible: " + string.Join(", ", chosenBids.Distinct()));
+            return BidNode.Pass().ToBid();
         }
 
         OwnBidsHistory.Add(firstChosenBid);
-        return firstChosenBid.ToBid();
+        return firstChosenBid.ToBid(isFromSystem);
     }
 
 
@@ -142,7 +221,7 @@ public class BidEngine : IBidInput {
                 continue;
             }
 
-            if (bid.BidType == BidType.Submit) {
+            if (bid.Type == BidType.Submit) {
                 if (Position == bidder) { //bidder is me
                     return PlayerRole.Opener;
                 }
@@ -283,7 +362,7 @@ public class BidEngine : IBidInput {
         }
 
         // TODO: invit?
-        if (combinedHandEvaluation.Points.Lower > 20 && combinedHandEvaluation.Points.Upper >= 24) {
+        if (combinedHandEvaluation.Points.Lower > 20) {
             Bid? currentBid = Auction.GetLastSubmittedBid();
             if (currentBid == null) {
                 return null;
@@ -331,17 +410,17 @@ public class BidEngine : IBidInput {
                 ? partnersPath[0]
                 : null;
 
-            if (bid.BidType == BidType.Pass) {
+            if (bid.Type == BidType.Pass) {
                 // TODO
                 return;
             }
 
-            if (bid.BidType == BidType.Double) {
+            if (bid.Type == BidType.Double) {
                 // TODO
                 return;
             }
 
-            if (bid.BidType == BidType.Redouble) {
+            if (bid.Type == BidType.Redouble) {
                 // TODO
                 return;
             }

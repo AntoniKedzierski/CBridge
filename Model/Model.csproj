@@ -7,9 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Bidding\AI\MiddleBiddingStrategies\" />
-    <Folder Include="Bidding\AI\LateBiddingStrategies\" />
-    <Folder Include="Bidding\AI\OpeningStrategies\" />
+    <Compile Remove="Bidding\AI\LateBiddingStrategies\**" />
+    <Compile Remove="Bidding\AI\MiddleBiddingStrategies\**" />
+    <Compile Remove="Bidding\AI\OpeningStrategies\**" />
+    <EmbeddedResource Remove="Bidding\AI\LateBiddingStrategies\**" />
+    <EmbeddedResource Remove="Bidding\AI\MiddleBiddingStrategies\**" />
+    <EmbeddedResource Remove="Bidding\AI\OpeningStrategies\**" />
+    <None Remove="Bidding\AI\LateBiddingStrategies\**" />
+    <None Remove="Bidding\AI\MiddleBiddingStrategies\**" />
+    <None Remove="Bidding\AI\OpeningStrategies\**" />
   </ItemGroup>
 
   <ItemGroup>

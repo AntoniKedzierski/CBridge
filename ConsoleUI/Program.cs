@@ -10,16 +10,6 @@ public class Program {
         Console.OutputEncoding = Encoding.UTF8;
 
         var game = new Game(8);
-
-        game.Play((position, bid) =>
-        {
-            Console.WriteLine($"{position}: {bid}");
-        });
-
-        //while (game.NextRandomDeal()) {
-        //    game.GetPlayer(PlayerPosition.North).Hand.DisplayHand();
-
-
-        //}
+        game.Play();
     }
 }

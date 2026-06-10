@@ -11,13 +11,10 @@ using System.Threading.Tasks;
 
 namespace Model.Bidding.Bids;
 
-public class BidNode : IEquatable<BidNode>, IEqualityComparer<BidNode> {
+public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode> {
 
     [JsonIgnore]
     public Guid Identifier { get; set; } = Guid.NewGuid();
-    public int? Value { get; set; }
-    public BidColor Color { get; set; }
-    public BidType Type { get; set; }
     public string? Description { get; set; }
     public string? Condition { get; set; }
     public string? Convention { get; set; }
@@ -39,7 +36,6 @@ public class BidNode : IEquatable<BidNode>, IEqualityComparer<BidNode> {
     [JsonIgnore]
     public string Path { get; set; } = "";
 
-
     public bool Matches(Hand hand, PlayerRole role) {
         if(role == PlayerRole.Opener && !OpenerBid) {
             return false;
@@ -51,8 +47,10 @@ public class BidNode : IEquatable<BidNode>, IEqualityComparer<BidNode> {
 
         return hand.Matches(PointsRange, SpadesCardRange, HeartsCardRange, DiamondsCardRange, ClubsCardRange, Aces, Kings);
     }
+
+
     public bool Matches(Bid bid) {
-        return Type == bid.BidType
+        return Type == bid.Type
             && Color == bid.Color
             && Value == bid.Value;
     }
@@ -73,13 +71,15 @@ public class BidNode : IEquatable<BidNode>, IEqualityComparer<BidNode> {
         };
     }
 
-    public Bid ToBid() {
+    public Bid ToBid(bool isFromSystem = true) {
         return new Bid {
-            BidType = Type,
+            Type = Type,
             Color = Color,
-            Value = Value
+            Value = Value,
+            IsFromSystem = isFromSystem
         };
     }
+
 
     public void AssignParent(BidNode? parent) {
         Parent = parent;

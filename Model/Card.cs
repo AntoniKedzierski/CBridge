@@ -52,7 +52,7 @@ public class Card : IPoints, IEqualityComparer<Card> {
             _ => throw new NotImplementedException("Invalid card value.")
         };
 
-        return $"{colorChar}{cardValue}";
+        return $"{cardValue}{colorChar}";
     }
 
     
