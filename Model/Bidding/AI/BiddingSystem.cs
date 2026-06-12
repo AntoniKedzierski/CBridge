@@ -68,4 +68,8 @@ public class BiddingSystem {
         return Roots.FirstOrDefault(e => e.Name == "Otwarcia");
     }
 
+
+    public Root? Defences() {
+        return Roots.FirstOrDefault(e => e.Name == "Obrona");
+    }
 }

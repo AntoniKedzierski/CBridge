@@ -1,14 +1,8 @@
 ﻿using Model.Enums;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model.Bidding.Bids;
 
-public class Bid {
+public class Bid : IEquatable<Bid> {
 
     public BidType Type { get; set; }
 
@@ -17,6 +11,13 @@ public class Bid {
     public int? Value { get; set; }
 
     public bool IsFromSystem { get; set; }
+
+    public Bid() { }
+
+    public Bid(int value, BidColor color) {
+        Value = value;
+        Color = color;
+    }
 
     public bool MakesGame() {
         if (Type != BidType.Submit) {
@@ -46,5 +47,17 @@ public class Bid {
         return $"{Value}{Color}" + (IsFromSystem ? " S" : " F");
     }
 
+
+    public virtual bool Equals(Bid? other) {
+        if (other == null) {
+            return false;
+        }
+
+        return other.Color == Color && other.Type == Type && (other.Value?.Equals(Value) ?? true);
+    }
+
+    public static Bid Pass() {
+        return new Bid { Type = BidType.Pass };
+    }
 }
 

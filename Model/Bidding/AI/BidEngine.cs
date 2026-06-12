@@ -13,14 +13,21 @@ using System.Threading.Tasks;
 namespace Model.Bidding.AI;
 
 public class BidEngine : IBidInput {
+
     public Auction Auction { get; private set; }
+
     public BiddingSystem BiddingSystem { get; private set; }
+
     public string BiddingSystemPath { get; set; } = @"..\..\..\..\BiddingBrowser\BiddingSystems\Wspólny Język.json";
 
     public PlayerPosition Position { get; private set; }
+
     public PlayerPosition LeftOpponentPosition => (PlayerPosition)(((int)Position + 1) % 4);
+
     public PlayerPosition PartnerPosition => (PlayerPosition)(((int)Position + 2) % 4);
+
     public PlayerPosition RightOpponentPosition => (PlayerPosition)(((int)Position + 3) % 4);
+
     public PlayerRole Role { get; private set; }
 
     public List<BidNode> OwnBidsHistory { get; private set; } = [];
@@ -30,7 +37,7 @@ public class BidEngine : IBidInput {
 
     public BidEngine(Auction auction, PlayerPosition position) {
         Auction = auction;
-        BiddingSystem = new BiddingSystem(BiddingSystemPath);   //hardcoded path for now
+        BiddingSystem = new BiddingSystem(BiddingSystemPath);   // hardcoded path for now
         Position = position;
         Role = PlayerRole.None;
     }
@@ -42,171 +49,180 @@ public class BidEngine : IBidInput {
     }
 
 
-    public BiddingGoal DetermineGoal() {
-        // Gdy w licytacji są same pasy - cel jeszcze nieokreślony.
-        if (Auction.AuctionHistory.Count == 0 || Auction.AuctionHistory.All(e => e.Type == BidType.Pass)) {
-            return BiddingGoal.Undefined;
-        }
-
-        var lastOwnBid = OwnBidsHistory.LastOrDefault();
-        var lastPartnerBid = Auction.GetLastPlayerBid(PartnerPosition);
-
-        if (PreviousGoal == BiddingGoal.Pass) {
-            // Pewien obrót spraw może spowodować, że jednak coś zrobimy...
-            // Gdy oponenci weszli za wysoko:
-            // 1. PlayForPenalty (gdy mamy na kontrę)
-            // 2. MinimizeLoss (gdy bardziej opłaca się wtopić)
-        }
-
-        if (PreviousGoal == BiddingGoal.SystemDefence) {
-            // To zamienia się we wszystko.
-        }
 
 
-        // Gdy my otwieraliśmy, to dążymy do własnej gry.
-        if (Auction.PlayerOpenedAuction(PartnerPosition) || Auction.PlayerOpenedAuction(Position)) {
-           
+    public BiddingGoal DetermineGoal(Hand hand) {
+        // Pierwsze określenie celu, po pierwszym okrążeniu licytacji.
+        if (PreviousGoal == BiddingGoal.Undefined) {
+            var ourSequence = Auction.GetPlayersSequence(Position, out var openingPlayer);
+            var opponentsSequence = Auction.GetPlayersSequence(LeftOpponentPosition, out var openingOpponent);
 
+            // Zliczanie pasów? Chyba nienajgorsza metoda...
+            var oursPassCount = ourSequence.Count(e => e.Type == BidType.Pass);
+            var theirsPassCount = opponentsSequence.Count(e => e.Type == BidType.Pass);
 
-            // Partner spasował na moją ostatnią odzywkę - to oznacza, że oponenci się wcieli!
-            if (lastPartnerBid == null && lastOwnBid != null) {
-                // Gdy wcieli się po odzywce robiącej partię, a naszym celem było jedynie zrobienie partii.
-                if (lastOwnBid.MakesGame() && (PreviousGoal == BiddingGoal.Game || PreviousGoal == BiddingGoal.GameForcing)) {
-                    // TODO: Policzy co się bardziej opłaca. Póki co stary cel.
-                    return PreviousGoal;
-                }
-
-                // Gdy wcieli się po odzywce, która nie robi partii.
-                if (!lastOwnBid.MakesGame()) {
-                    if (PreviousGoal == BiddingGoal.GameForcing) {
-                        return BiddingGoal.GameForcing;
-                    }
-
-                    if (PreviousGoal == BiddingGoal.Game) {
-                        return BiddingGoal.PlayForPenalty;
-                    }
-                }
+            if (oursPassCount == theirsPassCount) {
+                return BiddingGoal.Undefined;
             }
+
+            // Finalnie, ten kto mniej pasował, ma grać.
+            return theirsPassCount < oursPassCount ? BiddingGoal.Pass : BiddingGoal.Game;
         }
 
-        return BiddingGoal.Undefined;
+        // Gdy wcześniej mieliśmy pasować, a przeciwnicy jeszcze nie doszli do partii.
+        if (PreviousGoal == BiddingGoal.Pass) {
+            if (!Auction.ReachedGameLevel()) {
+                return BiddingGoal.Pass;
+            }
+
+            // Jeżeli doszli do partii, to przeliczamy, czy opłaca się samemu zgłaszać kontrakt w celu zminimalizowania strat.
+            return BiddingGoal.MinimizeLoss;
+        }
+
+        return PreviousGoal;
     }
 
 
-    public Bid Get(Hand hand) {
-        // Być może do usunięcia?
-        if (Role == PlayerRole.None) {
-            Role = DetermineRole();
-        }
+    // TODO
+    public BidNode? PlayInDefence(Hand hand, Bid lastOpponentBid) {
+        // Gałąź z konwencjami obronnymi na ostatnią odzywkę przeciwników.
+        var defences = BiddingSystem.Defences() ?? throw new Exception("Defences not found.");
+        var defenceBranch = defences.Bids.FirstOrDefault(e => e.EqualsByColorAndValue(lastOpponentBid.Value, lastOpponentBid.Color));
+        return null;
+    }
 
-        // Wywal gałęzie niepasujące do twojej poprzedniej odzywki.
-        var lastOwnBid = OwnBidsHistory.LastOrDefault();
-        var lastPartnerBid = Auction.GetLastPlayerBid(PartnerPosition);
-        var partnersPath = new Dictionary<BidNode, TableEvaluation>();
-        var isFromSystem = true;
 
-        // Jeżeli ja i partner licytowaliśmy - licytujemy dalej, czyli atakujemy.
-        if (lastOwnBid != null && lastPartnerBid != null) {
-            partnersPath = BiddingSystem
-                .GetDescendants(lastOwnBid, lastPartnerBid)
-                .ToDictionary(
-                    e => e,
-                    e => Evaluator.FromPartner(e, hand, Auction, Position)
-                );
+    public BidNode? PlayInOffence(Hand hand) {
+        var openings = BiddingSystem.Openings() ?? throw new Exception("Openings not found");
+        var bidCandidates = FindNodesByHand(hand, openings).ToList();
+        var chosenBid = ChooseBidFromSystem(bidCandidates);
+        return chosenBid;
+    }
 
-            // Partner mógł nie odzywać się według systemu. Wtedy nic nie pokaże się w śceiżkach partnera.
-        }
-        // Ja licytowałem, a partner pasował w poprzednim kółku.
-        else if (lastOwnBid != null && lastPartnerBid == null) {
-            // TODO - powtórzenie odzywki, przejście do obrony?
-        }
-        // Jeżeli ja nie licytowałem i partner otworzył licytację (zakładamy, że zawsze otworzył z systemu).
-        else if (Auction.PlayerOpenedAuction(PartnerPosition) && lastPartnerBid != null) {
-            partnersPath = BiddingSystem
-                .GetDescendants(lastPartnerBid)
-                .ToDictionary(
-                    e => e,
-                    e => Evaluator.FromPartner(e, hand, Auction, Position)
-                );
-        }
-        // Jeżeli ja nie licytowałem i partner nie otworzył, bo otworzyli oponenci.
-        else if (Auction.PlayerOpenedAuction(LeftOpponentPosition) || Auction.PlayerOpenedAuction(RightOpponentPosition)) {
-            // TODO - ewaluacja stołu na podstawie odzywek oponentów.
-        }
-        // Nikt jeszcze nie licytował - wtedy nic.
 
-        // Twój nic nie powiedział w ostatnim kółku lub spasował.
-        if (partnersPath.Count == 0) {
-            // Ale my coś już mówiliśmy
-            BidNode? chosenBid = null;
-            var tableEvaluation = Evaluator.FromOwnHand(hand);
-            if (lastOwnBid != null) {
-                chosenBid = ChooseBidByFreestyling(hand, tableEvaluation);
-            }
-            else {
-                var openings = BiddingSystem.Openings() ?? throw new Exception("Openings not found");
+    public BidNode? PlayInOffence(Hand hand, Bid lastPartnerBid, BidNode? lastOwnBid = null, bool elevateSystem = false) {
+        var descendants = lastOwnBid == null
+            ? BiddingSystem.GetDescendants(lastPartnerBid)
+            : BiddingSystem.GetDescendants(lastOwnBid, lastPartnerBid);
 
-                // Weź wszystko, co pasuje do ręki i jest legalne, i wybierz z tego systemową odzywkę.
-                var bidCandidates = FindNodesByHand(hand, openings)
-                    .Where(bid => IsBidLegal(bid))
-                    .ToList();
+        var branches = descendants
+            .ToDictionary(
+                e => e,
+                e => Evaluator.FromPartner(e, hand, Auction, Position)
+            );
 
-                chosenBid = ChooseBidFromSystem(bidCandidates);
-                if (chosenBid == null) {
-                    chosenBid = ChooseBidByFreestyling(hand, tableEvaluation);
-                    isFromSystem = false;
-                }
-            }
+        return GetBidFromBranches(hand, branches);
+    }
 
-            Console.WriteLine("\t" + tableEvaluation.GetCombinedHandEvaluation(hand));
 
-            if (chosenBid == null) {
-                Role = PlayerRole.None;
-                return BidNode.Pass().ToBid();
-            }
-
-            OwnBidsHistory.Add(chosenBid);
-            return chosenBid.ToBid(isFromSystem);
-        }
-
-        // Dostosowanie gałęzi, żeby obejmowały tylko odzywki zgodne z tym, co mówiłem wcześniej.
-        var ownBranches = lastOwnBid == null
-            ? partnersPath
-            : partnersPath.Where(e => e.Key.Parent == lastOwnBid);
-
+    private BidNode? GetBidFromBranches(Hand hand, Dictionary<BidNode, TableEvaluation> branches) {
         var chosenBids = new List<BidNode>();
-        foreach (var branchHead in ownBranches) {
+        foreach (var branchHead in branches) {
             // Weź wszystko, co pasuje do ręki i jest legalne, i wybierz z tego systemową odzywkę.
             var bidCandidates = FindNodesByHand(hand, branchHead.Key)
-                .Where(bid => IsBidLegal(bid))
+                .Where(IsBidLegal)
                 .ToList();
 
             var chosenBid = ChooseBidFromSystem(bidCandidates);
             if (chosenBid == null) {
                 chosenBid = ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
-                isFromSystem = false;
             }
 
             if (chosenBid != null) {
                 chosenBids.Add(chosenBid);
             }
-
-            Console.WriteLine("\t" + branchHead.Value.GetCombinedHandEvaluation(hand));
         }
 
         if (chosenBids.Count == 0) {
-            Role = PlayerRole.None;
-            return BidNode.Pass().ToBid();
+            return null;
         }
 
         var firstChosenBid = chosenBids[0];
         if (!chosenBids.All(e => e.EqualsByColorAndValue(firstChosenBid))) {
             Console.WriteLine("Multiple tree branches possible: " + string.Join(", ", chosenBids.Distinct()));
-            return BidNode.Pass().ToBid();
+            return null;
         }
 
-        OwnBidsHistory.Add(firstChosenBid);
-        return firstChosenBid.ToBid(isFromSystem);
+        return firstChosenBid;
+    }
+
+
+    public Bid Get(Hand hand) {
+        var selectedBidNode = SelectOptimalBid(hand);
+        if (selectedBidNode == null) {
+            return Bid.Pass();
+        }
+
+        OwnBidsHistory.Add(selectedBidNode);
+        return selectedBidNode.ToBid();
+    }
+
+
+    private BidNode? SelectOptimalBid(Hand hand) {
+        // Zagranie systemem:
+        //  1. W pierwszym kółku licytacji, zależnie od tego, kto się odzywał:
+        //      1.1. NIKT NIC NIE MÓWIŁ -> Próbujemy otworzyć z systemem.
+        //      1.2. PARTNER PASOWAŁ -> Sprawdzamy konwencje obronne, potem sprawdzamy system pod kątem otwarcia.
+        //      1.3. PARTNER NIE PASOWAŁ
+        //          1.3.1. OPONENCI SIĘ NIE WCIELI -> Odpowiadamy systemem.
+        //          1.3.2. OPONENCI SIĘ WCIELI -> Sprawdzamy konwencje obronne, potem sprawdzamy system, potem sprawdzamy podniesiony system, potem licytację naturalną.
+        //  2. W kolejnych kółkach zaczynamy od określenia celu.
+        //      2.1. Pass -> pasujemy.
+        //      2.2. SystemDefence -> szukamy komunikacji odnośnie wistu w konwencjach obronnych (dwukolorówki Michaelsa). Nie ma tu kontry wywoławczej ani wejścia kolorem przeciwników (bo to konwencje pierwszego kółka).
+        //      2.3. Game -> licytacja systemem, dążąca do partii.
+        //      2.4. GameForcing -> licytacja systemem, która nie może zakończyć się przed zrobieniem partii.
+        //      2.5. PremiumContract -> licytacja konwencjami szlemowymi w celu osiągnięcia kontraktu premiowego.
+        //      2.6. MinimizeLoss -> TODO
+        //      2.7. PlayForPenalty -> TODO.
+
+        // Najpierw ten po prawej, potem po lewej.
+        var lastOpponentsBid = Auction.GetLastPlayerBid(RightOpponentPosition, passAsNull: true) ?? Auction.GetLastPlayerBid(LeftOpponentPosition, passAsNull: true);
+        var lastPartnersBid = Auction.GetLastPlayerBid(PartnerPosition, passAsNull: true);
+
+        // Osobne traktowanie licytacji w pierwszym kółku.
+        if (Auction.Loop == 0) {
+            // Oponenci się nie wcinali
+            if (lastOpponentsBid == null) {
+                return lastPartnersBid == null ? PlayInOffence(hand) : PlayInOffence(hand, lastPartnersBid);
+            }
+
+            // Oponenci się wcinali, partner nic nie mówił
+            if (lastPartnersBid == null) {
+                return PlayInDefence(hand, lastOpponentsBid);
+            }
+
+            // Oponenci i partner coś mówili!
+            return PlayInDefence(hand, lastOpponentsBid) ?? PlayInOffence(hand, lastPartnersBid, elevateSystem: true);
+        }
+
+        // Tutaj licytacja na pewno trwała dłużej niż jedno kółko.
+        var goal = DetermineGoal(hand);
+
+        // Sprawdzamy drzewka obronne, na wszelki wypadek.
+        if (goal == BiddingGoal.Pass) {
+            return PlayInDefence(hand, lastOpponentsBid!);
+        }
+
+        // TODO
+        if (goal == BiddingGoal.MinimizeLoss || goal == BiddingGoal.PlayForPenalty) {
+            return null;
+        }
+
+        // TODO
+        if (goal == BiddingGoal.PremiumContract) {
+            return null;
+        }
+
+        // Wszystko inne wymaga ofensywnego grania systemem lub naturalnie.
+        // Gdy partner ostatnio spasował, a doszło do nas, to znaczy, że musimy odpowiedzieć oponentom, którzy się wcieli.
+        if (lastPartnersBid == null) {
+            // TODO
+            return null;
+        }
+
+        // Odpowiedź wg systemu na odzywkę partnera.
+        var lastOwnBid = OwnBidsHistory.LastOrDefault();
+        return PlayInOffence(hand, lastPartnersBid, lastOwnBid);
     }
 
 
@@ -234,10 +250,11 @@ public class BidEngine : IBidInput {
         return PlayerRole.Opener;
     }
 
+
     public List<BidNode> FindNodesByHand(Hand hand, BidNode head) {
         List<BidNode> foundBidNodes = new();
         foreach (BidNode bidNode in head.NextBids) {
-            if (bidNode.Matches(hand, Role)) {
+            if (bidNode.Matches(hand)) {
                 foundBidNodes.Add(bidNode);
             }
         }
@@ -249,13 +266,14 @@ public class BidEngine : IBidInput {
     public List<BidNode> FindNodesByHand(Hand hand, Root root) {
         List<BidNode> foundBidNodes = new();
         foreach (BidNode bidNode in root.Bids) {
-            if (bidNode.Matches(hand, Role)) {
+            if (bidNode.Matches(hand)) {
                 foundBidNodes.Add(bidNode);
             }
         }
 
         return foundBidNodes;
     }
+
 
     public List<BidNode> FindLegalBids(List<BidNode> possibleBids) {
         List<BidNode> legalBids = new List<BidNode>();
@@ -266,6 +284,7 @@ public class BidEngine : IBidInput {
         }
         return legalBids;
     }
+
 
     public bool IsBidLegal(BidNode bidNode) {
         Bid? lastBid = Auction.GetLastSubmittedBid();
@@ -285,32 +304,15 @@ public class BidEngine : IBidInput {
         return false;
     }
 
-    public BidNode? ChooseBidFromSystem(List<BidNode> legalBids) {
+
+    public static BidNode? ChooseBidFromSystem(List<BidNode> legalBids) {
         if (legalBids.Count == 0) {
             return null;
         }
 
-        List<BidNode> conventionBids = new();
-
-        foreach (BidNode bid in legalBids) {
-            if (!string.IsNullOrWhiteSpace(bid.Convention)) {
-                conventionBids.Add(bid);
-            }
-        }
-
-        List<BidNode> bidsToChoose;
-        if (conventionBids.Count == 1) {
-            return conventionBids[0];
-        }
-        else if (conventionBids.Count > 1) { // Covention bids are preferred
-            bidsToChoose = conventionBids;
-        }
-        else {
-            bidsToChoose = legalBids;
-        }
-
-        BidNode lowestBid = bidsToChoose[0];
-        foreach (BidNode bid in bidsToChoose) { // Lower bids are preferred
+        // Lower bids are preferred
+        var lowestBid = legalBids[0];
+        foreach (var bid in legalBids) {
             if (bid.Value < lowestBid.Value) {
                 lowestBid = bid;
             }

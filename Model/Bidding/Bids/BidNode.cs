@@ -36,15 +36,7 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode> {
     [JsonIgnore]
     public string Path { get; set; } = "";
 
-    public bool Matches(Hand hand, PlayerRole role) {
-        if(role == PlayerRole.Opener && !OpenerBid) {
-            return false;
-        }
-
-        if(role != PlayerRole.Opener && OpenerBid) {
-            return false;
-        }
-
+    public bool Matches(Hand hand) {
         return hand.Matches(PointsRange, SpadesCardRange, HeartsCardRange, DiamondsCardRange, ClubsCardRange, Aces, Kings);
     }
 
@@ -108,6 +100,11 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode> {
         }
 
         return Color == other.Color && Value == other.Value;
+    }
+
+
+    public bool EqualsByColorAndValue(int? value, BidColor color) {
+        return Color == color && Value == value;
     }
 
 
