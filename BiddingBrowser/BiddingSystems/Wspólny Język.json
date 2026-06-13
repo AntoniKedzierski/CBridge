@@ -2575,18 +2575,18 @@
               },
               "SpadesCardRange": {
                 "Lower": null,
-                "Upper": null
+                "Upper": 3
               },
               "HeartsCardRange": {
                 "Lower": null,
-                "Upper": null
+                "Upper": 3
               },
               "DiamondsCardRange": {
-                "Lower": null,
+                "Lower": 2,
                 "Upper": null
               },
               "ClubsCardRange": {
-                "Lower": null,
+                "Lower": 2,
                 "Upper": null
               },
               "SpadesStops": null,
@@ -23601,11 +23601,11 @@
               "Color": 3,
               "Type": 1,
               "Description": null,
-              "Condition": "7–10 PC, fit 3+ kartowy, maks. 3 piki ",
+              "Condition": "7–11 PC, fit 3+ kartowy, maks. 3 piki ",
               "Convention": null,
               "PointsRange": {
                 "Lower": 7,
-                "Upper": 10
+                "Upper": 11
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -49496,11 +49496,11 @@
               "Color": 0,
               "Type": 2,
               "Description": null,
-              "Condition": "Kontra wywoławcza, 12-14 PC, max. dubel w treflu, minimum 3 karty w kolorach starszych.",
+              "Condition": "Kontra wywoławcza, 12-17 PC, max. dubel w treflu, minimum 3 karty w kolorach starszych.",
               "Convention": null,
               "PointsRange": {
                 "Lower": 12,
-                "Upper": 14
+                "Upper": 17
               },
               "SpadesCardRange": {
                 "Lower": 3,
@@ -49578,7 +49578,7 @@
                       "Color": 3,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "Pokazanie 4 kart, doprecyzowanie kontry wywoławczej.",
+                      "Condition": "Pokazanie 4+ kart, doprecyzowanie kontry wywoławczej.",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -49621,7 +49621,7 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "Pokazanie 4 kart, doprecyzowanie kontry wywoławczej.",
+                      "Condition": "Pokazanie 4+ kart, doprecyzowanie kontry wywoławczej.",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -49667,10 +49667,10 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "Do 8 PC, min. 4 kiery, brak czterech pików.",
+                  "Condition": "Do 8 PC, min. 4+ kiery, brak czterech pików.",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": null,
+                    "Lower": 7,
                     "Upper": 8
                   },
                   "SpadesCardRange": {
@@ -49701,7 +49701,94 @@
                   "OneRoundForcing": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [],
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": "Minimum siły, 12-15 PC, nie do grania.",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": 12,
+                        "Upper": 15
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": true,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 1,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "16-17PC, zachęta do gry w kolor.",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": 16,
+                        "Upper": 17
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": true,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    }
+                  ],
                   "Code": "♥"
                 },
                 {
@@ -49710,7 +49797,7 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "Do 8 PC, min. 4 piki, być może cztery kiery.",
+                  "Condition": "Do 8 PC, min. 4+ piki, być może cztery kiery.",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -49744,7 +49831,94 @@
                   "OneRoundForcing": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [],
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": "Minimum siły, 12-15 PC, nie do grania.",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": 12,
+                        "Upper": 15
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": true,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    },
+                    {
+                      "Identifier": "<empty>",
+                      "Value": 1,
+                      "Color": 5,
+                      "Type": 1,
+                      "Description": null,
+                      "Condition": "16-17PC, zachęta do gry w kolor.",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": 16,
+                        "Upper": 17
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": true,
+                      "SignOff": false,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "NT"
+                    }
+                  ],
                   "Code": "♠"
                 },
                 {
@@ -49787,7 +49961,51 @@
                   "OneRoundForcing": false,
                   "GameForcing": false,
                   "AutomaticResponse": false,
-                  "NextBids": [],
+                  "NextBids": [
+                    {
+                      "Identifier": "<empty>",
+                      "Value": null,
+                      "Color": 0,
+                      "Type": 0,
+                      "Description": null,
+                      "Condition": "Minimum siły, 12-13 PC, nie do grania.",
+                      "Convention": null,
+                      "PointsRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "HeartsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "DiamondsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "ClubsCardRange": {
+                        "Lower": null,
+                        "Upper": null
+                      },
+                      "SpadesStops": null,
+                      "HeartsStops": null,
+                      "DiamondsStops": null,
+                      "ClubsStops": null,
+                      "Aces": null,
+                      "Kings": null,
+                      "ColorDistribution": null,
+                      "OpenerBid": true,
+                      "SignOff": true,
+                      "OneRoundForcing": false,
+                      "GameForcing": false,
+                      "AutomaticResponse": false,
+                      "NextBids": [],
+                      "Code": "Pass"
+                    }
+                  ],
                   "Code": "NT"
                 },
                 {
@@ -49796,10 +50014,10 @@
                   "Color": 1,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15+ PC, wejście kolorem przeciwników, max. dubel w treflu, Game Forcing.",
+                  "Condition": "12+ PC, wejście kolorem przeciwników, max. dubel w treflu, Game Forcing.",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": 15,
+                    "Lower": 12,
                     "Upper": null
                   },
                   "SpadesCardRange": {
@@ -49839,7 +50057,7 @@
                   "Color": 2,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "Do 11 PC, min. 5 karo, brak starszych kolorów.",
+                  "Condition": "Do 11 PC, min. 5+ karo, brak starszych kolorów.",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
@@ -49882,7 +50100,7 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "9-12 PC, min. 4 kiery, brak czterech pików.",
+                  "Condition": "9-12 PC, min. 4+ kiery, brak czterech pików.",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 9,
@@ -49925,7 +50143,7 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "9-12 PC, min. 4 piki, być może cztery kiery.",
+                  "Condition": "9-12 PC, min. 4+ piki, być może cztery kiery.",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 9,
@@ -50096,7 +50314,7 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "Doprecyzowanie kontry objaśniającej, równy rozkład.",
+                      "Condition": "18-20 PC, doprecyzowanie kontry objaśniającej, równy rozkład.",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
@@ -50129,7 +50347,7 @@
                       "SignOff": false,
                       "OneRoundForcing": false,
                       "GameForcing": false,
-                      "AutomaticResponse": true,
+                      "AutomaticResponse": false,
                       "NextBids": [],
                       "Code": "NT"
                     },

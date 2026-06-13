@@ -28,32 +28,28 @@ public class BidEngine : IBidInput {
 
     public PlayerPosition RightOpponentPosition => (PlayerPosition)(((int)Position + 3) % 4);
 
-    public PlayerRole Role { get; private set; }
-
     public List<BidNode> OwnBidsHistory { get; private set; } = [];
 
-    public BiddingGoal PreviousGoal { get; private set; }
+    public BiddingGoal Goal { get; private set; }
 
 
     public BidEngine(Auction auction, PlayerPosition position) {
         Auction = auction;
         BiddingSystem = new BiddingSystem(BiddingSystemPath);   // hardcoded path for now
         Position = position;
-        Role = PlayerRole.None;
+        Goal = BiddingGoal.Undefined;
     }
 
 
     public void Reset() {
-        Role = PlayerRole.None;
         OwnBidsHistory.Clear();
+        Goal = BiddingGoal.Undefined;
     }
 
 
-
-
-    public BiddingGoal DetermineGoal(Hand hand) {
+    public void DetermineGoal() {
         // Pierwsze określenie celu, po pierwszym okrążeniu licytacji.
-        if (PreviousGoal == BiddingGoal.Undefined) {
+        if (Goal == BiddingGoal.Undefined) {
             var ourSequence = Auction.GetPlayersSequence(Position, out var openingPlayer);
             var opponentsSequence = Auction.GetPlayersSequence(LeftOpponentPosition, out var openingOpponent);
 
@@ -62,24 +58,27 @@ public class BidEngine : IBidInput {
             var theirsPassCount = opponentsSequence.Count(e => e.Type == BidType.Pass);
 
             if (oursPassCount == theirsPassCount) {
-                return BiddingGoal.Undefined;
+                Goal = BiddingGoal.Undefined;
+                return;
             }
 
             // Finalnie, ten kto mniej pasował, ma grać.
-            return theirsPassCount < oursPassCount ? BiddingGoal.Pass : BiddingGoal.Game;
+            Goal = theirsPassCount < oursPassCount ? BiddingGoal.Pass : BiddingGoal.Game;
+            return;
         }
 
         // Gdy wcześniej mieliśmy pasować, a przeciwnicy jeszcze nie doszli do partii.
-        if (PreviousGoal == BiddingGoal.Pass) {
+        if (Goal == BiddingGoal.Pass) {
             if (!Auction.ReachedGameLevel()) {
-                return BiddingGoal.Pass;
+                Goal = BiddingGoal.Pass;
+                return;
             }
 
             // Jeżeli doszli do partii, to przeliczamy, czy opłaca się samemu zgłaszać kontrakt w celu zminimalizowania strat.
-            return BiddingGoal.MinimizeLoss;
+            Goal = BiddingGoal.MinimizeLoss;
         }
 
-        return PreviousGoal;
+        // Goal pozostaje niezmieniony.
     }
 
 
@@ -101,8 +100,10 @@ public class BidEngine : IBidInput {
 
 
     public BidNode? PlayInOffence(Hand hand, Bid lastPartnerBid, BidNode? lastOwnBid = null, bool elevateSystem = false) {
+        Console.Write($"Responding to partner's {lastPartnerBid}... ");
+        Console.Write($"Goal is {Goal}. ");
         var descendants = lastOwnBid == null
-            ? BiddingSystem.GetDescendants(lastPartnerBid)
+            ? BiddingSystem.GetOpenings(lastPartnerBid)
             : BiddingSystem.GetDescendants(lastOwnBid, lastPartnerBid);
 
         var branches = descendants
@@ -111,11 +112,34 @@ public class BidEngine : IBidInput {
                 e => Evaluator.FromPartner(e, hand, Auction, Position)
             );
 
-        return GetBidFromBranches(hand, branches);
+        Console.Write($"Branches count: {branches.Count}. ");
+
+        // Potencjalne przeście na GF
+        var gameForcing = branches.Keys.All(e => e.IsGameForcing());
+        var anyNotGameForcing = branches.Keys.Any(e => !e.IsGameForcing());
+
+        if (gameForcing && anyNotGameForcing) {
+            Console.Write("Not all branches are game forcing... ");
+        }
+
+        if (gameForcing) {
+            Console.Write("All branches are game forcing... ");
+            Goal = BiddingGoal.GameForcing;
+        }
+
+        Console.WriteLine();
+        var systemBid = GetBidFromSystemBranches(hand, branches);
+        Console.WriteLine();
+        if (systemBid != null || Goal == BiddingGoal.Undefined) {
+            return systemBid;
+        }
+
+        // Tutaj celem może być jedynie: Game, GameForcing, PremiumContract.
+        return GetNaturalBid(hand, branches);
     }
 
 
-    private BidNode? GetBidFromBranches(Hand hand, Dictionary<BidNode, TableEvaluation> branches) {
+    private BidNode? GetBidFromSystemBranches(Hand hand, Dictionary<BidNode, TableEvaluation> branches) {
         var chosenBids = new List<BidNode>();
         foreach (var branchHead in branches) {
             // Weź wszystko, co pasuje do ręki i jest legalne, i wybierz z tego systemową odzywkę.
@@ -123,11 +147,18 @@ public class BidEngine : IBidInput {
                 .Where(IsBidLegal)
                 .ToList();
 
-            var chosenBid = ChooseBidFromSystem(bidCandidates);
-            if (chosenBid == null) {
-                chosenBid = ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
+            if (bidCandidates.Count == 0) {
+                Console.Write($"If partner said {branchHead.Key}, meaning '{branchHead.Key.Condition}', but there are no legal responses.\n");
+            }
+            else {
+                Console.Write($"If partner said {branchHead.Key}, meaning '{branchHead.Key.Condition}', then possible responses are:\n");
+                int n = 1;
+                foreach (var bid in bidCandidates) {
+                    Console.WriteLine($"  {n++}. {bid}: {bid.Condition}");
+                }
             }
 
+            var chosenBid = ChooseBidFromSystem(bidCandidates);
             if (chosenBid != null) {
                 chosenBids.Add(chosenBid);
             }
@@ -147,8 +178,55 @@ public class BidEngine : IBidInput {
     }
 
 
+    private BidNode? GetNaturalBid(Hand hand, Dictionary<BidNode, TableEvaluation> branches) { 
+        var chosenBids = new List<BidNode>();
+        foreach (var branchHead in branches) {
+            var chosenBid = ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
+            if (chosenBid != null && IsBidLegal(chosenBid)) {
+                chosenBids.Add(chosenBid);
+            }
+        }
+
+        if (chosenBids.Count == 0) {
+            return null;
+        }
+
+        var signOff = GetCommonBranchesValue(branches, e => e.SignOff);
+        if (signOff) {
+            Console.WriteLine("Sign-off...");
+            return null;
+        }
+
+        var result = chosenBids.Min()!;
+        result.IsFromSystem = false;
+        return result;
+    }
+
+
+    private TResult? GetCommonBranchesValue<TResult>(Dictionary<BidNode, TableEvaluation> branches, Func<BidNode, TResult> property) {
+        TResult? currentValue = default;
+        var valueFound = false;
+
+        foreach (var branchHead in branches.Keys) {
+            if (!valueFound) {
+                currentValue = property.Invoke(branchHead);
+                continue;
+            }
+
+            if (valueFound && !currentValue.Equals(property.Invoke(branchHead))) {
+                Console.WriteLine($"Property mismatch across branches. Current value was {currentValue}, but {branchHead} has different value {property.Invoke(branchHead)}.");
+            }
+        }
+
+        return currentValue;
+    }
+
+
     public Bid Get(Hand hand) {
+        Console.WriteLine();
         var selectedBidNode = SelectOptimalBid(hand);
+        Console.WriteLine($"{Position}: {selectedBidNode}");
+
         if (selectedBidNode == null) {
             return Bid.Pass();
         }
@@ -192,24 +270,25 @@ public class BidEngine : IBidInput {
             }
 
             // Oponenci i partner coś mówili!
-            return PlayInDefence(hand, lastOpponentsBid) ?? PlayInOffence(hand, lastPartnersBid, elevateSystem: true);
+            return PlayInDefence(hand, lastOpponentsBid) ?? PlayInOffence(hand, lastPartnersBid);
         }
 
         // Tutaj licytacja na pewno trwała dłużej niż jedno kółko.
-        var goal = DetermineGoal(hand);
+        DetermineGoal();
 
-        // Sprawdzamy drzewka obronne, na wszelki wypadek.
-        if (goal == BiddingGoal.Pass) {
+
+        // Sprawdzamy drzewka obronne, na wszelki wypadek (szczególnie pod kątem dwukolorówek Michaelsa).
+        if (Goal == BiddingGoal.Pass) {
             return PlayInDefence(hand, lastOpponentsBid!);
         }
 
         // TODO
-        if (goal == BiddingGoal.MinimizeLoss || goal == BiddingGoal.PlayForPenalty) {
+        if (Goal == BiddingGoal.MinimizeLoss || Goal == BiddingGoal.PlayForPenalty) {
             return null;
         }
 
         // TODO
-        if (goal == BiddingGoal.PremiumContract) {
+        if (Goal == BiddingGoal.PremiumContract) {
             return null;
         }
 
@@ -217,11 +296,16 @@ public class BidEngine : IBidInput {
         // Gdy partner ostatnio spasował, a doszło do nas, to znaczy, że musimy odpowiedzieć oponentom, którzy się wcieli.
         if (lastPartnersBid == null) {
             // TODO
+            // 1. Czy nie opłaca się im dać kontry karnej?
+            // 2. Czy opłaca się ponownie zgłaszać ustalony kontrakt?
             return null;
         }
 
         // Odpowiedź wg systemu na odzywkę partnera.
         var lastOwnBid = OwnBidsHistory.LastOrDefault();
+
+        // Sprawdzamy, czy nie jesteśmy GameForced.
+
         return PlayInOffence(hand, lastPartnersBid, lastOwnBid);
     }
 
@@ -321,18 +405,67 @@ public class BidEngine : IBidInput {
             }
         }
 
+        lowestBid.IsFromSystem = true;
         return lowestBid;
+    }
+
+
+    private bool CanBidGame(HandEvaluation combinedHandEvaluation, BidColor color) {
+        return color switch {
+            BidColor.Clubs => combinedHandEvaluation.Clubs >= 8 && combinedHandEvaluation.Points >= 27,
+            BidColor.Diamonds => combinedHandEvaluation.Diamonds >= 8 && combinedHandEvaluation.Points >= 27,
+            BidColor.Hearts => combinedHandEvaluation.Hearts >= 8 && combinedHandEvaluation.Points >= 24,
+            BidColor.Spades => combinedHandEvaluation.Spades >= 8 && combinedHandEvaluation.Points >= 24,
+            BidColor.NoTrump => combinedHandEvaluation.Points >= 25,
+            _ => false
+        };
+    }
+
+
+    private BidNode SubmitGame(BidColor color) {
+        return color switch {
+            BidColor.Clubs => BidNode.Submit(5, BidColor.Clubs),
+            BidColor.Diamonds => BidNode.Submit(5, BidColor.Diamonds),
+            BidColor.Hearts => BidNode.Submit(4, BidColor.Hearts),
+            BidColor.Spades => BidNode.Submit(4, BidColor.Spades),
+            BidColor.NoTrump => BidNode.Submit(3, BidColor.NoTrump),
+            _ => throw new Exception("Invalid color.")
+        };
     }
 
 
     public BidNode? ChooseBidByFreestyling(Hand hand, TableEvaluation tableEvaluation) {
         var combinedHandEvaluation = tableEvaluation.GetCombinedHandEvaluation(hand);
+        var bestFit = combinedHandEvaluation.FindFit();
+
+        if (Goal == BiddingGoal.GameForcing) {
+            Console.WriteLine("Game forced...");
+            var lastPartnersBid = Auction.GetLastPlayerBid(PartnerPosition)!;
+            if (lastPartnersBid.MakesGame()) {
+                // TODO: Wejście w grę premiową
+                return null;
+            }
+
+            var canBidGame = CanBidGame(combinedHandEvaluation, bestFit.Color);
+            if (canBidGame) {
+                return SubmitGame(bestFit.Color);
+            }
+
+            // Inwit... (o jeden mniej, niż gra).
+            var lastBid = Auction.GetLastSubmittedBid()!;
+
+            // Mój kolor jest niższy lub równy niż obecny
+            var submitValue = lastBid.Value!;
+            if ((int)bestFit.Color <= (int)lastBid.Color) {
+                submitValue = lastBid.Value + 1;
+            }
+
+            return BidNode.Submit(submitValue!.Value, bestFit.Color);
+        }
 
         if (combinedHandEvaluation.Points < 24) { // Pass it is...
             return null;
         }
-
-        var bestFit = combinedHandEvaluation.FindFit();
 
         if (combinedHandEvaluation.Points >= 30) {
             // TODO: wielki szlem!k
@@ -405,7 +538,7 @@ public class BidEngine : IBidInput {
             var lastOwnBid = OwnBidsHistory.LastOrDefault();
 
             var partnersPath = lastOwnBid == null
-                ? BiddingSystem.GetDescendants(bid).ToList()
+                ? BiddingSystem.GetOpenings(bid).ToList()
                 : BiddingSystem.GetDescendants(lastOwnBid, bid).ToList();
 
             BidNode? partnersPreviousBidNode = partnersPath.Count == 1
@@ -456,7 +589,7 @@ public class BidEngine : IBidInput {
                 }
 
                 partnersPath = partnersPreviousBidNode.Parent == null
-                    ? BiddingSystem.GetDescendants(partnersPreviousBidNode.ToBid()).ToList()
+                    ? BiddingSystem.GetOpenings(partnersPreviousBidNode.ToBid()).ToList()
                     : BiddingSystem.GetDescendants(partnersPreviousBidNode.Parent, partnersPreviousBidNode.ToBid()).ToList();
 
                 // Wiele BidNode'ów pasuje do odzywki partnera (na poprzednim pozimie licytacji)

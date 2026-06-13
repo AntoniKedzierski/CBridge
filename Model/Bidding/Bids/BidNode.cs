@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Model.Bidding.Bids;
 
-public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode> {
+public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, IComparable<BidNode> {
 
     [JsonIgnore]
     public Guid Identifier { get; set; } = Guid.NewGuid();
@@ -124,8 +124,20 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode> {
     }
 
 
-    public override string ToString() {
-        return ToBid().ToString();
+    public bool IsGameForcing() {
+        if (GameForcing) {
+            return true;
+        }
+
+        var parent = Parent;
+        while (parent != null) {
+            if (parent.GameForcing) {
+                return true;
+            }
+            parent = parent.Parent;
+        }
+
+        return false;
     }
 
 
@@ -138,6 +150,32 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode> {
         return obj.Identifier.GetHashCode();
     }
 
+
+    public int CompareTo(BidNode? other) {
+        if (other == null) {
+            return 1;
+        }
+
+        // Najpierw porównujemy Value (poziom odzywki: 1-7)
+        int valueComparison = Nullable.Compare(Value, other.Value);
+        if (valueComparison != 0) {
+            return valueComparison;
+        }
+
+        // Jeśli Value są równe, porównujemy Color
+        // Porządek: ♣ < ♦ < ♥ < ♠ < NoTrump
+        return GetColorOrder(Color).CompareTo(GetColorOrder(other.Color));
+    }
+
+    private static int GetColorOrder(BidColor color) {
+        return color switch {
+            BidColor.Clubs => 0,
+            BidColor.Diamonds => 1,
+            BidColor.Hearts => 2,
+            BidColor.Spades => 3,
+            _ => 4 // NoColor/NoTrump
+        };
+    }
 
 
     //public Contract? ToContract() {

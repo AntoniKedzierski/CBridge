@@ -9,7 +9,7 @@ public class Program {
     public static void Main(string[] args) {
         Console.OutputEncoding = Encoding.UTF8;
 
-        var game = new Game(80);
+        var game = new Game(100);
         game.Play();
     }
 }

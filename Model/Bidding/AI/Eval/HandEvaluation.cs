@@ -4,6 +4,7 @@ using Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,14 @@ public class HandEvaluation {
                 bestFit.Length = suitColor.Lower ?? 0;
             }
         }
+
+        if (bestFit.Length < 8 && (bestFit.Color == BidColor.Spades || bestFit.Color == BidColor.Hearts) || 
+            bestFit.Length < 9 && (bestFit.Color == BidColor.Clubs || bestFit.Color == BidColor.Diamonds)) {
+            return new() {
+                Color = BidColor.NoTrump
+            };
+        }
+
         return bestFit;
     }
 

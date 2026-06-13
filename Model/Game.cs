@@ -102,10 +102,6 @@ public class Game {
                         continue;
                     }
                 }
-
-                // Add bid to history and update current bider
-                Console.WriteLine($"{Auction.CurrentBidder}: {currentBid}");
-                Console.WriteLine();
                 Auction.Submit(currentBid);
             }
 

@@ -53,13 +53,12 @@ public class BiddingSystem {
     }
 
 
-    public IEnumerable<BidNode> GetDescendants(Bid bid) {
-        foreach (var root in Roots) { 
-            foreach (var child in root.Bids) {
-                if (child.Matches(bid)) {
-                    yield return child;
-                }
-            } 
+    public IEnumerable<BidNode> GetOpenings(Bid bid) {
+        var bids = Openings().Bids;
+        foreach (var child in bids) {
+            if (child.Matches(bid)) {
+                yield return child;
+            }
         }
     }
 
