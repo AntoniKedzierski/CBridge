@@ -1,5 +1,7 @@
 ﻿using Model.Bidding.Bids;
 using Model.Enums;
+using Model.Helpers;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,8 +47,21 @@ public class Auction {
     }
 
     public void Submit(Bid bid) {
+        if (!bid.IsBidLegal(this)) {
+            throw new Exception("Illegal bid!");
+        }
         AuctionHistory.Add(bid);
         NextBidder();
+    }
+
+
+    public PlayerPosition GetBidder(int i) {
+        var number = ((int)CurrentBidder - AuctionHistory.Count - i) % 4;
+        if (number < 0) {
+            number += 4;
+        }
+
+        return (PlayerPosition)number;
     }
 
     /// <summary>
@@ -56,7 +71,7 @@ public class Auction {
     /// <returns></returns>
     public Bid? GetLastPlayerBid(PlayerPosition bidderPosition, bool passAsNull = false) {
         for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
-            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4) == bidderPosition) {
+            if (GetBidder(i) == bidderPosition) {
                 var bid = AuctionHistory[i];
                 return bid.Type == BidType.Pass ? null : bid;
             }
@@ -66,7 +81,7 @@ public class Auction {
 
     public Bid? GetLastSubmittedBid(PlayerPosition bidderPosition) {
         for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
-            var bidder = (PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4);
+            var bidder = GetBidder(i);
             if (bidder == bidderPosition) {
                 if (AuctionHistory[i].Type == BidType.Submit) {
                     return AuctionHistory[i];
@@ -88,9 +103,20 @@ public class Auction {
         return null;
     }
 
+    public Bid? GetLastSubmittedBid(out PlayerPosition? bidderPosition) {
+        bidderPosition = null;
+        for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
+            if (AuctionHistory[i].Type == BidType.Submit) {
+                bidderPosition = GetBidder(i);
+                return AuctionHistory[i];
+            }
+        }
+        return null;
+    }
+
     public bool PlayerOpenedAuction(PlayerPosition bidderPosition) {
         for (int i = 0; i < AuctionHistory.Count; i++) {
-            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4) == bidderPosition) {
+            if (GetBidder(i) == bidderPosition) {
                 return AuctionHistory[i].Type == BidType.Submit;
             }
         }
@@ -99,7 +125,7 @@ public class Auction {
 
     public Bid? FirstPlayerBid(PlayerPosition bidderPosition) {
         for (int i = 0; i < AuctionHistory.Count; i++) {
-            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4) == bidderPosition) {
+            if (GetBidder(i) == bidderPosition) {
                 return AuctionHistory[i];
             }
         }
@@ -114,7 +140,7 @@ public class Auction {
         openingPlayer = null;
 
         for (int i = 0; i < AuctionHistory.Count; i++) {
-            var bidPlayer = (PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4);
+            var bidPlayer = GetBidder(i);
 
             if (bidPlayer != bidderPosition && bidPlayer != partnerPosition) {
                 continue;
@@ -140,6 +166,41 @@ public class Auction {
                 yield return bid;
             }
         }
+    }
+
+
+    public PlayerPosition GetAuctionWinner(PlayerPosition onePlayerFromPlayingPair, BidColor color) {
+        for (int i = 0; i < AuctionHistory.Count; ++i) {
+            var bidder = GetBidder(i);
+            if (bidder == onePlayerFromPlayingPair && AuctionHistory[i].Color == color) {
+                return bidder;
+            }
+            if (bidder.GetPartner() == onePlayerFromPlayingPair && AuctionHistory[i].Color == color) {
+                return bidder;
+            }
+        }
+
+        throw new Exception("Invalid bidder sequence.");
+    }
+
+
+    public Contract GetContract(Player[] players) {
+        var lastSubmit = GetLastSubmittedBid(out var bidderPosition);
+        var lastBid = GetLastSubmittedBid();
+
+        if (NobodyBidsYet() || lastSubmit == null || lastBid == null || bidderPosition == null) {
+            return new() {
+                Passed = true
+            };
+        }
+
+        return new() {
+            Value = lastSubmit.Value!.Value,
+            Color = lastSubmit.Color,
+            IsDoubled = lastBid.Type == BidType.Double,
+            IsRedoubled = lastBid.Type == BidType.Redouble,
+            Player = GetAuctionWinner(bidderPosition.Value, lastSubmit.Color)
+        };
     }
 
 

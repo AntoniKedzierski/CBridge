@@ -120,7 +120,6 @@ public class BidEngine : IBidInput {
             var tableEvaluation = new Dictionary<BidNode, TableEvaluation>() {
                 { partnerDefences, Evaluator.FromPartner(partnerDefences, hand, Auction, Position) }
             };
-            Console.WriteLine("One round forcing...");
             return GetNaturalBid(hand, tableEvaluation, oneRoundForce: true);
         }
         return result;
@@ -129,7 +128,7 @@ public class BidEngine : IBidInput {
 
     public BidNode? PlayInOffence(Hand hand) {
         var openings = BiddingSystem.Openings() ?? throw new Exception("Openings not found");
-        var bidCandidates = FindNodesByHand(hand, openings).ToList();
+        var bidCandidates = FindNodesByHand(hand, openings).Where(e => e.IsBidLegal(Auction)).ToList();
         var chosenBid = ChooseBidFromSystem(bidCandidates);
         return chosenBid;
     }
@@ -149,10 +148,6 @@ public class BidEngine : IBidInput {
         // Potencjalne przeście na GF
         var gameForcing = branches.Keys.All(e => e.IsGameForcing());
         var anyNotGameForcing = branches.Keys.Any(e => !e.IsGameForcing());
-
-        if (gameForcing && anyNotGameForcing) {
-            Console.WriteLine("Not all branches are game forcing... ");
-        }
 
         if (gameForcing) {
             Goal = BiddingGoal.GameForcing;
@@ -178,7 +173,7 @@ public class BidEngine : IBidInput {
         foreach (var branchHead in branches) {
             // Weź wszystko, co pasuje do ręki i jest legalne, i wybierz z tego systemową odzywkę.
             var bidCandidates = FindNodesByHand(hand, branchHead)
-                .Where(IsBidLegal)
+                .Where(e => e.IsBidLegal(Auction))
                 .ToList();
 
             var chosenBid = ChooseBidFromSystem(bidCandidates);
@@ -205,7 +200,7 @@ public class BidEngine : IBidInput {
         var chosenBids = new List<BidNode>();
         foreach (var branchHead in branches) {
             var chosenBid = ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
-            if (chosenBid != null && IsBidLegal(chosenBid)) {
+            if (chosenBid != null && chosenBid.IsBidLegal(Auction)) {
                 chosenBids.Add(chosenBid);
             }
         }
@@ -220,7 +215,6 @@ public class BidEngine : IBidInput {
 
         var signOff = GetCommonBranchesValue(branches, e => e.SignOff);
         if (signOff) {
-            Console.WriteLine("Sign-off...");
             return null;
         }
 
@@ -252,6 +246,9 @@ public class BidEngine : IBidInput {
     public Bid Get(Hand hand) {
         var selectedBidNode = SelectOptimalBid(hand);
         Console.WriteLine($"{Position}: {selectedBidNode}");
+        if (selectedBidNode?.IsBidLegal(Auction) == false) {
+            Console.WriteLine("Illegal bid.");
+        }
 
         if (selectedBidNode == null) {
             return Bid.Pass();
@@ -351,7 +348,6 @@ public class BidEngine : IBidInput {
         }
 
         return result;
-        //return PlayInOffence(hand, lastPartnersBid, lastOwnBid) ?? PlayInDefence(hand, lastOpponentsBid, lastPartnersBid);
     }
 
 
@@ -407,39 +403,11 @@ public class BidEngine : IBidInput {
     public List<BidNode> FindLegalBids(List<BidNode> possibleBids) {
         List<BidNode> legalBids = new List<BidNode>();
         foreach (BidNode bidNode in possibleBids) {
-            if (IsBidLegal(bidNode)) {
+            if (bidNode.IsBidLegal(Auction)) {
                 legalBids.Add(bidNode);
             }
         }
         return legalBids;
-    }
-
-
-    public bool IsBidLegal(BidNode bidNode) {
-        Bid? lastBid = Auction.GetLastSubmittedBid();
-
-        if (lastBid == null) {
-            return true;    //if there are no previous bids, any bid is legal
-        }
-
-        if ((lastBid.Type == BidType.Pass || lastBid.Type == BidType.Submit) && bidNode.Type == BidType.Double) {
-            return true;
-        }
-
-        if ((lastBid.Type == BidType.Pass || lastBid.Type == BidType.Double) && bidNode.Type == BidType.Redouble) {
-            return true;
-        }
-
-        var lastSubmitBid = Auction.GetLastSubmittedBid(true)!;
-        if (bidNode.Value > lastSubmitBid.Value) {
-            return true;
-        }
-
-        if (bidNode.Value == lastSubmitBid.Value && (int)bidNode.Color > (int)lastBid.Color) {
-            return true;
-        }
-
-        return false;
     }
 
 
@@ -493,7 +461,6 @@ public class BidEngine : IBidInput {
         var bestFit = combinedHandEvaluation.FindFit();
 
         if (Goal == BiddingGoal.GameForcing) {
-            Console.WriteLine("Game forced...");
             var lastPartnersBid = Auction.GetLastPlayerBid(PartnerPosition)!;
             if (lastPartnersBid.MakesGame()) {
                 // TODO: Wejście w grę premiową
@@ -535,19 +502,19 @@ public class BidEngine : IBidInput {
         // Końcówka w starszym
         if (combinedHandEvaluation.Points > 24 && bestFit.Length >= 8 && (bestFit.Color == BidColor.Spades || bestFit.Color == BidColor.Hearts)) {
             BidNode bidNode = BidNode.Submit(4, bestFit.Color);
-            return IsBidLegal(bidNode) ? bidNode : null;
+            return bidNode.IsBidLegal(Auction) ? bidNode : null;
         }
 
         // Końcówka BA
         if (combinedHandEvaluation.Points > 25 && bestFit.Length < 9) { // bestFit.Length 8 na młodszym może być BA...
             BidNode bidNode = BidNode.Submit(3, BidColor.NoTrump);
-            return IsBidLegal(bidNode) ? bidNode : null;
+            return bidNode.IsBidLegal(Auction) ? bidNode : null;
         }
 
         // Końcówka w młodszym
         if (combinedHandEvaluation.Points > 27 && bestFit.Length >= 8) { // Kolor już jest bez znaczenia, bo straszy był sprawdzony wcześniej 
             BidNode bidNode = BidNode.Submit(5, bestFit.Color);
-            return IsBidLegal(bidNode) ? bidNode : null;
+            return bidNode.IsBidLegal(Auction) ? bidNode : null;
         }
 
         // TODO: invit?
@@ -600,92 +567,6 @@ public class BidEngine : IBidInput {
         }
 
         return BidNode.Submit(submitValue.Value, longestColor);
-    }
-
-
-    public bool IsOnMyTeam() {
-        return Auction.CurrentBidder == Position || Auction.CurrentBidder == PartnerPosition;
-    }
-
-
-    public void EvaluateHands(Bid bid, HandEvaluation partnersHand, HandEvaluation leftOpponentsHand, HandEvaluation rightOpponentsHand) {
-        // Partner coś powiedział
-        if (Auction.CurrentBidder == PartnerPosition) {
-            var lastOwnBid = OwnBidsHistory.LastOrDefault();
-
-            var partnersPath = lastOwnBid == null
-                ? BiddingSystem.GetOpenings(bid).ToList()
-                : BiddingSystem.GetDescendants(lastOwnBid, bid).ToList();
-
-            BidNode? partnersPreviousBidNode = partnersPath.Count == 1
-                ? partnersPath[0]
-                : null;
-
-            if (bid.Type == BidType.Pass) {
-                // TODO
-                return;
-            }
-
-            if (bid.Type == BidType.Double) {
-                // TODO
-                return;
-            }
-
-            if (bid.Type == BidType.Redouble) {
-                // TODO
-                return;
-            }
-
-            // Wiele możliwości -> brak ewaluacij
-            if (partnersPath.Count > 1) {
-                return;
-            }
-
-            // Odzywka automatyczna - dokładnie wiadomo w jakiej gałęzi drzewa jesteśmy
-            if (partnersPreviousBidNode?.AutomaticResponse == true) { // Może być null, jeżeli odzywka nie jest z systemu
-                // Iteruje w tył po licytacji
-                while (partnersPreviousBidNode != null) {
-                    partnersHand.Evaluate(partnersPreviousBidNode);
-                    partnersPreviousBidNode = partnersPreviousBidNode.Parent?.Parent;
-                }
-
-                return;
-            }
-
-            // Nie ma pewności, w której gałęzi jesteśmy
-            // Jest tylko jeden BidNode pasujący do odzywki partnera (na obecnym poziomie licytacji)
-            while (partnersPreviousBidNode != null) {
-
-                partnersHand.Evaluate(partnersPreviousBidNode);
-
-                // Przejdź do poprzedniego poziomu licytacji
-                partnersPreviousBidNode = partnersPreviousBidNode.Parent?.Parent;
-                if (partnersPreviousBidNode == null) {
-                    return;
-                }
-
-                partnersPath = partnersPreviousBidNode.Parent == null
-                    ? BiddingSystem.GetOpenings(partnersPreviousBidNode.ToBid()).ToList()
-                    : BiddingSystem.GetDescendants(partnersPreviousBidNode.Parent, partnersPreviousBidNode.ToBid()).ToList();
-
-                // Wiele BidNode'ów pasuje do odzywki partnera (na poprzednim pozimie licytacji)
-                if (partnersPath.Count != 1) {
-                    return;
-                }
-
-            }
-
-            // Odzywka spoza wczytanego systemu
-            // min PC > 20 && max PC >= 24
-            // bid w kolor -> feat 8+, bid w BA -> feat < 8
-
-
-        }
-        // Oponenci coś powiedzieli
-        else {
-
-        }
-
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿using Model.Enums;
+using Model.Helpers;
 
 namespace Model.Bidding.Bids;
 
@@ -31,6 +32,40 @@ public class Bid : IEquatable<Bid> {
             || Color == BidColor.Clubs && Value >= 5;
     }
 
+
+
+    public bool IsBidLegal(Auction auction) {
+        if (Type == BidType.Pass) {
+            return true;
+        }
+
+        Bid? lastBid = auction.GetLastSubmittedBid();
+
+        if (lastBid == null) {
+            return true;    //if there are no previous bids, any bid is legal
+        }
+
+        if ((lastBid.Type == BidType.Pass || lastBid.Type == BidType.Submit) && Type == BidType.Double) {
+            return true;
+        }
+
+        if ((lastBid.Type == BidType.Pass || lastBid.Type == BidType.Double) && Type == BidType.Redouble) {
+            return true;
+        }
+
+        var lastSubmitBid = auction.GetLastSubmittedBid(true)!;
+        if (Value > lastSubmitBid.Value) {
+            return true;
+        }
+
+        if (Value == lastSubmitBid.Value && (int)Color > (int)lastBid.Color) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     public override string ToString() {
         if (Type == BidType.Pass) {
             return "Pass";
@@ -44,15 +79,7 @@ public class Bid : IEquatable<Bid> {
             return "XX";
         }
 
-        var colorChar = Color switch {
-            BidColor.Clubs => "♣",
-            BidColor.Diamonds => "♢",
-            BidColor.Hearts => "♡",
-            BidColor.Spades => "♠",
-            BidColor.NoTrump => "NT"
-        };
-
-        return $"{Value}{Color}" + (IsFromSystem ? " S" : " F");
+        return $"{Value}{Color.ColorMark()}" + (IsFromSystem ? "" : " F");
     }
 
 

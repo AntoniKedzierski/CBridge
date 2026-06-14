@@ -86,7 +86,11 @@ public class Game {
 
     public bool Play() {
         while (NextRandomDeal()) {
-            Console.WriteLine($"-----------\nRound {_currentRoundNumber} - Dealer: {_dealer}");
+            var nsPoints = _players[0].Hand.PointsNt + _players[2].Hand.PointsNt;
+            var ewPoints = _players[1].Hand.PointsNt + _players[3].Hand.PointsNt;
+
+            Console.WriteLine($"--------------------------------------");
+            Console.WriteLine($"Round {_currentRoundNumber}    Dealer: {_dealer}    NS: {nsPoints}    EW: {ewPoints}");
             foreach (var player in _players) {
                 Console.WriteLine(player.CurrentPosition.ToString() + " " + player.Hand);
             }
@@ -104,6 +108,10 @@ public class Game {
                 }
                 Auction.Submit(currentBid);
             }
+
+            var contract = Auction.GetContract(_players);
+            Console.WriteLine();
+            Console.WriteLine(contract.Decribe(_players));
 
             // Rozgrywka
             Auction.Clear();

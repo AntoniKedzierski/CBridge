@@ -191,23 +191,4 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
             _ => 4 // NoColor/NoTrump
         };
     }
-
-
-    //public Contract? ToContract() {
-    //    if (Type != BidType.Submit || !Value.HasValue || Value < 1 || Value > 7 || Color == BidColor.NoColor) {
-    //        return null;
-    //    }
-
-    //    return new Contract(Value.Value, Color);
-    //}
-
-    //public static BidNode FromContract(Contract contract, string condition, string path) {
-    //    return new BidNode {
-    //        Value = contract.Level,
-    //        Color = contract.Color,
-    //        Type = BidType.Submit,
-    //        Condition = condition,
-    //        Path = $"{path} > {contract}"
-    //    };
-    //}
 }
