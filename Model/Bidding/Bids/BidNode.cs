@@ -1,4 +1,5 @@
-﻿using Model.Enums;
+﻿using Model.Bidding.AI;
+using Model.Enums;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,11 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
     public bool GoToOpenings { get; set; }
     public List<BidNode> NextBids { get; set; } = [];
     public BidNode? Parent { get; set; } 
+
+    public BiddingGoal RealizedGoal { get; set; }
+
+    public string? AiSource { get; set; }
+
 
     [JsonIgnore]
     public string Path { get; set; } = "";
@@ -153,6 +159,13 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
         }
 
         return false;
+    }
+
+
+    public override string ToString() {
+        var result = base.ToString();
+        result += $"\t{RealizedGoal}" + (AiSource == null ? "" : "\t" + AiSource);
+        return result;
     }
 
 

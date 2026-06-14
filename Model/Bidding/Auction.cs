@@ -56,11 +56,12 @@ public class Auction {
 
 
     public PlayerPosition GetBidder(int i) {
-        var number = ((int)CurrentBidder - AuctionHistory.Count - i) % 4;
-        if (number < 0) {
-            number += 4;
+        var opener = ((int)CurrentBidder - AuctionHistory.Count) % 4;
+        if (opener < 0) {
+            opener += 4;
         }
 
+        var number = (opener + i) % 4;
         return (PlayerPosition)number;
     }
 

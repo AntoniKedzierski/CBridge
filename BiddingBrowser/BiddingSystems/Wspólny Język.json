@@ -1870,11 +1870,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "14–15 PC na składzie BA, do gry",
+              "Condition": "14+ PC na składzie BA, do gry",
               "Convention": null,
               "PointsRange": {
                 "Lower": 14,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -3733,11 +3733,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "14–15 PC na składzie BA, do gry",
+              "Condition": "14+ PC na składzie BA, do gry",
               "Convention": null,
               "PointsRange": {
                 "Lower": 14,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": null,
@@ -6660,11 +6660,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "14–15 PC na składzie BA, konwencje",
+              "Condition": "14+PC na składzie BA, konwencje",
               "Convention": null,
               "PointsRange": {
                 "Lower": 14,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": 2,
@@ -9587,11 +9587,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "14–15 PC na składzie BA, konwencje",
+              "Condition": "14+ PC na składzie BA, konwencje",
               "Convention": null,
               "PointsRange": {
                 "Lower": 14,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": 2,
@@ -14277,11 +14277,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "14–15 PC na składzie BA, konwencje",
+              "Condition": "14+ PC na składzie BA, konwencje",
               "Convention": null,
               "PointsRange": {
                 "Lower": 14,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": 2,
@@ -17817,11 +17817,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "13-15 PC, skład bezatutowy.",
+              "Condition": "13+ PC, skład bezatutowy.",
               "Convention": null,
               "PointsRange": {
                 "Lower": 13,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": 2,
@@ -20209,11 +20209,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "13-15 PC, skład bezatutowy.",
+              "Condition": "13+ PC, skład bezatutowy.",
               "Convention": null,
               "PointsRange": {
                 "Lower": 13,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": 2,
@@ -22470,11 +22470,11 @@
               "Color": 5,
               "Type": 1,
               "Description": null,
-              "Condition": "13-15 PC, skład bezatutowy.",
+              "Condition": "13+ PC, skład bezatutowy.",
               "Convention": null,
               "PointsRange": {
                 "Lower": 13,
-                "Upper": 15
+                "Upper": null
               },
               "SpadesCardRange": {
                 "Lower": 2,

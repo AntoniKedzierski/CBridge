@@ -38,19 +38,19 @@ public class BidEngine : IBidInput {
         Auction = auction;
         BiddingSystem = new BiddingSystem(BiddingSystemPath);   // hardcoded path for now
         Position = position;
-        Goal = BiddingGoal.Undefined;
+        Goal = BiddingGoal.None;
     }
 
 
     public void Reset() {
         OwnBidsHistory.Clear();
-        Goal = BiddingGoal.Undefined;
+        Goal = BiddingGoal.None;
     }
 
 
     public void DetermineGoal() {
         // Pierwsze określenie celu, po pierwszym okrążeniu licytacji.
-        if (Goal == BiddingGoal.Undefined) {
+        if (Goal == BiddingGoal.None) {
             var ourSequence = Auction.GetPlayersSequence(Position, out var openingPlayer);
             var opponentsSequence = Auction.GetPlayersSequence(LeftOpponentPosition, out var openingOpponent);
 
@@ -59,7 +59,7 @@ public class BidEngine : IBidInput {
             var theirsPassCount = opponentsSequence.Count(e => e.Type == BidType.Pass);
 
             if (oursPassCount == theirsPassCount) {
-                Goal = BiddingGoal.Undefined;
+                Goal = BiddingGoal.None;
                 return;
             }
 
@@ -76,7 +76,7 @@ public class BidEngine : IBidInput {
             }
 
             // Jeżeli doszli do partii, to przeliczamy, czy opłaca się samemu zgłaszać kontrakt w celu zminimalizowania strat.
-            Goal = BiddingGoal.MinimizeLoss;
+            Goal = BiddingGoal.MinLoss;
         }
 
         // Goal pozostaje niezmieniony.
@@ -95,9 +95,16 @@ public class BidEngine : IBidInput {
 
         var result = GetBidFromSystemBranches(hand, defenceBranch);
         if (result?.GoToOpenings == true) {
-            return PlayInOffence(hand);
+            result = PlayInOffence(hand);
+            if (result != null) {
+                result.AiSource = "Defence - PlayInOffence";
+            }
+            return result;
         }
 
+        if (result != null) {
+            result.AiSource = "PlayInDefence";
+        }
         return result;
     }
 
@@ -120,7 +127,16 @@ public class BidEngine : IBidInput {
             var tableEvaluation = new Dictionary<BidNode, TableEvaluation>() {
                 { partnerDefences, Evaluator.FromPartner(partnerDefences, hand, Auction, Position) }
             };
-            return GetNaturalBid(hand, tableEvaluation, oneRoundForce: true);
+            result = GetNaturalBid(hand, tableEvaluation, oneRoundForce: true);
+
+            if (result != null) {
+                result.AiSource = "Defence - GetNaturalBid";
+            }
+            return result;
+        }
+
+        if (result != null) {
+            result.AiSource = "PlayInDefence";
         }
         return result;
     }
@@ -129,7 +145,10 @@ public class BidEngine : IBidInput {
     public BidNode? PlayInOffence(Hand hand) {
         var openings = BiddingSystem.Openings() ?? throw new Exception("Openings not found");
         var bidCandidates = FindNodesByHand(hand, openings).Where(e => e.IsBidLegal(Auction)).ToList();
-        var chosenBid = ChooseBidFromSystem(bidCandidates);
+        var chosenBid = ChooseBidFromSystem(bidCandidates, preferConventions: true);
+        if (chosenBid != null) {
+            chosenBid.AiSource = "PlayInOffence - opening";
+        }
         return chosenBid;
     }
 
@@ -150,16 +169,24 @@ public class BidEngine : IBidInput {
         var anyNotGameForcing = branches.Keys.Any(e => !e.IsGameForcing());
 
         if (gameForcing) {
-            Goal = BiddingGoal.GameForcing;
+            Goal = BiddingGoal.Gf;
         }
 
         var systemBid = GetBidFromSystemBranches(hand, branches.Keys);
-        if (systemBid != null || Goal == BiddingGoal.Undefined) {
+        if (systemBid != null || Goal == BiddingGoal.None) {
+            if (systemBid != null) {
+                systemBid.AiSource = "PlayInOffence - response";
+            }
             return systemBid;
         }
 
         // Tutaj celem może być jedynie: Game, GameForcing, PremiumContract.
-        return GetNaturalBid(hand, branches);
+        var result = GetNaturalBid(hand, branches);
+        if (result != null) {
+            result.AiSource = "GetNaturalBid";
+        }
+
+        return result;
     }
 
 
@@ -245,16 +272,21 @@ public class BidEngine : IBidInput {
 
     public Bid Get(Hand hand) {
         var selectedBidNode = SelectOptimalBid(hand);
-        Console.WriteLine($"{Position}: {selectedBidNode}");
+        Console.Write($"{Position}: {selectedBidNode}");
+
+        var partnerBid = Auction.GetLastPlayerBid(PartnerPosition, passAsNull: true);
+
         if (selectedBidNode?.IsBidLegal(Auction) == false) {
             Console.WriteLine("Illegal bid.");
         }
 
         if (selectedBidNode == null) {
+            Console.WriteLine();
             return Bid.Pass();
         }
 
         OwnBidsHistory.Add(selectedBidNode);
+        Console.WriteLine();
         return selectedBidNode.ToBid();
     }
 
@@ -305,12 +337,12 @@ public class BidEngine : IBidInput {
         }
 
         // TODO
-        if (Goal == BiddingGoal.MinimizeLoss || Goal == BiddingGoal.PlayForPenalty) {
+        if (Goal == BiddingGoal.MinLoss || Goal == BiddingGoal.Penalty) {
             return null;
         }
 
         // TODO
-        if (Goal == BiddingGoal.PremiumContract) {
+        if (Goal == BiddingGoal.Premium) {
             return null;
         }
 
@@ -327,7 +359,7 @@ public class BidEngine : IBidInput {
         var lastOwnBid = OwnBidsHistory.LastOrDefault();
 
         // Jeżeli w drugim kółku wciąż nie wiadomo, kto jest grającym, to szukamy najpierw odpowiedzi w drzewku obron.
-        if (Goal == BiddingGoal.Undefined && lastOpponentsBid != null && lastPartnersBid != null) {
+        if (Goal == BiddingGoal.None && lastOpponentsBid != null && lastPartnersBid != null) {
             return PlayInDefence(hand, lastOpponentsBid, lastPartnersBid) ?? PlayInOffence(hand, lastPartnersBid, lastOwnBid);
         }
 
@@ -347,6 +379,9 @@ public class BidEngine : IBidInput {
             Console.WriteLine("Coś się zjebało.");
         }
 
+        if (result != null) {
+            result.RealizedGoal = Goal;
+        }
         return result;
     }
 
@@ -411,9 +446,17 @@ public class BidEngine : IBidInput {
     }
 
 
-    public static BidNode? ChooseBidFromSystem(List<BidNode> legalBids) {
+    public static BidNode? ChooseBidFromSystem(List<BidNode> legalBids, bool preferConventions = false) {
         if (legalBids.Count == 0) {
             return null;
+        }
+
+        if (preferConventions) {
+            foreach (var bid in legalBids) {
+                if (bid.Convention != null) {
+                    return bid;
+                }
+            }
         }
 
         // Lower bids are preferred
@@ -460,7 +503,7 @@ public class BidEngine : IBidInput {
         var combinedHandEvaluation = tableEvaluation.GetCombinedHandEvaluation(hand);
         var bestFit = combinedHandEvaluation.FindFit();
 
-        if (Goal == BiddingGoal.GameForcing) {
+        if (Goal == BiddingGoal.Gf) {
             var lastPartnersBid = Auction.GetLastPlayerBid(PartnerPosition)!;
             if (lastPartnersBid.MakesGame()) {
                 // TODO: Wejście w grę premiową
