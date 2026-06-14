@@ -139,6 +139,8 @@ public class Bid : BindableBase, IBidsContainer {
     public void AddBid(Bid bid) {
         NextBids.Add(bid);
         bid.Parent = this;
+        bid.OpenerBid = !this.OpenerBid;
+        bid.Type = BidType.Submit;
     }
 
 
