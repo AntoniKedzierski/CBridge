@@ -91,6 +91,8 @@ public class Bid : BindableBase, IBidsContainer {
 
     public bool AutomaticResponse { get; set => SetProperty(ref field, value); }
 
+    public bool GoToOpenings { get; set => SetProperty(ref field, value); }
+
     public ObservableCollection<Bid> NextBids { get; set => SetProperty(ref field, value); } = new();
 
 

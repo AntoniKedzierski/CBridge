@@ -36,6 +36,14 @@ public class Bid : IEquatable<Bid> {
             return "Pass";
         }
 
+        if (Type == BidType.Double) {
+            return "X";
+        }
+
+        if (Type == BidType.Redouble) {
+            return "XX";
+        }
+
         var colorChar = Color switch {
             BidColor.Clubs => "♣",
             BidColor.Diamonds => "♢",

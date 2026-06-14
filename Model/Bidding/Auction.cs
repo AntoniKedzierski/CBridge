@@ -56,7 +56,7 @@ public class Auction {
     /// <returns></returns>
     public Bid? GetLastPlayerBid(PlayerPosition bidderPosition, bool passAsNull = false) {
         for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
-            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 4) % 4) == bidderPosition) {
+            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4) == bidderPosition) {
                 var bid = AuctionHistory[i];
                 return bid.Type == BidType.Pass ? null : bid;
             }
@@ -64,9 +64,24 @@ public class Auction {
         return null;
     }
 
-    public Bid? GetLastSubmittedBid() {
+    public Bid? GetLastSubmittedBid(PlayerPosition bidderPosition) {
         for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
-            if (AuctionHistory[i].Type == BidType.Submit) {
+            var bidder = (PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4);
+            if (bidder == bidderPosition) {
+                if (AuctionHistory[i].Type == BidType.Submit) {
+                    return AuctionHistory[i];
+                }
+            }
+        }
+        return null;
+    }
+
+    public Bid? GetLastSubmittedBid(bool onlySubmitions = false) {
+        for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
+            if (onlySubmitions && AuctionHistory[i].Type == BidType.Submit) {
+                return AuctionHistory[i];
+            }
+            if (!onlySubmitions && AuctionHistory[i].Type != BidType.Pass) {
                 return AuctionHistory[i];
             }
         }
@@ -75,7 +90,7 @@ public class Auction {
 
     public bool PlayerOpenedAuction(PlayerPosition bidderPosition) {
         for (int i = 0; i < AuctionHistory.Count; i++) {
-            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 4) % 4) == bidderPosition) {
+            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4) == bidderPosition) {
                 return AuctionHistory[i].Type == BidType.Submit;
             }
         }
@@ -84,7 +99,7 @@ public class Auction {
 
     public Bid? FirstPlayerBid(PlayerPosition bidderPosition) {
         for (int i = 0; i < AuctionHistory.Count; i++) {
-            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 4) % 4) == bidderPosition) {
+            if ((PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4) == bidderPosition) {
                 return AuctionHistory[i];
             }
         }
@@ -99,7 +114,7 @@ public class Auction {
         openingPlayer = null;
 
         for (int i = 0; i < AuctionHistory.Count; i++) {
-            var bidPlayer = (PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 4) % 4);
+            var bidPlayer = (PlayerPosition)(((int)CurrentBidder - (AuctionHistory.Count - i) + 400) % 4);
 
             if (bidPlayer != bidderPosition && bidPlayer != partnerPosition) {
                 continue;
@@ -113,6 +128,18 @@ public class Auction {
         }
 
         return playerBids;
+    }
+
+
+    public IEnumerable<Bid> GetBidSequence(bool includePass = false) {
+        foreach (var bid in AuctionHistory) {
+            if (includePass && bid.Type == BidType.Pass) {
+                yield return bid;
+            }
+            else if (bid.Type != BidType.Pass) {
+                yield return bid;
+            }
+        }
     }
 
 

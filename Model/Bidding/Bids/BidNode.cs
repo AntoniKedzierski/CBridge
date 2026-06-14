@@ -30,6 +30,7 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
     public bool OneRoundForcing { get; set; }
     public bool GameForcing { get; set; }
     public bool AutomaticResponse { get; set; }
+    public bool GoToOpenings { get; set; }
     public List<BidNode> NextBids { get; set; } = [];
     public BidNode? Parent { get; set; } 
 
@@ -52,6 +53,20 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
             Type = BidType.Submit,
             Value = value,
             Color = color
+        };
+    }
+
+    public static BidNode Submit(int value, CardColor color) { // Why static? How factory works??
+        var bidColor = color switch {
+            CardColor.Spades => BidColor.Spades,
+            CardColor.Hearts => BidColor.Hearts,
+            CardColor.Diamonds => BidColor.Diamonds,
+            CardColor.Clubs => BidColor.Clubs
+        };
+        return new BidNode {
+            Type = BidType.Submit,
+            Value = value,
+            Color = bidColor
         };
     }
 
@@ -90,7 +105,7 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
     }
 
 
-    public bool EqualsByColorAndValue(BidNode? other) {
+    public bool EqualsByColorAndValue(Bid? other) {
         if (other == null) {
             return false;
         }

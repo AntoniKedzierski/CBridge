@@ -51,5 +51,5 @@ public static class Evaluator {
 
         return result;
     }
-
+   
 }

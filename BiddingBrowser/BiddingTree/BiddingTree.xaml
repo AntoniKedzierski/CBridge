@@ -244,9 +244,14 @@
                             <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                                 <Label Content="Forsująca do końcówki" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                                 <CheckBox IsChecked="{Binding GameForcing}" VerticalAlignment="Center" Margin="0,1,0,0"/>
-                            </StackPanel>
+                                </StackPanel>
 
-                            <Label Content="Zakres punktów" HorizontalAlignment="Left" Margin="0,14,0,0"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                    <Label Content="Przejdź do otwarć" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <CheckBox IsChecked="{Binding GoToOpenings}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                                </StackPanel>
+
+                                <Label Content="Zakres punktów" HorizontalAlignment="Left" Margin="0,14,0,0"/>
                             <UniformGrid Columns="2">
                                 <TextBox Margin="0,0,2.5,0" Text="{Binding PointsRange.Lower, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
                                 <TextBox Margin="2.5,0,0,0" Text="{Binding PointsRange.Upper, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
