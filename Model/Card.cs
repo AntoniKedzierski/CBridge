@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Model; 
 
-public class Card : IPoints, IEqualityComparer<Card> {
+public class Card : IPoints, IEqualityComparer<Card>, IComparable<Card> {
 
     public CardValue Value { get; private set; }
 
@@ -63,5 +63,9 @@ public class Card : IPoints, IEqualityComparer<Card> {
 
     public int GetHashCode([DisallowNull] Card obj) {
         return 100 * (int)obj.Color + (int)obj.Value;
+    }
+
+    public int CompareTo(Card? other) {
+        return Value - other?.Value ?? 0;
     }
 }

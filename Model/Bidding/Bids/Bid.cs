@@ -33,6 +33,10 @@ public class Bid : IEquatable<Bid> {
     }
 
 
+    public bool AtLevel(int level) {
+        return Type == BidType.Submit && Value >= level;
+    }
+
 
     public bool IsBidLegal(Auction auction) {
         if (Type == BidType.Pass) {

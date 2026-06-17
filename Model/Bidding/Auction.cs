@@ -55,6 +55,25 @@ public class Auction {
     }
 
 
+    public bool CanSubmit(int value, BidColor color) {
+        return new Bid(value, color).IsBidLegal(this);
+    }
+
+
+    public int GetLowestLegalValue(BidColor color, int offset = 0) {
+        var lastSubmitions = GetLastSubmittedBid(onlySubmitions: true, offset: offset);
+        if (lastSubmitions == null) {
+            return 1;
+        }
+
+        if ((int)lastSubmitions.Color < (int)color) {
+            return lastSubmitions.Value!.Value;
+        }
+
+        return lastSubmitions.Value!.Value + 1;
+    }
+
+
     public PlayerPosition GetBidder(int i) {
         var opener = ((int)CurrentBidder - AuctionHistory.Count) % 4;
         if (opener < 0) {
@@ -92,8 +111,8 @@ public class Auction {
         return null;
     }
 
-    public Bid? GetLastSubmittedBid(bool onlySubmitions = false) {
-        for (int i = AuctionHistory.Count - 1; i >= 0; i--) {
+    public Bid? GetLastSubmittedBid(bool onlySubmitions = false, int offset = 0) {
+        for (int i = AuctionHistory.Count - offset - 1; i >= 0; i--) {
             if (onlySubmitions && AuctionHistory[i].Type == BidType.Submit) {
                 return AuctionHistory[i];
             }

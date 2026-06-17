@@ -1,19 +1,11 @@
 ﻿using Model.Bidding.AI.Eval;
 using Model.Bidding.Bids;
 using Model.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using Model.Helpers;
 
-namespace Model.Bidding.AI;
+namespace Model.Bidding.AI.Engine;
 
-public class BidEngine : IBidInput {
+public partial class BidEngine : IBidInput {
 
     public Auction Auction { get; private set; }
 
@@ -23,15 +15,21 @@ public class BidEngine : IBidInput {
 
     public PlayerPosition Position { get; private set; }
 
-    public PlayerPosition LeftOpponentPosition => (PlayerPosition)(((int)Position + 1) % 4);
+    public PlayerPosition LeftOpponentPosition => Position.GetLeftOpponent();
 
-    public PlayerPosition PartnerPosition => (PlayerPosition)(((int)Position + 2) % 4);
+    public PlayerPosition PartnerPosition => Position.GetPartner();
 
-    public PlayerPosition RightOpponentPosition => (PlayerPosition)(((int)Position + 3) % 4);
+    public PlayerPosition RightOpponentPosition => Position.GetRightOpponent();
 
     public List<BidNode> OwnBidsHistory { get; private set; } = [];
 
+    public BidNode? LastOwnBid => OwnBidsHistory.LastOrDefault();
+
+    public Bid? LastOpponentBid => Auction.GetLastPlayerBid(RightOpponentPosition, passAsNull: true) ?? Auction.GetLastPlayerBid(LeftOpponentPosition, passAsNull: true);
+
     public BiddingGoal Goal { get; private set; }
+
+    public bool PartnerOpened { get; private set; } = false;
 
 
     public BidEngine(Auction auction, PlayerPosition position) {
@@ -190,86 +188,6 @@ public class BidEngine : IBidInput {
     }
 
 
-    private BidNode? GetBidFromSystemBranches(Hand hand, BidNode branchHead) {
-        return GetBidFromSystemBranches(hand, [branchHead]);
-    }
-
-
-    private BidNode? GetBidFromSystemBranches(Hand hand, IEnumerable<BidNode> branches) {
-        var chosenBids = new List<BidNode>();
-        foreach (var branchHead in branches) {
-            // Weź wszystko, co pasuje do ręki i jest legalne, i wybierz z tego systemową odzywkę.
-            var bidCandidates = FindNodesByHand(hand, branchHead)
-                .Where(e => e.IsBidLegal(Auction))
-                .ToList();
-
-            var chosenBid = ChooseBidFromSystem(bidCandidates);
-            if (chosenBid != null) {
-                chosenBids.Add(chosenBid);
-            }
-        }
-
-        if (chosenBids.Count == 0) {
-            return null;
-        }
-
-        var firstChosenBid = chosenBids[0];
-        if (!chosenBids.All(e => e.EqualsByColorAndValue(firstChosenBid))) {
-            Console.WriteLine("Multiple tree branches possible: " + string.Join(", ", chosenBids.Distinct()));
-            return null;
-        }
-
-        return firstChosenBid;
-    }
-
-
-    private BidNode? GetNaturalBid(Hand hand, Dictionary<BidNode, TableEvaluation> branches, bool oneRoundForce = false) { 
-        var chosenBids = new List<BidNode>();
-        foreach (var branchHead in branches) {
-            var chosenBid = ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
-            if (chosenBid != null && chosenBid.IsBidLegal(Auction)) {
-                chosenBids.Add(chosenBid);
-            }
-        }
-
-        if (chosenBids.Count == 0) {
-            if (!oneRoundForce) {
-                return null;
-            }
-
-            return BidBestColor(hand);
-        }
-
-        var signOff = GetCommonBranchesValue(branches, e => e.SignOff);
-        if (signOff) {
-            return null;
-        }
-
-        var result = chosenBids.Min()!;
-        result.IsFromSystem = false;
-        return result;
-    }
-
-
-    private TResult? GetCommonBranchesValue<TResult>(Dictionary<BidNode, TableEvaluation> branches, Func<BidNode, TResult> property) {
-        TResult? currentValue = default;
-        var valueFound = false;
-
-        foreach (var branchHead in branches.Keys) {
-            if (!valueFound) {
-                currentValue = property.Invoke(branchHead);
-                continue;
-            }
-
-            if (valueFound && !currentValue.Equals(property.Invoke(branchHead))) {
-                Console.WriteLine($"Property mismatch across branches. Current value was {currentValue}, but {branchHead} has different value {property.Invoke(branchHead)}.");
-            }
-        }
-
-        return currentValue;
-    }
-
-
     public Bid Get(Hand hand) {
         var selectedBidNode = SelectOptimalBid(hand);
         Console.Write($"{Position}: {selectedBidNode}");
@@ -325,6 +243,7 @@ public class BidEngine : IBidInput {
             }
 
             // Oponenci i partner coś mówili!
+            PartnerOpened = true;
             return PlayInDefence(hand, lastOpponentsBid, lastPartnersBid) ?? PlayInOffence(hand, lastPartnersBid);
         }
 
@@ -383,95 +302,6 @@ public class BidEngine : IBidInput {
             result.RealizedGoal = Goal;
         }
         return result;
-    }
-
-
-    public PlayerRole DetermineRole() {
-        PlayerPosition starter = (PlayerPosition)(((int)(Auction.CurrentBidder) - (Auction.AuctionHistory.Count % 4) + 4) % 4);
-
-        for (int i = 0; i < Auction.AuctionHistory.Count; i++) {
-            Bid bid = Auction.AuctionHistory[i];
-            PlayerPosition bidder = (PlayerPosition)(((int)starter + i) % 4);
-
-            if (bidder != Position && bidder != PartnerPosition) { //bidder is NOT me nor my partner
-                continue;
-            }
-
-            if (bid.Type == BidType.Submit) {
-                if (Position == bidder) { //bidder is me
-                    return PlayerRole.Opener;
-                }
-                else {    //bidder is my partner
-                    return PlayerRole.Responder;
-                }
-            }
-        }
-
-        return PlayerRole.Opener;
-    }
-
-
-    public List<BidNode> FindNodesByHand(Hand hand, BidNode head) {
-        List<BidNode> foundBidNodes = new();
-        foreach (BidNode bidNode in head.NextBids) {
-            if (bidNode.Matches(hand)) {
-                foundBidNodes.Add(bidNode);
-            }
-        }
-
-        return foundBidNodes;
-    }
-
-
-    public List<BidNode> FindNodesByHand(Hand hand, Root root) {
-        List<BidNode> foundBidNodes = new();
-        foreach (BidNode bidNode in root.Bids) {
-            if (bidNode.Matches(hand)) {
-                foundBidNodes.Add(bidNode);
-            }
-        }
-
-        return foundBidNodes;
-    }
-
-
-    public List<BidNode> FindLegalBids(List<BidNode> possibleBids) {
-        List<BidNode> legalBids = new List<BidNode>();
-        foreach (BidNode bidNode in possibleBids) {
-            if (bidNode.IsBidLegal(Auction)) {
-                legalBids.Add(bidNode);
-            }
-        }
-        return legalBids;
-    }
-
-
-    public static BidNode? ChooseBidFromSystem(List<BidNode> legalBids, bool preferConventions = false) {
-        if (legalBids.Count == 0) {
-            return null;
-        }
-
-        if (preferConventions) {
-            foreach (var bid in legalBids) {
-                if (bid.Convention != null) {
-                    return bid;
-                }
-            }
-        }
-
-        // Lower bids are preferred
-        var lowestBid = legalBids[0];
-        foreach (var bid in legalBids) {
-            if (bid.Value < lowestBid.Value) {
-                lowestBid = bid;
-            }
-            else if (bid.Value == lowestBid.Value && bid.Color < lowestBid.Color) {
-                lowestBid = bid;
-            }
-        }
-
-        lowestBid.IsFromSystem = true;
-        return lowestBid;
     }
 
 

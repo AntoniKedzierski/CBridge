@@ -13,7 +13,18 @@ public static class BiddingHelper {
     public static PlayerPosition GetPartner(this PlayerPosition player) {
         return (PlayerPosition)(((int)player + 2) % 4);
     }
-    
+
+
+    public static PlayerPosition GetLeftOpponent(this PlayerPosition player) {
+        return (PlayerPosition)(((int)player + 1) % 4);
+    }
+
+
+    public static PlayerPosition GetRightOpponent(this PlayerPosition player) {
+        return (PlayerPosition)(((int)player + 3) % 4);
+    }
+
+
     public static string ColorMark(this CardColor color) {
         return color switch {
             CardColor.Clubs => "♣",
@@ -48,7 +59,36 @@ public static class BiddingHelper {
     }
 
 
+    public static CardColor ToCardColor(this BidColor color) {
+        return color switch {
+            BidColor.Clubs => CardColor.Clubs,
+            BidColor.Diamonds => CardColor.Diamonds,
+            BidColor.Hearts => CardColor.Hearts,
+            BidColor.Spades => CardColor.Spades,
+            _ => throw new Exception("Invalid color")
+        };
+    }
+
+
+    public static bool IsMajor(this CardColor color) {
+        return color == CardColor.Spades || color == CardColor.Hearts;
+    }
+
+
+    public static bool IsMajor(this BidColor color) {
+        return color == BidColor.Spades || color == BidColor.Hearts;
+    }
+
+
     public static Hand GetPlayerHand(this Player[] players, PlayerPosition playerPosition) {
         return players[(int)playerPosition].Hand;
+    }
+
+
+    public static int SmallSlamPointsRequirement(BidColor color) {
+        if (color == BidColor.NoTrump) {
+            return 32;
+        }
+        return 30;
     }
 }

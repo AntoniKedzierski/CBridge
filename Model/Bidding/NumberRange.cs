@@ -12,6 +12,13 @@ public class NumberRange {
 
     public int? Upper { get; set; }
 
+
+    public NumberRange() {
+        Lower = null;
+        Upper = null;
+    }
+
+
     public NumberRange(int? lower, int? upper) {
         Lower = lower;
         Upper = upper;

@@ -1,6 +1,8 @@
-﻿using Model.Bidding.AI;
+﻿using Model.Bidding.AI.Engine;
 using Model.Enums;
+using Model.Helpers;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,59 +41,123 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
 
     public string? AiSource { get; set; }
 
-
     [JsonIgnore]
     public string Path { get; set; } = "";
+
+
+    public BidNode() : base() { }
+
+
+    private BidNode(NumberRange pointsRange, NumberRange spadesRange, NumberRange heartsRange, NumberRange diamondsRange, NumberRange clubsRange) : base() {
+        PointsRange = pointsRange;
+        SpadesCardRange = spadesRange;
+        HeartsCardRange = heartsRange;
+        DiamondsCardRange = diamondsRange;
+        ClubsCardRange = clubsRange;
+        IsFromSystem = false;
+    }
+
+
+    public BidNode(BidType type, NumberRange pointsRange, NumberRange spadesRange, NumberRange heartsRange, NumberRange diamondsRange, NumberRange clubsRange)
+        : this(pointsRange, spadesRange, heartsRange, diamondsRange, clubsRange) {
+        Type = type;
+    }
+
+
+    public BidNode(int value, BidColor color, NumberRange pointsRange, NumberRange spadesRange, NumberRange heartsRange, NumberRange diamondsRange, NumberRange clubsRange)
+        : this(BidType.Submit, pointsRange, spadesRange, heartsRange, diamondsRange, clubsRange) {
+        Value = value;
+        Color = color;
+    }
+
 
     public bool Matches(Hand hand) {
         return hand.Matches(PointsRange, SpadesCardRange, HeartsCardRange, DiamondsCardRange, ClubsCardRange, Aces, Kings);
     }
 
 
-    public bool Matches(Bid bid) {
-        return Type == bid.Type
-            && Color == bid.Color
-            && Value == bid.Value;
+    public bool Matches(Bid bid) => Type == bid.Type && Color == bid.Color && Value == bid.Value;
+
+    public static BidNode Submit(int value, BidColor color) => new() {
+        Type = BidType.Submit,
+        Value = value,
+        Color = color
+    };
+
+
+    public static BidNode SubmitLowest(Auction auction, BidColor color) {
+        var lowestValue = auction.GetLowestLegalValue(color);
+        return Submit(lowestValue, color);
     }
 
-    public static BidNode Submit(int value, BidColor color) { // Why static? How factory works??
-        return new BidNode {
-            Type = BidType.Submit,
-            Value = value,
-            Color = color
+
+    public static BidNode SubmitWithRaise(Auction auction, BidColor color) {
+        var lowestValue = auction.GetLowestLegalValue(color);
+        return Submit(lowestValue + 1, color);
+    }
+
+
+    public static BidNode Submit(int value, CardColor color) => new() {
+        Type = BidType.Submit,
+        Value = value,
+        Color = color.ToBidColor()
+    };
+
+
+    public static BidNode SubmitGame(BidColor color) => color switch {
+        BidColor.NoTrump => Submit(3, BidColor.NoTrump),
+        BidColor.Spades => Submit(4, BidColor.Spades),
+        BidColor.Hearts => Submit(4, BidColor.Hearts),
+        BidColor.Diamonds => Submit(5, BidColor.Diamonds),
+        BidColor.Clubs => Submit(5, BidColor.Clubs),
+        _ => throw new Exception("Invalid color.")
+    };
+
+
+    public static BidNode SubmitLowestLegalGameOrDouble(Auction auction, BidColor color) {
+        var lowestValue = auction.GetLowestLegalValue(color);
+        if (lowestValue >= 5) {
+            return Double();
+        }
+
+        return color switch {
+            BidColor.NoTrump => Submit(Math.Max(3, lowestValue), BidColor.NoTrump),
+            BidColor.Spades => Submit(Math.Max(4, lowestValue), BidColor.Spades),
+            BidColor.Hearts => Submit(Math.Min(4, lowestValue), BidColor.Hearts),
+            BidColor.Diamonds => Submit(Math.Min(5, lowestValue), BidColor.Diamonds),
+            BidColor.Clubs => Submit(Math.Max(5, lowestValue), BidColor.Clubs),
+            _ => throw new Exception("Invalid color.")
         };
     }
 
-    public static BidNode Submit(int value, CardColor color) { // Why static? How factory works??
-        var bidColor = color switch {
-            CardColor.Spades => BidColor.Spades,
-            CardColor.Hearts => BidColor.Hearts,
-            CardColor.Diamonds => BidColor.Diamonds,
-            CardColor.Clubs => BidColor.Clubs
-        };
-        return new BidNode {
-            Type = BidType.Submit,
-            Value = value,
-            Color = bidColor
-        };
-    }
 
-    public static BidNode Pass() {
-        return new BidNode {
-            Type = BidType.Pass,
-            Value = null,
-            Color = BidColor.NoColor
-        };
-    }
+    public static new BidNode Pass() => new() {
+        Type = BidType.Pass,
+        Value = null,
+        Color = BidColor.NoColor
+    };
 
-    public Bid ToBid(bool isFromSystem = true) {
-        return new Bid {
-            Type = Type,
-            Color = Color,
-            Value = Value,
-            IsFromSystem = isFromSystem
-        };
-    }
+
+    public static BidNode Double() => new() {
+        Type = BidType.Double,
+        Value = null,
+        Color = BidColor.NoColor
+    };
+
+
+    public static BidNode Redouble() => new() {
+        Type = BidType.Redouble,
+        Value = null,
+        Color = BidColor.NoColor
+    };
+
+
+    public Bid ToBid(bool isFromSystem = true) => new() {
+        Type = Type,
+        Color = Color,
+        Value = Value,
+        IsFromSystem = isFromSystem
+    };
 
 
     public void AssignParent(BidNode? parent) {
@@ -127,7 +193,6 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
     public bool EqualsByColorAndValue(int? value, BidColor color) {
         return Color == color && Value == value;
     }
-
 
     /// <summary>
     /// Sprawdzenie, czy nowa odzywka z freestylu nie równa się niczemu wśród rodzeństwa.
