@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Build/">
+    <File Path="Directory.Build.props" />
+  </Folder>
   <Folder Name="/UI/">
     <Project Path="BiddingBrowser/BiddingBrowser.csproj" Id="7a663317-ec3c-4a96-a714-56560fc2be7b" />
     <Project Path="ConsoleUI/ConsoleUI.csproj" Id="8cad992e-6ef7-4ced-97de-d885bebbddab" />

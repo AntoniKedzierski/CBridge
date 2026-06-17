@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+	<BackendVersion>1.0.0.2</BackendVersion>
+	<FrontendVersion>1.0.0.0</FrontendVersion>
+  </PropertyGroup>
+</Project>
