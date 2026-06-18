@@ -1,5 +1,6 @@
 ﻿using Model.Bidding;
 using Model.Bidding.AI;
+using Model.Bidding.AI.Engine;
 using Model.Bidding.Bids;
 using Model.Enums;
 using System;

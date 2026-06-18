@@ -27,6 +27,8 @@ public partial class BidEngine : IBidInput {
 
     public Bid? LastOpponentBid => Auction.GetLastPlayerBid(RightOpponentPosition, passAsNull: true) ?? Auction.GetLastPlayerBid(LeftOpponentPosition, passAsNull: true);
 
+    public Bid? LastRightOpponentBid => Auction.GetLastPlayerBid(RightOpponentPosition, passAsNull: true);
+
     public BiddingGoal Goal { get; private set; }
 
     public bool PartnerOpened { get; private set; } = false;
@@ -93,17 +95,15 @@ public partial class BidEngine : IBidInput {
 
         var result = GetBidFromSystemBranches(hand, defenceBranch);
         if (result?.GoToOpenings == true) {
-            result = PlayInOffence(hand);
-            if (result != null) {
-                result.AiSource = "Defence - PlayInOffence";
-            }
+            return PlayInOffence(hand);
+        }
+
+        // Próbujemy otwarcia naturalnego
+        if (result != null) {
             return result;
         }
 
-        if (result != null) {
-            result.AiSource = "PlayInDefence";
-        }
-        return result;
+        return TrueNaturalOpening(hand);
     }
 
 
@@ -122,20 +122,9 @@ public partial class BidEngine : IBidInput {
 
         var result = GetBidFromSystemBranches(hand, partnerDefences);
         if (result == null && partnerDefences.OneRoundForcing) {
-            var tableEvaluation = new Dictionary<BidNode, TableEvaluation>() {
-                { partnerDefences, Evaluator.FromPartner(partnerDefences, hand, Auction, Position) }
-            };
-            result = GetNaturalBid(hand, tableEvaluation, oneRoundForce: true);
-
-            if (result != null) {
-                result.AiSource = "Defence - GetNaturalBid";
-            }
-            return result;
+            result = TrueNaturalResponse(hand, partnerDefences, Evaluator.FromPartner(partnerDefences, hand, Auction, Position));
         }
 
-        if (result != null) {
-            result.AiSource = "PlayInDefence";
-        }
         return result;
     }
 
@@ -144,9 +133,6 @@ public partial class BidEngine : IBidInput {
         var openings = BiddingSystem.Openings() ?? throw new Exception("Openings not found");
         var bidCandidates = FindNodesByHand(hand, openings).Where(e => e.IsBidLegal(Auction)).ToList();
         var chosenBid = ChooseBidFromSystem(bidCandidates, preferConventions: true);
-        if (chosenBid != null) {
-            chosenBid.AiSource = "PlayInOffence - opening";
-        }
         return chosenBid;
     }
 
@@ -172,19 +158,11 @@ public partial class BidEngine : IBidInput {
 
         var systemBid = GetBidFromSystemBranches(hand, branches.Keys);
         if (systemBid != null || Goal == BiddingGoal.None) {
-            if (systemBid != null) {
-                systemBid.AiSource = "PlayInOffence - response";
-            }
             return systemBid;
         }
 
         // Tutaj celem może być jedynie: Game, GameForcing, PremiumContract.
-        var result = GetNaturalBid(hand, branches);
-        if (result != null) {
-            result.AiSource = "GetNaturalBid";
-        }
-
-        return result;
+        return GetNaturalBid(hand, branches);
     }
 
 
@@ -304,142 +282,5 @@ public partial class BidEngine : IBidInput {
         return result;
     }
 
-
-    private bool CanBidGame(HandEvaluation combinedHandEvaluation, BidColor color) {
-        return color switch {
-            BidColor.Clubs => combinedHandEvaluation.Clubs >= 8 && combinedHandEvaluation.Points >= 27,
-            BidColor.Diamonds => combinedHandEvaluation.Diamonds >= 8 && combinedHandEvaluation.Points >= 27,
-            BidColor.Hearts => combinedHandEvaluation.Hearts >= 8 && combinedHandEvaluation.Points >= 24,
-            BidColor.Spades => combinedHandEvaluation.Spades >= 8 && combinedHandEvaluation.Points >= 24,
-            BidColor.NoTrump => combinedHandEvaluation.Points >= 25,
-            _ => false
-        };
-    }
-
-
-    private BidNode SubmitGame(BidColor color) {
-        return color switch {
-            BidColor.Clubs => BidNode.Submit(5, BidColor.Clubs),
-            BidColor.Diamonds => BidNode.Submit(5, BidColor.Diamonds),
-            BidColor.Hearts => BidNode.Submit(4, BidColor.Hearts),
-            BidColor.Spades => BidNode.Submit(4, BidColor.Spades),
-            BidColor.NoTrump => BidNode.Submit(3, BidColor.NoTrump),
-            _ => throw new Exception("Invalid color.")
-        };
-    }
-
-
-    public BidNode? ChooseBidByFreestyling(Hand hand, TableEvaluation tableEvaluation) {
-        var combinedHandEvaluation = tableEvaluation.GetCombinedHandEvaluation(hand);
-        var bestFit = combinedHandEvaluation.FindFit();
-
-        if (Goal == BiddingGoal.Gf) {
-            var lastPartnersBid = Auction.GetLastPlayerBid(PartnerPosition)!;
-            if (lastPartnersBid.MakesGame()) {
-                // TODO: Wejście w grę premiową
-                return null;
-            }
-
-            var canBidGame = CanBidGame(combinedHandEvaluation, bestFit.Color);
-            if (canBidGame) {
-                return SubmitGame(bestFit.Color);
-            }
-
-            // Inwit... (o jeden mniej, niż gra).
-            var lastBid = Auction.GetLastSubmittedBid(onlySubmitions: true)!;
-
-            // Mój kolor jest niższy lub równy niż obecny
-            var submitValue = lastBid.Value!;
-            if ((int)bestFit.Color <= (int)lastBid.Color) {
-                submitValue = lastBid.Value + 1;
-            }
-
-            return BidNode.Submit(submitValue!.Value, bestFit.Color);
-        }
-
-        if (combinedHandEvaluation.Points < 24) { // Pass it is...
-            return null;
-        }
-
-        if (combinedHandEvaluation.Points >= 30) {
-            // TODO: wielki szlem!k
-
-            if (bestFit.Length >= 8) {
-                return BidNode.Submit(6, bestFit.Color);
-            }
-            else {
-                return BidNode.Submit(6, BidColor.NoTrump);
-            }
-        }
-
-        // Końcówka w starszym
-        if (combinedHandEvaluation.Points > 24 && bestFit.Length >= 8 && (bestFit.Color == BidColor.Spades || bestFit.Color == BidColor.Hearts)) {
-            BidNode bidNode = BidNode.Submit(4, bestFit.Color);
-            return bidNode.IsBidLegal(Auction) ? bidNode : null;
-        }
-
-        // Końcówka BA
-        if (combinedHandEvaluation.Points > 25 && bestFit.Length < 9) { // bestFit.Length 8 na młodszym może być BA...
-            BidNode bidNode = BidNode.Submit(3, BidColor.NoTrump);
-            return bidNode.IsBidLegal(Auction) ? bidNode : null;
-        }
-
-        // Końcówka w młodszym
-        if (combinedHandEvaluation.Points > 27 && bestFit.Length >= 8) { // Kolor już jest bez znaczenia, bo straszy był sprawdzony wcześniej 
-            BidNode bidNode = BidNode.Submit(5, bestFit.Color);
-            return bidNode.IsBidLegal(Auction) ? bidNode : null;
-        }
-
-        // TODO: invit?
-        if (combinedHandEvaluation.Points.Lower > 20) {
-            Bid? currentBid = Auction.GetLastSubmittedBid(true);
-            if (currentBid == null) {
-                return null;
-            }
-
-            int? submitValue = currentBid.Value; // nigdy nie będzie null
-            if (submitValue == null) {
-                throw new Exception("Submit with null value.");
-            }
-
-            // Mój kolor jest niższy lub równy niż obecny
-            if ((int)bestFit.Color <= (int)currentBid.Color) {
-                submitValue = currentBid.Value + 1;
-            }
-
-            if (bestFit.Length >= 8) {
-                return BidNode.Submit(submitValue.Value, bestFit.Color);
-            }
-            else {
-                return BidNode.Submit(submitValue.Value, BidColor.NoTrump);
-            }
-        }
-
-        return null;
-    }
-
-
-    public BidNode BidBestColor(Hand hand) {
-        var colorLengths = hand.Cards.GroupBy(e => e.Color).ToDictionary(e => e.Key, e => e?.Count() ?? 0);
-        var longestColorCount = colorLengths.Max(e => e.Value);
-
-        // Pierwszy najdłuższy kolor.
-        var longestColor = colorLengths.First(e => e.Value == longestColorCount).Key;
-
-        // TODO
-        Bid currentBid = Auction.GetLastSubmittedBid(true)!;
-
-        int? submitValue = currentBid.Value; // nigdy nie będzie null
-        if (submitValue == null) {
-            throw new Exception("Submit with null value.");
-        }
-
-        // Mój kolor jest niższy lub równy niż obecny
-        if ((int)longestColor <= (int)currentBid.Color) {
-            submitValue = currentBid.Value + 1;
-        }
-
-        return BidNode.Submit(submitValue.Value, longestColor);
-    }
 
 }

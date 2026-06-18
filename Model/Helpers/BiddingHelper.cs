@@ -85,10 +85,23 @@ public static class BiddingHelper {
     }
 
 
-    public static int SmallSlamPointsRequirement(BidColor color) {
+    public static int SmallSlamPointsRequirement(this BidColor color) {
         if (color == BidColor.NoTrump) {
             return 32;
         }
         return 30;
     }
+
+
+    public static int GamePointsRequirement(this BidColor color) {
+        if (color == BidColor.NoTrump) {
+            return 25;
+        }
+        return color.IsMajor() ? 24 : 27;
+    }
+
+
+    public static bool IsColorGame(this BidColor color) => color != BidColor.NoTrump && color != BidColor.NoColor;
+
+    public static bool IsNoTrumpGame(this BidColor color) => color == BidColor.NoTrump;
 }

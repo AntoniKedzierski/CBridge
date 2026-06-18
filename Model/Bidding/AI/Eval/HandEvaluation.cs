@@ -2,6 +2,7 @@
 using Model.Bidding.AI.Engine;
 using Model.Bidding.Bids;
 using Model.Enums;
+using Model.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -92,32 +93,44 @@ public class HandEvaluation {
         Clubs.Upper -= hand.OfColor(CardColor.Clubs).Count();
     }
 
+
+    public Dictionary<CardColor, NumberRange> GetColorRanges() => new() {
+        { CardColor.Spades, Spades },
+        { CardColor.Hearts, Hearts },
+        { CardColor.Diamonds, Diamonds },
+        { CardColor.Clubs, Clubs }
+    };
+
+
     /// <summary>
     /// Ma zastosowanie tylko dla ewaluacji siły połączonych rąk.
     /// </summary>
     /// <returns></returns>
-    public SuitFit FindFit() {
-        SuitFit bestFit = new() {
-            Color = BidColor.NoColor,
-            Length = 0
-        };
+    public BidColor FindFit(CardColor? except = null) {
+        var colorRanges = GetColorRanges();
+        var longestColorForSure = colorRanges
+            .Where(e => except == null || e.Key != except.Value)
+            .OrderByDescending(e => e.Value.Lower ?? 0)
+            .ThenByDescending(e => (int)e.Key)              // Preferencja kolorów starszych
+            .First()
+            .Key;
 
-        foreach (CardColor color in Enum.GetValues(typeof(CardColor))) {
-            var suitColor = GetSuit(color);
-            if (suitColor >= bestFit.Length) { // Major colors are preferred
-                bestFit.Color = (BidColor)((int)color + 1); // CardColor doesnt have NoColor, while BidColor does
-                bestFit.Length = suitColor.Lower ?? 0;
-            }
+        // Jeżeli maksimum w tym kolorze to 7 lub 8 (młodszy), to preferujemy BA.
+        if (colorRanges[longestColorForSure] <= 7 || colorRanges[longestColorForSure] <= 8 && !longestColorForSure.IsMajor()) {
+            return BidColor.NoTrump;
         }
 
-        if (bestFit.Length < 8 && (bestFit.Color == BidColor.Spades || bestFit.Color == BidColor.Hearts) || 
-            bestFit.Length < 9 && (bestFit.Color == BidColor.Clubs || bestFit.Color == BidColor.Diamonds)) {
-            return new() {
-                Color = BidColor.NoTrump
-            };
-        }
+        return longestColorForSure.ToBidColor();
+    }
 
-        return bestFit;
+
+    public bool FitsNoTrump() {
+        return !GetColorRanges().Where(e => e.Value.Lower != null).Any(e => e.Value.Lower <= 3);
+    }
+
+
+    public bool FitsNoTrumpForSure() {
+        return GetColorRanges().All(e => e.Value.Lower >= 4);
     }
 
 
@@ -131,6 +144,7 @@ public class HandEvaluation {
             + 0.125f * (Aces.HasValue ? 1 : 0)
             + 0.125f * (Kings.HasValue ? 1 : 0);
     }
+
 
     public NumberRange GetSuit(CardColor color) {
         return color switch {

@@ -85,8 +85,20 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
     };
 
 
-    public static BidNode SubmitLowest(Auction auction, BidColor color) {
+    public static BidNode SubmitOrPass(Auction auction, int value, BidColor color) {
         var lowestValue = auction.GetLowestLegalValue(color);
+        if (value > lowestValue) {
+            return Pass();
+        }
+        return Submit(value, color);
+    }
+
+
+    public static BidNode SubmitLowest(Auction auction, BidColor color, int? limit = null) {
+        var lowestValue = auction.GetLowestLegalValue(color);
+        if (limit != null && lowestValue > limit) {
+            return Pass();
+        }
         return Submit(lowestValue, color);
     }
 
@@ -224,13 +236,6 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
         }
 
         return false;
-    }
-
-
-    public override string ToString() {
-        var result = base.ToString();
-        result += $"\t{RealizedGoal}" + (AiSource == null ? "" : "\t" + AiSource);
-        return result;
     }
 
 

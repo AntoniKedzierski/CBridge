@@ -5,6 +5,7 @@ using Model.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,35 +24,37 @@ public partial class BidEngine {
         if (hand.Points >= 12 && hand.Points <= 17 && hand.CountCards(longestColor) >= 5) {
             // Chyba, że jest młodsza, bez figur.
             if (longestColor.IsMajor() || hand.PointsCount(longestColor) > 0) {
-                return BidNode.Submit(1, longestColor);
+                return BidNode.SubmitLowest(Auction, longestColor.ToBidColor(), 2);
             }
         }
 
         // Zgłaszanie BA
         if (hand.PointsNt >= 15 && hand.PointsNt <= 17) {
-            return BidNode.Submit(1, BidColor.NoTrump);
+            return BidNode.SubmitLowest(Auction, BidColor.NoTrump, 1);
         }
 
         // Silne 2 trefle
         if (hand.Points >= 18 && hand.PointsNt <= 20) {
-            return BidNode.Submit(2, BidColor.Clubs);
+            return BidNode.SubmitLowest(Auction, BidColor.Clubs, 2);
         }
 
         if (hand.PointsNt >= 21 && hand.PointsNt <= 23) {
-            return BidNode.Submit(2, BidColor.NoTrump);
+            return Auction.GetLowestLegalValue(BidColor.NoTrump) >= 3
+                ? BidNode.SubmitLowest(Auction, BidColor.NoTrump, 3)
+                : BidNode.Submit(2, BidColor.NoTrump);
         }
 
         if (hand.PointsNt >= 24) {
-            return BidNode.Submit(3, BidColor.NoTrump);
+            return BidNode.SubmitLowestLegalGameOrDouble(Auction, BidColor.NoTrump);
         }
 
         // Słabe dwa
         if (hand.Points >= 7 && hand.Points <= 11 && hand.CountCards(longestColor) == 6) {
-            return BidNode.Submit(2, longestColor);
+            return BidNode.SubmitOrPass(Auction, 2, longestColor.ToBidColor());
         }
 
         if (hand.CountCards(longestColor) >= 7 && hand.PointsCount(longestColor) >= 3) {
-            return BidNode.Submit(3, longestColor);
+            return BidNode.SubmitOrPass(Auction, 3, longestColor.ToBidColor());
         }
 
         return BidNode.Pass();
@@ -86,7 +89,11 @@ public partial class BidEngine {
     /// Odpowiedź w dowolnym momencie, partner niespasował.
     /// </summary>
     private BidNode TrueNaturalResponse(Hand hand, BidNode partnerBidNode, TableEvaluation tableEvaluation) {
-        var strongHand = PartnerOpened ? hand.Points >= 10 : hand.Points >= 16;
+        if (partnerBidNode.Type == BidType.Double || partnerBidNode.Type == BidType.Redouble) {
+            return BidNode.Pass();
+        }
+
+        var strongHand = PartnerOpened ? hand.Points >= 10 : hand.Points >= 15;
         var combinedHand = tableEvaluation.GetCombinedHandEvaluation(hand);
 
         if (combinedHand.Points.Lower < 19) {
@@ -96,6 +103,7 @@ public partial class BidEngine {
         var biddedColors = OwnBidsHistory.Select(e => e.Color).ToHashSet();
         var strongestColors = hand.GetStrongestColors();
         var strongestColor = strongestColors.First();
+        var longestColor = hand.GetLongestColor();
 
         // Szukamy fitu z partnerem lub zgłaszamy własny.
         if (biddedColors.Count == 0) {
@@ -133,7 +141,7 @@ public partial class BidEngine {
                     return BidNode.Submit(3, BidColor.NoTrump);
                 }
 
-                if (lowestPossibleValue >= 2) {
+                if (lowestPossibleValue == 2) {
                     return BidNode.Submit(2, BidColor.NoTrump);
                 }
 
@@ -142,7 +150,6 @@ public partial class BidEngine {
 
             // Odpowiedź na 2 trefle.
             if (partnerBidNode.EqualsByColorAndValue(2, BidColor.Clubs)) {
-                var longestColor = hand.GetLongestColor();
                 var lowestPossibleValue = Auction.GetLowestLegalValue(longestColor.ToBidColor());
 
                 if (lowestPossibleValue == 3 || hand.Points <= 6) {
@@ -223,6 +230,7 @@ public partial class BidEngine {
             return BidNode.Pass();
         }
 
+        // Gdy robimy grę, ale mamy punkty na szlemika w parze.
         if (partnerBidNode.MakesGame()) {
             if (combinedHand.Points >= BiddingHelper.SmallSlamPointsRequirement(partnerBidNode.Color)) {
                 return BidNode.Submit(6, partnerBidNode.Color);
@@ -239,77 +247,233 @@ public partial class BidEngine {
             return BidNode.Pass();
         }
 
+        // Czy partner mówił coś z przeskokiem?
+        var partnerLowestPossibleBid = Auction.GetLowestLegalValue(partnerBidNode.Color, 2);
+        var valueDiff = partnerBidNode.Value - partnerBidNode.Value;
+        var possibleDiff = partnerBidNode.Value - partnerLowestPossibleBid;
+        var partnerRaised = possibleDiff < valueDiff;
+
         // Mamy fit, nie mamy partii.
         if (lastOwnBidColor == partnerBidNode.Color) {
-            var partnerLowestPossibleBid = Auction.GetLowestLegalValue(partnerBidNode.Color, 2);
-
-            var valueDiff = partnerBidNode.Value - partnerBidNode.Value;
-            var possibleDiff = partnerBidNode.Value - partnerLowestPossibleBid;
-
             // Powiedział minimalnie jak mógł - strongHand i inwit.
-            if (valueDiff == possibleDiff) {
+            if (!partnerRaised) {
                 // Gramy końcówkę lub kontrę.
                 return BidNode.SubmitLowestLegalGameOrDouble(Auction, lastOwnBidColor);
             }
             // Powiedział z przeskokiem, gramy partię tylko na dobrej ręce lub kontrujemy oponentów.
             else if (valueDiff == possibleDiff + 1) {
-                if (strongHand || hand.CountCards(lastOwnBidColor.ToCardColor()) >= 6) {
+                // StrongHand lub submit w color na 6+ kartach
+                if (strongHand || lastOwnBidColor.IsColorGame() && hand.CountCards(lastOwnBidColor.ToCardColor()) >= 6) {
                     return BidNode.SubmitLowestLegalGameOrDouble(Auction, lastOwnBidColor);
                 }
 
+                // Jeżeli wychodzi gra na podstawie połączonej ręki.
+                // 8+ w starszym, 24 PC
+                // 8+ w młodszym, 27 PC
+                if (lastOwnBidColor.IsColorGame() && combinedHand.GetSuit(lastOwnBidColor.ToCardColor()) >= 8 && combinedHand.Points >= lastOwnBidColor.GamePointsRequirement()) {
+                    return BidNode.SubmitLowestLegalGameOrDouble(Auction, lastOwnBidColor);
+                }
+
+                // NoTrump - niedostępny na poziomie 3 lub niżej.
                 return BidNode.Pass();
             }
+
+            // Jakikolwiek większy przeskok.
+            // Natychmiastowe zgłoszenie końcówki to sign-off.
+            if (partnerBidNode.MakesGame()) {
+                // Kontrujemy, gdy przeciwnik się wciął.
+                if (LastRightOpponentBid != null) {
+                    return BidNode.Double();
+                }
+                return BidNode.Pass();
+            }
+
+            // Fallback.
+            return BidNode.Pass();
         }
 
+        // Partner zgłosił inny kolor na nasz kolor (nie nasze BA).
+        if (lastOwnBidColor.IsColorGame() && partnerBidNode.Color.IsColorGame()) {
+            // One-over-one, słabe wejście, niezobowiązujące.
+            var bestFitColor = combinedHand.FindFit(lastOwnBidColor.ToCardColor());
+            if (LastOwnBid.GetLevel() == 1 && partnerBidNode.GetLevel() == 1) {
+                // Jeżeli możemy go poprzeć w ten kolor, to próbujemy na najniższym możliwym poziomie, ale nie większym niż 3.
+                if (hand.Fits(partnerBidNode.Color)) {
+                    return BidNode.SubmitLowest(Auction, partnerBidNode.Color, 3);
+                }
+
+                // Pokazujemy drugi najlepszy kolor, o ile ma conajmniej 4 karty.
+                // Maksymalnie na poziomie 2 (weakHand) lub 3 (strongHand).
+                var secondBestColor = strongestColors[1];
+                if (hand.CountCards(secondBestColor) >= 4) {
+                    return BidNode.SubmitLowest(Auction, secondBestColor.ToBidColor(), strongHand ? 3 : 2);
+                }
+
+                // Sprawdzamy, czy nie wychodzi nam coś z ewaluacji stołu.
+                // Pomijamy kolor, który partner zanegował. Możemy go zgłosić maksymalnie na poziomie dwóch.
+                // To zwróci BA, jeżeli nie mamy pewnych 8-ek lub 9-ek (młodszy).
+                return BidNode.SubmitLowest(Auction, bestFitColor, 2);
+            }
+
+            // Two-over-one, bez przeskoku, obiecujące solidną rękę.
+            if (LastOwnBid.GetLevel() == 1 && partnerBidNode.GetLevel() == 2 && partnerLowestPossibleBid == partnerBidNode.Value) {
+                // Jeżeli możemy go poprzeć w ten kolor, to próbujemy na najniższym możliwym poziomie, ale nie większym niż 4.
+                if (hand.Fits(partnerBidNode.Color)) {
+                    return BidNode.SubmitLowest(Auction, partnerBidNode.Color, 4);
+                }
+
+                // Pokazujemy drugi najlepszy kolor, o ile ma conajmniej 4 karty.
+                // Maksymalnie na poziomie 3 (zawsze).
+                var secondBestColor = strongestColors[1];
+                if (hand.CountCards(secondBestColor) >= 4) {
+                    return BidNode.SubmitLowest(Auction, secondBestColor.ToBidColor(), 3);
+                }
+
+                // Sprawdzamy, czy nie wychodzi nam coś z ewaluacji stołu.
+                // Pomijamy kolor, który partner zanegował. Możemy go zgłosić maksymalnie na poziomie trzech.
+                // To zwróci BA, jeżeli nie mamy pewnych 8-ek lub 9-ek (młodszy).
+                return BidNode.SubmitLowest(Auction, bestFitColor, 3);
+            }
+
+            // Partner zgłosił własny kolor z przeskokiem.
+            if (partnerRaised) {
+                // Jeżeli możemy go poprzeć w ten kolor, to licytujemy końcówkę lub kontrę na oponentów.
+                if (hand.Fits(partnerBidNode.Color)) {
+                    return BidNode.SubmitLowestLegalGameOrDouble(Auction, partnerBidNode.Color);
+                }
+
+                // Sprawdzamy, czy nie wychodzi nam coś z ewaluacji stołu.
+                // Pomijamy kolor, który partner zanegował. Możemy go zgłosić maksymalnie na poziomie trzech.                
+                // Jeżeli to BA, to licytujemy grę.
+                if (bestFitColor == BidColor.NoTrump) {
+                    return BidNode.SubmitLowestLegalGameOrDouble(Auction, BidColor.NoTrump);
+                }
+
+                // wpp mamy ograniczenie na poziomie 4.
+                return BidNode.SubmitLowest(Auction, bestFitColor, 4);
+            }
+
+            // Wszystkie inne przypadki misfita (poziom powyżej 2), patrzymy na ewaluację stołu.
+            // Natychmiastowy pass z plażą.
+            if (combinedHand.Points < 24) {
+                return BidNode.Pass();
+            }
+
+            var lowestLegalBestFit = Auction.GetLowestLegalValue(bestFitColor);
+
+            // Na silnej ręce obowiązują wyższe limity.
+            return BidNode.SubmitLowest(Auction, bestFitColor, strongHand ? 3 : 2);
+        }
         
-    }
+        // Partner zgłosił BA na nasz kolor.
+        if (lastOwnBidColor.IsColorGame() && partnerBidNode.Color.IsNoTrumpGame()) {
+            // Z przeskokiem - partner jest mocny
+            if (partnerRaised) {
+                // Jeżeli możemy poprzeć jego BA:
+                if (hand.HasEvenDistribution() || combinedHand.FitsNoTrumpForSure()) {
+                    return BidNode.SubmitLowestLegalGameOrDouble(Auction, BidColor.NoTrump);
+                }
 
+                // Jeżeli nie jesteśmy pewni to dodatkowo patrzymy na punkty
+                if (combinedHand.FitsNoTrump()) {
+                    return strongHand
+                        ? BidNode.SubmitLowestLegalGameOrDouble(Auction, BidColor.NoTrump)
+                        : BidNode.SubmitLowest(Auction, BidColor.NoTrump, 3);
+                }
 
-    /// <summary>
-    /// Czy zgłoszenie koloru będzie podniesienim one-over-one?
-    /// </summary>
-    private bool IsOneOverOneSubmit(BidColor color) {
-        return Auction.CanSubmit(1, color);
-    }
+                // Nie pasuje nam BA (lub jeszcze o tym nie wiemy).
+                // Nie próbujemy powtarzać koloru, zgłaszamy drugi najlepszy.
+                var secondBestColor = strongestColors[1];
+                if (hand.CountCards(secondBestColor) >= 4) {
+                    // Limit poziomu - 3.
+                    return BidNode.SubmitLowest(Auction, secondBestColor.ToBidColor(), 3);
+                }
 
+                // Fallback - zgłoszenie BA.
+                return BidNode.SubmitLowest(Auction, BidColor.NoTrump, 3);
+            }
 
-    private bool CanSubmitTwoOverOne(BidColor color, BidNode partnerBidNode) {
-        return Auction.CanSubmit(2, color) && (int)partnerBidNode.Color > (int)color;
-    }
+            // BA na tym samym poziomie.
+            // Jeżeli na to odpowiada i mamy weakHand, to pass.
+            if (hand.HasEvenDistribution() && !strongHand) {
+                return BidNode.Pass();
+            }
+            // Jeżeli stronghand, to szukamy gry BA.
+            else if (hand.HasEvenDistribution()) {
+                return BidNode.SubmitLowest(Auction, BidColor.NoTrump, 3);
+            }
 
+            // Jeżeli nasz najdłuższy kolor jest 6-kartowy, to go powtarzamy na poziomie trzech (strongHand) lub dwóch.
+            if (hand.CountCards(longestColor) >= 6 && (Auction.GetLowestLegalValue(longestColor.ToBidColor()) == 3 && strongHand || Auction.GetLowestLegalValue(longestColor.ToBidColor()) == 2)) {
+                return BidNode.SubmitLowest(Auction, longestColor.ToBidColor());
+            }
 
-    private bool CanSubmitTwoOverOneJump(BidColor color, BidNode partnerBidNode) {
-        return Auction.CanSubmit(2, color) && (int)partnerBidNode.Color < (int)color;
+            // Nie ma z czym grać.
+            return BidNode.Pass();
+        }
+
+        // Kolor na bez atu.
+        if (lastOwnBidColor.IsNoTrumpGame() && partnerBidNode.Color.IsColorGame()) {
+            // Z przeskokiem - dobra ręka partnera.
+            if (partnerRaised) {
+                if (hand.Fits(partnerBidNode.Color)) {
+                    return BidNode.SubmitLowestLegalGameOrDouble(Auction, partnerBidNode.Color);
+                }
+
+                // Gdy nie mamy fitu, to z silną ręką zgłaszamy końcówkę w BA.
+                if (strongHand) {
+                    return BidNode.SubmitLowestLegalGameOrDouble(Auction, BidColor.NoTrump);
+                }
+
+                // Ze słabą najdłuższy kolor, o ile da się go zgłosić na tym samym poziomie.
+                if (Auction.GetLowestLegalValue(longestColor.ToBidColor()) == partnerBidNode.GetLevel()) {
+                    return BidNode.SubmitLowest(Auction, longestColor.ToBidColor());
+                }
+
+                // Jeżeli nie, to zgłaszamy BA na najniższym możliwym poziomie.
+                return BidNode.SubmitLowest(Auction, BidColor.NoTrump, 4);
+            }
+
+            // Bez przeskoku, nie szarżujemy. 
+            // Poparcie.
+            if (hand.Fits(partnerBidNode.Color)) {
+                return BidNode.SubmitLowest(Auction, partnerBidNode.Color, strongHand ? 4 : 3);
+            }
+
+            // Brak fitu - zgłaszamy najdłuższy kolor, max na poziomie 3.
+            return BidNode.SubmitLowest(Auction, longestColor.ToBidColor(), 3);
+        }
+
+        return BidNode.Pass();
     }
 
 
     private BidNode TrueNaturalDefence(Hand hand) {
-
+        return BidNode.Pass();
     }
 
 
     private BidNode TrueNaturalDefence(Hand hand, BidNode partnerBid, TableEvaluation tableEvaluation) {
-
+        return BidNode.Pass();
     }
 
 
     private BidNode TrueNaturalGame(Hand hand, BidNode partnerBid, TableEvaluation tableEvaluation, bool gameForced = false) {
-
+        return BidNode.Pass();
     }
 
 
     private BidNode ChaoticNaturalGame(Hand hand, BidNode partnerBid, TableEvaluation tableEvaluation, bool gameForced = false) {
-
+        return BidNode.Pass();
     }
 
 
     private BidNode ChaoticNaturalDefence(Hand hand, BidNode partnerBid, TableEvaluation tableEvaluation) {
-
+        return BidNode.Pass();
     }
 
 
     private BidNode? GetNaturalBid(Hand hand, Bid lastPartnerBid, bool oneRoundForce = false) {
-
         /*  1. Jeżeli nic nie licytowałem:
          *      1.1. Partner nic nie licytował:
          *          1.1.1. Oponenci nic nie licytowali:
@@ -333,40 +497,22 @@ public partial class BidEngine {
          *                  TRUE NATURAL RESPONSE lub TRUE NATURAL DEFENCE
          *              2.2.2.1. Następne kółka:
          *                  CHAOTIC NATURAL GAME lub CHAOTIC NATURAL DEFENCE
-         * 
-         * 
-         * 
-         * 
-         * 
          */
-        if (LastOwnBid != null) {
+        return BidNode.Pass();
+    }
 
-        }
 
-        var chosenBids = new List<BidNode>();
-        foreach (var branchHead in branches) {
-            var chosenBid = ChooseBidByFreestyling(hand, branchHead.Value)?.AssertFreestyleIsntConfusing(branchHead.Key);
-            if (chosenBid != null && chosenBid.IsBidLegal(Auction)) {
-                chosenBids.Add(chosenBid);
+    private BidNode GetNaturalBid(Hand hand, Dictionary<BidNode, TableEvaluation> partnerBranches) {
+        var chosenBidNodes = new List<BidNode>();
+        foreach (var branch in partnerBranches) {
+            var chosenBidNode = TrueNaturalResponse(hand, branch.Key, branch.Value).AssertFreestyleIsntConfusing(branch.Key);
+
+            if (chosenBidNode != null && chosenBidNode.Type != BidType.Pass) {
+                chosenBidNodes.Add(chosenBidNode);
             }
         }
 
-        if (chosenBids.Count == 0) {
-            if (!oneRoundForce) {
-                return null;
-            }
-
-            return BidBestColor(hand);
-        }
-
-        var signOff = GetCommonBranchesValue(branches, e => e.SignOff);
-        if (signOff) {
-            return null;
-        }
-
-        var result = chosenBids.Min()!;
-        result.IsFromSystem = false;
-        return result;
+        return GetLowestSubmitOrPass(chosenBidNodes);
     }
 
 

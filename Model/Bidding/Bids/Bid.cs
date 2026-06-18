@@ -1,5 +1,7 @@
 ﻿using Model.Enums;
 using Model.Helpers;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace Model.Bidding.Bids;
 
@@ -11,11 +13,17 @@ public class Bid : IEquatable<Bid> {
 
     public int? Value { get; set; }
 
-    public bool IsFromSystem { get; set; }
+    public bool IsFromSystem { get; set; } = false;
 
-    public Bid() { }
+    [JsonIgnore]
+    public string StackTrace { get; set; }
 
-    public Bid(int value, BidColor color) {
+
+    public Bid() {
+        StackTrace = new StackTrace(true).ToString();
+    }
+
+    public Bid(int value, BidColor color) : this() {
         Value = value;
         Color = color;
     }
@@ -35,6 +43,11 @@ public class Bid : IEquatable<Bid> {
 
     public bool AtLevel(int level) {
         return Type == BidType.Submit && Value >= level;
+    }
+
+
+    public int GetLevel() {
+        return Value!.Value;
     }
 
 
@@ -72,15 +85,15 @@ public class Bid : IEquatable<Bid> {
 
     public override string ToString() {
         if (Type == BidType.Pass) {
-            return "Pass";
+            return "Pass" + (IsFromSystem ? "" : " F");
         }
 
         if (Type == BidType.Double) {
-            return "X";
+            return "X" + (IsFromSystem ? "" : " F");
         }
 
         if (Type == BidType.Redouble) {
-            return "XX";
+            return "XX" + (IsFromSystem ? "" : " F");
         }
 
         return $"{Value}{Color.ColorMark()}" + (IsFromSystem ? "" : " F");
