@@ -99,11 +99,7 @@ public partial class BidEngine : IBidInput {
         }
 
         // Próbujemy otwarcia naturalnego
-        if (result != null) {
-            return result;
-        }
-
-        return TrueNaturalOpening(hand);
+        return result ?? TrueNaturalOpening(hand);
     }
 
 

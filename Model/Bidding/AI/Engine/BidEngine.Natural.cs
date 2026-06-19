@@ -225,15 +225,15 @@ public partial class BidEngine {
         // Dalsza licytacja, partner nam odpowiedział.
         var lastOwnBidColor = LastOwnBid!.Color;
 
-        // Sign-off.
-        if (partnerBidNode.Type == BidType.Double || partnerBidNode.Type == BidType.Redouble) {
-            return BidNode.Pass();
-        }
-
         // Gdy robimy grę, ale mamy punkty na szlemika w parze.
         if (partnerBidNode.MakesGame()) {
             if (combinedHand.Points >= BiddingHelper.SmallSlamPointsRequirement(partnerBidNode.Color)) {
                 return BidNode.Submit(6, partnerBidNode.Color);
+            }
+
+            // Kontrujemy
+            if (LastRightOpponentBid?.Type == BidType.Submit) {
+                return BidNode.SubmitLowestLegalGameOrDouble(Auction, partnerBidNode.Color);
             }
 
             return BidNode.Pass();
@@ -263,7 +263,7 @@ public partial class BidEngine {
             // Powiedział z przeskokiem, gramy partię tylko na dobrej ręce lub kontrujemy oponentów.
             else if (valueDiff == possibleDiff + 1) {
                 // StrongHand lub submit w color na 6+ kartach
-                if (strongHand || lastOwnBidColor.IsColorGame() && hand.CountCards(lastOwnBidColor.ToCardColor()) >= 6) {
+                if (strongHand || lastOwnBidColor.IsColorGame() && hand.CountCards(lastOwnBidColor.ToCardColor()) >= 7) {
                     return BidNode.SubmitLowestLegalGameOrDouble(Auction, lastOwnBidColor);
                 }
 
@@ -275,6 +275,7 @@ public partial class BidEngine {
                 }
 
                 // NoTrump - niedostępny na poziomie 3 lub niżej.
+                // Pass na wszystko inne.
                 return BidNode.Pass();
             }
 
@@ -294,8 +295,10 @@ public partial class BidEngine {
 
         // Partner zgłosił inny kolor na nasz kolor (nie nasze BA).
         if (lastOwnBidColor.IsColorGame() && partnerBidNode.Color.IsColorGame()) {
-            // One-over-one, słabe wejście, niezobowiązujące.
+            // Inny najlepszy kolor
             var bestFitColor = combinedHand.FindFit(lastOwnBidColor.ToCardColor());
+
+            // One-over-one, słabe wejście, niezobowiązujące.
             if (LastOwnBid.GetLevel() == 1 && partnerBidNode.GetLevel() == 1) {
                 // Jeżeli możemy go poprzeć w ten kolor, to próbujemy na najniższym możliwym poziomie, ale nie większym niż 3.
                 if (hand.Fits(partnerBidNode.Color)) {
@@ -378,7 +381,7 @@ public partial class BidEngine {
                 if (combinedHand.FitsNoTrump()) {
                     return strongHand
                         ? BidNode.SubmitLowestLegalGameOrDouble(Auction, BidColor.NoTrump)
-                        : BidNode.SubmitLowest(Auction, BidColor.NoTrump, 3);
+                        : BidNode.SubmitOrPass(Auction, 3, BidColor.NoTrump);
                 }
 
                 // Nie pasuje nam BA (lub jeszcze o tym nie wiemy).
@@ -425,7 +428,7 @@ public partial class BidEngine {
                     return BidNode.SubmitLowestLegalGameOrDouble(Auction, BidColor.NoTrump);
                 }
 
-                // Ze słabą najdłuższy kolor, o ile da się go zgłosić na tym samym poziomie.
+                // Ze słabą - najdłuższy kolor, o ile da się go zgłosić na tym samym poziomie.
                 if (Auction.GetLowestLegalValue(longestColor.ToBidColor()) == partnerBidNode.GetLevel()) {
                     return BidNode.SubmitLowest(Auction, longestColor.ToBidColor());
                 }

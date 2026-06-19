@@ -168,7 +168,8 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
         Type = Type,
         Color = Color,
         Value = Value,
-        IsFromSystem = isFromSystem
+        IsFromSystem = isFromSystem,
+        StackTrace = StackTrace
     };
 
 

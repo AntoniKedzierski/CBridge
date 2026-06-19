@@ -125,7 +125,7 @@ public class HandEvaluation {
 
 
     public bool FitsNoTrump() {
-        return !GetColorRanges().Where(e => e.Value.Lower != null).Any(e => e.Value.Lower <= 3);
+        return !GetColorRanges().Where(e => e.Value.Lower != null).Any(e => e.Value.Lower < 4);
     }
 
 
