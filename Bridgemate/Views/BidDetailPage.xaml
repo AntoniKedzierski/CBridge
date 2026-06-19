@@ -2,95 +2,141 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Bridgemate.Views.BidDetailPage"
              Title="Bid Details"
-             BackgroundColor="White">
+             BackgroundColor="#F4F6F9">
 
     <ScrollView>
-        <VerticalStackLayout x:Name="ContentStack" Padding="20,16" Spacing="0">
+        <!-- Responsive centering: content capped at 800px, centred when wider -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="800" x:Name="ContentCol" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <!-- Bid badge -->
-            <Border x:Name="BidBadge"
-                    StrokeThickness="2"
-                    Padding="24,8"
-                    Margin="0,0,0,4"
-                    HorizontalOptions="Center">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="8" />
-                </Border.StrokeShape>
-                <Label x:Name="BidBadgeLabel"
-                       FontSize="40"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center" />
-            </Border>
+            <VerticalStackLayout Grid.Column="1" Padding="20,20,20,32" Spacing="0">
 
-            <!-- Bidder -->
-            <Label x:Name="BidderLabel"
-                   FontSize="13"
-                   TextColor="#888888"
-                   HorizontalOptions="Center"
-                   Margin="0,0,0,12" />
-
-            <!-- Description highlight box (shown when Description is present) -->
-            <Border x:Name="DescriptionBox"
-                    IsVisible="False"
-                    BackgroundColor="#F0F7FF"
-                    StrokeThickness="0"
-                    Padding="14,10"
-                    Margin="0,0,0,8">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="6" />
-                </Border.StrokeShape>
-                <VerticalStackLayout Spacing="2">
-                    <Label Text="Description"
-                           FontSize="11"
-                           TextColor="#1565C0"
-                           FontAttributes="Bold"
-                           CharacterSpacing="0.5" />
-                    <Label x:Name="DescriptionLabel"
-                           FontSize="15"
-                           TextColor="#1A1A1A"
-                           FontAttributes="Italic" />
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Divider -->
-            <BoxView HeightRequest="1" Color="#E8E8E8" Margin="0,4,0,8" />
-
-            <!-- Details section (convention, condition, requirements, flags, ai source) -->
-            <VerticalStackLayout x:Name="DetailsStack" Spacing="6" />
-
-            <!-- Stack Trace section -->
-            <BoxView x:Name="StackTraceDivider" HeightRequest="1" Color="#E8E8E8" Margin="0,8,0,8" IsVisible="False" />
-            <VerticalStackLayout x:Name="StackTraceSection" IsVisible="False" Spacing="4">
-                <Label Text="BID STACK TRACE"
-                       FontSize="11"
-                       FontAttributes="Bold"
-                       TextColor="#888888"
-                       CharacterSpacing="0.8"
-                       Margin="0,0,0,4" />
-                <!-- Bid path breadcrumb -->
-                <FlexLayout x:Name="BidPathRow"
-                            Wrap="Wrap"
-                            Direction="Row"
-                            AlignItems="Center"
-                            Margin="0,0,0,6" />
-                <!-- Raw .NET stack trace -->
-                <Border BackgroundColor="#F8F8F8"
+                <!-- ── Bid badge card ───────────────────────────────────────── -->
+                <Border BackgroundColor="White"
                         StrokeThickness="0"
-                        Padding="12,8">
+                        Padding="24,20"
+                        Margin="0,0,0,12">
                     <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="4" />
+                        <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
-                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Always">
-                        <Label x:Name="RawStackTraceLabel"
-                               FontSize="10"
-                               TextColor="#555555"
-                               FontFamily="Courier New"
-                               LineBreakMode="NoWrap" />
-                    </ScrollView>
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Offset="0,2" Radius="8" Opacity="0.08" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                        <Border x:Name="BidBadge"
+                                StrokeThickness="2"
+                                Padding="28,10"
+                                HorizontalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8" />
+                            </Border.StrokeShape>
+                            <Label x:Name="BidBadgeLabel"
+                                   FontSize="40"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center" />
+                        </Border>
+                        <Label x:Name="BidderLabel"
+                               FontSize="13"
+                               TextColor="#888888"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
                 </Border>
-            </VerticalStackLayout>
 
-        </VerticalStackLayout>
+                <!-- ── Description highlight (shown when Description present) ─ -->
+                <Border x:Name="DescriptionBox"
+                        IsVisible="False"
+                        BackgroundColor="#EBF4FF"
+                        StrokeThickness="0"
+                        Padding="16,12"
+                        Margin="0,0,0,12">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#1565C0" Offset="0,1" Radius="6" Opacity="0.06" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="3">
+                        <Label Text="DESCRIPTION"
+                               FontSize="10"
+                               TextColor="#1565C0"
+                               FontAttributes="Bold"
+                               CharacterSpacing="0.8" />
+                        <Label x:Name="DescriptionLabel"
+                               FontSize="15"
+                               TextColor="#1A1A1A"
+                               FontAttributes="Italic" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- ── Details card (convention, requirements, flags …) ─────── -->
+                <Border BackgroundColor="White"
+                        StrokeThickness="0"
+                        Padding="16,14"
+                        Margin="0,0,0,12">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Offset="0,2" Radius="8" Opacity="0.07" />
+                    </Border.Shadow>
+                    <VerticalStackLayout x:Name="DetailsStack" Spacing="6" />
+                </Border>
+
+                <!-- ── Stack Trace card (always shown — purpose: natural bids) -->
+                <Border x:Name="StackTraceCard"
+                        IsVisible="False"
+                        BackgroundColor="White"
+                        StrokeThickness="0"
+                        Padding="16,14"
+                        Margin="0,0,0,12">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Offset="0,2" Radius="8" Opacity="0.07" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="8">
+
+                        <Label Text="BID STACK TRACE"
+                               FontSize="10"
+                               FontAttributes="Bold"
+                               TextColor="#888888"
+                               CharacterSpacing="0.8" />
+
+                        <!-- Bid path breadcrumb -->
+                        <FlexLayout x:Name="BidPathRow"
+                                    Wrap="Wrap"
+                                    Direction="Row"
+                                    AlignItems="Center" />
+
+                        <!-- Raw .NET StackTrace — useful especially for natural bids
+                             to see exactly which engine method produced this bid -->
+                        <Border BackgroundColor="#F5F7FA"
+                                StrokeThickness="0"
+                                Padding="12,10">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="6" />
+                            </Border.StrokeShape>
+                            <ScrollView Orientation="Horizontal"
+                                        HorizontalScrollBarVisibility="Always">
+                                <Label x:Name="RawStackTraceLabel"
+                                       FontSize="10"
+                                       TextColor="#444444"
+                                       FontFamily="Courier New"
+                                       LineBreakMode="WordWrap" />
+                            </ScrollView>
+                        </Border>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </Grid>
     </ScrollView>
 
 </ContentPage>
+

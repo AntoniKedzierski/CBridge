@@ -28,8 +28,7 @@ public partial class BidDetailPage : ContentPage {
             BidBadgeLabel.Text = "?";
             BidderLabel.Text = string.Empty;
             DescriptionBox.IsVisible = false;
-            StackTraceDivider.IsVisible = false;
-            StackTraceSection.IsVisible = false;
+            StackTraceCard.IsVisible = false;
             DetailsStack.Children.Add(new Label { Text = "No entry selected.", TextColor = Colors.Gray, HorizontalOptions = LayoutOptions.Center });
             return;
         }
@@ -74,12 +73,14 @@ public partial class BidDetailPage : ContentPage {
 
     private void BuildStackTrace(AuctionEntry entry) {
         var bidPath  = entry.Node?.Path ?? string.Empty;
-        var rawTrace = entry.Bid.StackTrace ?? string.Empty;
+        // Prefer the BidNode's own StackTrace (captured at engine call time).
+        // entry.Bid.StackTrace is stripped to null by ToBid(), so fall back gracefully.
+        var rawTrace = entry.Node?.StackTrace ?? entry.Bid.StackTrace ?? string.Empty;
         bool hasPath  = !string.IsNullOrWhiteSpace(bidPath);
         bool hasTrace = !string.IsNullOrWhiteSpace(rawTrace);
-        if (!hasPath && !hasTrace) { StackTraceDivider.IsVisible = false; StackTraceSection.IsVisible = false; return; }
-        StackTraceDivider.IsVisible = true;
-        StackTraceSection.IsVisible = true;
+        // Stack trace is especially useful for natural/freestyle bids — always show when available
+        if (!hasPath && !hasTrace) { StackTraceCard.IsVisible = false; return; }
+        StackTraceCard.IsVisible = !entry.Bid.IsFromSystem;
         BidPathRow.Children.Clear();
         if (hasPath) {
             var steps = bidPath.Split(" > ", StringSplitOptions.RemoveEmptyEntries);
