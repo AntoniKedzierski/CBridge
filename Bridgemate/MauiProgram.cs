@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Bridgemate.Services;
+using Bridgemate.ViewModels;
+using Bridgemate.Views;
+using Microsoft.Extensions.Logging;
 
 namespace Bridgemate {
     public static class MauiProgram {
@@ -11,8 +14,20 @@ namespace Bridgemate {
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // Services
+            builder.Services.AddSingleton<NavigationStore>();
+            builder.Services.AddSingleton<SimulationService>();
+
+            // ViewModels
+            builder.Services.AddTransient<MainViewModel>();
+
+            // Pages
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<DealPage>();
+            builder.Services.AddTransient<BidDetailPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

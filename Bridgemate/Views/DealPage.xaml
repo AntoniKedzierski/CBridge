@@ -1,0 +1,72 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bridgemate.Views.DealPage"
+             Title="Deal Details"
+             BackgroundColor="#F4F6F9">
+
+    <ScrollView>
+        <!-- Responsive centering: content capped at 800px, centred when wider -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="800" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Grid.Column="1" Padding="20,16,20,32" Spacing="10">
+
+                <!-- Header info bar -->
+                <Label x:Name="InfoLabel"
+                       FontSize="13"
+                       TextColor="#888888" />
+
+                <!-- HANDS card -->
+                <Border BackgroundColor="White" StrokeThickness="0"
+                        Padding="16,14"
+                        StrokeShape="RoundRectangle 10">
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Offset="0,2" Radius="8" Opacity="0.07" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="HANDS"
+                               FontSize="10" FontAttributes="Bold"
+                               TextColor="#888888" CharacterSpacing="0.8" />
+                        <Grid x:Name="CompassContainer" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- AUCTION card -->
+                <Border BackgroundColor="White" StrokeThickness="0"
+                        Padding="16,14"
+                        StrokeShape="RoundRectangle 10">
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Offset="0,2" Radius="8" Opacity="0.07" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="AUCTION"
+                               FontSize="10" FontAttributes="Bold"
+                               TextColor="#888888" CharacterSpacing="0.8" />
+                        <Grid x:Name="AuctionContainer" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- CONTRACT card -->
+                <Border BackgroundColor="White" StrokeThickness="0"
+                        Padding="16,14"
+                        StrokeShape="RoundRectangle 10">
+                    <Border.Shadow>
+                        <Shadow Brush="#000000" Offset="0,2" Radius="8" Opacity="0.07" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="CONTRACT"
+                               FontSize="10" FontAttributes="Bold"
+                               TextColor="#888888" CharacterSpacing="0.8" />
+                        <Label x:Name="ContractLabel" FontSize="15" TextColor="#1A1A1A" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
