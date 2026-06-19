@@ -11,7 +11,7 @@ public partial class BidEngine : IBidInput {
 
     public BiddingSystem BiddingSystem { get; private set; }
 
-    public string BiddingSystemPath { get; set; } = @"..\..\..\..\BiddingBrowser\BiddingSystems\Wspólny Język.json";
+    public string BiddingSystemPath { get; set; } = "../../../../../BiddingSystems/Wspólny Język.json";
 
     public PlayerPosition Position { get; private set; }
 
