@@ -162,7 +162,7 @@ public class Hand : IPoints {
     public bool Fits(BidColor color) => CountCards(color.ToCardColor()) >= 3;
 
 
-    private static CardColor GetStrongestColor(Dictionary<CardColor, int> colorCounts, Dictionary<CardColor, double> stopCounts, Dictionary<CardColor, int> pointsCount) {
+    public static CardColor GetStrongestColor(Dictionary<CardColor, int> colorCounts, Dictionary<CardColor, double> stopCounts, Dictionary<CardColor, int> pointsCount) {
         if (colorCounts.Count == 1) {
             return colorCounts.First().Key;
         }
@@ -276,10 +276,10 @@ public class Hand : IPoints {
     }
 
 
-    public Card? findStrongestCardInSuit(CardColor color) {
+    public Card? GetStrongestCardInColor(CardColor color) {
         return Cards.Where(card => card.Color == color).MaxBy(card => card.Value);
     }
-    public Card? findWeakestCardInSuit(CardColor color) {
+    public Card? GetWeakestCardInColor(CardColor color) {
         return Cards.Where(card => card.Color == color).MinBy(card => card.Value);
     }
 
