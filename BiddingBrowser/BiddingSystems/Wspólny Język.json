@@ -55106,10 +55106,10 @@
           "Color": 1,
           "Type": 1,
           "Description": null,
-          "Condition": "0-11 PC, 7+ trefli, blokujące.",
+          "Condition": "5-11 PC, 7+ trefli, blokujące.",
           "Convention": null,
           "PointsRange": {
-            "Lower": null,
+            "Lower": 5,
             "Upper": 11
           },
           "SpadesCardRange": {
@@ -55415,10 +55415,10 @@
           "Color": 2,
           "Type": 1,
           "Description": null,
-          "Condition": "0-11 PC, 7+ karo, blokujące.",
+          "Condition": "5-11 PC, 7+ karo, blokujące.",
           "Convention": null,
           "PointsRange": {
-            "Lower": null,
+            "Lower": 5,
             "Upper": 11
           },
           "SpadesCardRange": {
@@ -55724,10 +55724,10 @@
           "Color": 3,
           "Type": 1,
           "Description": null,
-          "Condition": "0-11 PC, 7+ kierów, blokujące.",
+          "Condition": "5-11 PC, 7+ kierów, blokujące.",
           "Convention": null,
           "PointsRange": {
-            "Lower": null,
+            "Lower": 5,
             "Upper": 11
           },
           "SpadesCardRange": {
@@ -55945,10 +55945,10 @@
           "Color": 4,
           "Type": 1,
           "Description": null,
-          "Condition": "0-11 PC, 7+ pików, blokujące.",
+          "Condition": "5-11 PC, 7+ pików, blokujące.",
           "Convention": null,
           "PointsRange": {
-            "Lower": null,
+            "Lower": 5,
             "Upper": 11
           },
           "SpadesCardRange": {
