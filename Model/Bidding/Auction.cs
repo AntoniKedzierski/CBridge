@@ -142,6 +142,10 @@ public class Auction {
     /// </returns>
     public Bid? DefendingAgainst(PlayerPosition currentDefender) {
         var partner = currentDefender.GetPartner();
+        var opener = (PlayerPosition)(((int)CurrentBidder - AuctionHistory.Count) % 4);
+        if (opener < 0) {
+            opener = (PlayerPosition)((int)opener + 4);
+        }
 
         for (int i = 0; i < AuctionHistory.Count; i++) {
             var bidder = GetBidder(i);
@@ -162,7 +166,13 @@ public class Auction {
             if (AuctionHistory[i].Type == BidType.Pass) {
                 continue;
             }
-                
+             
+            // Wyjątek, gdzie goal nie był określony po pierwszym kółku (lub dalszym, ale to raczej nie), więc w drugim weszliśmy do obron, ale to my pierwsi otworzyliśmy licytację
+            // Jeżeli tego nie będzie, to odzywka obronna oponentów zostanie potraktowana jako ich normalne otwarcie
+            if(AuctionHistory.All(e => e.Type == BidType.Submit) && (currentDefender == opener || partner == opener)) {
+                continue;
+            }
+
             return AuctionHistory[i - 1];
         }
 
