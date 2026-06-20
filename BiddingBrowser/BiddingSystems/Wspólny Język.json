@@ -13476,11 +13476,11 @@
                       "Color": 5,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "=< 14 PC, brak 4 pików, końcówka",
+                      "Condition": "12-15 PC, brak 4 pików, końcówka",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
-                        "Upper": null
+                        "Upper": 15
                       },
                       "SpadesCardRange": {
                         "Lower": null,
@@ -13608,7 +13608,7 @@
                       "Color": 4,
                       "Type": 1,
                       "Description": null,
-                      "Condition": "=< 15 PC, 4 pikina ręce => końcówka",
+                      "Condition": "12-15 PC, 4 piki na ręce => końcówka",
                       "Convention": null,
                       "PointsRange": {
                         "Lower": null,
