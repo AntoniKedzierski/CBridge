@@ -188,7 +188,7 @@ public partial class BidEngine : IBidInput {
         }
 
         var systemBid = GetBidFromSystemBranches(hand, branches.Keys);
-        if (systemBid != null || Goal == BiddingGoal.None) {
+        if (systemBid != null || Goal == BiddingGoal.None) { // Dlaczego?
             return systemBid;
         }
 
@@ -275,11 +275,6 @@ public partial class BidEngine : IBidInput {
             return null;
         }
 
-        // TODO
-        if (Goal == BiddingGoal.Premium) {
-            return null;
-        }
-
         // Wszystko inne wymaga ofensywnego grania systemem lub naturalnie.
         // Gdy partner ostatnio spasował, a doszło do nas, to znaczy, że musimy odpowiedzieć oponentom, którzy się wcieli.
         if (lastPartnersBid == null) {
@@ -292,11 +287,16 @@ public partial class BidEngine : IBidInput {
         // Odpowiedź wg systemu na odzywkę partnera.
         var lastOwnBid = OwnBidsHistory.LastOrDefault();
 
+        // TODO
+        if (Goal == BiddingGoal.Premium) {
+            return PlayInOffence(hand, lastPartnersBid, lastOwnBid); //tmp
+        }
+
         // Jeżeli w drugim kółku wciąż nie wiadomo, kto jest grającym, to szukamy najpierw odpowiedzi w drzewku obron.
         if (Goal == BiddingGoal.None && lastOpponentsBid != null && lastPartnersBid != null) {
             var bidToDefendAgainst = Auction.DefendingAgainst(Position); // Czy jest się przed czym bronić?
             if (bidToDefendAgainst != null) {
-                return PlayInDefence(hand, bidToDefendAgainst, lastPartnersBid) ?? PlayInOffence(hand, lastPartnersBid);
+                return PlayInDefence(hand, bidToDefendAgainst, lastPartnersBid, lastOwnBid) ?? PlayInOffence(hand, lastPartnersBid);
             }
 
             return PlayInOffence(hand, lastPartnersBid);
@@ -307,11 +307,14 @@ public partial class BidEngine : IBidInput {
 
         var result = PlayInOffence(hand, lastPartnersBid, lastOwnBid);
         if (result == null && lastOpponentSubmition != null) {
-            var bidToDefendAgainst = Auction.DefendingAgainst(Position) ?? throw new Exception("Nikt z pary jednak nic nie mówił.");
-            var defenceResult = PlayInDefence(hand, bidToDefendAgainst, lastPartnersBid, lastOwnBid);
-            if (defenceResult != null) {
-                Goal = BiddingGoal.Game;
-                result = defenceResult;
+            var bidToDefendAgainst = Auction.DefendingAgainst(Position);
+            if (bidToDefendAgainst != null) { // Czy jest się przed czym bronić?
+                var defenceResult = PlayInDefence(hand, bidToDefendAgainst, lastPartnersBid, lastOwnBid);
+
+                if (defenceResult != null) {
+                    Goal = BiddingGoal.Game;
+                    result = defenceResult;
+                }
             }
         }
 

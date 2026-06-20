@@ -56,6 +56,10 @@ public class Bid : IEquatable<Bid> {
             return true;
         }
 
+        if(Value > 7) {
+            return false;
+        }
+
         Bid? lastBid = auction.GetLastSubmittedBid();
 
         if (lastBid == null) {
