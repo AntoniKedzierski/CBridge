@@ -134,6 +134,41 @@ public class Auction {
         return null;
     }
 
+    /// <summary>
+    /// Znajduje na jaką odzywkę oponentów weszliśmy w obronę
+    /// </summary>
+    /// <returns>
+    /// Bid oponentów bezpośrednio przed pierwszym nie-pasem w parze obrońców (wejściem w obronę)
+    /// </returns>
+    public Bid? DefendingAgainst(PlayerPosition currentDefender) {
+        var partner = currentDefender.GetPartner();
+
+        for (int i = 0; i < AuctionHistory.Count; i++) {
+            var bidder = GetBidder(i);
+
+            bool isDefendingPair =
+                bidder == currentDefender ||
+                bidder == partner;
+
+            if (!isDefendingPair) {
+                continue;
+            }
+
+            // To nie może być pierwsza odzywka w licytacji
+            if (i == 0) {
+                continue;
+            }
+
+            if (AuctionHistory[i].Type == BidType.Pass) {
+                continue;
+            }
+                
+            return AuctionHistory[i - 1];
+        }
+
+        return null;
+    }
+
     public bool PlayerOpenedAuction(PlayerPosition bidderPosition) {
         for (int i = 0; i < AuctionHistory.Count; i++) {
             if (GetBidder(i) == bidderPosition) {

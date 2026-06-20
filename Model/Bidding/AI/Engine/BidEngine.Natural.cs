@@ -505,7 +505,7 @@ public partial class BidEngine {
     }
 
 
-    private BidNode GetNaturalBid(Hand hand, Dictionary<BidNode, TableEvaluation> partnerBranches) {
+    private BidNode GetNaturalBid(Hand hand, Dictionary<BidNode, TableEvaluation> partnerBranches, bool isForced = false) {
         var chosenBidNodes = new List<BidNode>();
         foreach (var branch in partnerBranches) {
             var chosenBidNode = TrueNaturalResponse(hand, branch.Key, branch.Value).AssertFreestyleIsntConfusing(branch.Key);
@@ -515,9 +515,17 @@ public partial class BidEngine {
             }
         }
 
-        return GetLowestSubmitOrPass(chosenBidNodes);
+        var BidNodeToSubmit = GetLowestSubmitOrPass(chosenBidNodes);
+        if(isForced && BidNodeToSubmit.Type == BidType.Pass) {
+            return ForcedToBid(hand);
+        }
+
+        return BidNodeToSubmit;
     }
 
+    private BidNode ForcedToBid(Hand hand) {
+        return BidNode.SubmitLowest(Auction, hand.GetStrongestColors().First().ToBidColor());
+    }
 
     private BidNode GetLowestSubmitOrPass(IEnumerable<BidNode> bidCandidates) {
         return bidCandidates

@@ -87,10 +87,9 @@ public class BidNode : Bid, IEquatable<BidNode>, IEqualityComparer<BidNode>, ICo
 
     public static BidNode SubmitOrPass(Auction auction, int value, BidColor color) {
         var lowestValue = auction.GetLowestLegalValue(color);
-        if (value > lowestValue) {
-            return Pass();
-        }
-        return Submit(value, color);
+        return value < lowestValue
+            ? Pass()
+            : Submit(value, color);
     }
 
 
