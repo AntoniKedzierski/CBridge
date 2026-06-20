@@ -13,7 +13,7 @@ namespace Model;
 
 public class Hand : IPoints {
 
-    public Card[] Cards { get; private set; }
+    public List<Card> Cards { get; private set; }
     public int Points {  get; private set; }
     public int PointsNt { get; private set; }
 
@@ -44,7 +44,10 @@ public class Hand : IPoints {
 
 
     public void SortHand() {
-        Cards = Cards.OrderByDescending(e => e.Color).ThenByDescending(e => e.Value).ToArray();
+        Cards = Cards
+            .OrderByDescending(e => e.Color)
+            .ThenByDescending(e => e.Value)
+            .ToList();
     }
 
 
@@ -272,6 +275,13 @@ public class Hand : IPoints {
             .Key;
     }
 
+
+    public Card? findStrongestCardInSuit(CardColor color) {
+        return Cards.Where(card => card.Color == color).MaxBy(card => card.Value);
+    }
+    public Card? findWeakestCardInSuit(CardColor color) {
+        return Cards.Where(card => card.Color == color).MinBy(card => card.Value);
+    }
 
     private static bool InRange(int value, NumberRange? range) {
         if (range is null) {
