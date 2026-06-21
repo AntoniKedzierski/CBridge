@@ -4,6 +4,7 @@ using Model.Enums;
 using Model.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -523,8 +524,36 @@ public partial class BidEngine {
         return BidNodeToSubmit;
     }
 
+    /// <summary>
+    /// Należy wywołać tą funckję tylko jako ostateczność! Zakłada, że nie ma fitu, bo wtedy coś wcześniej zwróciłoby odpowiednią odzywkę?
+    /// TableEvaluation lub freestyle nie działa, trafiamy kiedy są punkty i fit!!
+    /// Zwraca pass tylko i wyłącznie, jeżeli poprzednia odzywka partnera jest rekontrą lub robi partię.
+    /// </summary>
     private BidNode ForcedToBid(Hand hand) {
-        return BidNode.SubmitLowest(Auction, hand.GetStrongestColors().First().ToBidColor());
+        if(Auction.GetLastPlayerBid(PartnerPosition, passAsNull: false)!.Type == BidType.Redouble || Auction.GetLastPlayerBid(PartnerPosition, passAsNull: false)!.MakesGame()) {
+            return BidNode.Pass();
+        }
+
+        // Najsilniejszy kolor, którego jeszcze nie zgłaszaliśmy i ma on więcej niz 3 karty
+        BidNode? resultInColor = null;
+        foreach(CardColor color in hand.GetStrongestColors()) {
+            if (OwnBidsHistory.All(e => e.Color != color.ToBidColor()) && hand.OfColor(color).Count() > 3) {
+                resultInColor = BidNode.SubmitLowest(Auction, color.ToBidColor());
+            }
+        }
+
+        // Lepiej zgłości 3 BA niż NOWY kolor na wysokości 4
+        if(resultInColor?.Value > 3) {
+            if(Auction.GetLowestLegalValue(BidColor.NoTrump) == 3) {
+                return BidNode.Submit(3, BidColor.NoTrump);
+            }
+            else if(resultInColor != null){
+                return resultInColor;
+            }
+        }
+
+        // Nie ma fitu z partnerem, zgłosiliśmy już swoje dobre kolory, więc mozliwie najniższe BA i niech on decyduje
+        return BidNode.SubmitLowest(Auction, BidColor.NoTrump);
     }
 
     private BidNode GetLowestSubmitOrPass(IEnumerable<BidNode> bidCandidates) {
