@@ -140,10 +140,15 @@ public partial class BidEngine : IBidInput {
         }
         else if(branches.Count > 0) {
             if(branches.Keys.All(e => e.IsGameForcing())) {
+                // Jeżeli oponenci zgłosili jakimś cudem końcówkę (punkty układowe) to kontra karna. Raz się tak zdażyło...
+                if(LastOpponentBid?.MakesGame() == true) {
+                    BidNode.Double();
+                }
+
                 Goal = BiddingGoal.Gf;
                 isForced = true;
             }
-            else if(branches.Keys.All(e => e.OneRoundForcing == true)) {
+            else if(branches.Keys.All(e => e.OneRoundForcing == true) && !Auction.Interrupted()) {
                 isForced = true;
             }
         }
@@ -205,7 +210,7 @@ public partial class BidEngine : IBidInput {
                 Goal = BiddingGoal.Gf;
                 isForced = true;
             }
-            else if (branches.Keys.All(e => e.OneRoundForcing == true)) {
+            else if (branches.Keys.All(e => e.OneRoundForcing == true) && !Auction.Interrupted()) {
                 isForced = true;
             }
         }
@@ -305,10 +310,10 @@ public partial class BidEngine : IBidInput {
             PartnerOpened = true;
             var bidToDefendAgainst = Auction.DefendingAgainst(Position); // Czy jest się przed czym bronić?
             if (bidToDefendAgainst != null) {
-                return PlayInDefence(hand, bidToDefendAgainst, lastPartnersBid) ?? PlayInOffence(hand, lastPartnersBid);
+                return PlayInDefence(hand, bidToDefendAgainst, lastPartnersBid) ?? PlayInOffence(hand, lastPartnersBid); // Oni otworzyli pierwsi
             }
 
-            return PlayInOffence(hand, lastPartnersBid);
+            return PlayInOffence(hand, lastPartnersBid); // My otworzyliśmy pierwsi
         }
 
         // Tutaj licytacja na pewno trwała dłużej niż jedno kółko.

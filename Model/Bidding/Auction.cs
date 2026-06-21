@@ -233,6 +233,20 @@ public class Auction {
         }
     }
 
+    /// <summary>
+    /// Czy wystąpiła interwencja, ale tylko bezpośrednio przed currentBidder!
+    /// </summary>
+    /// <returns></returns>
+    public bool Interrupted(bool onlySubmit = false) {
+        var lastBid = AuctionHistory.LastOrDefault();
+
+        if (lastBid == null)
+            return false;
+
+        return onlySubmit
+            ? lastBid.Type == BidType.Submit
+            : lastBid.Type != BidType.Pass;
+    }
 
     public PlayerPosition GetAuctionWinner(PlayerPosition onePlayerFromPlayingPair, BidColor color) {
         for (int i = 0; i < AuctionHistory.Count; ++i) {

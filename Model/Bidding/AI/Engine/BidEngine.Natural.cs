@@ -514,8 +514,14 @@ public partial class BidEngine {
     private BidNode GetNaturalBid(Hand hand, Dictionary<BidNode, TableEvaluation> partnerBranches, bool isForced = false) {
         var chosenBidNodes = new List<BidNode>();
         foreach (var branch in partnerBranches) {
-            var chosenBidNode = TrueNaturalResponse(hand, branch.Key, branch.Value).AssertFreestyleIsntConfusing(branch.Key);
-            //  Jak oponenci się wetną (czyli bardzo często), to powyższa funkcja często nie zwórci nic, bo będzie confusing, ale jeżeli jest GF, to i tak później się coś zwróci i będzie confusing tak czy siak!!!!
+            BidNode? chosenBidNode = null;
+            if (Auction.Interrupted(onlySubmit: true)) {
+                chosenBidNode = TrueNaturalResponse(hand, branch.Key, branch.Value); // Odpowiedzi po interwencji mogą być confusing!!!
+                // TODO: żeby partner źle nie zrozumiał naszej odpowiedzi po ich interwencji
+            }
+            else {
+                chosenBidNode = TrueNaturalResponse(hand, branch.Key, branch.Value).AssertFreestyleIsntConfusing(branch.Key);
+            }
 
             if (chosenBidNode != null && chosenBidNode.Type != BidType.Pass) {
                 chosenBidNodes.Add(chosenBidNode);
