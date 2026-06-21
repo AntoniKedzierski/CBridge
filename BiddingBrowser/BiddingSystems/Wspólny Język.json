@@ -39940,7 +39940,7 @@
               "Color": 1,
               "Type": 1,
               "Description": null,
-              "Condition": "7+ PC, 4+ kierów, pytanie o starsze czwórki",
+              "Condition": "7+ PC, 4 kiery, pytanie o starsze czwórki",
               "Convention": "stayman",
               "PointsRange": {
                 "Lower": 7,
@@ -39952,7 +39952,7 @@
               },
               "HeartsCardRange": {
                 "Lower": 4,
-                "Upper": null
+                "Upper": 4
               },
               "DiamondsCardRange": {
                 "Lower": null,
@@ -40780,7 +40780,7 @@
               "Color": 1,
               "Type": 1,
               "Description": null,
-              "Condition": "7+ PC, 4+ pików, pytanie o starsze czwórki",
+              "Condition": "7+ PC, 4 piki, pytanie o starsze czwórki",
               "Convention": "stayman",
               "PointsRange": {
                 "Lower": 7,
@@ -40788,7 +40788,7 @@
               },
               "SpadesCardRange": {
                 "Lower": 4,
-                "Upper": null
+                "Upper": 4
               },
               "HeartsCardRange": {
                 "Lower": null,
