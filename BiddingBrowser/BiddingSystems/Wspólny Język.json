@@ -27563,11 +27563,11 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "brak innej wygodnej odzywki",
+                  "Condition": "12-14 PC, minimum",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 14
                   },
                   "SpadesCardRange": {
                     "Lower": null,
@@ -28005,26 +28005,26 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15–17 PC, 6+ kierów, brak singli",
+                  "Condition": "15–17 PC, 5+ kierów, sztuczne",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
                     "Upper": null
                   },
                   "SpadesCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "ClubsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "SpadesStops": null,
@@ -28979,15 +28979,15 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "brak 4 kart w każdym innym kolorze",
+                  "Condition": "12-14 PC, minimum",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 14
                   },
                   "SpadesCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "HeartsCardRange": {
                     "Lower": null,
@@ -28995,11 +28995,11 @@
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "ClubsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -29509,26 +29509,26 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15–17 PC, 6+ kierów, brak singli",
+                  "Condition": "15–17 PC, 5+ kierów, sztuczne",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
                     "Upper": null
                   },
                   "SpadesCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "ClubsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "SpadesStops": null,
@@ -30526,15 +30526,15 @@
                   "Color": 3,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "brak 4 kart w każdym innym kolorze",
+                  "Condition": "12-14 PC, minimum",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 14
                   },
                   "SpadesCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "HeartsCardRange": {
                     "Lower": null,
@@ -30542,11 +30542,11 @@
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "ClubsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -31188,26 +31188,26 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15-17 PC,  6+  kierów, brak singli",
+                  "Condition": "15-17 PC,  5+  kierów, sztuczne",
                   "Convention": null,
                   "PointsRange": {
-                    "Lower": 15,
+                    "Lower": null,
                     "Upper": 17
                   },
                   "SpadesCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "ClubsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "SpadesStops": null,
@@ -33618,14 +33618,14 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "11–14 PC, 6+ pików, ręka jednokolorowa",
+                  "Condition": "12-14 PC, minimum",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
                     "Upper": 14
                   },
                   "SpadesCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
@@ -33662,14 +33662,14 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15–17 PC, 6+ pików, ręka dobra do zajęcia BA (modelowo 6-3-2-2) ",
+                  "Condition": "15–17 PC, 5+ pików, sztuczne",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
-                    "Upper": 17
+                    "Upper": null
                   },
                   "SpadesCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
@@ -34678,11 +34678,11 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "brak 4 kart w każdym innym kolorze",
+                  "Condition": "12-14 PC, minimum",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 14
                   },
                   "SpadesCardRange": {
                     "Lower": null,
@@ -34690,15 +34690,15 @@
                   },
                   "HeartsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "ClubsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -34987,26 +34987,26 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15-17 PC, 6+ pików, brak singli",
+                  "Condition": "15-17 PC, 5+ pików, sztuczne",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
                     "Upper": null
                   },
                   "SpadesCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "ClubsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "SpadesStops": null,
@@ -36357,11 +36357,11 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "brak 4 kart w każdym innym kolorze",
+                  "Condition": "12-14 PC, minimum",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 14
                   },
                   "SpadesCardRange": {
                     "Lower": null,
@@ -36369,15 +36369,15 @@
                   },
                   "HeartsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "ClubsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -36666,26 +36666,26 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15-17 PC, 6+ pików, brak singli",
+                  "Condition": "15-17 PC, 5+ pików, sztuczne",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
                     "Upper": null
                   },
                   "SpadesCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "ClubsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "SpadesStops": null,
@@ -37595,11 +37595,11 @@
                   "Color": 4,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "brak 4 kart w każdym innym kolorze",
+                  "Condition": "12-14 PC, minimum",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": null,
-                    "Upper": null
+                    "Upper": 14
                   },
                   "SpadesCardRange": {
                     "Lower": null,
@@ -37607,15 +37607,15 @@
                   },
                   "HeartsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "DiamondsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "ClubsCardRange": {
                     "Lower": null,
-                    "Upper": 3
+                    "Upper": null
                   },
                   "SpadesStops": null,
                   "HeartsStops": null,
@@ -37904,26 +37904,26 @@
                   "Color": 5,
                   "Type": 1,
                   "Description": null,
-                  "Condition": "15-17 PC, 6+ pików, brak singli",
+                  "Condition": "15-17 PC, 5+ pików, sztuczne",
                   "Convention": null,
                   "PointsRange": {
                     "Lower": 15,
                     "Upper": null
                   },
                   "SpadesCardRange": {
-                    "Lower": 6,
+                    "Lower": null,
                     "Upper": null
                   },
                   "HeartsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "DiamondsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "ClubsCardRange": {
-                    "Lower": 2,
+                    "Lower": null,
                     "Upper": null
                   },
                   "SpadesStops": null,
