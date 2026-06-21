@@ -295,8 +295,10 @@ public partial class BidEngine {
         }
 
         // Partner zgłosił inny kolor na nasz kolor (nie nasze BA).
+        // W naturalnej licytacji wszystki super, ale w systemie nie ma preferencji zgłaszania fitu, np. 12+ PC, 5+ kart w innym kolorze, możliwy fit w kolorze otwarcia!
         if (lastOwnBidColor.IsColorGame() && partnerBidNode.Color.IsColorGame()) {
             // Inny najlepszy kolor
+            // Potencjalny problem, partner mógł nie zgłosić fitu od razu, bo system priorytezuje wejście własnym kolorem przy 12+ PC (żeby było GF?)
             var bestFitColor = combinedHand.FindFit(lastOwnBidColor.ToCardColor());
 
             // One-over-one, słabe wejście, niezobowiązujące.
@@ -505,11 +507,15 @@ public partial class BidEngine {
         return BidNode.Pass();
     }
 
-
+    /// <summary>
+    /// Zwraca naturalną odpowiedź, na podstawie możliwych gałęzi partnera
+    /// </summary>
+    /// <returns></returns>
     private BidNode GetNaturalBid(Hand hand, Dictionary<BidNode, TableEvaluation> partnerBranches, bool isForced = false) {
         var chosenBidNodes = new List<BidNode>();
         foreach (var branch in partnerBranches) {
             var chosenBidNode = TrueNaturalResponse(hand, branch.Key, branch.Value).AssertFreestyleIsntConfusing(branch.Key);
+            //  Jak oponenci się wetną (czyli bardzo często), to powyższa funkcja często nie zwórci nic, bo będzie confusing, ale jeżeli jest GF, to i tak później się coś zwróci i będzie confusing tak czy siak!!!!
 
             if (chosenBidNode != null && chosenBidNode.Type != BidType.Pass) {
                 chosenBidNodes.Add(chosenBidNode);

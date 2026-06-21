@@ -50,11 +50,6 @@ public partial class BidEngine : IBidInput {
 
 
     public void DetermineGoal() {
-        // Jeżeli był GF to zostaje GF, TODO chyba że jest już poziom partii i aspiracje szlemikowe
-        if(Goal == BiddingGoal.Gf) {
-            return;
-        }
-
         // Pierwsze określenie celu, po pierwszym okrążeniu licytacji.
         if (Goal == BiddingGoal.None) {
             var ourSequence = Auction.GetPlayersSequence(Position, out var openingPlayer);
@@ -83,6 +78,11 @@ public partial class BidEngine : IBidInput {
 
             // Jeżeli doszli do partii, to przeliczamy, czy opłaca się samemu zgłaszać kontrakt w celu zminimalizowania strat.
             Goal = BiddingGoal.MinLoss;
+        }
+
+        // Jeżeli był Game lub GF to trzeba się upewnić, że nie powinno przejść na grę premiową
+        if (Goal == BiddingGoal.Game || Goal == BiddingGoal.Gf) {
+            
         }
 
         // Goal pozostaje niezmieniony.
@@ -209,6 +209,15 @@ public partial class BidEngine : IBidInput {
                 isForced = true;
             }
         }
+
+        // Potencjalne przejście na grę premiową
+        //var premiumGameBranches = branches.Where(e => e.Value.Partner.Points.Lower > 30 - hand.Points);
+        //if (branches.Count() != 0 && premiumGameBranches.Count() == branches.Count()) { // Gra premiowa wynika z systemu
+        //    Goal = BiddingGoal.Premium;
+        //}
+        //else if (false) { // Gra premiowa wynika z freestyle'u?
+
+        //}
 
         var result = GetBidFromSystemBranches(hand, branches.Keys);
         //if (systemBid != null || Goal == BiddingGoal.None) { // Dlaczego?
